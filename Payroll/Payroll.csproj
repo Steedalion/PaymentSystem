@@ -42,6 +42,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="AddSalariedEmployee.cs" />
         <Compile Include="Employee.cs" />
         <Compile Include="PayrollDatabase.cs" />
         <Compile Include="Tests.cs" />

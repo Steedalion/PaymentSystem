@@ -64,28 +64,4 @@ namespace Payroll
     public interface PaymentClassification
     {
     }
-
-    public class AddSalariedEmployee
-    {
-        private int id;
-        private string ename;
-        private string eaddress;
-        private double _salary;
-        private Employee e;
-
-        public AddSalariedEmployee(int id, string name, string address, double salary)
-        {
-            this.id = id;
-            e = new Employee(id, name, address, salary);
-            e.Classification = new SalariedClassification(salary);
-            ename = name;
-            eaddress = address;
-            _salary = salary;
-        }
-
-        public void Execute()
-        {
-            PayrollDatabase.AddEmployee(id, e);
-        }
-    }
 }
