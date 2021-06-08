@@ -5,28 +5,66 @@ namespace Payroll
         void Execute();
     }
 
-    public class AddSalariedEmployeeTransaction : DbTransaction
+    public abstract class AddEmployee : DbTransaction
     {
         protected int id;
-        protected string ename;
-        protected string eaddress;
+        protected string Name;
+        protected string Address;
         protected Employee e;
+
+        public AddEmployee(int id, string name, string address)
+        {
+            this.id = id;
+            this.Name = name;
+            this.Address = address;
+            e = new Employee(id, name, address);
+        }
 
         public void Execute()
         {
+            e.Schedule = MakePaymentSchedule();
+            e.Classification = MakeClassification();
+            e.Paymentmethod = MakePaymentMethod();
             PayrollDatabase.AddEmployee(id, e);
         }
+
+        protected abstract PaymentSchedule MakePaymentSchedule();
+
+        protected virtual PaymentMethod MakePaymentMethod()
+        {
+            return new HoldMethod();
+        }
+        protected abstract PaymentClassification MakeClassification();
     }
 
-    public class AddSalariedEmployee : AddSalariedEmployeeTransaction
+    public class AddSalaryEmployee : AddEmployee
     {
-        public AddSalariedEmployee(int id, string name, string address, double salary)
+        private double _salary;
+
+        public AddSalaryEmployee(int id, string name, string address, double salary) : base(id, name, address)
         {
             this.id = id;
-            ename = name;
-            eaddress = address;
-            e = new Employee(id, name, address, salary);
-            e.Classification = new SalariedClassification(salary);
+            Name = name;
+            Address = address;
+            e = new Employee(id, name, address);
+            _salary = salary;
+        }
+
+
+        protected override PaymentSchedule MakePaymentSchedule()
+        {
+            return new MonthlySchedule();
+        }
+
+        protected override PaymentMethod MakePaymentMethod()
+        {
+            return new HoldMethod();
+        }
+
+        protected override PaymentClassification MakeClassification()
+        {
+            SalariedClassification sc = new SalariedClassification(_salary);
+            return sc;
         }
     }
 }

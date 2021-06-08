@@ -15,5 +15,10 @@ namespace Payroll
         {
             db.Add(id, employee);
         }
+
+        public static void Clear()
+        {
+            db.Clear();
+        }
     }
 }
