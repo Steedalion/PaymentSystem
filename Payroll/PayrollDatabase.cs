@@ -20,5 +20,10 @@ namespace Payroll
         {
             db.Clear();
         }
+
+        public static void RemoveEmployee(int id)
+        {
+            db.Remove(id);
+        }
     }
 }
