@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 
 namespace Payroll
@@ -26,4 +27,9 @@ namespace Payroll
             db.Remove(id);
         }
     }
+    
+    public class EmployeeNotFound : Exception
+    {
+    }
+    
 }

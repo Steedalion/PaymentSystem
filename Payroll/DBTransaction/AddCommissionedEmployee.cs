@@ -3,9 +3,9 @@ namespace Payroll
     public class AddCommissionedEmployee : AddEmployee
     {
         private readonly double _salary;
-        private readonly float _commisionRate;
+        private readonly double _commisionRate;
 
-        public AddCommissionedEmployee(int empId, string name, string address, double salary, float commisionRate) :
+        public AddCommissionedEmployee(int empId, string name, string address, double salary, double commisionRate) :
             base(empId, name, address)
         {
             _salary = salary;

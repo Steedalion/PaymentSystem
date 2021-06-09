@@ -1,9 +1,11 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
+using Payroll.DBTransaction;
 
 namespace Payroll.Tests
 {
     [TestFixture]
-    public class TestAddEmployees
+    public class TestUseCaseTests
     {
         int empID = 1;
         string name = "bob";
@@ -80,6 +82,67 @@ namespace Payroll.Tests
 
             Assert.AreEqual(salary, cc.Salary);
             Assert.AreEqual(commisionRate, cc.CommisionRate);
+        }
+        
+        [Test]
+        public void TestAddedSalesRecieptShouldExist()
+        {
+            int empId = 5;
+            string name = "bob";
+            string address = "Home";
+
+            AddCommissionedEmployee ce = new AddCommissionedEmployee(empId, name, address, 1000, 0.1);
+            ce.Execute();
+
+            SalesRecieptTransaction sr = new SalesRecieptTransaction(empId, new DateTime(2005, 8, 8), 200);
+            sr.Execute();
+
+            Employee e = PayrollDatabase.GetEmployee(empId);
+            Assert.NotNull(e);
+            PaymentClassification pc = e.Classification;
+            Assert.IsTrue(pc is CommisionClassification);
+            CommisionClassification cc = pc as CommisionClassification;
+            SalesReciept sp = cc.GetSalesReciept(new DateTime(2005, 8, 8));
+            Assert.AreEqual(200,sp.Amount,0.001);
+        }
+        
+        [Test]
+        public void TestDeleteAnEmployee()
+        {
+            int empId = 5;
+            string name = "bob";
+            string address = "Home";
+            
+            AddSalaryEmployee t = new AddSalaryEmployee(empId, name, address, 100);
+            t.Execute();
+            Assert.NotNull(PayrollDatabase.GetEmployee(empId));
+            DeleteEmployee deleteEmployee = new DeleteEmployee(empId);
+            deleteEmployee.Execute();
+            Employee e = PayrollDatabase.GetEmployee(empId);
+            Assert.IsNull(e);
+        }
+        
+        [Test]
+        public void AddedTimeCardShouldBe()
+        {
+            int empId = 5;
+            string name = "bob";
+            string address = "Home";
+            AddHourlyEmployee addHourlyEmployee = new AddHourlyEmployee(empId, name, address);
+            addHourlyEmployee.Execute();
+
+            TimeCardTransaction timeCardTransaction = new TimeCardTransaction(empId, new DateTime(2005, 7, 31),  8.00);
+            timeCardTransaction.Execute();
+
+            Employee e = PayrollDatabase.GetEmployee(empId);
+            Assert.IsNotNull(e);
+
+            PaymentClassification pc = e.Classification;
+            Assert.IsTrue(pc is HourlyClassification);
+            HourlyClassification hc = pc as HourlyClassification;
+
+            TimeCard tc = hc.GetTimeCard(new DateTime(2005, 7, 31));
+            Assert.AreEqual(8.0,tc.Hours,0.01);
         }
     }
 }

@@ -49,6 +49,8 @@
         <Compile Include="DBTransaction\AddSalariedEmployee.cs" />
         <Compile Include="DBTransaction\AddSalaryEmployee.cs" />
         <Compile Include="DBTransaction\DeleteEmployee.cs" />
+        <Compile Include="DBTransaction\SalesRecieptTransaction.cs" />
+        <Compile Include="DBTransaction\TimeCardTransaction.cs" />
         <Compile Include="Employee.cs" />
         <Compile Include="HoldMethod.cs" />
         <Compile Include="HourlyClassification.cs" />
@@ -59,9 +61,9 @@
         <Compile Include="PayrollDatabase.cs" />
         <Compile Include="SalariedClassification.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="Tests\TestAddEmployees.cs" />
-        <Compile Include="Tests\TestDeleteEmployee.cs" />
-        <Compile Include="Tests\TestTimeCardTransactions.cs" />
+        <Compile Include="SalesReciept.cs" />
+        <Compile Include="Tests\TestUseCaseTests.cs" />
+        <Compile Include="TimeCard.cs" />
         <Compile Include="WeeklySchedule.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
