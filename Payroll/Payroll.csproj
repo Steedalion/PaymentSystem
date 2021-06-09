@@ -49,7 +49,7 @@
         <Compile Include="DBTransaction\AddHourlyEmployee.cs" />
         <Compile Include="DBTransaction\AddSalariedEmployee.cs" />
         <Compile Include="DBTransaction\AddSalaryEmployee.cs" />
-        <Compile Include="DBTransaction\AddServiceCharge.cs" />
+        <Compile Include="DBTransaction\AddUnionServiceCharge.cs" />
         <Compile Include="DBTransaction\AddUnionMemberTransaction.cs" />
         <Compile Include="DBTransaction\DeleteEmployee.cs" />
         <Compile Include="DBTransaction\SalesRecieptTransaction.cs" />
@@ -65,9 +65,12 @@
         <Compile Include="SalariedClassification.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="SalesReciept.cs" />
-        <Compile Include="Tests\ServiceCharge.cs" />
+        <Compile Include="ServiceCharge.cs" />
+        <Compile Include="Tests\EmployeeTest.cs" />
+        <Compile Include="Tests\TestAffiliationTransaction.cs" />
         <Compile Include="Tests\TestPayrollDB.cs" />
-        <Compile Include="Tests\TestUseCaseTests.cs" />
+        <Compile Include="Tests\TestSetup.cs" />
+        <Compile Include="Tests\TestUseCases.cs" />
         <Compile Include="TimeCard.cs" />
         <Compile Include="UnionAffiliation.cs" />
         <Compile Include="WeeklySchedule.cs" />

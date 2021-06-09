@@ -1,26 +1,11 @@
-﻿using System;
+using System;
 using NUnit.Framework;
 using Payroll.DBTransaction;
 
 namespace Payroll.Tests
 {
-    [TestFixture]
-    public class TestUseCaseTests
+    public class TestUseCases : TestSetup
     {
-        int empID = 1;
-        string name = "bob";
-        string address = "home";
-        double salary = 1000.00;
-        int memberId = 112;
-
-
-   
-        [SetUp]
-        public void ClearDataBase()
-        {
-            PayrollDatabase.Clear();
-        }
-
         [Test]
         public void TestAddSalariedEmployee()
         {
@@ -85,45 +70,47 @@ namespace Payroll.Tests
             Assert.AreEqual(salary, cc.Salary);
             Assert.AreEqual(commisionRate, cc.CommisionRate);
         }
-        
+
         [Test]
         public void TestAddedSalesRecieptShouldExist()
         {
-            int empId = 5;
-            string name = "bob";
-            string address = "Home";
-
-            AddCommissionedEmployee ce = new AddCommissionedEmployee(empId, name, address, 1000, 0.1);
+            AddCommissionedEmployee ce = new AddCommissionedEmployee(empID, name, address, 1000, 0.1);
             ce.Execute();
 
-            SalesRecieptTransaction sr = new SalesRecieptTransaction(empId, new DateTime(2005, 8, 8), 200);
+            SalesRecieptTransaction sr = new SalesRecieptTransaction(empID, new DateTime(2005, 8, 8), 200);
             sr.Execute();
 
-            Employee e = PayrollDatabase.GetEmployee(empId);
+            Employee e = PayrollDatabase.GetEmployee(empID);
             Assert.NotNull(e);
             PaymentClassification pc = e.Classification;
             Assert.IsTrue(pc is CommisionClassification);
             CommisionClassification cc = pc as CommisionClassification;
+            
             SalesReciept sp = cc.GetSalesReciept(new DateTime(2005, 8, 8));
-            Assert.AreEqual(200,sp.Amount,0.001);
+            Assert.AreEqual(200, sp.Amount, 0.001);
+            Assert.Throws<SalesReceiptNotFound>(() =>cc.GetSalesReciept(new DateTime(2005, 8, 9)));
         }
-        
+
         [Test]
         public void TestDeleteAnEmployee()
         {
-            int empId = 5;
-            string name = "bob";
-            string address = "Home";
-            
-            AddSalaryEmployee t = new AddSalaryEmployee(empId, name, address, 100);
+
+            AddSalaryEmployee t = new AddSalaryEmployee(empID, name, address, 100);
             t.Execute();
-            Assert.NotNull(PayrollDatabase.GetEmployee(empId));
-            DeleteEmployee deleteEmployee = new DeleteEmployee(empId);
+            Assert.NotNull(PayrollDatabase.GetEmployee(empID));
+            DeleteEmployee deleteEmployee = new DeleteEmployee(empID);
             deleteEmployee.Execute();
-            Employee e = PayrollDatabase.GetEmployee(empId);
-            Assert.IsNull(e);
+            Employee e = PayrollDatabase.GetEmployee(empID);
+            Assert.IsTrue(e.isNull);
         }
-        
+
+        [Test]
+        public void DeletingANonExistingEmployee()
+        {
+            DeleteEmployee deleteEmployee = new DeleteEmployee(empID);
+            Assert.Throws<EmployeeNotFound>(() => deleteEmployee.Execute());
+        }
+
         [Test]
         public void AddedTimeCardShouldBe()
         {
@@ -133,7 +120,7 @@ namespace Payroll.Tests
             AddHourlyEmployee addHourlyEmployee = new AddHourlyEmployee(empId, name, address);
             addHourlyEmployee.Execute();
 
-            TimeCardTransaction timeCardTransaction = new TimeCardTransaction(empId, new DateTime(2005, 7, 31),  8.00);
+            TimeCardTransaction timeCardTransaction = new TimeCardTransaction(empId, new DateTime(2005, 7, 31), 8.00);
             timeCardTransaction.Execute();
 
             Employee e = PayrollDatabase.GetEmployee(empId);
@@ -144,40 +131,18 @@ namespace Payroll.Tests
             HourlyClassification hc = pc as HourlyClassification;
 
             TimeCard tc = hc.GetTimeCard(new DateTime(2005, 7, 31));
-            Assert.AreEqual(8.0,tc.Hours,0.01);
+            Assert.AreEqual(8.0, tc.Hours, 0.01);
+
+            Assert.Throws<TimeCardNotFound>(() =>hc.GetTimeCard(otherDate));
+
+
         }
-        
 
         [Test]
-        public void AddUnionMember()
+        public void AddTimecardWhenEmployeeDoesnotExist()
         {
-            empID = 3;
-            AddSalaryEmployee ae = new AddSalaryEmployee(empID, name, address, 1000);
-            ae.Execute();
-            
-            AddUnionMemberTransaction am = new AddUnionMemberTransaction(empID, memberId);
-            am.Execute();
-            Employee e = PayrollDatabase.GetEmployee(empID);
-            Employee unionMember = PayrollDatabase.GetUnionMember(memberId);
-            
-            Assert.AreEqual(e.Name, unionMember.Name);
-        }
-        [Test]
-        public void AddServiceChargeToEmployee()
-        {
-            AddSalaryEmployee ae = new AddSalaryEmployee(empID, name, address, 1000);
-            ae.Execute();
-            AddUnionMemberTransaction am = new AddUnionMemberTransaction(empID, memberId);
-            am.Execute();
-            
-            AddServiceCharge asc = new AddServiceCharge(memberId, new DateTime(2019,8,8), 20);
-            asc.Execute();
-
-            Employee unionMember = PayrollDatabase.GetUnionMember(memberId);
-            ServiceCharge sc = unionMember.Affiliation.GetServiceCharge(new DateTime(2019, 8, 8));
-            
-            Assert.AreEqual(20, sc.Amount);
-
+            TimeCardTransaction timeCardTransaction = new TimeCardTransaction(empID, new DateTime(2005, 7, 31), 8.00);
+            Assert.Throws<EmployeeNotFound>(() => timeCardTransaction.Execute());
         }
     }
 }

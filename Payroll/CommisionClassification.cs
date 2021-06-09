@@ -26,7 +26,6 @@ namespace Payroll
                     return salesReciept;
                 }
             }
-
             throw new SalesReceiptNotFound();
         }
 

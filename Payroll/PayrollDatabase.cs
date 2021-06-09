@@ -10,6 +10,10 @@ namespace Payroll
 
         public static Employee GetEmployee(int empId)
         {
+            if (!db.Contains(empId))
+            {
+                return Employee.NULL;
+            }
             return db[empId] as Employee;
         }
 
@@ -26,12 +30,14 @@ namespace Payroll
 
         public static void RemoveEmployee(int id)
         {
+            if (!db.Contains(id)) throw new EmployeeNotFound();
             db.Remove(id);
         }
 
         public static void AddUnionMember(int memberId, int id)
         {
             if (!db.Contains(id)) throw new EmployeeNotFound();
+            Employee e = GetEmployee(id);
             union.Add(memberId, id);
         }
 
@@ -45,6 +51,8 @@ namespace Payroll
             return GetEmployee(empId);
         }
     }
+
+  
 
     public class UnionMemberNotFound : Exception
     {

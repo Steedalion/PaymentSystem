@@ -13,7 +13,10 @@ namespace Payroll.Tests
 
         public void Execute()
         {
+            Employee e = PayrollDatabase.GetEmployee(id);
+            e.Affiliation = new UnionAffiliation();
             PayrollDatabase.AddUnionMember(memberId, id);
+            
         }
     }
 }
