@@ -61,6 +61,7 @@
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Tests\TestAddEmployees.cs" />
         <Compile Include="Tests\TestDeleteEmployee.cs" />
+        <Compile Include="Tests\TestTimeCardTransactions.cs" />
         <Compile Include="WeeklySchedule.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
