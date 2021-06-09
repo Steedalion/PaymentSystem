@@ -11,8 +11,10 @@ namespace Payroll.Tests
         string name = "bob";
         string address = "home";
         double salary = 1000.00;
+        int memberId = 112;
 
 
+   
         [SetUp]
         public void ClearDataBase()
         {
@@ -143,6 +145,39 @@ namespace Payroll.Tests
 
             TimeCard tc = hc.GetTimeCard(new DateTime(2005, 7, 31));
             Assert.AreEqual(8.0,tc.Hours,0.01);
+        }
+        
+
+        [Test]
+        public void AddUnionMember()
+        {
+            empID = 3;
+            AddSalaryEmployee ae = new AddSalaryEmployee(empID, name, address, 1000);
+            ae.Execute();
+            
+            AddUnionMemberTransaction am = new AddUnionMemberTransaction(empID, memberId);
+            am.Execute();
+            Employee e = PayrollDatabase.GetEmployee(empID);
+            Employee unionMember = PayrollDatabase.GetUnionMember(memberId);
+            
+            Assert.AreEqual(e.Name, unionMember.Name);
+        }
+        [Test]
+        public void AddServiceChargeToEmployee()
+        {
+            AddSalaryEmployee ae = new AddSalaryEmployee(empID, name, address, 1000);
+            ae.Execute();
+            AddUnionMemberTransaction am = new AddUnionMemberTransaction(empID, memberId);
+            am.Execute();
+            
+            AddServiceCharge asc = new AddServiceCharge(memberId, new DateTime(2019,8,8), 20);
+            asc.Execute();
+
+            Employee unionMember = PayrollDatabase.GetUnionMember(memberId);
+            ServiceCharge sc = unionMember.Affiliation.GetServiceCharge(new DateTime(2019, 8, 8));
+            
+            Assert.AreEqual(20, sc.Amount);
+
         }
     }
 }

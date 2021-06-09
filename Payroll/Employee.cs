@@ -1,5 +1,3 @@
-using System;
-
 namespace Payroll
 {
     public class Employee
@@ -21,6 +19,7 @@ namespace Payroll
 
         public PaymentClassification Classification { get; set; }
         public PaymentSchedule Schedule { get; set; }
+        public Affiliation Affiliation { get; set; } = null;
 
         private class NullEmployee : Employee
         {
