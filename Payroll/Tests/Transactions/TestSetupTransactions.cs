@@ -1,18 +1,17 @@
 ﻿using System;
 using NUnit.Framework;
 
-namespace Payroll.Tests
+namespace Payroll.Tests.Transactions
 {
     [TestFixture]
     public class TestSetup
     {
-        protected int empID = 1;
-        protected string name = "bob";
-        protected string address = "home";
-        protected double salary = 1000.00;
-        protected int memberId = 112;
-        protected DateTime otherDate = new DateTime(2019, 8, 8);
-        private readonly TestUseCases testUseCases;
+        protected int EmpId = 10;
+        protected const string Name = "bob";
+        protected const string Address = "home";
+        protected const double Salary = 1000.00;
+        protected const int MemberId = 112;
+        protected DateTime OtherDate = new DateTime(2019, 8, 8);
 
         [SetUp]
         public void ClearDataBase()
@@ -20,9 +19,9 @@ namespace Payroll.Tests
             PayrollDB.Clear();
         }
 
-        public void AddSalariedEmployeeToDB()
+        protected void AddSalariedEmployeeToDb()
         {
-            AddSalaryEmployee t = new AddSalaryEmployee(empID, name, address, salary);
+            AddSalaryEmployee t = new AddSalaryEmployee(EmpId, Name, Address, Salary);
             t.Execute();
         } 
        

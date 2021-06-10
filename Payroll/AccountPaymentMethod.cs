@@ -1,4 +1,4 @@
-namespace Payroll.Tests
+namespace Payroll
 {
     public class AccountPaymentMethod : PaymentMethod
     {

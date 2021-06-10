@@ -6,7 +6,7 @@ namespace Payroll
 {
     class CommisionClassification : PaymentClassification
     {
-        private List<SalesReciept> salesReciepts = new List<SalesReciept>();
+        private readonly List<SalesReciept> salesReciepts = new List<SalesReciept>();
              public double CommisionRate{ get; }
         public double Salary{ get; }
         public CommisionClassification(double commisionRate, double salary)

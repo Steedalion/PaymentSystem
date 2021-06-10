@@ -2,11 +2,11 @@ using NUnit.Framework;
 
 namespace Payroll.Tests
 {
-    public class TestPayrollDB
+    public class TestPayrollDb
     {
 
         [Test]
-        public void EmptyDBShouldNotContainUnionMember()
+        public void EmptyDbShouldNotContainUnionMember()
         {
             Assert.Throws<UnionMemberNotFound>(() =>PayrollDB.GetUnionMember(153));
         }

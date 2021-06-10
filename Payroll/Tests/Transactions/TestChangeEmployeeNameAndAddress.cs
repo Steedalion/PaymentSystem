@@ -1,37 +1,37 @@
 using NUnit.Framework;
 
-namespace Payroll.Tests
+namespace Payroll.Tests.Transactions
 {
     public class TestChangeEmployeeNameAndAddress : TestSetup
     {
         [Test]
         public void ChangeNotExistingEmployeeNameShouldThrowException()
         {
-            string newName = "henruy";
+            string newName = "Henry";
             PayrollDB.Clear();
-            ChangeEmployeeNameTransaction ce = new ChangeEmployeeNameTransaction(empID + 2, newName);
+            ChangeEmployeeNameTransaction ce = new ChangeEmployeeNameTransaction(EmpId + 2, newName);
             Assert.Throws<EmployeeNotFound>(() => ce.Execute());
         }
 
         [Test]
         public void ChangeNameOfExistingEmployee()
         {
-            AddSalariedEmployeeToDB();
-            string newName = "henruy";
-            ChangeEmployeeNameTransaction cn = new ChangeEmployeeNameTransaction(empID, newName);
+            AddSalariedEmployeeToDb();
+            string newName = "H-James";
+            ChangeEmployeeNameTransaction cn = new ChangeEmployeeNameTransaction(EmpId, newName);
             cn.Execute();
-            Employee e = PayrollDB.GetEmployee(empID);
+            Employee e = PayrollDB.GetEmployee(EmpId);
             Assert.AreEqual(newName, e.Name);
         }
 
         [Test]
         public void ChangeAddressOfExistingEmployee()
         {
-            AddSalariedEmployeeToDB();
+            AddSalariedEmployeeToDb();
             string newAddress = "New home";
-            ChangeEmployeeAddressTransaction ca = new ChangeEmployeeAddressTransaction(empID, newAddress);
+            ChangeEmployeeAddressTransaction ca = new ChangeEmployeeAddressTransaction(EmpId, newAddress);
             ca.Execute();
-            Employee employee = PayrollDB.GetEmployee(empID);
+            Employee employee = PayrollDB.GetEmployee(EmpId);
             Assert.AreEqual(newAddress, employee.myAddress);
         }
 
