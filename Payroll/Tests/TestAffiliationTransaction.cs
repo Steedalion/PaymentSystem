@@ -17,8 +17,8 @@ namespace Payroll.Tests
         {
             AddUnionMemberTransaction am = new AddUnionMemberTransaction(empID, memberId);
             am.Execute();
-            Employee e = PayrollDatabase.GetEmployee(empID);
-            Employee unionMember = PayrollDatabase.GetUnionMember(memberId);
+            Employee e = PayrollDB.GetEmployee(empID);
+            Employee unionMember = PayrollDB.GetUnionMember(memberId);
 
             Assert.AreEqual(e.Name, unionMember.Name);
             Assert.IsTrue(e.Affiliation is UnionAffiliation);
@@ -44,7 +44,7 @@ namespace Payroll.Tests
             AddUnionServiceCharge asc = new AddUnionServiceCharge(memberId, new DateTime(2019, 8, 8), 20);
             asc.Execute();
 
-            Employee unionMember = PayrollDatabase.GetUnionMember(memberId);
+            Employee unionMember = PayrollDB.GetUnionMember(memberId);
             ServiceCharge sc = unionMember.Affiliation.GetServiceCharge(new DateTime(2019, 8, 8));
 
             Assert.AreEqual(20, sc.Amount);
@@ -59,7 +59,7 @@ namespace Payroll.Tests
             AddUnionServiceCharge asc = new AddUnionServiceCharge(memberId, new DateTime(2019, 8, 8), 20);
             asc.Execute();
 
-            Employee unionMember = PayrollDatabase.GetUnionMember(memberId);
+            Employee unionMember = PayrollDB.GetUnionMember(memberId);
             Assert.Throws<ServiceChargeNotFound>(() =>
                 unionMember.Affiliation.GetServiceCharge(new DateTime(2019, 8, 9)));
         }
@@ -75,7 +75,7 @@ namespace Payroll.Tests
             AddUnionServiceCharge asc2 = new AddUnionServiceCharge(memberId, new DateTime(2019, 8, 9), 25);
             asc2.Execute();
 
-            Employee unionMember = PayrollDatabase.GetUnionMember(memberId);
+            Employee unionMember = PayrollDB.GetUnionMember(memberId);
             ServiceCharge sc = unionMember.Affiliation.GetServiceCharge(new DateTime(2019, 8, 8));
 
             Assert.AreEqual(20, sc.Amount);

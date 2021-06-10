@@ -11,7 +11,7 @@ namespace Payroll.DBTransaction
 
         public void Execute()
         {
-            PayrollDatabase.RemoveEmployee(id);
+            PayrollDB.RemoveEmployee(id);
         }
     }
 }

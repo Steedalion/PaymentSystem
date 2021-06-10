@@ -8,13 +8,13 @@ namespace Payroll.Tests
         [Test]
         public void EmptyDBShouldNotContainUnionMember()
         {
-            Assert.Throws<UnionMemberNotFound>(() =>PayrollDatabase.GetUnionMember(153));
+            Assert.Throws<UnionMemberNotFound>(() =>PayrollDB.GetUnionMember(153));
         }
 
         [Test]
         public void AddingUnionMemberWithoutEmpShouldThrow()
         {
-            Assert.Throws<EmployeeNotFound>(() => PayrollDatabase.AddUnionMember(1, 112));
+            Assert.Throws<EmployeeNotFound>(() => PayrollDB.AddUnionMember(1, 112));
         }
     }
 }

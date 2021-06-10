@@ -17,7 +17,7 @@ namespace Payroll.Tests
 
         public void Execute()
         {
-            Employee e = PayrollDatabase.GetUnionMember(memberId);
+            Employee e = PayrollDB.GetUnionMember(memberId);
             ServiceCharge sc = new ServiceCharge(date, amount);
             UnionAffiliation ua = null;
             

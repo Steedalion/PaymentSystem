@@ -17,7 +17,14 @@ namespace Payroll.Tests
         [SetUp]
         public void ClearDataBase()
         {
-            PayrollDatabase.Clear();
+            PayrollDB.Clear();
         }
+
+        public void AddSalariedEmployeeToDB()
+        {
+            AddSalaryEmployee t = new AddSalaryEmployee(empID, name, address, salary);
+            t.Execute();
+        } 
+       
     }
 }

@@ -17,7 +17,7 @@ namespace Payroll.Tests
 
         public void Execute()
         {
-            Employee e = PayrollDatabase.GetEmployee(empid);
+            Employee e = PayrollDB.GetEmployee(empid);
             CommisionClassification cc = e.Classification as CommisionClassification;
             cc.AddSalesReciept(date, ammount);
         }

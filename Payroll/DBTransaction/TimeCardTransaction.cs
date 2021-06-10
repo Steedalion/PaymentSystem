@@ -16,7 +16,7 @@ namespace Payroll.Tests
 
         public void Execute()
         {
-            Employee e = PayrollDatabase.GetEmployee(id);
+            Employee e = PayrollDB.GetEmployee(id);
             if (e.isNull)
             {
                 throw new EmployeeNotFound();

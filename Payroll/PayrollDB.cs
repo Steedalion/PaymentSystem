@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Payroll
 {
-    public static class PayrollDatabase
+    public static class PayrollDB
     {
         private static Hashtable db = new Hashtable();
         private static Hashtable union = new Hashtable();
@@ -12,6 +12,7 @@ namespace Payroll
         {
             if (!db.Contains(empId))
             {
+                // throw new EmployeeNotFound();
                 return Employee.NULL;
             }
             return db[empId] as Employee;

@@ -12,7 +12,7 @@ namespace Payroll.Tests
             AddSalaryEmployee t = new AddSalaryEmployee(empID, name, address, salary);
             t.Execute();
 
-            Employee e = PayrollDatabase.GetEmployee(empID);
+            Employee e = PayrollDB.GetEmployee(empID);
             Assert.AreEqual(name, e.Name);
             Assert.AreEqual(address, e.myAddress);
             PaymentClassification pc = e.Classification;
@@ -32,7 +32,7 @@ namespace Payroll.Tests
             AddEmployee t = new AddHourlyEmployee(empID, name, address);
             t.Execute();
 
-            Employee e = PayrollDatabase.GetEmployee(empID);
+            Employee e = PayrollDB.GetEmployee(empID);
             Assert.AreEqual(name, e.Name);
             Assert.AreEqual(address, e.myAddress);
 
@@ -52,7 +52,7 @@ namespace Payroll.Tests
             AddCommissionedEmployee t = new AddCommissionedEmployee(empID, name, address, salary, commisionRate);
             t.Execute();
 
-            Employee e = PayrollDatabase.GetEmployee(empID);
+            Employee e = PayrollDB.GetEmployee(empID);
             Assert.NotNull(e);
 
             Assert.AreEqual(name, e.Name);
@@ -80,7 +80,7 @@ namespace Payroll.Tests
             SalesRecieptTransaction sr = new SalesRecieptTransaction(empID, new DateTime(2005, 8, 8), 200);
             sr.Execute();
 
-            Employee e = PayrollDatabase.GetEmployee(empID);
+            Employee e = PayrollDB.GetEmployee(empID);
             Assert.NotNull(e);
             PaymentClassification pc = e.Classification;
             Assert.IsTrue(pc is CommisionClassification);
@@ -97,10 +97,10 @@ namespace Payroll.Tests
 
             AddSalaryEmployee t = new AddSalaryEmployee(empID, name, address, 100);
             t.Execute();
-            Assert.NotNull(PayrollDatabase.GetEmployee(empID));
+            Assert.NotNull(PayrollDB.GetEmployee(empID));
             DeleteEmployee deleteEmployee = new DeleteEmployee(empID);
             deleteEmployee.Execute();
-            Employee e = PayrollDatabase.GetEmployee(empID);
+            Employee e = PayrollDB.GetEmployee(empID);
             Assert.IsTrue(e.isNull);
         }
 
@@ -123,7 +123,7 @@ namespace Payroll.Tests
             TimeCardTransaction timeCardTransaction = new TimeCardTransaction(empId, new DateTime(2005, 7, 31), 8.00);
             timeCardTransaction.Execute();
 
-            Employee e = PayrollDatabase.GetEmployee(empId);
+            Employee e = PayrollDB.GetEmployee(empId);
             Assert.IsNotNull(e);
 
             PaymentClassification pc = e.Classification;

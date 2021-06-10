@@ -25,7 +25,7 @@ namespace Payroll
             e.Schedule = MakePaymentSchedule();
             e.Classification = MakeClassification();
             e.Paymentmethod = MakePaymentMethod();
-            PayrollDatabase.AddEmployee(Id, e);
+            PayrollDB.AddEmployee(Id, e);
         }
 
         protected abstract PaymentSchedule MakePaymentSchedule();
