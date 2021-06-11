@@ -51,6 +51,10 @@
         <Compile Include="DBTransaction\AddSalaryEmployee.cs" />
         <Compile Include="DBTransaction\AddUnionServiceCharge.cs" />
         <Compile Include="DBTransaction\AddUnionMemberTransaction.cs" />
+        <Compile Include="DBTransaction\ChangeClassification\ChangeCommisionEmployee.cs" />
+        <Compile Include="DBTransaction\ChangeClassification\ChangeEmployeeClassification.cs" />
+        <Compile Include="DBTransaction\ChangeClassification\ChangeHourlyEmployee.cs" />
+        <Compile Include="DBTransaction\ChangeClassification\ChangeSalaryEmployee.cs" />
         <Compile Include="DBTransaction\ChangeEmployeeAddressTransaction.cs" />
         <Compile Include="DBTransaction\ChangeEmployeeNameTransaction.cs" />
         <Compile Include="DBTransaction\ChangeEmployeeTransaction.cs" />
