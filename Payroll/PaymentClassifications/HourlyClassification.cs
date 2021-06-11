@@ -7,6 +7,12 @@ namespace Payroll
     public class HourlyClassification : PaymentClassification
     {
         private List<TimeCard> myTimecards = new List<TimeCard>();
+        public double Rate;
+
+        public HourlyClassification(double rate)
+        {
+            Rate = rate;
+        }
 
         public void AddTimeCard(TimeCard tc)
         {

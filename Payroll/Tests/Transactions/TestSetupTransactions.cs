@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace Payroll.Tests.Transactions
 {
     [TestFixture]
-    public class TestSetup
+    public class TestSetupTransactions
     {
         protected int EmpId = 10;
         protected const string Name = "bob";
@@ -24,6 +24,12 @@ namespace Payroll.Tests.Transactions
             AddSalaryEmployee t = new AddSalaryEmployee(EmpId, Name, Address, Salary);
             t.Execute();
         } 
+        protected void AddHourlyEmployeeToDB()
+        {
+            AddHourlyEmployee addHourlyEmployee = new AddHourlyEmployee(EmpId, Name, Address, 20);
+            addHourlyEmployee.Execute();
+        }
+
        
     }
 }

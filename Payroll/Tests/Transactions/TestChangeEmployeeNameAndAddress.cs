@@ -2,7 +2,7 @@ using NUnit.Framework;
 
 namespace Payroll.Tests.Transactions
 {
-    public class TestChangeEmployeeNameAndAddress : TestSetup
+    public class TestChangeEmployeeNameAndAddress : TestSetupTransactions
     {
         [Test]
         public void ChangeNotExistingEmployeeNameShouldThrowException()

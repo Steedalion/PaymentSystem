@@ -4,7 +4,7 @@ using Payroll.DBTransaction;
 
 namespace Payroll.Tests.Transactions
 {
-    public class TestUseCases : TestSetup
+    public class TestUseCases : TestSetupTransactions
     {
         [Test]
         public void TestAddSalariedEmployee()
@@ -20,7 +20,7 @@ namespace Payroll.Tests.Transactions
             SalariedClassification sc = pc as SalariedClassification;
             Assert.AreEqual(1000.00, sc.Salary, 0.001);
             PaymentSchedule ps = e.Schedule;
-            Assert.IsTrue(ps is MonthlySchedule);
+            Assert.IsTrue(ps is MonthlyPaymentSchedule);
             PaymentMethod pm = e.Paymentmethod;
             Assert.IsTrue(pm is HoldMethod);
         }
@@ -29,7 +29,7 @@ namespace Payroll.Tests.Transactions
         public void TestAddHourlyEmployee()
         {
             EmpId = 3;
-            AddEmployee t = new AddHourlyEmployee(EmpId, Name, Address);
+            AddEmployee t = new AddHourlyEmployee(EmpId, Name, Address, 25);
             t.Execute();
 
             Employee e = PayrollDB.GetEmployee(EmpId);
@@ -38,10 +38,12 @@ namespace Payroll.Tests.Transactions
 
             PaymentClassification pc = e.Classification;
             Assert.IsTrue(pc is HourlyClassification);
+            HourlyClassification hourly = pc as HourlyClassification;
             PaymentSchedule sc = e.Schedule;
             Assert.IsTrue(sc is WeeklySchedule);
             PaymentMethod pm = e.Paymentmethod;
             Assert.IsTrue(pm is HoldMethod);
+            Assert.AreEqual(25, hourly.Rate);
         }
 
         [Test]
@@ -114,8 +116,7 @@ namespace Payroll.Tests.Transactions
         [Test]
         public void AddedTimeCardShouldBe()
         {
-            AddHourlyEmployee addHourlyEmployee = new AddHourlyEmployee(EmpId, Name, Address);
-            addHourlyEmployee.Execute();
+            AddHourlyEmployeeToDB();
 
             TimeCardTransaction timeCardTransaction = new TimeCardTransaction(EmpId, new DateTime(2005, 7, 31), 8.00);
             timeCardTransaction.Execute();
@@ -135,6 +136,7 @@ namespace Payroll.Tests.Transactions
 
         }
 
+        
         [Test]
         public void AddTimecardWhenEmployeeDoesnotExist()
         {

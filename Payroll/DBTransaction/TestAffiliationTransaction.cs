@@ -4,7 +4,7 @@ using Payroll.Tests.Transactions;
 
 namespace Payroll.Tests
 {
-    class TestAffiliationTransaction : TestSetup
+    class TestAffiliationTransaction : TestSetupTransactions
     {
         [SetUp]
         public void AddSalaryEmployee()

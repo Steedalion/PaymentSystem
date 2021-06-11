@@ -2,8 +2,11 @@ namespace Payroll
 {
     public class AddHourlyEmployee : AddEmployee
     {
-        public AddHourlyEmployee(int id, string name, string address) : base(id, name, address)
+        private double hourlyRate;
+
+        public AddHourlyEmployee(int id, string name, string address, double hourlyRate) : base(id, name, address)
         {
+            this.hourlyRate = hourlyRate;
         }
 
         protected override PaymentSchedule MakePaymentSchedule()
@@ -13,7 +16,7 @@ namespace Payroll
 
         protected override PaymentClassification MakeClassification()
         {
-            return new HourlyClassification();
+            return new HourlyClassification(hourlyRate);
         }
     }
 }

@@ -2,7 +2,7 @@ using NUnit.Framework;
 
 namespace Payroll.Tests.Transactions
 {
-    public class TestChangePaymentMethods:TestSetup
+    public class TestChangePaymentMethods:TestSetupTransactions
     {
         [Test]
         public void ChangeEmployeePaymentMethodToHold()

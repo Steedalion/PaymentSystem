@@ -16,7 +16,7 @@ namespace Payroll
 
         protected override PaymentSchedule MakePaymentSchedule()
         {
-            return new MonthlySchedule();
+            return new MonthlyPaymentSchedule();
         }
 
         protected override PaymentMethod MakePaymentMethod()
