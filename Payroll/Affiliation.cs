@@ -12,7 +12,7 @@ namespace Payroll
     public class ServiceChargeNotFound : Exception
     {
     }
-        public class Unaffiliated : Exception
+        public class UnaffiliatedException : Exception
     {
     }
           public class AlreadyAffiliated : Exception

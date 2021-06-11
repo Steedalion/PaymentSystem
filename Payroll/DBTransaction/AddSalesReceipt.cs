@@ -2,13 +2,13 @@ using System;
 
 namespace Payroll.Tests
 {
-    public class SalesRecieptTransaction:DbTransaction
+    public class AddSalesReceipt:DbTransaction
     {
         private int empid;
         private double ammount;
         private DateTime date;
 
-        public SalesRecieptTransaction(int empid,  DateTime date, double ammount)
+        public AddSalesReceipt(int empid,  DateTime date, double ammount)
         {
             this.empid = empid;
             this.ammount = ammount;

@@ -2,12 +2,12 @@ using System;
 
 namespace Payroll.Tests
 {
-    public class TimeCardTransaction:DbTransaction
+    public class AddTimeCard:DbTransaction
     {
         private int id;
         private double hours;
         private DateTime date;
-        public TimeCardTransaction(int empId, DateTime dateTime, double hoursLogged)
+        public AddTimeCard(int empId, DateTime dateTime, double hoursLogged)
         {
             id = empId;
             date = dateTime;

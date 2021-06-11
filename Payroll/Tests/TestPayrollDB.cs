@@ -16,5 +16,11 @@ namespace Payroll.Tests
         {
             Assert.Throws<EmployeeNotFound>(() => PayrollDB.AddUnionMember(1, 112));
         }
+
+        [Test]
+        public void RemoveUnionMemberThatDoesNotExistShouldThrow()
+        {
+            Assert.Throws<UnionMemberNotFound>(() => PayrollDB.RemoveUnionMember(123));
+        }
     }
 }

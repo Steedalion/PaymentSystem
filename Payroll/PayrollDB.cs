@@ -51,6 +51,15 @@ namespace Payroll
             int empId = (int) union[memberId];
             return GetEmployee(empId);
         }
+
+        public static void RemoveUnionMember(int memberId)
+        {
+            if (!union.Contains(memberId))
+            {
+                throw new UnionMemberNotFound();
+            }
+            union.Remove(memberId);
+        }
     }
 
   

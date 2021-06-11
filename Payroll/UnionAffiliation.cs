@@ -6,6 +6,8 @@ namespace Payroll.Tests
     public class UnionAffiliation : Affiliation
     {
         private List<ServiceCharge> charges = new List<ServiceCharge>();
+        public double Dues { get; set; }
+
         public void AddServiceCharge(ServiceCharge sc)
         {
             charges.Add(sc);

@@ -79,7 +79,7 @@ namespace Payroll.Tests.Transactions
             AddCommissionedEmployee ce = new AddCommissionedEmployee(EmpId, Name, Address, 1000, 0.1);
             ce.Execute();
 
-            SalesRecieptTransaction sr = new SalesRecieptTransaction(EmpId, new DateTime(2005, 8, 8), 200);
+            AddSalesReceipt sr = new AddSalesReceipt(EmpId, new DateTime(2005, 8, 8), 200);
             sr.Execute();
 
             Employee e = PayrollDB.GetEmployee(EmpId);
@@ -118,8 +118,8 @@ namespace Payroll.Tests.Transactions
         {
             AddHourlyEmployeeToDB();
 
-            TimeCardTransaction timeCardTransaction = new TimeCardTransaction(EmpId, new DateTime(2005, 7, 31), 8.00);
-            timeCardTransaction.Execute();
+            AddTimeCard addTimeCard = new AddTimeCard(EmpId, new DateTime(2005, 7, 31), 8.00);
+            addTimeCard.Execute();
 
             Employee e = PayrollDB.GetEmployee(EmpId);
             Assert.IsNotNull(e);
@@ -140,8 +140,8 @@ namespace Payroll.Tests.Transactions
         [Test]
         public void AddTimecardWhenEmployeeDoesnotExist()
         {
-            TimeCardTransaction timeCardTransaction = new TimeCardTransaction(EmpId, new DateTime(2005, 7, 31), 8.00);
-            Assert.Throws<EmployeeNotFound>(() => timeCardTransaction.Execute());
+            AddTimeCard addTimeCard = new AddTimeCard(EmpId, new DateTime(2005, 7, 31), 8.00);
+            Assert.Throws<EmployeeNotFound>(() => addTimeCard.Execute());
         }
     }
 }
