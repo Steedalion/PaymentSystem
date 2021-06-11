@@ -1,10 +1,5 @@
 namespace Payroll
 {
-    public interface DbTransaction
-    {
-        void Execute();
-    }
-
     public abstract class AddEmployee : DbTransaction
     {
         protected int Id;
