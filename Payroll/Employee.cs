@@ -1,3 +1,5 @@
+using Payroll.Tests.Transactions;
+
 namespace Payroll
 {
     public class Employee
@@ -19,13 +21,22 @@ namespace Payroll
 
         public PaymentClassification Classification { get; set; }
         public PaymentSchedule Schedule { get; set; }
-        public Affiliation Affiliation { get; set; } = null;
+        public Affiliation Affiliation { get; set; } = new NoAffiliation();
 
         private class NullEmployee : Employee
         {
             public NullEmployee(int id, string name, string address) : base(id, name, address)
             {
             }
+        }
+
+        public void CompletePaycheck(PayCheck payCheck)
+        {
+            payCheck.GrossPay = Classification.CalculatePay(payCheck);
+            payCheck.Deductions = Affiliation.CalculateDeductions();
+            payCheck.NetPay = payCheck.GrossPay - payCheck.Deductions;
+            Paymentmethod.pay(payCheck);
+
         }
     }
 }

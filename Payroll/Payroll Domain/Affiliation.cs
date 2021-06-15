@@ -7,6 +7,7 @@ namespace Payroll
     {
         ServiceCharge GetServiceCharge(DateTime dateTime);
         void AddServiceCharge(ServiceCharge sc);
+        double CalculateDeductions();
     }
 
     public class ServiceChargeNotFound : Exception

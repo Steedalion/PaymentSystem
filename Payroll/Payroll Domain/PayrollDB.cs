@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq;
 
 namespace Payroll
 {
@@ -59,6 +60,11 @@ namespace Payroll
                 throw new UnionMemberNotFound();
             }
             union.Remove(memberId);
+        }
+
+        public static int[] GetEmployeeIds()
+        {
+            return db.Keys.Cast<int>().ToArray();
         }
     }
 

@@ -6,6 +6,15 @@ namespace Payroll.Tests
     {
 
         [Test]
+        public void AddEmployeeToDB()
+        {
+            int empid = 12;
+
+            Employee empl = new Employee(empid, "John", "home");
+            PayrollDB.AddEmployee(12,empl);
+            Assert.IsNotEmpty(PayrollDB.GetEmployeeIds());
+        }
+        [Test]
         public void EmptyDbShouldNotContainUnionMember()
         {
             Assert.Throws<UnionMemberNotFound>(() =>PayrollDB.GetUnionMember(153));

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Payroll.Tests;
+using Payroll.Tests.Transactions;
 
 namespace Payroll
 {
@@ -33,6 +34,11 @@ namespace Payroll
         {
             SalesReciept sale = new SalesReciept(date, ammount);
             salesReciepts.Add(sale);
+        }
+
+        public double CalculatePay(PayCheck payCheck)
+        {
+            throw new NotImplementedException();
         }
     }
 

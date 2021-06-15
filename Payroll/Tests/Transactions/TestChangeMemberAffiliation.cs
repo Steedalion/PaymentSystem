@@ -67,6 +67,12 @@ namespace Payroll.Tests.Transactions
         {
             throw new NullReferenceException();
         }
+
+        public double CalculateDeductions()
+        {
+
+            return 0;
+        }
     }
 
     public class ChangeUnionMember : ChangeAffiliation

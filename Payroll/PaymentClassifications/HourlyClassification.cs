@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Payroll.Tests;
+using Payroll.Tests.Transactions;
 
 namespace Payroll
 {
@@ -30,6 +31,25 @@ namespace Payroll
             }
 
             throw new TimeCardNotFound();
+        }
+
+        public double CalculatePay(PayCheck payCheck)
+        {
+            double pay = 0;
+            foreach (TimeCard card in myTimecards)
+            {
+                if (InPayPeriod(card.Date, payCheck.PayDate))
+                {
+                    pay += card.Hours * Rate;
+                }
+            }
+
+            return pay;
+        }
+
+        private bool InPayPeriod(DateTime cardDate, DateTime PayDate)
+        {
+            return cardDate >= PayDate.AddDays(-5) && cardDate <= PayDate;
         }
     }
 

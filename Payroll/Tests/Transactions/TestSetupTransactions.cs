@@ -12,6 +12,7 @@ namespace Payroll.Tests.Transactions
         protected const double Salary = 1000.00;
         protected const int MemberId = 112;
         protected DateTime OtherDate = new DateTime(2019, 8, 8);
+        public const double HourlyRate = 20;
 
         [SetUp]
         public void ClearDataBase()
@@ -26,7 +27,7 @@ namespace Payroll.Tests.Transactions
         } 
         protected void AddHourlyEmployeeToDB()
         {
-            AddHourlyEmployee addHourlyEmployee = new AddHourlyEmployee(EmpId, Name, Address, 20);
+            AddHourlyEmployee addHourlyEmployee = new AddHourlyEmployee(EmpId, Name, Address,HourlyRate );
             addHourlyEmployee.Execute();
         }
 

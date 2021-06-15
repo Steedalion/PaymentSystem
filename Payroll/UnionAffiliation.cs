@@ -13,6 +13,11 @@ namespace Payroll.Tests
             charges.Add(sc);
         }
 
+        public double CalculateDeductions()
+        {
+            throw new NotImplementedException();
+        }
+
         public ServiceCharge GetServiceCharge(DateTime dateTime)
         {
             foreach (ServiceCharge charge in charges)
