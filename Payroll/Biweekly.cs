@@ -11,6 +11,7 @@ namespace Payroll
 
         public static bool inSecondWeek(DateTime payDate)
         {
+            bool firstWeek = payDate.Day >= 8 && payDate.Day <= 14;
             return payDate.Day >= 8 && payDate.Day <= 14;
 
         }

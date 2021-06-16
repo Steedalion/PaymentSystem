@@ -6,7 +6,7 @@ namespace Payroll.Tests.Transactions
     class TestPayCommisionEmployee : TestPay
     {
         [Test]
-        public void PayCommisionEmployeeWithoutSales()
+        public void PayCommisionEmployeeFirstFriday()
         {
             AddCommisionedEmployeeToDB();
             DateTime payDate = new DateTime(2021, 06, 11);
@@ -23,18 +23,37 @@ namespace Payroll.Tests.Transactions
             Assert.AreEqual(0, payCheck.Deductions, 0.001);
             Assert.AreEqual(payDate, payCheck.PayDate);
         }
-
         [Test]
         public void WrongDayPayCommisionedEmployee()
         {
             AddCommisionedEmployeeToDB();
-            DateTime payDate = new DateTime(2021, 06, 12);
+            DateTime payDate = new DateTime(2021, 06, 18);
             PayDayTransaction payDay = new PayDayTransaction(payDate);
             payDay.Execute();
 
             PayCheck payCheck = payDay.GetPayCheck(EmpId);
             Assert.IsNull(payCheck);
         }
+        [Test]
+        public void PayCommisionEmployeeSecondFriday()
+        {
+            AddCommisionedEmployeeToDB();
+            DateTime payDate = new DateTime(2021, 06, 25);
+            PayDayTransaction payDay = new PayDayTransaction(payDate);
+
+            Assert.IsTrue(Biweekly.inSecondWeek(payDate));
+            payDay.Execute();
+
+            PayCheck payCheck = payDay.GetPayCheck(EmpId);
+
+            Assert.NotNull(payCheck);
+            Assert.AreEqual(payCheck.GrossPay, Salary, 0.001);
+            Assert.AreEqual(Salary, payCheck.NetPay, 0.001);
+            Assert.AreEqual(0, payCheck.Deductions, 0.001);
+            Assert.AreEqual(payDate, payCheck.PayDate);
+        }
+
+        
 
         [Test]
         public void PayCommisionEmployeeWithSale()
