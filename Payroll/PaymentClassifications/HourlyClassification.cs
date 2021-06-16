@@ -40,11 +40,25 @@ namespace Payroll
             {
                 if (InPayPeriod(card.Date, payCheck.PayDate))
                 {
-                    pay += card.Hours * Rate;
+                    pay += CalculatePay(card);
                 }
             }
 
             return pay;
+        }
+
+        private double CalculatePay(TimeCard card)
+        {
+            if (card.Hours < 8)
+            {
+            return card.Hours * Rate;
+                
+            }
+
+            double overtime = card.Hours-8;
+
+            return (8 + 1.5 * overtime) * Rate;
+
         }
 
         private bool InPayPeriod(DateTime cardDate, DateTime PayDate)
