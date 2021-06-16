@@ -6,7 +6,14 @@ namespace Payroll
     {
         public bool IsPayDate(DateTime payDate)
         {
-            throw new NotImplementedException();
+            return payDate.DayOfWeek == DayOfWeek.Friday && inSecondWeek(payDate);
         }
+
+        public static bool inSecondWeek(DateTime payDate)
+        {
+            return payDate.Day >= 8 && payDate.Day <= 14;
+
+        }
+
     }
 }

@@ -89,6 +89,7 @@
         <Compile Include="Tests\Transactions\TestChangeEmployeeNameAndAddress.cs" />
         <Compile Include="Tests\Transactions\TestChangePaymentClassification.cs" />
         <Compile Include="Tests\Transactions\TestChangePaymentMethods.cs" />
+        <Compile Include="Tests\Transactions\TestPayCommisionEmployee.cs" />
         <Compile Include="Tests\Transactions\TestPayEmployee.cs" />
         <Compile Include="Tests\Transactions\TestSetupTransactions.cs" />
         <Compile Include="Tests\Transactions\TestAddEmployees.cs" />

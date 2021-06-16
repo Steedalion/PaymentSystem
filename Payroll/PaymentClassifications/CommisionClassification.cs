@@ -8,15 +8,15 @@ namespace Payroll
     class CommisionClassification : PaymentClassification
     {
         private readonly List<SalesReciept> salesReciepts = new List<SalesReciept>();
-             public double CommisionRate{ get; }
-        public double Salary{ get; }
+        public double CommisionRate { get; }
+        public double Salary { get; }
+
         public CommisionClassification(double commisionRate, double salary)
         {
             CommisionRate = commisionRate;
             Salary = salary;
         }
 
-   
 
         public SalesReciept GetSalesReciept(DateTime dateTime)
         {
@@ -27,6 +27,7 @@ namespace Payroll
                     return salesReciept;
                 }
             }
+
             throw new SalesReceiptNotFound();
         }
 
@@ -38,7 +39,25 @@ namespace Payroll
 
         public double CalculatePay(PayCheck payCheck)
         {
-            throw new NotImplementedException();
+            return Salary + CalculateSalesRev(payCheck.PayDate);
+        }
+
+        private double CalculateSalesRev(DateTime payCheckPayDate)
+        {
+            double total = 0;
+            foreach (SalesReciept receipt in salesReciepts)
+            {
+                if (isInPeriod(payCheckPayDate, receipt))
+                {
+                    total += receipt.Amount * CommisionRate;
+                }
+            }
+            return total;
+        }
+
+        private bool isInPeriod(DateTime payCheckDate, SalesReciept receipt)
+        {
+            return payCheckDate >= receipt.DATE && receipt.DATE >= payCheckDate.AddDays(-14);
         }
     }
 

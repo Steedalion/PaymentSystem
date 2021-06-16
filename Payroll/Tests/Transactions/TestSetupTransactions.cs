@@ -13,6 +13,7 @@ namespace Payroll.Tests.Transactions
         protected const int MemberId = 112;
         protected DateTime OtherDate = new DateTime(2019, 8, 8);
         public const double HourlyRate = 20;
+        public readonly float CommisionRate = 0.14f;
 
         [SetUp]
         public void ClearDataBase()
@@ -29,6 +30,14 @@ namespace Payroll.Tests.Transactions
         {
             AddHourlyEmployee addHourlyEmployee = new AddHourlyEmployee(EmpId, Name, Address,HourlyRate );
             addHourlyEmployee.Execute();
+        }
+
+        protected void AddCommisionedEmployeeToDB()
+        {
+            // EmpId = 4;
+            
+            AddCommissionedEmployee t = new AddCommissionedEmployee(EmpId, Name, Address, Salary, CommisionRate);
+            t.Execute();
         }
 
        

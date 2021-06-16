@@ -49,7 +49,7 @@ namespace Payroll.Tests.Transactions
             PayDayTransaction payDay = new PayDayTransaction(friday);
             payDay.Execute();
             PayCheck payCheck = payDay.GetPayCheck(EmpId);
-            
+
             ValidateHourlyPaycheck(payCheck, friday, 0);
         }
 
@@ -66,63 +66,90 @@ namespace Payroll.Tests.Transactions
         {
             AddHourlyEmployeeToDB();
             double hoursLogged = 8;
-            
+
 
             DateTime friday = new DateTime(2001, 11, 9);
             AddTimeCard addTimeCard = new AddTimeCard(EmpId, friday, hoursLogged);
             addTimeCard.Execute();
-            
+
             PayDayTransaction payDay = new PayDayTransaction(friday);
             payDay.Execute();
             PayCheck payCheck = payDay.GetPayCheck(EmpId);
 
-            Assert.AreEqual(HourlyRate*hoursLogged, payCheck.GrossPay, 0.001);
+            Assert.AreEqual(HourlyRate * hoursLogged, payCheck.GrossPay, 0.001);
             Assert.AreEqual(friday, payCheck.PayDate);
             Assert.AreEqual(0.0, payCheck.Deductions);
-            Assert.AreEqual(HourlyRate*hoursLogged, payCheck.NetPay);
+            Assert.AreEqual(HourlyRate * hoursLogged, payCheck.NetPay);
         }
+
+        [Test]
+        public void HourlyPaidWithOvertime()
+        {
+            AddHourlyEmployeeToDB();
+            double hoursLogged = 12;
+            double overtimePay = ((hoursLogged - 8) * 1.5 + 8) * HourlyRate;
+
+
+            DateTime friday = new DateTime(2001, 11, 9);
+            AddTimeCard addTimeCard = new AddTimeCard(EmpId, friday, hoursLogged);
+            addTimeCard.Execute();
+
+            PayDayTransaction payDay = new PayDayTransaction(friday);
+            payDay.Execute();
+            PayCheck payCheck = payDay.GetPayCheck(EmpId);
+
+            
+            Assert.AreEqual(overtimePay, payCheck.GrossPay, 0.001);
+            Assert.AreEqual(friday, payCheck.PayDate);
+            Assert.AreEqual(0.0, payCheck.Deductions);
+            Assert.AreEqual(overtimePay, payCheck.NetPay,.001);
+        }
+        
         [Test]
         public void HourlyPaidWithOneCardAndOneNew()
         {
             AddHourlyEmployeeToDB();
             double hoursLogged = 8;
-            
+
 
             DateTime friday = new DateTime(2001, 11, 9);
             AddTimeCard addTimeCard = new AddTimeCard(EmpId, friday.AddDays(-2), hoursLogged);
             addTimeCard.Execute();
-            
-            AddTimeCard addTimeCard2 = new AddTimeCard(EmpId, friday.AddDays(8), hoursLogged);
-            addTimeCard2.Execute();
-            
+
+            AddTimeCard aheadOfTime = new AddTimeCard(EmpId, friday.AddDays(8), hoursLogged);
+            aheadOfTime.Execute();
+
+            AddTimeCard oldTimeCard = new AddTimeCard(EmpId, friday.AddDays(-8), hoursLogged);
+            oldTimeCard.Execute();
+
             PayDayTransaction payDay = new PayDayTransaction(friday);
             payDay.Execute();
             PayCheck payCheck = payDay.GetPayCheck(EmpId);
 
-            Assert.AreEqual(HourlyRate*hoursLogged, payCheck.GrossPay, 0.001);
+            Assert.AreEqual(HourlyRate * hoursLogged, payCheck.GrossPay, 0.001);
             Assert.AreEqual(friday, payCheck.PayDate);
             Assert.AreEqual(0.0, payCheck.Deductions);
-            Assert.AreEqual(HourlyRate*hoursLogged, payCheck.NetPay);
+            Assert.AreEqual(HourlyRate * hoursLogged, payCheck.NetPay);
         }
 
         [Test]
         public void HourlyShouldNotBePaidOldTimecard()
         {
-             AddHourlyEmployeeToDB();
+            AddHourlyEmployeeToDB();
             double hoursLogged = 8;
 
             DateTime friday = new DateTime(2001, 11, 9);
 
             DateTime oldDate = friday.AddDays(-10);
-            
-            AddTimeCard addTimeCard = new AddTimeCard(EmpId,oldDate, hoursLogged);
+
+            AddTimeCard addTimeCard = new AddTimeCard(EmpId, oldDate, hoursLogged);
             addTimeCard.Execute();
-            
+
             PayDayTransaction payDay = new PayDayTransaction(friday);
             payDay.Execute();
             PayCheck payCheck = payDay.GetPayCheck(EmpId);
 
-            ValidateHourlyPaycheck(payCheck,friday,0);
+            ValidateHourlyPaycheck(payCheck, friday, 0);
         }
 
         [Test]
@@ -137,6 +164,7 @@ namespace Payroll.Tests.Transactions
             Assert.IsNull(payCheck);
         }
     }
+
     public class PayDayTransaction : DbTransaction
     {
         private Dictionary<int, PayCheck> paychecks = new Dictionary<int, PayCheck>();
