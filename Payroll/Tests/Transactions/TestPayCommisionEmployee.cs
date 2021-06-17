@@ -12,7 +12,7 @@ namespace Payroll.Tests.Transactions
             DateTime payDate = new DateTime(2021, 06, 11);
             PayDayTransaction payDay = new PayDayTransaction(payDate);
 
-            Assert.IsTrue(Biweekly.inSecondWeek(payDate));
+            Assert.IsTrue(Biweekly.isBiweekly(payDate));
             payDay.Execute();
 
             PayCheck payCheck = payDay.GetPayCheck(EmpId);
@@ -41,7 +41,7 @@ namespace Payroll.Tests.Transactions
             DateTime payDate = new DateTime(2021, 06, 25);
             PayDayTransaction payDay = new PayDayTransaction(payDate);
 
-            Assert.IsTrue(Biweekly.inSecondWeek(payDate));
+            Assert.IsTrue(Biweekly.isBiweekly(payDate));
             payDay.Execute();
 
             PayCheck payCheck = payDay.GetPayCheck(EmpId);

@@ -57,7 +57,7 @@ namespace Payroll
 
         private bool isInPeriod(DateTime payCheckDate, SalesReciept receipt)
         {
-            return payCheckDate >= receipt.DATE && receipt.DATE >= payCheckDate.AddDays(-14);
+            return payCheckDate >= receipt.DATE && receipt.DATE > payCheckDate.AddDays(-14);
         }
     }
 
