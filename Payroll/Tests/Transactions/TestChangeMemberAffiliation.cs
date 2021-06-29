@@ -12,48 +12,31 @@ namespace Payroll.Tests.Transactions
         {
             AddSalariedEmployeeToDb();
             double dues = 2;
-            ChangeAffiliation ca = new ChangeUnionMember(EmpId, MemberId, dues);
+            ChangeAffiliation ca = new ChangeUnionMember(database,EmpId, MemberId, dues);
             ca.Execute();
 
-            Employee e = PayrollDB.GetEmployee(EmpId);
+            Employee e = database.GetEmployee(EmpId);
             Affiliation affiliation = e.Affiliation;
             Assert.IsTrue(affiliation is UnionAffiliation);
             UnionAffiliation ua = affiliation as UnionAffiliation;
             Assert.AreEqual(dues, ua.Dues);
-            Assert.AreSame(PayrollDB.GetEmployee(EmpId), PayrollDB.GetUnionMember(MemberId));
+            Assert.AreSame(database.GetEmployee(EmpId), database.GetUnionMember(MemberId));
         }
 
         [Test]
         public void TestChangeAffiliatedToUnaffiliated()
         {
             TestChangeToUnionMember();
-            ChangeAffiliation ca = new ChangeUnaffiliated(EmpId, MemberId);
+            ChangeAffiliation ca = new ChangeUnaffiliated(database,EmpId, MemberId);
             ca.Execute();
 
-            Employee e = PayrollDB.GetEmployee(EmpId);
+            Employee e = database.GetEmployee(EmpId);
             Affiliation affiliation = e.Affiliation;
             Assert.IsTrue(affiliation is NoAffiliation);
             
         
         }
 
-    }
-
-    public class ChangeUnaffiliated : ChangeAffiliation
-    {
-        public ChangeUnaffiliated(int empId, int memberId) : base(empId, memberId)
-        {
-        }
-
-        protected override Affiliation MakeAffiliation()
-        {
-            return new NoAffiliation();
-        }
-
-        protected override void ModifyMembership()
-        {
-            PayrollDB.RemoveUnionMember(memberId);
-        }
     }
 
     public class NoAffiliation : Affiliation
@@ -80,7 +63,7 @@ namespace Payroll.Tests.Transactions
         private int memberID;
         private double dues;
 
-        public ChangeUnionMember(int empId, int memberId, double dues) : base(empId, memberId)
+        public ChangeUnionMember(InMemoryDB database, int empId, int memberId, double dues) : base(database, empId, memberId)
         {
             memberID = memberId;
             this.dues = dues;
@@ -95,27 +78,7 @@ namespace Payroll.Tests.Transactions
 
         protected override void ModifyMembership()
         {
-            PayrollDB.AddUnionMember(memberID,empId);
+            database.AddUnionMember(memberID,empId);
         }
-    }
-
-    public abstract class ChangeAffiliation:ChangeEmployeeTransaction
-    {
-        protected int memberId;
-
-        protected ChangeAffiliation(int empId, int memberId) : base(empId)
-        {
-            this.memberId = memberId;
-        }
-
-        protected override void ModifyEmployee(Employee employee)
-        {
-            employee.Affiliation = MakeAffiliation();
-            ModifyMembership();
-        }
-
-        protected abstract Affiliation MakeAffiliation();
-
-        protected abstract void ModifyMembership();
     }
 }

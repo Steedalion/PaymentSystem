@@ -4,7 +4,8 @@ namespace Payroll
     {
         private double hourlyRate;
 
-        public AddHourlyEmployee(int id, string name, string address, double hourlyRate) : base(id, name, address)
+
+        public AddHourlyEmployee(InMemoryDB database, int id, string name, string address, double hourlyRate) : base(database, id, name, address)
         {
             this.hourlyRate = hourlyRate;
         }

@@ -2,17 +2,18 @@ namespace Payroll.Tests
 {
     public abstract class ChangeEmployeeTransaction:DbTransaction
     {
-        protected ChangeEmployeeTransaction(int empId)
+        protected int empId;
+
+        protected ChangeEmployeeTransaction(InMemoryDB database, int empId) : base(database)
         {
             this.empId = empId;
         }
 
-        protected int empId;
         protected abstract void  ModifyEmployee(Employee employee);
         
-         public void Execute()
+         public override void Execute()
         {
-            Employee e = PayrollDB.GetEmployee(empId);
+            Employee e = database.GetEmployee(empId);
             if (e.isNull)
             {
                 throw new EmployeeNotFound();

@@ -5,8 +5,7 @@ namespace Payroll
         private readonly double _salary;
         private readonly double _commisionRate;
 
-        public AddCommissionedEmployee(int empId, string name, string address, double salary, double commisionRate) :
-            base(empId, name, address)
+        public AddCommissionedEmployee(InMemoryDB database, int id, string name, string address, double salary, double commisionRate) : base(database, id, name, address)
         {
             _salary = salary;
             _commisionRate = commisionRate;

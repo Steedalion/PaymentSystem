@@ -4,14 +4,15 @@ namespace Payroll.DBTransaction
     {
         private readonly int id;
 
-        public DeleteEmployee(int empId)
+        public DeleteEmployee(InMemoryDB database, int id) : base(database)
         {
-            id = empId;
+            this.id = id;
         }
 
-        public void Execute()
+
+        public override void Execute()
         {
-            PayrollDB.RemoveEmployee(id);
+            database.RemoveEmployee(id);
         }
     }
 }

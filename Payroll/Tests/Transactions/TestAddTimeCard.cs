@@ -11,10 +11,10 @@ namespace Payroll.Tests.Transactions
         {
             AddHourlyEmployeeToDB();
 
-            AddTimeCard addTimeCard = new AddTimeCard(EmpId, new DateTime(2005, 7, 31), 8.00);
+            AddTimeCard addTimeCard = new AddTimeCard(database,EmpId, new DateTime(2005, 7, 31), 8.00);
             addTimeCard.Execute();
 
-            Employee e = PayrollDB.GetEmployee(EmpId);
+            Employee e = database.GetEmployee(EmpId);
             Assert.IsNotNull(e);
 
             PaymentClassification pc = e.Classification;
@@ -33,7 +33,7 @@ namespace Payroll.Tests.Transactions
         [Test]
         public void AddTimecardWhenEmployeeDoesnotExist()
         {
-            AddTimeCard addTimeCard = new AddTimeCard(EmpId, new DateTime(2005, 7, 31), 8.00);
+            AddTimeCard addTimeCard = new AddTimeCard(database,EmpId, new DateTime(2005, 7, 31), 8.00);
             Assert.Throws<EmployeeNotFound>(() => addTimeCard.Execute());
         }
     }

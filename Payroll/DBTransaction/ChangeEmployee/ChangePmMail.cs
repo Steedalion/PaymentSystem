@@ -4,10 +4,11 @@ namespace Payroll.Tests
     {
         private string address;
 
-        public ChangePmMail(int empId, string address) : base(empId)
+        public ChangePmMail(InMemoryDB database, int empId, string address) : base(database, empId)
         {
             this.address = address;
         }
+
 
         protected override PaymentMethod SetPaymentMethod()
         {

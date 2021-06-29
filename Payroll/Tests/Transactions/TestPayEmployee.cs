@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace Payroll.Tests.Transactions
@@ -16,7 +15,7 @@ namespace Payroll.Tests.Transactions
             AddSalariedEmployeeToDb();
 
             DateTime monthEnd = new DateTime(2001, 11, 30);
-            PayDayTransaction payDay = new PayDayTransaction(monthEnd);
+            PayDayTransaction payDay = new PayDayTransaction(database,monthEnd);
             payDay.Execute();
             PayCheck payCheck = payDay.GetPayCheck(EmpId);
 
@@ -32,7 +31,7 @@ namespace Payroll.Tests.Transactions
             AddSalariedEmployeeToDb();
 
             DateTime notMonthEnd = new DateTime(2001, 11, 29);
-            PayDayTransaction payDay = new PayDayTransaction(notMonthEnd);
+            PayDayTransaction payDay = new PayDayTransaction(database,notMonthEnd);
             payDay.Execute();
             PayCheck payCheck = payDay.GetPayCheck(EmpId);
             Assert.IsNull(payCheck);
@@ -46,7 +45,7 @@ namespace Payroll.Tests.Transactions
         {
             AddHourlyEmployeeToDB();
             DateTime friday = new DateTime(2001, 11, 9);
-            PayDayTransaction payDay = new PayDayTransaction(friday);
+            PayDayTransaction payDay = new PayDayTransaction(database,friday);
             payDay.Execute();
             PayCheck payCheck = payDay.GetPayCheck(EmpId);
 
@@ -69,10 +68,10 @@ namespace Payroll.Tests.Transactions
 
 
             DateTime friday = new DateTime(2001, 11, 9);
-            AddTimeCard addTimeCard = new AddTimeCard(EmpId, friday, hoursLogged);
+            AddTimeCard addTimeCard = new AddTimeCard(database,EmpId, friday, hoursLogged);
             addTimeCard.Execute();
 
-            PayDayTransaction payDay = new PayDayTransaction(friday);
+            PayDayTransaction payDay = new PayDayTransaction(database,friday);
             payDay.Execute();
             PayCheck payCheck = payDay.GetPayCheck(EmpId);
 
@@ -91,10 +90,10 @@ namespace Payroll.Tests.Transactions
 
 
             DateTime friday = new DateTime(2001, 11, 9);
-            AddTimeCard addTimeCard = new AddTimeCard(EmpId, friday, hoursLogged);
+            AddTimeCard addTimeCard = new AddTimeCard(database,EmpId, friday, hoursLogged);
             addTimeCard.Execute();
 
-            PayDayTransaction payDay = new PayDayTransaction(friday);
+            PayDayTransaction payDay = new PayDayTransaction(database,friday);
             payDay.Execute();
             PayCheck payCheck = payDay.GetPayCheck(EmpId);
 
@@ -113,16 +112,16 @@ namespace Payroll.Tests.Transactions
 
 
             DateTime friday = new DateTime(2001, 11, 9);
-            AddTimeCard addTimeCard = new AddTimeCard(EmpId, friday.AddDays(-2), hoursLogged);
+            AddTimeCard addTimeCard = new AddTimeCard(database,EmpId, friday.AddDays(-2), hoursLogged);
             addTimeCard.Execute();
 
-            AddTimeCard aheadOfTime = new AddTimeCard(EmpId, friday.AddDays(8), hoursLogged);
+            AddTimeCard aheadOfTime = new AddTimeCard(database,EmpId, friday.AddDays(8), hoursLogged);
             aheadOfTime.Execute();
 
-            AddTimeCard oldTimeCard = new AddTimeCard(EmpId, friday.AddDays(-8), hoursLogged);
+            AddTimeCard oldTimeCard = new AddTimeCard(database,EmpId, friday.AddDays(-8), hoursLogged);
             oldTimeCard.Execute();
 
-            PayDayTransaction payDay = new PayDayTransaction(friday);
+            PayDayTransaction payDay = new PayDayTransaction(database,friday);
             payDay.Execute();
             PayCheck payCheck = payDay.GetPayCheck(EmpId);
 
@@ -142,10 +141,10 @@ namespace Payroll.Tests.Transactions
 
             DateTime oldDate = friday.AddDays(-10);
 
-            AddTimeCard addTimeCard = new AddTimeCard(EmpId, oldDate, hoursLogged);
+            AddTimeCard addTimeCard = new AddTimeCard(database,EmpId, oldDate, hoursLogged);
             addTimeCard.Execute();
 
-            PayDayTransaction payDay = new PayDayTransaction(friday);
+            PayDayTransaction payDay = new PayDayTransaction(database,friday);
             payDay.Execute();
             PayCheck payCheck = payDay.GetPayCheck(EmpId);
 
@@ -158,48 +157,10 @@ namespace Payroll.Tests.Transactions
             AddHourlyEmployeeToDB();
 
             DateTime notFriday = new DateTime(2001, 11, 10);
-            PayDayTransaction payDay = new PayDayTransaction(notFriday);
+            PayDayTransaction payDay = new PayDayTransaction(database,notFriday);
             payDay.Execute();
             PayCheck payCheck = payDay.GetPayCheck(EmpId);
             Assert.IsNull(payCheck);
-        }
-    }
-
-    public class PayDayTransaction : DbTransaction
-    {
-        private Dictionary<int, PayCheck> paychecks = new Dictionary<int, PayCheck>();
-        private DateTime payDate;
-
-        public PayDayTransaction(DateTime payDay)
-        {
-            payDate = payDay;
-        }
-
-        public void Execute()
-        {
-            int[] allEmployees = PayrollDB.GetEmployeeIds();
-            foreach (int id in allEmployees)
-            {
-                Employee employee = PayrollDB.GetEmployee(id);
-                if (employee.Schedule.IsPayDate(payDate))
-                {
-                    PayCheck payCheck = new PayCheck(payDate);
-                    paychecks[id] = payCheck;
-                    employee.CompletePaycheck(payCheck);
-                }
-            }
-        }
-
-        public PayCheck GetPayCheck(int empId)
-        {
-            if (paychecks.ContainsKey(empId))
-            {
-                return paychecks[empId];
-            }
-            else
-            {
-                return null;
-            }
         }
     }
 

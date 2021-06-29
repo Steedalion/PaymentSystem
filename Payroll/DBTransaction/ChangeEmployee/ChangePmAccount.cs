@@ -4,10 +4,11 @@ namespace Payroll.Tests
     {
         private int accountNumber;
 
-        public ChangePmAccount(int empId, int accountNumber) : base(empId)
+        public ChangePmAccount(InMemoryDB database, int empId, int accountNumber) : base(database, empId)
         {
             this.accountNumber = accountNumber;
         }
+
 
         protected override PaymentMethod SetPaymentMethod()
         {

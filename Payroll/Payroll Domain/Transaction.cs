@@ -1,7 +1,14 @@
 namespace Payroll
 {
-    public interface DbTransaction
+    public abstract class DbTransaction
     {
-        void Execute();
+        protected IPayrollDB database;
+
+        public DbTransaction(InMemoryDB database)
+        {
+            this.database = database;
+        }
+
+        public abstract void Execute();
     }
 }

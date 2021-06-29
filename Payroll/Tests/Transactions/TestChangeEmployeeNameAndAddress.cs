@@ -8,8 +8,8 @@ namespace Payroll.Tests.Transactions
         public void ChangeNotExistingEmployeeNameShouldThrowException()
         {
             string newName = "Henry";
-            PayrollDB.Clear();
-            ChangeEmployeeNameTransaction ce = new ChangeEmployeeNameTransaction(EmpId + 2, newName);
+            database.Clear();
+            ChangeEmployeeNameTransaction ce = new ChangeEmployeeNameTransaction(database,EmpId + 2, newName);
             Assert.Throws<EmployeeNotFound>(() => ce.Execute());
         }
 
@@ -18,9 +18,9 @@ namespace Payroll.Tests.Transactions
         {
             AddSalariedEmployeeToDb();
             string newName = "H-James";
-            ChangeEmployeeNameTransaction cn = new ChangeEmployeeNameTransaction(EmpId, newName);
+            ChangeEmployeeNameTransaction cn = new ChangeEmployeeNameTransaction(database,EmpId, newName);
             cn.Execute();
-            Employee e = PayrollDB.GetEmployee(EmpId);
+            Employee e = database.GetEmployee(EmpId);
             Assert.AreEqual(newName, e.Name);
         }
 
@@ -29,9 +29,9 @@ namespace Payroll.Tests.Transactions
         {
             AddSalariedEmployeeToDb();
             string newAddress = "New home";
-            ChangeEmployeeAddressTransaction ca = new ChangeEmployeeAddressTransaction(EmpId, newAddress);
+            ChangeEmployeeAddressTransaction ca = new ChangeEmployeeAddressTransaction(database,EmpId, newAddress);
             ca.Execute();
-            Employee employee = PayrollDB.GetEmployee(EmpId);
+            Employee employee = database.GetEmployee(EmpId);
             Assert.AreEqual(newAddress, employee.myAddress);
         }
 

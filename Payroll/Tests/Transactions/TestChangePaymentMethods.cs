@@ -8,9 +8,9 @@ namespace Payroll.Tests.Transactions
         public void ChangeEmployeePaymentMethodToHold()
         {
             AddSalariedEmployeeToDb();
-            ChangePmTransaction toHold = new ChangePmHold(EmpId);
+            ChangePmTransaction toHold = new ChangePmHold(database,EmpId);
             toHold.Execute();
-            Employee employee = PayrollDB.GetEmployee(EmpId);
+            Employee employee = database.GetEmployee(EmpId);
             Assert.IsTrue(employee.Paymentmethod is HoldMethod);
         }
 
@@ -18,9 +18,9 @@ namespace Payroll.Tests.Transactions
         public void ChangeEmployeePaymentMethodToMail()
         {
             AddSalariedEmployeeToDb();
-            ChangePmTransaction toMail = new ChangePmMail(EmpId, Address);
+            ChangePmTransaction toMail = new ChangePmMail(database,EmpId, Address);
             toMail.Execute();
-            Employee employee = PayrollDB.GetEmployee(EmpId);
+            Employee employee = database.GetEmployee(EmpId);
 
             Assert.IsTrue(employee.Paymentmethod is MailPaymentMethod);
             MailPaymentMethod ml = employee.Paymentmethod as MailPaymentMethod;
@@ -34,10 +34,10 @@ namespace Payroll.Tests.Transactions
         {
             AddSalariedEmployeeToDb();
             int accountNumber = 1533352425;
-            ChangePmTransaction toAccount = new ChangePmAccount(EmpId, accountNumber);
+            ChangePmTransaction toAccount = new ChangePmAccount(database,EmpId, accountNumber);
             toAccount.Execute();
 
-            Employee employee = PayrollDB.GetEmployee(EmpId);
+            Employee employee = database.GetEmployee(EmpId);
             Assert.IsTrue(employee.Paymentmethod is AccountPaymentMethod);
             AccountPaymentMethod accountPm = employee.Paymentmethod as AccountPaymentMethod;
             Assert.NotNull(accountPm);

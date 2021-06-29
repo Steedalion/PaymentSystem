@@ -5,22 +5,21 @@ namespace Payroll
         protected int Id;
         protected string Name;
         protected string Address;
-        protected Employee e;
 
-        protected AddEmployee(int id, string name, string address)
+        protected AddEmployee(InMemoryDB database, int id, string name, string address) : base(database)
         {
-            this.Id = id;
+            Id = id;
             Name = name;
             Address = address;
-            e = new Employee(id, name, address);
         }
 
-        public void Execute()
+        public override void Execute()
         {
+            Employee e = new Employee(Id, Name, Address);
             e.Schedule = MakePaymentSchedule();
             e.Classification = MakeClassification();
             e.Paymentmethod = MakePaymentMethod();
-            PayrollDB.AddEmployee(Id, e);
+            database.AddEmployee(Id, e);
         }
 
         protected abstract PaymentSchedule MakePaymentSchedule();

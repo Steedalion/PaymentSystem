@@ -5,7 +5,7 @@ namespace Payroll.Tests.Transactions
         private double salary;
         private double commisionRate;
 
-        public ChangeCommisionTransaction(int empId, double salary, double commisionRate) : base(empId)
+        public ChangeCommisionTransaction(InMemoryDB database, int empId, double salary, double commisionRate) : base(database, empId)
         {
             this.salary = salary;
             this.commisionRate = commisionRate;

@@ -6,6 +6,7 @@ namespace Payroll.Tests.Transactions
     [TestFixture]
     public class TestSetupTransactions
     {
+        protected InMemoryDB database = new InMemoryDB();
         protected int EmpId = 10;
         protected const string Name = "bob";
         protected const string Address = "home";
@@ -18,17 +19,17 @@ namespace Payroll.Tests.Transactions
         [SetUp]
         public void ClearDataBase()
         {
-            PayrollDB.Clear();
+            database.Clear();
         }
 
         protected void AddSalariedEmployeeToDb()
         {
-            AddSalaryEmployee t = new AddSalaryEmployee(EmpId, Name, Address, Salary);
+            AddSalaryEmployee t = new AddSalaryEmployee(database,EmpId, Name, Address, Salary);
             t.Execute();
         } 
         protected void AddHourlyEmployeeToDB()
         {
-            AddHourlyEmployee addHourlyEmployee = new AddHourlyEmployee(EmpId, Name, Address,HourlyRate );
+            AddHourlyEmployee addHourlyEmployee = new AddHourlyEmployee(database,EmpId, Name, Address,HourlyRate );
             addHourlyEmployee.Execute();
         }
 
@@ -36,7 +37,7 @@ namespace Payroll.Tests.Transactions
         {
             // EmpId = 4;
             
-            AddCommissionedEmployee t = new AddCommissionedEmployee(EmpId, Name, Address, Salary, CommisionRate);
+            AddCommissionedEmployee t = new AddCommissionedEmployee(database,EmpId, Name, Address, Salary, CommisionRate);
             t.Execute();
         }
 

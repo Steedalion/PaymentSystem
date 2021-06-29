@@ -72,10 +72,11 @@
         <Compile Include="PaymentClassifications\HourlyClassification.cs" />
         <Compile Include="PaymentClassifications\SalariedClassification.cs" />
         <Compile Include="Payroll Domain\Affiliation.cs" />
+        <Compile Include="Payroll Domain\IPayrollDB.cs" />
         <Compile Include="Payroll Domain\PaymentClassification.cs" />
         <Compile Include="Payroll Domain\PaymentMethod.cs" />
         <Compile Include="Payroll Domain\PaymentSchedule.cs" />
-        <Compile Include="Payroll Domain\PayrollDB.cs" />
+        <Compile Include="Payroll Domain\InMemoryDB.cs" />
         <Compile Include="Payroll Domain\Transaction.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="SalesReciept.cs" />
@@ -84,6 +85,9 @@
         <Compile Include="Tests\TestNoAffiliation.cs" />
         <Compile Include="Tests\TestPayrollDB.cs" />
         <Compile Include="Tests\TestPaySchedule.cs" />
+        <Compile Include="Tests\Transactions\ChangeAffiliation.cs" />
+        <Compile Include="Tests\Transactions\ChangeUnaffiliated.cs" />
+        <Compile Include="Tests\Transactions\PayDayTransaction.cs" />
         <Compile Include="Tests\Transactions\TestChangeMemberAffiliation.cs" />
         <Compile Include="Tests\Transactions\TestAffiliationTransaction.cs" />
         <Compile Include="Tests\Transactions\TestChangeEmployeeNameAndAddress.cs" />

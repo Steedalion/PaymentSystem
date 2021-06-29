@@ -4,7 +4,7 @@ namespace Payroll.Tests.Transactions
     {
         private double hourlyRate;
 
-        public ChangeHourlyEmployee(int empId, double hourlyRate) : base(empId)
+        public ChangeHourlyEmployee(InMemoryDB database, int empId, double hourlyRate) : base(database, empId)
         {
             this.hourlyRate = hourlyRate;
         }
@@ -18,5 +18,6 @@ namespace Payroll.Tests.Transactions
         {
             return new HourlyClassification(hourlyRate);
         }
+
     }
 }
