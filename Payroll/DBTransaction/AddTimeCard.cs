@@ -5,18 +5,19 @@ namespace Payroll.Tests
     public class AddTimeCard:DbTransaction
     {
         private int id;
-        private double hours;
         private DateTime date;
-        public AddTimeCard(int empId, DateTime dateTime, double hoursLogged)
+        private double hours;
+
+        public AddTimeCard(PayrollDB database, int id, DateTime date, double hours) : base(database)
         {
-            id = empId;
-            date = dateTime;
-            hours = hoursLogged;
+            this.id = id;
+            this.date = date;
+            this.hours = hours;
         }
 
-        public void Execute()
+        public override void Execute()
         {
-            Employee e = PayrollDB.GetEmployee(id);
+            Employee e = database.GetEmployee(id);
             if (e.isNull)
             {
                 throw new EmployeeNotFound();

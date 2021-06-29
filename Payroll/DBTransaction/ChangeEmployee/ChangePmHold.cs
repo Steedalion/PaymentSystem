@@ -2,7 +2,7 @@ namespace Payroll.Tests
 {
     public class ChangePmHold : ChangePmTransaction
     {
-        public ChangePmHold(int empId) : base(empId)
+        public ChangePmHold(PayrollDB database, int empId) : base(database, empId)
         {
         }
 

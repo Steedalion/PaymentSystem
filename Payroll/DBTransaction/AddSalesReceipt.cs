@@ -5,19 +5,20 @@ namespace Payroll.Tests
     public class AddSalesReceipt:DbTransaction
     {
         private int empid;
+                private DateTime date;
         private double ammount;
-        private DateTime date;
 
-        public AddSalesReceipt(int empid,  DateTime date, double ammount)
+
+        public AddSalesReceipt(PayrollDB database, int empid, DateTime date, double ammount) : base(database)
         {
             this.empid = empid;
-            this.ammount = ammount;
             this.date = date;
+            this.ammount = ammount;
         }
 
-        public void Execute()
+        public override void Execute()
         {
-            Employee e = PayrollDB.GetEmployee(empid);
+            Employee e = database.GetEmployee(empid);
             CommisionClassification cc = e.Classification as CommisionClassification;
             cc.AddSalesReciept(date, ammount);
         }

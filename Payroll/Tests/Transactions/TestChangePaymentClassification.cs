@@ -9,9 +9,9 @@ namespace Payroll.Tests.Transactions
         public void ChangeToSalaryPMC()
         {
             AddHourlyEmployeeToDB();
-            ChangeSalaryEmployee salary = new ChangeSalaryEmployee(EmpId, Salary);
+            ChangeSalaryEmployee salary = new ChangeSalaryEmployee(database,EmpId, Salary);
             salary.Execute();
-            Employee employee = PayrollDB.GetEmployee(EmpId);
+            Employee employee = database.GetEmployee(EmpId);
             Assert.IsFalse(employee.isNull);
             PaymentClassification p = employee.Classification;
             Assert.IsTrue(p is SalariedClassification);
@@ -24,10 +24,10 @@ namespace Payroll.Tests.Transactions
         {
             AddSalariedEmployeeToDb();
             double hourlyRate = 25;
-            ChangeHourlyEmployee hourlyEmployee = new ChangeHourlyEmployee(EmpId, hourlyRate);
+            ChangeHourlyEmployee hourlyEmployee = new ChangeHourlyEmployee(database,EmpId, hourlyRate);
             hourlyEmployee.Execute();
 
-            Employee e = PayrollDB.GetEmployee(EmpId);
+            Employee e = database.GetEmployee(EmpId);
             PaymentClassification pm = e.Classification;
             Assert.IsTrue(pm is HourlyClassification);
             HourlyClassification hc = pm as HourlyClassification;
@@ -43,10 +43,10 @@ namespace Payroll.Tests.Transactions
 
             double newSalary = 1250;
             double commisionRate = 0.01;
-            ChangeEmployeeTransaction commision = new ChangeCommisionTransaction(EmpId, newSalary, commisionRate);
+            ChangeEmployeeTransaction commision = new ChangeCommisionTransaction(database,EmpId, newSalary, commisionRate);
             commision.Execute();
 
-            Employee e = PayrollDB.GetEmployee(EmpId);
+            Employee e = database.GetEmployee(EmpId);
             PaymentClassification pm = e.Classification;
             Assert.IsTrue(pm is CommisionClassification);
             CommisionClassification hc = pm as CommisionClassification;

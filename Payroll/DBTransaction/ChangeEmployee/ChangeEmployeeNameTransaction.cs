@@ -4,11 +4,11 @@ namespace Payroll.Tests
     {
         private string newName;
 
-        public ChangeEmployeeNameTransaction(int empId, string newName) : base(empId)
+        public ChangeEmployeeNameTransaction(PayrollDB database, int empId, string newName) : base(database, empId)
         {
-            this.empId = empId;
             this.newName = newName;
         }
+
 
 
         protected override void ModifyEmployee(Employee employee)

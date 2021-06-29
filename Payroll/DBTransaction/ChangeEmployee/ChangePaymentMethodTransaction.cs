@@ -2,7 +2,7 @@ namespace Payroll.Tests
 {
     public abstract class ChangePmTransaction : ChangeEmployeeTransaction
     {
-        protected ChangePmTransaction(int empId) : base(empId)
+        protected ChangePmTransaction(PayrollDB database, int empId) : base(database, empId)
         {
         }
 

@@ -4,15 +4,11 @@ namespace Payroll
     {
         private double mySalary;
 
-        public AddSalaryEmployee(int id, string name, string address, double salary) : base(id, name, address)
-        {
-            this.Id = id;
-            Name = name;
-            Address = address;
-            e = new Employee(id, name, address);
-            mySalary = salary;
-        }
 
+        public AddSalaryEmployee(PayrollDB database, int id, string name, string address, double mySalary) : base(database, id, name, address)
+        {
+            this.mySalary = mySalary;
+        }
 
         protected override PaymentSchedule MakePaymentSchedule()
         {

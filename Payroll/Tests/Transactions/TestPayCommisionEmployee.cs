@@ -10,7 +10,7 @@ namespace Payroll.Tests.Transactions
         {
             AddCommisionedEmployeeToDB();
             DateTime payDate = new DateTime(2021, 06, 11);
-            PayDayTransaction payDay = new PayDayTransaction(payDate);
+            PayDayTransaction payDay = new PayDayTransaction(database,payDate);
 
             Assert.IsTrue(Biweekly.isBiweekly(payDate));
             payDay.Execute();
@@ -28,7 +28,7 @@ namespace Payroll.Tests.Transactions
         {
             AddCommisionedEmployeeToDB();
             DateTime payDate = new DateTime(2021, 06, 18);
-            PayDayTransaction payDay = new PayDayTransaction(payDate);
+            PayDayTransaction payDay = new PayDayTransaction(database,payDate);
             payDay.Execute();
 
             PayCheck payCheck = payDay.GetPayCheck(EmpId);
@@ -39,7 +39,7 @@ namespace Payroll.Tests.Transactions
         {
             AddCommisionedEmployeeToDB();
             DateTime payDate = new DateTime(2021, 06, 25);
-            PayDayTransaction payDay = new PayDayTransaction(payDate);
+            PayDayTransaction payDay = new PayDayTransaction(database,payDate);
 
             Assert.IsTrue(Biweekly.isBiweekly(payDate));
             payDay.Execute();
@@ -63,10 +63,10 @@ namespace Payroll.Tests.Transactions
             AddCommisionedEmployeeToDB();
 
             double saleAmount = 200;
-            AddSalesReceipt salesReceipt = new AddSalesReceipt(EmpId, payDate, saleAmount);
+            AddSalesReceipt salesReceipt = new AddSalesReceipt(database,EmpId, payDate, saleAmount);
             salesReceipt.Execute();
 
-            PayDayTransaction payDay = new PayDayTransaction(payDate);
+            PayDayTransaction payDay = new PayDayTransaction(database, payDate);
             payDay.Execute();
 
             PayCheck payCheck = payDay.GetPayCheck(EmpId);
@@ -85,19 +85,19 @@ namespace Payroll.Tests.Transactions
             AddCommisionedEmployeeToDB();
 
             double saleAmount = 200;
-            AddSalesReceipt salesReceipt = new AddSalesReceipt(EmpId, payDate, saleAmount);
+            AddSalesReceipt salesReceipt = new AddSalesReceipt(database,EmpId, payDate, saleAmount);
             salesReceipt.Execute();
             
-            AddSalesReceipt salesReceipt2 = new AddSalesReceipt(EmpId, payDate, saleAmount);
+            AddSalesReceipt salesReceipt2 = new AddSalesReceipt(database,EmpId, payDate, saleAmount);
             salesReceipt2.Execute();
             
-            AddSalesReceipt early = new AddSalesReceipt(EmpId, payDate.AddDays(-14), saleAmount);
+            AddSalesReceipt early = new AddSalesReceipt(database,EmpId, payDate.AddDays(-14), saleAmount);
             early.Execute();
             
-            AddSalesReceipt future = new AddSalesReceipt(EmpId, payDate.AddDays(14), saleAmount);
+            AddSalesReceipt future = new AddSalesReceipt(database,EmpId, payDate.AddDays(14), saleAmount);
             future.Execute();
 
-            PayDayTransaction payDay = new PayDayTransaction(payDate);
+            PayDayTransaction payDay = new PayDayTransaction(database,payDate);
             payDay.Execute();
 
             PayCheck payCheck = payDay.GetPayCheck(EmpId);

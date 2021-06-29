@@ -10,19 +10,19 @@ namespace Payroll.Tests.Transactions
         public void TestDeleteAnEmployee()
         {
 
-            AddSalaryEmployee t = new AddSalaryEmployee(EmpId, Name, Address, 100);
+            AddSalaryEmployee t = new AddSalaryEmployee(database,EmpId, Name, Address, 100);
             t.Execute();
-            Assert.NotNull(PayrollDB.GetEmployee(EmpId));
-            DeleteEmployee deleteEmployee = new DeleteEmployee(EmpId);
+            Assert.NotNull(database.GetEmployee(EmpId));
+            DeleteEmployee deleteEmployee = new DeleteEmployee(database,EmpId);
             deleteEmployee.Execute();
-            Employee e = PayrollDB.GetEmployee(EmpId);
+            Employee e = database.GetEmployee(EmpId);
             Assert.IsTrue(e.isNull);
         }
 
         [Test]
         public void DeletingANonExistingEmployee()
         {
-            DeleteEmployee deleteEmployee = new DeleteEmployee(EmpId);
+            DeleteEmployee deleteEmployee = new DeleteEmployee(database,EmpId);
             Assert.Throws<EmployeeNotFound>(() => deleteEmployee.Execute());
         }
     }

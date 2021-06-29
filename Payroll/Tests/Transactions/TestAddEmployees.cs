@@ -8,10 +8,10 @@ namespace Payroll.Tests.Transactions
         [Test]
         public void TestAddSalariedEmployee()
         {
-            AddSalaryEmployee t = new AddSalaryEmployee(EmpId, Name, Address, Salary);
+            AddSalaryEmployee t = new AddSalaryEmployee(database,EmpId, Name, Address, Salary);
             t.Execute();
 
-            Employee e = PayrollDB.GetEmployee(EmpId);
+            Employee e = database.GetEmployee(EmpId);
             Assert.AreEqual(Name, e.Name);
             Assert.AreEqual(Address, e.myAddress);
             PaymentClassification pc = e.Classification;
@@ -28,10 +28,10 @@ namespace Payroll.Tests.Transactions
         public void TestAddHourlyEmployee()
         {
             EmpId = 3;
-            AddEmployee t = new AddHourlyEmployee(EmpId, Name, Address, 25);
+            AddEmployee t = new AddHourlyEmployee(database,EmpId, Name, Address, 25);
             t.Execute();
 
-            Employee e = PayrollDB.GetEmployee(EmpId);
+            Employee e = database.GetEmployee(EmpId);
             Assert.AreEqual(Name, e.Name);
             Assert.AreEqual(Address, e.myAddress);
 
@@ -50,10 +50,10 @@ namespace Payroll.Tests.Transactions
         {
             EmpId = 4;
             float commisionRate = 0.14f;
-            AddCommissionedEmployee t = new AddCommissionedEmployee(EmpId, Name, Address, Salary, commisionRate);
+            AddCommissionedEmployee t = new AddCommissionedEmployee(database,EmpId, Name, Address, Salary, commisionRate);
             t.Execute();
 
-            Employee e = PayrollDB.GetEmployee(EmpId);
+            Employee e = database.GetEmployee(EmpId);
             Assert.NotNull(e);
 
             Assert.AreEqual(Name, e.Name);
@@ -75,13 +75,13 @@ namespace Payroll.Tests.Transactions
         [Test]
         public void TestAddedSalesRecieptShouldExist()
         {
-            AddCommissionedEmployee ce = new AddCommissionedEmployee(EmpId, Name, Address, 1000, 0.1);
+            AddCommissionedEmployee ce = new AddCommissionedEmployee(database,EmpId, Name, Address, 1000, 0.1);
             ce.Execute();
 
-            AddSalesReceipt sr = new AddSalesReceipt(EmpId, new DateTime(2005, 8, 8), 200);
+            AddSalesReceipt sr = new AddSalesReceipt(database,EmpId, new DateTime(2005, 8, 8),200);
             sr.Execute();
 
-            Employee e = PayrollDB.GetEmployee(EmpId);
+            Employee e = database.GetEmployee(EmpId);
             Assert.NotNull(e);
             PaymentClassification pc = e.Classification;
             Assert.IsTrue(pc is CommisionClassification);

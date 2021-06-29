@@ -5,17 +5,17 @@ namespace Payroll.Tests
         private int id;
         private int memberId;
 
-        public AddUnionMemberTransaction(int id, int memberId)
+        public AddUnionMemberTransaction(PayrollDB database, int id, int memberId) : base(database)
         {
             this.id = id;
             this.memberId = memberId;
         }
 
-        public void Execute()
+        public override void Execute()
         {
-            Employee e = PayrollDB.GetEmployee(id);
+            Employee e = database.GetEmployee(id);
             e.Affiliation = new UnionAffiliation();
-            PayrollDB.AddUnionMember(memberId, id);
+            database.AddUnionMember(memberId, id);
             
         }
     }

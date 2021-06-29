@@ -84,6 +84,9 @@
         <Compile Include="Tests\TestNoAffiliation.cs" />
         <Compile Include="Tests\TestPayrollDB.cs" />
         <Compile Include="Tests\TestPaySchedule.cs" />
+        <Compile Include="Tests\Transactions\ChangeAffiliation.cs" />
+        <Compile Include="Tests\Transactions\ChangeUnaffiliated.cs" />
+        <Compile Include="Tests\Transactions\PayDayTransaction.cs" />
         <Compile Include="Tests\Transactions\TestChangeMemberAffiliation.cs" />
         <Compile Include="Tests\Transactions\TestAffiliationTransaction.cs" />
         <Compile Include="Tests\Transactions\TestChangeEmployeeNameAndAddress.cs" />

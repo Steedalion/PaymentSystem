@@ -4,12 +4,12 @@ using System.Linq;
 
 namespace Payroll
 {
-    public static class PayrollDB
+    public class PayrollDB
     {
         private static Hashtable db = new Hashtable();
         private static Hashtable union = new Hashtable();
 
-        public static Employee GetEmployee(int empId)
+        public Employee GetEmployee(int empId)
         {
             if (!db.Contains(empId))
             {
@@ -19,31 +19,31 @@ namespace Payroll
             return db[empId] as Employee;
         }
 
-        public static void AddEmployee(int id, Employee employee)
+        public void AddEmployee(int id, Employee employee)
         {
             db.Add(id, employee);
         }
 
-        public static void Clear()
+        public void Clear()
         {
             db.Clear();
             union.Clear();
         }
 
-        public static void RemoveEmployee(int id)
+        public void RemoveEmployee(int id)
         {
             if (!db.Contains(id)) throw new EmployeeNotFound();
             db.Remove(id);
         }
 
-        public static void AddUnionMember(int memberId, int id)
+        public void AddUnionMember(int memberId, int id)
         {
             if (!db.Contains(id)) throw new EmployeeNotFound();
             Employee e = GetEmployee(id);
             union.Add(memberId, id);
         }
 
-        public static Employee GetUnionMember(int memberId)
+        public Employee GetUnionMember(int memberId)
         {
             if (!union.Contains(memberId))
             {
@@ -53,7 +53,7 @@ namespace Payroll
             return GetEmployee(empId);
         }
 
-        public static void RemoveUnionMember(int memberId)
+        public void RemoveUnionMember(int memberId)
         {
             if (!union.Contains(memberId))
             {
@@ -62,7 +62,7 @@ namespace Payroll
             union.Remove(memberId);
         }
 
-        public static int[] GetEmployeeIds()
+        public int[] GetEmployeeIds()
         {
             return db.Keys.Cast<int>().ToArray();
         }

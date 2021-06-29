@@ -4,10 +4,11 @@ namespace Payroll.Tests.Transactions
     {
         private double salary;
 
-        public ChangeSalaryEmployee(int empId, double salary) : base(empId)
+        public ChangeSalaryEmployee(PayrollDB database, int empId, double salary) : base(database, empId)
         {
             this.salary = salary;
         }
+
 
         protected override PaymentSchedule MakePaymentSchedule()
         {
