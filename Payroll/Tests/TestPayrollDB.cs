@@ -4,7 +4,7 @@ namespace Payroll.Tests
 {
     public class TestPayrollDb
     {
-        protected PayrollDB database = new PayrollDB();
+        protected InMemoryDB database = new InMemoryDB();
 
         [Test]
         public void AddEmployeeToDB()

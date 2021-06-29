@@ -4,7 +4,7 @@ namespace Payroll.Tests
 {
     public class AddUnionServiceCharge:DbTransaction
     {
-        public AddUnionServiceCharge(PayrollDB database, int memberId, DateTime date, double amount) : base(database)
+        public AddUnionServiceCharge(InMemoryDB database, int memberId, DateTime date, double amount) : base(database)
         {
             this.memberId = memberId;
             this.date = date;

@@ -4,7 +4,7 @@ namespace Payroll.Tests
     {
         private int accountNumber;
 
-        public ChangePmAccount(PayrollDB database, int empId, int accountNumber) : base(database, empId)
+        public ChangePmAccount(InMemoryDB database, int empId, int accountNumber) : base(database, empId)
         {
             this.accountNumber = accountNumber;
         }

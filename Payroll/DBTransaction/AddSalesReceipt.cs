@@ -9,7 +9,7 @@ namespace Payroll.Tests
         private double ammount;
 
 
-        public AddSalesReceipt(PayrollDB database, int empid, DateTime date, double ammount) : base(database)
+        public AddSalesReceipt(InMemoryDB database, int empid, DateTime date, double ammount) : base(database)
         {
             this.empid = empid;
             this.date = date;

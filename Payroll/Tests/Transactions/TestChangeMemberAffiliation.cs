@@ -63,7 +63,7 @@ namespace Payroll.Tests.Transactions
         private int memberID;
         private double dues;
 
-        public ChangeUnionMember(PayrollDB database, int empId, int memberId, double dues) : base(database, empId, memberId)
+        public ChangeUnionMember(InMemoryDB database, int empId, int memberId, double dues) : base(database, empId, memberId)
         {
             memberID = memberId;
             this.dues = dues;

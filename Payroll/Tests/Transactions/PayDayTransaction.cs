@@ -8,7 +8,7 @@ namespace Payroll.Tests.Transactions
         private Dictionary<int, PayCheck> paychecks = new Dictionary<int, PayCheck>();
         private DateTime payDate;
 
-        public PayDayTransaction(PayrollDB database, DateTime payDate) : base(database)
+        public PayDayTransaction(InMemoryDB database, DateTime payDate) : base(database)
         {
             this.payDate = payDate;
         }

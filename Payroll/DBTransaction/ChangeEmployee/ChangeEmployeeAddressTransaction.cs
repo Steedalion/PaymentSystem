@@ -4,7 +4,7 @@ namespace Payroll.Tests
     {
         private string newAddress;
 
-        public ChangeEmployeeAddressTransaction(PayrollDB database, int empId, string newAddress) : base(database, empId)
+        public ChangeEmployeeAddressTransaction(InMemoryDB database, int empId, string newAddress) : base(database, empId)
         {
             this.newAddress = newAddress;
         }

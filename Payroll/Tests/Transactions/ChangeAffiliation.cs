@@ -4,7 +4,7 @@ namespace Payroll.Tests.Transactions
     {
         protected int memberId;
 
-        protected ChangeAffiliation(PayrollDB database, int empId, int memberId) : base(database, empId)
+        protected ChangeAffiliation(InMemoryDB database, int empId, int memberId) : base(database, empId)
         {
             this.memberId = memberId;
         }

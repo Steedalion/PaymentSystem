@@ -4,7 +4,7 @@ namespace Payroll.Tests
     {
         private string address;
 
-        public ChangePmMail(PayrollDB database, int empId, string address) : base(database, empId)
+        public ChangePmMail(InMemoryDB database, int empId, string address) : base(database, empId)
         {
             this.address = address;
         }

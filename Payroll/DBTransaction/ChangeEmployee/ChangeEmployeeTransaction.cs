@@ -4,7 +4,7 @@ namespace Payroll.Tests
     {
         protected int empId;
 
-        protected ChangeEmployeeTransaction(PayrollDB database, int empId) : base(database)
+        protected ChangeEmployeeTransaction(InMemoryDB database, int empId) : base(database)
         {
             this.empId = empId;
         }

@@ -8,7 +8,7 @@ namespace Payroll.Tests
         private DateTime date;
         private double hours;
 
-        public AddTimeCard(PayrollDB database, int id, DateTime date, double hours) : base(database)
+        public AddTimeCard(InMemoryDB database, int id, DateTime date, double hours) : base(database)
         {
             this.id = id;
             this.date = date;

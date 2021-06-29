@@ -72,10 +72,11 @@
         <Compile Include="PaymentClassifications\HourlyClassification.cs" />
         <Compile Include="PaymentClassifications\SalariedClassification.cs" />
         <Compile Include="Payroll Domain\Affiliation.cs" />
+        <Compile Include="Payroll Domain\IPayrollDB.cs" />
         <Compile Include="Payroll Domain\PaymentClassification.cs" />
         <Compile Include="Payroll Domain\PaymentMethod.cs" />
         <Compile Include="Payroll Domain\PaymentSchedule.cs" />
-        <Compile Include="Payroll Domain\PayrollDB.cs" />
+        <Compile Include="Payroll Domain\InMemoryDB.cs" />
         <Compile Include="Payroll Domain\Transaction.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="SalesReciept.cs" />

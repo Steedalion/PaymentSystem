@@ -5,7 +5,7 @@ namespace Payroll.Tests
         private int id;
         private int memberId;
 
-        public AddUnionMemberTransaction(PayrollDB database, int id, int memberId) : base(database)
+        public AddUnionMemberTransaction(InMemoryDB database, int id, int memberId) : base(database)
         {
             this.id = id;
             this.memberId = memberId;

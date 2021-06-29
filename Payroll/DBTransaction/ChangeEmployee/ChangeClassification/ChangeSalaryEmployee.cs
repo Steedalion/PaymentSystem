@@ -4,7 +4,7 @@ namespace Payroll.Tests.Transactions
     {
         private double salary;
 
-        public ChangeSalaryEmployee(PayrollDB database, int empId, double salary) : base(database, empId)
+        public ChangeSalaryEmployee(InMemoryDB database, int empId, double salary) : base(database, empId)
         {
             this.salary = salary;
         }

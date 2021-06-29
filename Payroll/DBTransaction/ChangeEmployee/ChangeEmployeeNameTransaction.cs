@@ -4,7 +4,7 @@ namespace Payroll.Tests
     {
         private string newName;
 
-        public ChangeEmployeeNameTransaction(PayrollDB database, int empId, string newName) : base(database, empId)
+        public ChangeEmployeeNameTransaction(InMemoryDB database, int empId, string newName) : base(database, empId)
         {
             this.newName = newName;
         }

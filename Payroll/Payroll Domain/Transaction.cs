@@ -2,9 +2,9 @@ namespace Payroll
 {
     public abstract class DbTransaction
     {
-        protected PayrollDB database;
+        protected IPayrollDB database;
 
-        public DbTransaction(PayrollDB database)
+        public DbTransaction(InMemoryDB database)
         {
             this.database = database;
         }

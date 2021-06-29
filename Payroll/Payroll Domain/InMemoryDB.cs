@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Payroll
 {
-    public class PayrollDB
+    public class InMemoryDB : IPayrollDB
     {
         private static Hashtable db = new Hashtable();
         private static Hashtable union = new Hashtable();

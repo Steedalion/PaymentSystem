@@ -6,7 +6,7 @@ namespace Payroll
         protected string Name;
         protected string Address;
 
-        protected AddEmployee(PayrollDB database, int id, string name, string address) : base(database)
+        protected AddEmployee(InMemoryDB database, int id, string name, string address) : base(database)
         {
             Id = id;
             Name = name;
