@@ -68,8 +68,12 @@ namespace Payroll
         }
     }
 
-  
 
+
+    public class EmployeeAlreadyExists : Exception
+    {
+        
+    }
     public class UnionMemberNotFound : Exception
     {
     }
