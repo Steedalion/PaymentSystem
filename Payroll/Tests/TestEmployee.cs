@@ -22,6 +22,11 @@ namespace Payroll.Tests
             Assert.False(e.isNull);
         }
 
+        [Test]
+        public void DefaultPaymentMethodIsHold()
+        {
+            Assert.IsTrue(e.Paymentmethod is HoldMethod);
+        }
         
 
     }

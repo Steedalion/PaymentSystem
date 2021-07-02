@@ -2,13 +2,13 @@ using NUnit.Framework;
 
 namespace Payroll.Tests.Transactions
 {
-    public class TestChangePaymentMethods:TestSetupTransactions
+    public class TestChangePaymentMethods : TestSetupTransactions
     {
         [Test]
         public void ChangeEmployeePaymentMethodToHold()
         {
             AddSalariedEmployeeToDb();
-            ChangePmTransaction toHold = new ChangePmHold(database,EmpId);
+            ChangePmTransaction toHold = new ChangePmHold(database, EmpId);
             toHold.Execute();
             Employee employee = database.GetEmployee(EmpId);
             Assert.IsTrue(employee.Paymentmethod is HoldMethod);
@@ -18,7 +18,7 @@ namespace Payroll.Tests.Transactions
         public void ChangeEmployeePaymentMethodToMail()
         {
             AddSalariedEmployeeToDb();
-            ChangePmTransaction toMail = new ChangePmMail(database,EmpId, Address);
+            ChangePmTransaction toMail = new ChangePmMail(database, EmpId, Address);
             toMail.Execute();
             Employee employee = database.GetEmployee(EmpId);
 
@@ -34,13 +34,15 @@ namespace Payroll.Tests.Transactions
         {
             AddSalariedEmployeeToDb();
             int accountNumber = 1533352425;
-            ChangePmTransaction toAccount = new ChangePmAccount(database,EmpId, accountNumber);
+            ChangePmTransaction toAccount = new ChangePmAccount(database, EmpId, "bank", accountNumber);
             toAccount.Execute();
 
             Employee employee = database.GetEmployee(EmpId);
             Assert.IsTrue(employee.Paymentmethod is AccountPaymentMethod);
             AccountPaymentMethod accountPm = employee.Paymentmethod as AccountPaymentMethod;
+
             Assert.NotNull(accountPm);
+            Assert.AreEqual("bank", accountPm.bank);
             Assert.AreEqual(accountNumber, accountPm.AccountNumber);
         }
     }

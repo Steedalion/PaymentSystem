@@ -72,7 +72,13 @@ namespace Payroll
 
     public class EmployeeAlreadyExists : Exception
     {
-        
+        public EmployeeAlreadyExists()
+        {
+        }
+
+        public EmployeeAlreadyExists(string message) : base(message)
+        {
+        }
     }
     public class UnionMemberNotFound : Exception
     {
