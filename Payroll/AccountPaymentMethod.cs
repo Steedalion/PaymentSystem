@@ -5,10 +5,11 @@ namespace Payroll
     public class AccountPaymentMethod : PaymentMethod
     {
         public int AccountNumber { get; }
-
-        public AccountPaymentMethod(int accountNumber)
+        public string bank { get; }
+        public AccountPaymentMethod(string bank,int accountNumber)
         {
             AccountNumber = accountNumber;
+            this.bank = bank;
         }
 
         public void pay(PayCheck payCheck)
