@@ -45,6 +45,15 @@ namespace Payroll.Tests
             DataTable table = new DataTable();
             adapter.Fill(table);
             return table;
+        }  
+        private DataTable GetPaycheAddressTable()
+        {
+            string getAccounts = "SELECT * FROM PaycheckAddress";
+            SqliteCommand cmd = new SqliteCommand(getAccounts, con);
+            SqliteDataAdapter adapter = new SqliteDataAdapter(cmd);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
         }
 
         [Test]
@@ -53,6 +62,11 @@ namespace Payroll.Tests
             addEmployeeMethod(new MailPaymentMethod("home"));
             string expectedCode = SqliteDB.PaymentMethods.Post;
             CompareSavedScheduleType(expectedCode);
+            DataTable paycheckAddresses = GetPaycheAddressTable();
+            Assert.AreEqual(1, paycheckAddresses.Rows.Count);
+            DataRow row = paycheckAddresses.Rows[0];
+            Assert.AreEqual(id, row["EmpID"]);
+            Assert.AreEqual("home", row["Address"]);
         }
 
         void addEmployeeMethod(PaymentMethod pm)
