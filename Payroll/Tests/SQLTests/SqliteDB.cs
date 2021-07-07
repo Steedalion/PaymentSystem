@@ -97,7 +97,7 @@ namespace Payroll.Tests
 
             if (employeePaymentmethod is MailPaymentMethod)
             {
-                return PaymentMethods.Post;
+                return PaymentMethods.Mail;
             }
             
 
@@ -138,7 +138,7 @@ namespace Payroll.Tests
         {
             public static string Hold = "HoldPayment";
             public static string Account = "AccountPayment";
-            public static string Post = "PostPayment";
+            public static string Mail = "PostPayment";
         }
         public static class ScheduleCodes
         {
@@ -162,6 +162,11 @@ namespace Payroll.Tests
                 return ScheduleCodes.Weekly;
             }
             return "UnknownSchedule";
+        }
+        public static class Tables
+        {
+            public static string mail = "PaycheckAddress";
+            public static string account = "DirectDepositAccount";
         }
     }
 }
