@@ -16,13 +16,13 @@ namespace Payroll.Tests
 
         private void ClearTable(string tableName)
         {
-            SqliteCommand clearPM = new SqliteCommand("DELETE FROM "+tableName, con);
+            SqliteCommand clearPM = new SqliteCommand("DELETE FROM " + tableName, con);
             clearPM.ExecuteNonQuery();
         }
 
         private DataTable GetDataTable(string Table)
         {
-            string getAccounts = "SELECT * FROM "+Table;
+            string getAccounts = "SELECT * FROM " + Table;
             SqliteCommand cmd = new SqliteCommand(getAccounts, con);
             SqliteDataAdapter adapter = new SqliteDataAdapter(cmd);
             DataTable table = new DataTable();
@@ -30,7 +30,6 @@ namespace Payroll.Tests
             return table;
         }
 
-   
 
         [Test]
         public void EmployeeCannotHaveMoreThanOnePM()
@@ -47,7 +46,8 @@ namespace Payroll.Tests
             }
 
             Assert.AreEqual(1, GetDataTable(SqliteDB.Tables.account).Rows.Count);
-            Assert.AreEqual(0, GetDataTable(SqliteDB.Tables.mail).Rows.Count,"Mail should not get added since employee failed");
+            Assert.AreEqual(0, GetDataTable(SqliteDB.Tables.mail).Rows.Count,
+                "Mail should not get added since employee failed");
         }
 
         [Test]
@@ -73,7 +73,6 @@ namespace Payroll.Tests
             Assert.AreEqual(accountNumber, row["Account"]);
         }
 
-
         [Test]
         public void MailPayGetsSaved()
         {
@@ -85,6 +84,26 @@ namespace Payroll.Tests
             DataRow row = paycheckAddresses.Rows[0];
             Assert.AreEqual(id, row["EmpID"]);
             Assert.AreEqual("home", row["Address"]);
+        }
+
+        [Test]
+        public void PMSaveIsTransactional()
+        {
+            AccountPaymentMethod method = new AccountPaymentMethod(null, 0);
+            Employee employee = new Employee(id, "John", "home");
+            employee.Paymentmethod = method;
+            try
+            {
+                database.AddEmployee(id, employee);
+                Assert.Fail("An exception should occure");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            DataTable employees = GetDataTable(SqliteDB.Tables.employee);
+            Assert.AreEqual(0, employees.Rows.Count);
         }
 
         void addEmployeeMethod(PaymentMethod pm)
