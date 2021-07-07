@@ -34,7 +34,7 @@ namespace Payroll.Tests
             cmd.Parameters.AddWithValue("@Address", employee.myAddress);
             cmd.Parameters.AddWithValue("@ScheduleType", ScheduleCode(employee.Schedule));
             cmd.Parameters.AddWithValue("@PaymentMethodType", PaymentMethodCode(employee.Paymentmethod));
-            cmd.Parameters.AddWithValue("@PaymentClassificationType", employee.Classification.GetType().ToString());
+            cmd.Parameters.AddWithValue("@PaymentClassificationType", PaymentClassificationCode(employee.Classification));
             
             try
             {
@@ -47,6 +47,11 @@ namespace Payroll.Tests
 
             SavePaymentMethod(id,employee);
             con.Close();
+        }
+
+        private string PaymentClassificationCode(PaymentClassification employeeClassification)
+        {
+            return "unknown Payment Classification";
         }
 
         private void SavePaymentMethod(int id,Employee employee)
@@ -167,6 +172,7 @@ namespace Payroll.Tests
         {
             public static string mail = "PaycheckAddress";
             public static string account = "DirectDepositAccount";
+            public static string employee = "Employee";
         }
     }
 }
