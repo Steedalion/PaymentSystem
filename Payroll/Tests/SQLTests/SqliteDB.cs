@@ -54,7 +54,7 @@ namespace Payroll.Tests
             PaymentMethod method = employee.Paymentmethod;
             if (method is AccountPaymentMethod)
             {
-                 AccountPaymentMethod acc = new AccountPaymentMethod("New bank", 12315);
+                 AccountPaymentMethod acc = method as AccountPaymentMethod;
                 
                 string accountadd = "INSERT INTO DirectDepositAccount VALUES(" +
                          "@id" +
@@ -68,6 +68,19 @@ namespace Payroll.Tests
             cmdAccount.Parameters.AddWithValue("@Bank", acc.bank);
             cmdAccount.ExecuteNonQuery();
             }
+            else if (method is MailPaymentMethod)
+            {
+                MailPaymentMethod mail = method as MailPaymentMethod;
+                string sql = "INSERT INTO PaycheckAddress VALUES (" +
+                             "@id" +
+                             ", @address" +
+                             ")";
+                var cmd = new SqliteCommand(sql, con);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@address", mail.Address);
+                cmd.ExecuteNonQuery();
+            }
+            
         }
 
         private string PaymentMethodCode(PaymentMethod employeePaymentmethod)
@@ -76,6 +89,17 @@ namespace Payroll.Tests
             {
                 return PaymentMethods.Account;
             }
+
+            if (employeePaymentmethod is HoldMethod)
+            {
+                return PaymentMethods.Hold;
+            }
+
+            if (employeePaymentmethod is MailPaymentMethod)
+            {
+                return PaymentMethods.Post;
+            }
+            
 
             return "UnknownPayment";
         }
