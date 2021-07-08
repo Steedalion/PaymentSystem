@@ -1,4 +1,4 @@
-using System.Diagnostics;
+using Affiliations;
 using NUnit.Framework;
 
 namespace Payroll.Tests.Transactions

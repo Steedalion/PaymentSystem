@@ -43,7 +43,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="Tests\TestEmployee.cs" />
+        <Compile Include="TestEmployee.cs" />
         <Compile Include="Tests\TestNoAffiliation.cs" />
         <Compile Include="Tests\TestPaySchedule.cs" />
         <Compile Include="Tests\Transactions\TestAddEmployees.cs" />
@@ -59,9 +59,21 @@
         <Compile Include="Tests\Transactions\TestSetupTransactions.cs" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\Affiliations\Affiliations.csproj">
+        <Project>{bdaad895-e91b-4852-ae51-11de8d5d6b8d}</Project>
+        <Name>Affiliations</Name>
+      </ProjectReference>
       <ProjectReference Include="..\InMemoryDBTest\InMemoryDBTest.csproj">
         <Project>{92de6cc4-82dc-43be-9aec-2e0528f23abf}</Project>
         <Name>InMemoryDBTest</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\PaymentClassification\PaymentClassification.csproj">
+        <Project>{23130573-75d1-4802-9f65-9cd5b8f04971}</Project>
+        <Name>PaymentClassification</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\PaymentMethods\PaymentMethods.csproj">
+        <Project>{4e08bb1c-9953-48c4-872f-ce0590f3aad2}</Project>
+        <Name>PaymentMethods</Name>
       </ProjectReference>
       <ProjectReference Include="..\PayrollDB\PayrollDB.csproj">
         <Project>{7e62b1e0-c05e-4eb0-a775-06f5a761c64c}</Project>
@@ -78,6 +90,14 @@
       <ProjectReference Include="..\Payroll\Payroll.csproj">
         <Project>{ac102298-f4d8-4c0a-b798-1b70d0fe5b14}</Project>
         <Name>Payroll</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\Schedules\Schedules.csproj">
+        <Project>{4e6db94b-82dc-4f9c-bff8-0df94bcc95d9}</Project>
+        <Name>Schedules</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\Transactions\Transactions.csproj">
+        <Project>{bd8b0605-0d4c-4e80-830e-fdc7c82766ed}</Project>
+        <Name>Transactions</Name>
       </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

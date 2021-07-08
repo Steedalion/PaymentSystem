@@ -4,11 +4,11 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{7E62B1E0-C05E-4EB0-A775-06F5A761C64C}</ProjectGuid>
+        <ProjectGuid>{B45A814C-3301-4287-A7BA-8A54FB71FD46}</ProjectGuid>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>PayrollDB</RootNamespace>
-        <AssemblyName>PayrollDB</AssemblyName>
+        <RootNamespace>Defaults</RootNamespace>
+        <AssemblyName>Defaults</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>
@@ -38,22 +38,7 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="EmployeeAlreadyExists.cs" />
-        <Compile Include="EmployeeNotFound.cs" />
-        <Compile Include="InMemoryDB.cs" />
-        <Compile Include="IPayrollDB.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="UnionMemberNotFound.cs" />
-    </ItemGroup>
-    <ItemGroup>
-      <ProjectReference Include="..\PayrollDomain\PayrollDomain.csproj">
-        <Project>{6c2dcd48-4681-4af8-9360-ab5f4040eb92}</Project>
-        <Name>PayrollDomain</Name>
-      </ProjectReference>
-      <ProjectReference Include="..\Payroll\Payroll.csproj">
-        <Project>{ac102298-f4d8-4c0a-b798-1b70d0fe5b14}</Project>
-        <Name>Payroll</Name>
-      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

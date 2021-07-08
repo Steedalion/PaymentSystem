@@ -1,6 +1,6 @@
 using System;
 
-namespace Payroll.Tests.Transactions
+namespace Affiliations
 {
     public class NoAffiliation : Affiliation
     {
@@ -20,4 +20,5 @@ namespace Payroll.Tests.Transactions
             return 0;
         }
     }
+
 }
