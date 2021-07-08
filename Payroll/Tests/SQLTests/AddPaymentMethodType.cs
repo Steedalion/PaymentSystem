@@ -92,6 +92,7 @@ namespace Payroll.Tests
             AccountPaymentMethod method = new AccountPaymentMethod(null, 0);
             Employee employee = new Employee(id, "John", "home");
             employee.Paymentmethod = method;
+
             try
             {
                 database.AddEmployee(id, employee);
@@ -99,7 +100,7 @@ namespace Payroll.Tests
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                Console.WriteLine(e.Message);
             }
 
             DataTable employees = GetDataTable(SqliteDB.Tables.employee);
