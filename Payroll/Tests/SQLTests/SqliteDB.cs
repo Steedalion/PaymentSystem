@@ -1,13 +1,14 @@
+using System;
 using Mono.Data.Sqlite;
 
 namespace Payroll.Tests
 {
-    
     public class SqliteDB : IPayrollDB
     {
         public static string connectionID = @"URI=file:/home/alex/RiderProjects/PaymentSystem/PayrollDB.sqlite";
 
         private SqliteConnection con;
+
         public Employee GetEmployee(int empId)
         {
             throw new System.NotImplementedException();
@@ -18,13 +19,15 @@ namespace Payroll.Tests
             con = new SqliteConnection(SqliteDB.connectionID);
             con.Open();
 
+            SqliteTransaction transaction = con.BeginTransaction();
+
             string sql = "INSERT INTO Employee VALUES("
                          + "@EmpID"
-                         +",@Name"
-                         +",@Address"
-                         +",@ScheduleType"
-                         +",@PaymentMethodType"
-                         +",@PaymentClassificationType"
+                         + ",@Name"
+                         + ",@Address"
+                         + ",@ScheduleType"
+                         + ",@PaymentMethodType"
+                         + ",@PaymentClassificationType"
                          + ")";
 
             var command = new SqliteCommand(sql, con);
@@ -34,18 +37,22 @@ namespace Payroll.Tests
             cmd.Parameters.AddWithValue("@Address", employee.myAddress);
             cmd.Parameters.AddWithValue("@ScheduleType", ScheduleCode(employee.Schedule));
             cmd.Parameters.AddWithValue("@PaymentMethodType", PaymentMethodCode(employee.Paymentmethod));
-            cmd.Parameters.AddWithValue("@PaymentClassificationType", PaymentClassificationCode(employee.Classification));
-            
+            cmd.Parameters.AddWithValue("@PaymentClassificationType",
+                PaymentClassificationCode(employee.Classification));
+
             try
             {
+                cmd.Transaction = transaction;
                 cmd.ExecuteNonQuery();
+                SavePaymentMethod(id, employee, transaction);
+                transaction.Commit();
             }
             catch (SqliteException e)
             {
+                transaction.Rollback();
                 throw new EmployeeAlreadyExists(e.ToString());
             }
 
-            SavePaymentMethod(id,employee);
             con.Close();
         }
 
@@ -54,24 +61,29 @@ namespace Payroll.Tests
             return "unknown Payment Classification";
         }
 
-        private void SavePaymentMethod(int id,Employee employee)
+        private void SavePaymentMethod(int id, Employee employee, SqliteTransaction sqliteTransaction)
         {
             PaymentMethod method = employee.Paymentmethod;
-            if (method is AccountPaymentMethod)
+            SqliteCommand paymentMethod = null;
+
+            if (method is HoldMethod)
             {
-                 AccountPaymentMethod acc = method as AccountPaymentMethod;
-                
+                return;
+            }
+            else if (method is AccountPaymentMethod)
+            {
+                AccountPaymentMethod acc = method as AccountPaymentMethod;
+
                 string accountadd = "INSERT INTO DirectDepositAccount VALUES(" +
-                         "@id" +
-                         ", @Account"+
-                         ", @Bank"+
-                         ")";
-                
-            var cmdAccount = new SqliteCommand(accountadd, con);
-            cmdAccount.Parameters.AddWithValue("@id", id);
-            cmdAccount.Parameters.AddWithValue("@Account", acc.AccountNumber);
-            cmdAccount.Parameters.AddWithValue("@Bank", acc.bank);
-            cmdAccount.ExecuteNonQuery();
+                                    "@id" +
+                                    ", @Account" +
+                                    ", @Bank" +
+                                    ")";
+                paymentMethod = new SqliteCommand(accountadd, con);
+                paymentMethod.Parameters.AddWithValue("@id", id);
+                paymentMethod.Parameters.AddWithValue("@Account", acc.AccountNumber);
+                paymentMethod.Parameters.AddWithValue("@Bank", acc.bank);
+               
             }
             else if (method is MailPaymentMethod)
             {
@@ -80,12 +92,21 @@ namespace Payroll.Tests
                              "@id" +
                              ", @address" +
                              ")";
-                var cmd = new SqliteCommand(sql, con);
-                cmd.Parameters.AddWithValue("@id", id);
-                cmd.Parameters.AddWithValue("@address", mail.Address);
-                cmd.ExecuteNonQuery();
+                paymentMethod = new SqliteCommand(sql, con);
+                paymentMethod.Parameters.AddWithValue("@id", id);
+                paymentMethod.Parameters.AddWithValue("@address", mail.Address);
+            } 
+
+            if (paymentMethod != null)
+            {
+                paymentMethod.Transaction = sqliteTransaction;
+                paymentMethod.ExecuteNonQuery();
+            } 
+
+            if (paymentMethod == null)
+            {
+                throw new NullReferenceException();
             }
-            
         }
 
         private string PaymentMethodCode(PaymentMethod employeePaymentmethod)
@@ -104,7 +125,7 @@ namespace Payroll.Tests
             {
                 return PaymentMethods.Mail;
             }
-            
+
 
             return "UnknownPayment";
         }
@@ -145,6 +166,7 @@ namespace Payroll.Tests
             public static string Account = "AccountPayment";
             public static string Mail = "PostPayment";
         }
+
         public static class ScheduleCodes
         {
             public static string BiWeekly = "BiWeekly";
@@ -166,8 +188,10 @@ namespace Payroll.Tests
             {
                 return ScheduleCodes.Weekly;
             }
+
             return "UnknownSchedule";
         }
+
         public static class Tables
         {
             public static string mail = "PaycheckAddress";
