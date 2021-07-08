@@ -1,5 +1,4 @@
-
-using Payroll.Tests.Transactions;
+using Affiliations;
 using PayrollDomain.Payroll_Domain;
 
 namespace Payroll
@@ -42,4 +41,5 @@ namespace Payroll
 
         }
     }
+
 }

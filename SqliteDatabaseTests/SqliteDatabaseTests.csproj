@@ -66,13 +66,21 @@
       <None Include="packages.config" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\Defaults\Defaults.csproj">
+        <Project>{b45a814c-3301-4287-a7ba-8a54fb71fd46}</Project>
+        <Name>Defaults</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\PaymentClassification\PaymentClassification.csproj">
+        <Project>{23130573-75d1-4802-9f65-9cd5b8f04971}</Project>
+        <Name>PaymentClassification</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\PaymentMethods\PaymentMethods.csproj">
+        <Project>{4e08bb1c-9953-48c4-872f-ce0590f3aad2}</Project>
+        <Name>PaymentMethods</Name>
+      </ProjectReference>
       <ProjectReference Include="..\PayrollDB\PayrollDB.csproj">
         <Project>{7e62b1e0-c05e-4eb0-a775-06f5a761c64c}</Project>
         <Name>PayrollDB</Name>
-      </ProjectReference>
-      <ProjectReference Include="..\PayrollDomainTests\PayrollDomainTests.csproj">
-        <Project>{bdb1efed-204a-4603-ac93-f74c9843c769}</Project>
-        <Name>PayrollDomainTests</Name>
       </ProjectReference>
       <ProjectReference Include="..\PayrollDomain\PayrollDomain.csproj">
         <Project>{6c2dcd48-4681-4af8-9360-ab5f4040eb92}</Project>
@@ -81,6 +89,10 @@
       <ProjectReference Include="..\Payroll\Payroll.csproj">
         <Project>{ac102298-f4d8-4c0a-b798-1b70d0fe5b14}</Project>
         <Name>Payroll</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\Schedules\Schedules.csproj">
+        <Project>{4e6db94b-82dc-4f9c-bff8-0df94bcc95d9}</Project>
+        <Name>Schedules</Name>
       </ProjectReference>
       <ProjectReference Include="..\SQLitePayrollDatabase\SQLitePayrollDatabase.csproj">
         <Project>{9e4a0173-d7d1-49c3-bd7c-9a33d35c657d}</Project>

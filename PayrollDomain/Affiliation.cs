@@ -1,7 +1,6 @@
 using System;
-using Payroll.Tests;
 
-namespace Payroll
+namespace Affiliations
 {
     public interface Affiliation
     {
@@ -18,6 +17,18 @@ namespace Payroll
     }
           public class AlreadyAffiliated : Exception
     {
+    }
+          public class ServiceCharge
+    {
+        public DateTime DATE;
+
+        public double Amount { get; set; }
+
+        public ServiceCharge(DateTime date, double amount)
+        {
+            DATE = date;
+            Amount = amount;
+        }
     }
 
 }

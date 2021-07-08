@@ -55,6 +55,10 @@
         <Compile Include="SqliteDB.cs" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\PaymentMethods\PaymentMethods.csproj">
+        <Project>{4e08bb1c-9953-48c4-872f-ce0590f3aad2}</Project>
+        <Name>PaymentMethods</Name>
+      </ProjectReference>
       <ProjectReference Include="..\PayrollDB\PayrollDB.csproj">
         <Project>{7e62b1e0-c05e-4eb0-a775-06f5a761c64c}</Project>
         <Name>PayrollDB</Name>
@@ -70,6 +74,10 @@
       <ProjectReference Include="..\Payroll\Payroll.csproj">
         <Project>{ac102298-f4d8-4c0a-b798-1b70d0fe5b14}</Project>
         <Name>Payroll</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\Schedules\Schedules.csproj">
+        <Project>{4e6db94b-82dc-4f9c-bff8-0df94bcc95d9}</Project>
+        <Name>Schedules</Name>
       </ProjectReference>
     </ItemGroup>
     <ItemGroup>
