@@ -40,8 +40,6 @@
     <ItemGroup>
         <Compile Include="AddUnionMemberTransaction.cs" />
         <Compile Include="AddUnionServiceCharge.cs" />
-        <Compile Include="ChangeAffiliation.cs" />
-        <Compile Include="ChangeUnaffiliated.cs" />
         <Compile Include="ChangeUnionMember.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="UnionAffiliation.cs" />
