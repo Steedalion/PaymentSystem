@@ -53,8 +53,13 @@
     <ItemGroup>
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="SqliteDB.cs" />
+        <Compile Include="Tables.cs" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\PaymentClassification\PaymentClassification.csproj">
+        <Project>{23130573-75d1-4802-9f65-9cd5b8f04971}</Project>
+        <Name>PaymentClassification</Name>
+      </ProjectReference>
       <ProjectReference Include="..\PaymentMethods\PaymentMethods.csproj">
         <Project>{4e08bb1c-9953-48c4-872f-ce0590f3aad2}</Project>
         <Name>PaymentMethods</Name>
@@ -62,10 +67,6 @@
       <ProjectReference Include="..\PayrollDB\PayrollDB.csproj">
         <Project>{7e62b1e0-c05e-4eb0-a775-06f5a761c64c}</Project>
         <Name>PayrollDB</Name>
-      </ProjectReference>
-      <ProjectReference Include="..\PayrollDomainTests\PayrollDomainTests.csproj">
-        <Project>{bdb1efed-204a-4603-ac93-f74c9843c769}</Project>
-        <Name>PayrollDomainTests</Name>
       </ProjectReference>
       <ProjectReference Include="..\PayrollDomain\PayrollDomain.csproj">
         <Project>{6c2dcd48-4681-4af8-9360-ab5f4040eb92}</Project>

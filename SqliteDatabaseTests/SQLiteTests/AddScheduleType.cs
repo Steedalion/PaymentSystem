@@ -5,6 +5,12 @@ namespace Payroll.Tests.SQLiteTests
 {
     class AddScheduleType : TestSqliteDB
     {
+
+        [SetUp]
+        public void EmptyTables()
+        {
+            ClearAllTables();
+        }
         [Test]
         public void MonthlyScheduleGetsSaved()
         {

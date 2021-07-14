@@ -1,12 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payroll", "Payroll\Payroll.csproj", "{AC102298-F4D8-4C0A-B798-1B70D0FE5B14}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLitePayrollDatabase", "SQLitePayrollDatabase\SQLitePayrollDatabase.csproj", "{9E4A0173-D7D1-49C3-BD7C-9A33D35C657D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqliteDatabaseTests", "SqliteDatabaseTests\SqliteDatabaseTests.csproj", "{6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{AAAEF113-041A-4DF5-BE88-452917F4DB0D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DatabaseImplementations", "DatabaseImplementations", "{AAAEF113-041A-4DF5-BE88-452917F4DB0D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollDB", "PayrollDB\PayrollDB.csproj", "{7E62B1E0-C05E-4EB0-A775-06F5A761C64C}"
 EndProject
@@ -34,10 +32,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AC102298-F4D8-4C0A-B798-1B70D0FE5B14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AC102298-F4D8-4C0A-B798-1B70D0FE5B14}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AC102298-F4D8-4C0A-B798-1B70D0FE5B14}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AC102298-F4D8-4C0A-B798-1B70D0FE5B14}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9E4A0173-D7D1-49C3-BD7C-9A33D35C657D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9E4A0173-D7D1-49C3-BD7C-9A33D35C657D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E4A0173-D7D1-49C3-BD7C-9A33D35C657D}.Release|Any CPU.ActiveCfg = Release|Any CPU

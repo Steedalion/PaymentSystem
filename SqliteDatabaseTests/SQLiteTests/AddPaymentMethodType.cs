@@ -5,37 +5,13 @@ using NUnit.Framework;
 
 namespace Payroll.Tests.SQLiteTests
 {
-    class AddClassificationType :TestSqliteDB
-    {
-        [Test]
-        public void SalariedClassificationGetsSave()
-        {
-            Employee e = new Employee(id, "John", "123 bird ave")
-            {
-                Paymentmethod = new HoldMethod(),
-                Schedule = new MonthlyPaymentSchedule(),
-                Classification = new SalariedClassification(100.00)
-            };
-            database.AddEmployee(id, e);
-
-            DataTable salariedEmps = GetDataTable(SqliteDB.Tables.salary);
-            Assert.AreEqual(1, salariedEmps.Rows.Count);
-            DataRow row = salariedEmps.Rows[0];
-            Assert.AreEqual(100, row["Salary"]);
-        }
-        
-    }
     class AddPaymentMethodType : TestSqliteDB
     {
         [SetUp]
         public void ClearPaymentMethods()
         {
-            ClearTable(SqliteDB.Tables.account);
-            ClearTable(SqliteDB.Tables.mail);
+            ClearAllTables();
         }
-
-    
-
 
         [Test]
         public void EmployeeCannotHaveMoreThanOnePM()
@@ -51,8 +27,8 @@ namespace Payroll.Tests.SQLiteTests
                 Console.WriteLine(e);
             }
 
-            Assert.AreEqual(1, GetDataTable(SqliteDB.Tables.account).Rows.Count);
-            Assert.AreEqual(0, GetDataTable(SqliteDB.Tables.mail).Rows.Count,
+            Assert.AreEqual(1, GetDataTable(Tables.Account).Rows.Count);
+            Assert.AreEqual(0, GetDataTable(Tables.Mail).Rows.Count,
                 "Mail should not get added since employee failed");
         }
 
@@ -71,7 +47,7 @@ namespace Payroll.Tests.SQLiteTests
             addEmployeeMethod(new AccountPaymentMethod("New bank", accountNumber));
             string expectedCode = SqliteDB.PaymentMethods.Account;
             CompareSavedScheduleType(expectedCode);
-            DataTable accountsTable = GetDataTable(SqliteDB.Tables.account);
+            DataTable accountsTable = GetDataTable(Tables.Account);
             Assert.AreEqual(1, accountsTable.Rows.Count);
             DataRow row = accountsTable.Rows[0];
             Assert.AreEqual(id, row["EmpID"]);
@@ -85,7 +61,7 @@ namespace Payroll.Tests.SQLiteTests
             addEmployeeMethod(new MailPaymentMethod("home"));
             string expectedCode = SqliteDB.PaymentMethods.Mail;
             CompareSavedScheduleType(expectedCode);
-            DataTable paycheckAddresses = GetDataTable(SqliteDB.Tables.mail);
+            DataTable paycheckAddresses = GetDataTable(Tables.Mail);
             Assert.AreEqual(1, paycheckAddresses.Rows.Count);
             DataRow row = paycheckAddresses.Rows[0];
             Assert.AreEqual(id, row["EmpID"]);
@@ -109,7 +85,7 @@ namespace Payroll.Tests.SQLiteTests
                 Console.WriteLine(e.Message);
             }
 
-            DataTable employees = GetDataTable(SqliteDB.Tables.employee);
+            DataTable employees = GetDataTable(Tables.Employee);
             Assert.AreEqual(0, employees.Rows.Count);
         }
 
