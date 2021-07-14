@@ -1,6 +1,10 @@
 using System;
+using PaymentClassification.PaymentClassifications;
+using PayrollDB;
+using PayrollDomain;
+using Transactions;
 
-namespace Payroll.Tests
+namespace PaymentClassification
 {
     public class AddTimeCard:DbTransaction
     {

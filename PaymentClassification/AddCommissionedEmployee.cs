@@ -1,6 +1,10 @@
-using PayrollDomain.Payroll_Domain;
+using PaymentClassification.PaymentClassifications;
+using PayrollDB;
+using PayrollDomain;
+using Schedules;
+using Transactions.DBTransaction;
 
-namespace Payroll.DBTransaction
+namespace PaymentClassification
 {
     public class AddCommissionedEmployee : AddEmployee
     {
@@ -18,7 +22,7 @@ namespace Payroll.DBTransaction
             return new Biweekly();
         }
 
-        protected override PaymentClassification MakeClassification()
+        protected override PayrollDomain.PaymentClassification MakeClassification()
         {
             return new CommisionClassification(_commisionRate, _salary);
         }

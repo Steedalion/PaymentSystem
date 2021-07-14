@@ -1,6 +1,9 @@
-using PayrollDomain.Payroll_Domain;
+using PaymentClassification.PaymentClassifications;
+using PayrollDB;
+using PayrollDomain;
+using Schedules;
 
-namespace Payroll.Tests.Transactions
+namespace PaymentClassification.ChangeClassification
 {
     public class ChangeCommisionTransaction : ChangeEmployeeClassification
     {
@@ -18,7 +21,7 @@ namespace Payroll.Tests.Transactions
             return new Biweekly();
         }
 
-        protected override PaymentClassification MakeClassification()
+        protected override PayrollDomain.PaymentClassification MakeClassification()
         {
             return new CommisionClassification(commisionRate, salary);
         }

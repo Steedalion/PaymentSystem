@@ -1,7 +1,8 @@
-using Payroll;
-using Payroll.Tests;
+using PayrollDB;
+using PayrollDomain;
+using Transactions.DBTransaction.ChangeEmployee;
 
-namespace Affiliations
+namespace Transactions
 {
     public abstract class ChangeAffiliation:ChangeEmployeeTransaction
     {

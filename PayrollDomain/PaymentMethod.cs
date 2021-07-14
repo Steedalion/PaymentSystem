@@ -1,4 +1,4 @@
-namespace Payroll
+namespace PayrollDomain
 {
     public interface PaymentMethod
     {

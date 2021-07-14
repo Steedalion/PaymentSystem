@@ -1,7 +1,8 @@
 using System;
 using System.Globalization;
+using PayrollDomain;
 
-namespace Payroll
+namespace Schedules
 {
     public class Biweekly : PaymentSchedule
     {

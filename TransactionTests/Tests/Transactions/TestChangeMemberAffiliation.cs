@@ -1,5 +1,7 @@
 using Affiliations;
 using NUnit.Framework;
+using PayrollDomain;
+using Transactions;
 
 namespace Payroll.Tests.Transactions
 {

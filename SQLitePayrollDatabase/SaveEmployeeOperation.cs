@@ -1,9 +1,11 @@
 using System;
 using Mono.Data.Sqlite;
-using PayrollDataBase;
-using PayrollDomain.Payroll_Domain;
+using PaymentClassification.PaymentClassifications;
+using PaymentMethods;
+using PayrollDB;
+using PayrollDomain;
 
-namespace Payroll.Tests.SQLiteTests
+namespace PayrollDataBase
 {
     public class SaveEmployeeOperation
     {

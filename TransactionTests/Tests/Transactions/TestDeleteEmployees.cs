@@ -1,5 +1,8 @@
 using NUnit.Framework;
-using Payroll.DBTransaction;
+using PaymentClassification;
+using PayrollDB;
+using PayrollDomain;
+using Transactions.DBTransaction;
 
 namespace Payroll.Tests.Transactions
 {

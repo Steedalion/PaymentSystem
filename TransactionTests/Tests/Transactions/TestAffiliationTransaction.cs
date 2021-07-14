@@ -1,7 +1,10 @@
 using System;
 using Affiliations;
 using NUnit.Framework;
+using PaymentClassification;
 using Payroll.Tests.Transactions;
+using PayrollDB;
+using PayrollDomain;
 
 namespace Payroll.Tests
 {

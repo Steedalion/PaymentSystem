@@ -1,6 +1,7 @@
 using System;
+using PayrollDomain;
 
-namespace Payroll
+namespace Schedules
 {
     public class WeeklySchedule : PaymentSchedule
     {

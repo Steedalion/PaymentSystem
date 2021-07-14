@@ -1,4 +1,6 @@
-namespace Payroll.DBTransaction
+using PayrollDB;
+
+namespace Transactions.DBTransaction
 {
     public class DeleteEmployee : DbTransaction
     {

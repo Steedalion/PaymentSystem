@@ -1,7 +1,8 @@
 using Mono.Data.Sqlite;
-using PayrollDomain.Payroll_Domain;
+using PayrollDB;
+using PayrollDomain;
 
-namespace Payroll.Tests.SQLiteTests
+namespace PayrollDataBase
 {
     public class SqliteDB : IPayrollDB
     {
@@ -49,22 +50,6 @@ namespace Payroll.Tests.SQLiteTests
         public int[] GetEmployeeIds()
         {
             throw new System.NotImplementedException();
-        }
-    }
-
-
-    public static class ClassificationCodes
-    {
-        public static string Salary = "Salary";
-        
-            public static string Code(PaymentClassification employeeClassification)
-        {
-            if (employeeClassification is SalariedClassification)
-            {
-                return "Salary";
-            }
-
-            return "unknown Payment Classification";
         }
     }
 }

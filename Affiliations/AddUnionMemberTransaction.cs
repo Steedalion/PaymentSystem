@@ -1,5 +1,7 @@
 using System.Data.Common;
-using Payroll;
+using PayrollDB;
+using PayrollDomain;
+using DbTransaction = Transactions.DbTransaction;
 
 namespace Affiliations
 {

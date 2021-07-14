@@ -1,7 +1,10 @@
 using System;
 using NUnit.Framework;
-using Payroll.DBTransaction;
-using PayrollDomain.Payroll_Domain;
+using PaymentClassification;
+using PaymentClassification.PaymentClassifications;
+using PayrollDomain;
+using Schedules;
+using Transactions.DBTransaction;
 
 namespace Payroll.Tests.Transactions
 {
@@ -16,7 +19,7 @@ namespace Payroll.Tests.Transactions
             Employee e = database.GetEmployee(EmpId);
             Assert.AreEqual(Name, e.Name);
             Assert.AreEqual(Address, e.myAddress);
-            PaymentClassification pc = e.Classification;
+            PayrollDomain.PaymentClassification pc = e.Classification;
             Assert.IsTrue(pc is SalariedClassification);
             SalariedClassification sc = pc as SalariedClassification;
             Assert.AreEqual(1000.00, sc.Salary, 0.001);
@@ -37,7 +40,7 @@ namespace Payroll.Tests.Transactions
             Assert.AreEqual(Name, e.Name);
             Assert.AreEqual(Address, e.myAddress);
 
-            PaymentClassification pc = e.Classification;
+            PayrollDomain.PaymentClassification pc = e.Classification;
             Assert.IsTrue(pc is HourlyClassification);
             HourlyClassification hourly = pc as HourlyClassification;
             PaymentSchedule sc = e.Schedule;
@@ -61,7 +64,7 @@ namespace Payroll.Tests.Transactions
             Assert.AreEqual(Name, e.Name);
             Assert.AreEqual(Address, e.myAddress);
 
-            PaymentClassification pc = e.Classification;
+            PayrollDomain.PaymentClassification pc = e.Classification;
             PaymentSchedule ps = e.Schedule;
             PaymentMethod pm = e.Paymentmethod;
 
@@ -85,7 +88,7 @@ namespace Payroll.Tests.Transactions
 
             Employee e = database.GetEmployee(EmpId);
             Assert.NotNull(e);
-            PaymentClassification pc = e.Classification;
+            PayrollDomain.PaymentClassification pc = e.Classification;
             Assert.IsTrue(pc is CommisionClassification);
             CommisionClassification cc = pc as CommisionClassification;
 

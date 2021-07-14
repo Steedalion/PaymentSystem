@@ -1,7 +1,4 @@
-using Affiliations;
-using PayrollDomain.Payroll_Domain;
-
-namespace Payroll
+namespace PayrollDomain
 {
     public class Employee
     {

@@ -1,4 +1,7 @@
 using NUnit.Framework;
+using PaymentMethods;
+using PayrollDomain;
+using Transactions;
 
 namespace Payroll.Tests.Transactions
 {

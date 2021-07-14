@@ -1,4 +1,7 @@
-namespace Payroll.Tests
+using PayrollDB;
+using PayrollDomain;
+
+namespace Transactions.DBTransaction.ChangeEmployee
 {
     public class ChangeEmployeeAddressTransaction : ChangeEmployeeTransaction
     {

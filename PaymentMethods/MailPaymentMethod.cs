@@ -1,6 +1,6 @@
-using Payroll.Tests;
+using PayrollDomain;
 
-namespace Payroll
+namespace PaymentMethods
 {
     public class MailPaymentMethod : PaymentMethod
     {

@@ -1,5 +1,5 @@
 
-namespace PayrollDomain.Payroll_Domain
+namespace PayrollDomain
 {
     public interface PaymentClassification
     {

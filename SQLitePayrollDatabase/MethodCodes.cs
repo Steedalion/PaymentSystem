@@ -1,4 +1,7 @@
-namespace Payroll.Tests.SQLiteTests
+using PaymentMethods;
+using PayrollDomain;
+
+namespace PayrollDataBase
 {
     public static class MethodCodes
     {

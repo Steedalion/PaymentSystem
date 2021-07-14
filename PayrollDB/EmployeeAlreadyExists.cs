@@ -1,8 +1,11 @@
 using System;
 
-public class EmployeeAlreadyExists : Exception
+namespace PayrollDB
 {
-    public EmployeeAlreadyExists()
+    public class EmployeeAlreadyExists : Exception
     {
+        public EmployeeAlreadyExists()
+        {
+        }
     }
 }
