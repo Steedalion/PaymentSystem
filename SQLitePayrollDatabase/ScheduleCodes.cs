@@ -1,4 +1,7 @@
-namespace Payroll.Tests.SQLiteTests
+using PayrollDomain;
+using Schedules;
+
+namespace PayrollDataBase
 {
     public static class ScheduleCodes
     {

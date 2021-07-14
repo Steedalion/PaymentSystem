@@ -1,7 +1,9 @@
 using System;
-using Payroll;
+using PayrollDomain;
 
-public class MonthlyPaymentSchedule : PaymentSchedule
+namespace Schedules
+{
+    public class MonthlyPaymentSchedule : PaymentSchedule
     {
         public bool IsPayDate(DateTime payDate)
         {
@@ -15,3 +17,4 @@ public class MonthlyPaymentSchedule : PaymentSchedule
             return m1 != m2;
         }
     }
+}

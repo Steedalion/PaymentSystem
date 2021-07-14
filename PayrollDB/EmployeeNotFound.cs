@@ -1,5 +1,8 @@
 using System;
 
-public class EmployeeNotFound : Exception
+namespace PayrollDB
 {
+    public class EmployeeNotFound : Exception
+    {
+    }
 }

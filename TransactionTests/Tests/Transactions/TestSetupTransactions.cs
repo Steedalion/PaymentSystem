@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
-using Payroll.DBTransaction;
+using PaymentClassification;
+using PayrollDB;
 
 namespace Payroll.Tests.Transactions
 {

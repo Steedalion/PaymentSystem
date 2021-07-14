@@ -1,11 +1,16 @@
-public abstract class DbTransaction
+using PayrollDB;
+
+namespace Transactions
 {
-    protected IPayrollDB database;
-
-    public DbTransaction(IPayrollDB database)
+    public abstract class DbTransaction
     {
-        this.database = database;
-    }
+        protected IPayrollDB database;
 
-    public abstract void Execute();
+        public DbTransaction(IPayrollDB database)
+        {
+            this.database = database;
+        }
+
+        public abstract void Execute();
+    }
 }

@@ -1,7 +1,10 @@
-    using Payroll;
-    using PayrollDomain.Payroll_Domain;
+using PaymentClassification.PaymentClassifications;
+using PayrollDB;
+using PayrollDomain;
+using Schedules;
+using Transactions.DBTransaction;
 
-    namespace Payroll
+namespace PaymentClassification
 {
     public class AddSalaryEmployee : AddEmployee
     {
@@ -23,7 +26,7 @@
             return new HoldMethod();
         }
 
-        protected override PaymentClassification MakeClassification()
+        protected override PayrollDomain.PaymentClassification MakeClassification()
         {
             SalariedClassification sc = new SalariedClassification(mySalary);
             return sc;

@@ -1,8 +1,10 @@
 using System;
 using System.Data;
 using NUnit.Framework;
+using PaymentClassification.PaymentClassifications;
 using PayrollDataBase;
-using PayrollDomain.Payroll_Domain;
+using PayrollDomain;
+using Schedules;
 
 namespace Payroll.Tests.SQLiteTests
 {
@@ -65,7 +67,7 @@ namespace Payroll.Tests.SQLiteTests
             Assert.AreEqual(id, row["EmpID"]);
         }
 
-        private void AddClassificationEmp(PaymentClassification classification)
+        private void AddClassificationEmp(PayrollDomain.PaymentClassification classification)
         {
             Employee e = new Employee(id, "John", "123 bird ave")
             {
@@ -97,7 +99,7 @@ namespace Payroll.Tests.SQLiteTests
         }
     }
 
-    internal class UnregisteredClassification : PaymentClassification
+    internal class UnregisteredClassification : PayrollDomain.PaymentClassification
     {
         public double CalculatePay(PayCheck payCheck)
         {

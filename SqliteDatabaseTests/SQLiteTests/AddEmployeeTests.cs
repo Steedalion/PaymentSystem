@@ -1,6 +1,11 @@
 using System.Data;
 using Mono.Data.Sqlite;
 using NUnit.Framework;
+using PaymentClassification.PaymentClassifications;
+using PayrollDataBase;
+using PayrollDB;
+using PayrollDomain;
+using Schedules;
 
 namespace Payroll.Tests.SQLiteTests
 {

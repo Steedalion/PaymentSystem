@@ -1,6 +1,6 @@
 using System;
 
-namespace Payroll
+namespace PayrollDomain
 {
     public class HoldMethod : PaymentMethod
     {

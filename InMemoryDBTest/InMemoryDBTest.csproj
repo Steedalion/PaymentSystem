@@ -35,8 +35,6 @@
     <ItemGroup>
         <Reference Include="System" />
         <Reference Include="System.Core" />
-        <Reference Include="System.Data" />
-        <Reference Include="System.Xml" />
         <Reference Include="nunit.framework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb">
             <HintPath>..\packages\NUnit.3.5.0\lib\net45\nunit.framework.dll</HintPath>
         </Reference>
@@ -57,10 +55,6 @@
       <ProjectReference Include="..\PayrollDomain\PayrollDomain.csproj">
         <Project>{6c2dcd48-4681-4af8-9360-ab5f4040eb92}</Project>
         <Name>PayrollDomain</Name>
-      </ProjectReference>
-      <ProjectReference Include="..\Payroll\Payroll.csproj">
-        <Project>{ac102298-f4d8-4c0a-b798-1b70d0fe5b14}</Project>
-        <Name>Payroll</Name>
       </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

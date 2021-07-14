@@ -1,7 +1,7 @@
-using System.Data.Common;
-using PayrollDomain.Payroll_Domain;
+using PayrollDB;
+using PayrollDomain;
 
-namespace Payroll
+namespace Transactions.DBTransaction
 {
     public abstract class AddEmployee : DbTransaction
     {

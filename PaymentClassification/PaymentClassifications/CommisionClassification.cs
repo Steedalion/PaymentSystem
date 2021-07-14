@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Payroll.Tests;
-using PayrollDomain.Payroll_Domain;
+using PayrollDomain;
 
-namespace Payroll
+namespace PaymentClassification.PaymentClassifications
 {
-    public class CommisionClassification : PaymentClassification
+    public class CommisionClassification : PayrollDomain.PaymentClassification
     {
         private readonly List<SalesReciept> salesReciepts = new List<SalesReciept>();
         public double CommisionRate { get; }

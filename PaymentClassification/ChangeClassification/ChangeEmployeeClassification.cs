@@ -1,6 +1,8 @@
-using PayrollDomain.Payroll_Domain;
+using PayrollDB;
+using PayrollDomain;
+using Transactions.DBTransaction.ChangeEmployee;
 
-namespace Payroll.Tests.Transactions
+namespace PaymentClassification.ChangeClassification
 {
     public abstract class ChangeEmployeeClassification : ChangeEmployeeTransaction
     {
@@ -16,6 +18,6 @@ namespace Payroll.Tests.Transactions
 
         protected abstract PaymentSchedule MakePaymentSchedule();
 
-        protected abstract PaymentClassification MakeClassification();
+        protected abstract PayrollDomain.PaymentClassification MakeClassification();
     }
 }

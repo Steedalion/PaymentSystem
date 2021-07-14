@@ -1,6 +1,8 @@
 using NUnit.Framework;
+using PayrollDB;
+using PayrollDomain;
 
-namespace Payroll.Tests
+namespace InMemoryDBTest
 {
     public class TestPayrollDb
     {

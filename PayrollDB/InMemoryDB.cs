@@ -1,8 +1,8 @@
-using System;
 using System.Collections;
 using System.Linq;
+using PayrollDomain;
 
-namespace Payroll
+namespace PayrollDB
 {
     public class InMemoryDB : IPayrollDB
     {

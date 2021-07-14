@@ -1,6 +1,8 @@
 
 
-namespace Payroll
+using PayrollDomain;
+
+namespace PaymentMethods
 {
     public class AccountPaymentMethod : PaymentMethod
     {

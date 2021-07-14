@@ -1,4 +1,7 @@
 using NUnit.Framework;
+using PayrollDB;
+using PayrollDomain;
+using Transactions.DBTransaction.ChangeEmployee;
 
 namespace Payroll.Tests.Transactions
 {

@@ -1,4 +1,7 @@
-namespace Affiliations
+using PayrollDB;
+using PayrollDomain;
+
+namespace Transactions
 {
     public class ChangeUnaffiliated : ChangeAffiliation
     {

@@ -1,5 +1,7 @@
 using System;
 using NUnit.Framework;
+using PayrollDomain;
+using Schedules;
 
 namespace Payroll.Tests
 {

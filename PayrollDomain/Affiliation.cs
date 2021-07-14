@@ -1,6 +1,6 @@
 using System;
 
-namespace Affiliations
+namespace PayrollDomain
 {
     public interface Affiliation
     {

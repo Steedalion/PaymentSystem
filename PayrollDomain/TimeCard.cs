@@ -1,6 +1,6 @@
 using System;
 
-namespace Payroll.Tests
+namespace PayrollDomain
 {
     public class TimeCard
     {

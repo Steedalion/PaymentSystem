@@ -1,3 +1,7 @@
+using PayrollDB;
+using PayrollDomain;
+using Transactions;
+
 namespace Affiliations
 {
     public class ChangeUnionMember : ChangeAffiliation

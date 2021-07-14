@@ -1,4 +1,8 @@
-namespace Payroll.Tests
+using PayrollDB;
+using PayrollDomain;
+using Transactions;
+
+namespace PaymentMethods
 {
     public class ChangePmMail : ChangePmTransaction
     {

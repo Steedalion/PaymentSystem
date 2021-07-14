@@ -1,6 +1,9 @@
 using System;
 using NUnit.Framework;
-using PayrollDomain.Payroll_Domain;
+using PaymentClassification;
+using PaymentClassification.PaymentClassifications;
+using PayrollDB;
+using PayrollDomain;
 
 namespace Payroll.Tests.Transactions
 {
@@ -18,7 +21,7 @@ namespace Payroll.Tests.Transactions
             Employee e = database.GetEmployee(EmpId);
             Assert.IsNotNull(e);
 
-            PaymentClassification pc = e.Classification;
+            PayrollDomain.PaymentClassification pc = e.Classification;
             Assert.IsTrue(pc is HourlyClassification);
             HourlyClassification hc = pc as HourlyClassification;
 

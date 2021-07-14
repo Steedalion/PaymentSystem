@@ -1,5 +1,9 @@
 using NUnit.Framework;
-using PayrollDomain.Payroll_Domain;
+using PaymentClassification.ChangeClassification;
+using PaymentClassification.PaymentClassifications;
+using PayrollDomain;
+using Schedules;
+using Transactions.DBTransaction.ChangeEmployee;
 
 namespace Payroll.Tests.Transactions
 {
@@ -14,7 +18,7 @@ namespace Payroll.Tests.Transactions
             salary.Execute();
             Employee employee = database.GetEmployee(EmpId);
             Assert.IsFalse(employee.isNull);
-            PaymentClassification p = employee.Classification;
+            PayrollDomain.PaymentClassification p = employee.Classification;
             Assert.IsTrue(p is SalariedClassification);
             SalariedClassification salariedClassification = p as SalariedClassification;
             Assert.AreEqual(Salary, salariedClassification.Salary, 0.001);
@@ -29,7 +33,7 @@ namespace Payroll.Tests.Transactions
             hourlyEmployee.Execute();
 
             Employee e = database.GetEmployee(EmpId);
-            PaymentClassification pm = e.Classification;
+            PayrollDomain.PaymentClassification pm = e.Classification;
             Assert.IsTrue(pm is HourlyClassification);
             HourlyClassification hc = pm as HourlyClassification;
             Assert.AreEqual(hourlyRate, hc.Rate);
@@ -48,7 +52,7 @@ namespace Payroll.Tests.Transactions
             commision.Execute();
 
             Employee e = database.GetEmployee(EmpId);
-            PaymentClassification pm = e.Classification;
+            PayrollDomain.PaymentClassification pm = e.Classification;
             Assert.IsTrue(pm is CommisionClassification);
             CommisionClassification hc = pm as CommisionClassification;
             Assert.AreEqual(commisionRate, hc.CommisionRate);

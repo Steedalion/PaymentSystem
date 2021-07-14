@@ -1,5 +1,7 @@
 using System;
-using Payroll;
+using PayrollDB;
+using PayrollDomain;
+using Transactions;
 
 namespace Affiliations
 {

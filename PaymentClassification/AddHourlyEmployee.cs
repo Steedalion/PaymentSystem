@@ -1,6 +1,10 @@
-using PayrollDomain.Payroll_Domain;
+using PaymentClassification.PaymentClassifications;
+using PayrollDB;
+using PayrollDomain;
+using Schedules;
+using Transactions.DBTransaction;
 
-namespace Payroll
+namespace PaymentClassification
 {
     public class AddHourlyEmployee : AddEmployee
     {
@@ -17,7 +21,7 @@ namespace Payroll
             return new WeeklySchedule();
         }
 
-        protected override PaymentClassification MakeClassification()
+        protected override PayrollDomain.PaymentClassification MakeClassification()
         {
             return new HourlyClassification(hourlyRate);
         }

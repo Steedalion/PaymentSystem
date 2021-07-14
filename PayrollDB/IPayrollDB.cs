@@ -1,7 +1,9 @@
 
-using Payroll;
+using PayrollDomain;
 
-public interface IPayrollDB
+namespace PayrollDB
+{
+    public interface IPayrollDB
     {
         Employee GetEmployee(int empId);
         void AddEmployee(int id, Employee employee);
@@ -12,3 +14,4 @@ public interface IPayrollDB
         void RemoveUnionMember(int memberId);
         int[] GetEmployeeIds();
     }
+}

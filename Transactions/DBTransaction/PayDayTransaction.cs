@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using PayrollDB;
+using PayrollDomain;
 
-namespace Payroll.Tests.Transactions
+namespace Transactions.DBTransaction
 {
     public class PayDayTransaction : DbTransaction
     {

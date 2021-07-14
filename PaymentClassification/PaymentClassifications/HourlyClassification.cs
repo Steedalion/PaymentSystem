@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Payroll.Tests;
-using PayrollDomain.Payroll_Domain;
+using PayrollDomain;
 
-namespace Payroll
+namespace PaymentClassification.PaymentClassifications
 {
-    public class HourlyClassification : PaymentClassification
+    public class HourlyClassification : PayrollDomain.PaymentClassification
     {
         private List<TimeCard> myTimecards = new List<TimeCard>();
         public double Rate;

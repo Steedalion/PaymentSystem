@@ -2,6 +2,7 @@ using System;
 using Affiliations;
 using NUnit.Framework;
 using Payroll.Tests.Transactions;
+using PayrollDomain;
 
 namespace Payroll.Tests
 {

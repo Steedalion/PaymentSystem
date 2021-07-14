@@ -1,4 +1,8 @@
-namespace Payroll.Tests
+using PayrollDB;
+using PayrollDomain;
+using Transactions.DBTransaction.ChangeEmployee;
+
+namespace Transactions
 {
     public abstract class ChangePmTransaction : ChangeEmployeeTransaction
     {

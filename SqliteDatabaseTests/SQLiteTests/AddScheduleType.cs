@@ -1,5 +1,9 @@
 using System.Data;
 using NUnit.Framework;
+using PaymentClassification.PaymentClassifications;
+using PayrollDataBase;
+using PayrollDomain;
+using Schedules;
 
 namespace Payroll.Tests.SQLiteTests
 {

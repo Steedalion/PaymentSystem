@@ -1,8 +1,8 @@
-using PayrollDomain.Payroll_Domain;
+using PayrollDomain;
 
-namespace Payroll
+namespace PaymentClassification.PaymentClassifications
 {
-    public class SalariedClassification : PaymentClassification
+    public class SalariedClassification : PayrollDomain.PaymentClassification
     {
         public readonly double Salary;
 
