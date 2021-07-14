@@ -27,18 +27,74 @@ namespace Payroll.Tests.SQLiteTests
             {
                 SaveEmployee(id, employee, transaction);
                 SavePaymentMethod(id, employee, transaction);
+                SavePaymentClassification(id, employee, transaction);
                 transaction.Commit();
             }
-            catch (SqliteException e)
+            catch (Exception e)
             {
                 transaction.Rollback();
-                throw new EmployeeAlreadyExists(e.ToString());
+                
+                
+                var sql = e as SqliteException;
+                if (sql.ErrorCode == SQLiteErrorCode.Constraint)
+                {
+                    throw new EmployeeAlreadyExists();
+                }
+                throw e;
             }
 
             con.Close();
         }
 
-        private SqliteCommand SaveEmployee(int id, Employee employee, SqliteTransaction sqliteTransaction)
+        private void SavePaymentClassification(int id, Employee employee, SqliteTransaction transaction)
+        {
+            SqliteCommand classification = null;
+
+            if (employee.Classification is SalariedClassification)
+            {
+                SalariedClassification sal = employee.Classification as SalariedClassification;
+                string sql = "INSERT INTO " + Tables.Salary + " VALUES("
+                             + "@EmpID"
+                             + ",@Salary"
+                             + ")";
+                classification = new SqliteCommand(sql, con);
+                classification.Parameters.AddWithValue("@EmpID", id);
+                classification.Parameters.AddWithValue("@Salary", sal.Salary);
+            }
+            else if (employee.Classification is CommisionClassification)
+            {
+                CommisionClassification commision = employee.Classification as CommisionClassification;
+                string sql = "INSERT INTO " + Tables.Commission + " VALUES("
+                             + "@EmpID"
+                             + ",@Salary"
+                             + ",@CommisionRate"
+                             + ")";
+                classification = new SqliteCommand(sql, con);
+                classification.Parameters.AddWithValue("@EmpID", id);
+                classification.Parameters.AddWithValue("@Salary", commision.Salary);
+                classification.Parameters.AddWithValue("@CommisionRate", commision.CommisionRate);
+            }if (employee.Classification is HourlyClassification)
+            {
+                HourlyClassification hourly = employee.Classification as HourlyClassification;
+                string sql = "INSERT INTO " + Tables.Hourly + " VALUES("
+                             + "@EmpID"
+                             + ",@HourlyRate"
+                             + ")";
+                classification = new SqliteCommand(sql, con);
+                classification.Parameters.AddWithValue("@EmpID", id);
+                classification.Parameters.AddWithValue("@HourlyRate", hourly.Rate);
+            }
+
+            if (classification == null)
+            {
+                throw new NullReferenceException("Classification Not matched");
+            }
+
+            classification.Transaction = transaction;
+            classification.ExecuteNonQuery();
+        }
+
+        private void SaveEmployee(int id, Employee employee, SqliteTransaction sqliteTransaction)
         {
             string sql = "INSERT INTO Employee VALUES("
                          + "@EmpID"
@@ -61,11 +117,15 @@ namespace Payroll.Tests.SQLiteTests
 
             cmd.Transaction = sqliteTransaction;
             cmd.ExecuteNonQuery();
-            return cmd;
         }
 
         private string PaymentClassificationCode(PaymentClassification employeeClassification)
         {
+            if (employeeClassification is SalariedClassification)
+            {
+                return "Salary";
+            }
+
             return "unknown Payment Classification";
         }
 
@@ -199,12 +259,10 @@ namespace Payroll.Tests.SQLiteTests
             return "UnknownSchedule";
         }
 
-        public static class Tables
+
+        public class ClassificationCodes
         {
-            public static string mail = "PaycheckAddress";
-            public static string account = "DirectDepositAccount";
-            public static string employee = "Employee";
-            public static string salary = "SalariedClassification";
+            public static string Salary = "Salary";
         }
     }
 }

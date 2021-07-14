@@ -23,6 +23,15 @@ namespace Payroll.Tests.SQLiteTests
             command.ExecuteNonQuery();
         }
 
+        public void ClearAllTables()
+        {
+            ClearTable(Tables.Account);
+            ClearTable(Tables.Mail);
+            ClearTable(Tables.Commission);
+            ClearTable(Tables.Salary);
+            ClearTable(Tables.Hourly);
+        }
+
         [TearDown]
         public void CloseConnection()
         {
