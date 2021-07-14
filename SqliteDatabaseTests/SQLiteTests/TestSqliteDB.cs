@@ -2,6 +2,7 @@ using System.Data;
 using System.Data.Common;
 using Mono.Data.Sqlite;
 using NUnit.Framework;
+using PayrollDataBase;
 
 namespace Payroll.Tests.SQLiteTests
 {
