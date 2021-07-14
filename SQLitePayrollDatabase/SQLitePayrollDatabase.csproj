@@ -51,7 +51,10 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="MethodCodes.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="SaveEmployeeOperation.cs" />
+        <Compile Include="ScheduleCodes.cs" />
         <Compile Include="SqliteDB.cs" />
         <Compile Include="Tables.cs" />
     </ItemGroup>

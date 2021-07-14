@@ -2,6 +2,7 @@ using System;
 using System.Data;
 using Mono.Data.Sqlite;
 using NUnit.Framework;
+using PayrollDataBase;
 
 namespace Payroll.Tests.SQLiteTests
 {
@@ -36,7 +37,7 @@ namespace Payroll.Tests.SQLiteTests
         public void HoldPaymentSaved()
         {
             addEmployeeMethod(new HoldMethod());
-            string expectedCode = SqliteDB.PaymentMethods.Hold;
+            string expectedCode = MethodCodes.Hold;
             CompareSavedScheduleType(expectedCode);
         }
 
@@ -45,7 +46,7 @@ namespace Payroll.Tests.SQLiteTests
         {
             int accountNumber = 12315;
             addEmployeeMethod(new AccountPaymentMethod("New bank", accountNumber));
-            string expectedCode = SqliteDB.PaymentMethods.Account;
+            string expectedCode = MethodCodes.Account;
             CompareSavedScheduleType(expectedCode);
             DataTable accountsTable = GetDataTable(Tables.Account);
             Assert.AreEqual(1, accountsTable.Rows.Count);
@@ -59,7 +60,7 @@ namespace Payroll.Tests.SQLiteTests
         public void MailPayGetsSaved()
         {
             addEmployeeMethod(new MailPaymentMethod("home"));
-            string expectedCode = SqliteDB.PaymentMethods.Mail;
+            string expectedCode = MethodCodes.Mail;
             CompareSavedScheduleType(expectedCode);
             DataTable paycheckAddresses = GetDataTable(Tables.Mail);
             Assert.AreEqual(1, paycheckAddresses.Rows.Count);

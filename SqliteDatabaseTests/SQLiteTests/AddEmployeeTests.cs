@@ -58,7 +58,7 @@ namespace Payroll.Tests.SQLiteTests
             DataTable table = dataSet.Tables["table"];
             Assert.AreEqual(1,table.Rows.Count);
             DataRow row = table.Rows[0];
-            Assert.AreEqual(SqliteDB.ScheduleCodes.BiWeekly, row["ScheduleType"]);
+            Assert.AreEqual(ScheduleCodes.BiWeekly, row["ScheduleType"]);
         }
     }
 }

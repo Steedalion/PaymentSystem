@@ -1,4 +1,4 @@
-namespace Payroll.Tests.SQLiteTests
+namespace PayrollDataBase
 {
     public static class Tables
     {
@@ -8,5 +8,6 @@ namespace Payroll.Tests.SQLiteTests
         public const string Salary = "SalariedClassification";
         public const string Commission = "CommissionedClassification";
         public const string Hourly = "HourlyClassification";
+
     }
 }

@@ -13,7 +13,6 @@ namespace Payroll
         {
             if (!db.Contains(empId))
             {
-                // throw new EmployeeNotFound();
                 return Employee.NULL;
             }
 

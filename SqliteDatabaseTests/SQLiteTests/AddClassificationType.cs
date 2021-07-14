@@ -1,6 +1,7 @@
 using System;
 using System.Data;
 using NUnit.Framework;
+using PayrollDataBase;
 using PayrollDomain.Payroll_Domain;
 
 namespace Payroll.Tests.SQLiteTests
@@ -19,7 +20,7 @@ namespace Payroll.Tests.SQLiteTests
             ClearTable(Tables.Salary);
             var classification = new SalariedClassification(100.00);
             AddClassificationEmp(classification);
-            ComapreClassificationCode(SqliteDB.ClassificationCodes.Salary);
+            ComapreClassificationCode(ClassificationCodes.Salary);
 
             DataTable salariedEmps = GetDataTable(Tables.Salary);
             Assert.AreEqual(1, salariedEmps.Rows.Count);
@@ -32,7 +33,7 @@ namespace Payroll.Tests.SQLiteTests
         {
             DataTable employeetable = GetDataTable(Tables.Employee);
             Assert.AreEqual(1, employeetable.Rows.Count);
-            Assert.AreEqual(SqliteDB.ClassificationCodes.Salary, employeetable.Rows[0]["PaymentClassificationType"]);
+            Assert.AreEqual(ClassificationCodes.Salary, employeetable.Rows[0]["PaymentClassificationType"]);
         }
 
         [Test]

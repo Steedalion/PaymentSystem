@@ -5,17 +5,17 @@ namespace Payroll.Tests.SQLiteTests
 {
     class AddScheduleType : TestSqliteDB
     {
-
         [SetUp]
         public void EmptyTables()
         {
             ClearAllTables();
         }
+
         [Test]
         public void MonthlyScheduleGetsSaved()
         {
             addEmployeeSchedule(new MonthlyPaymentSchedule());
-            string expectedCode = SqliteDB.ScheduleCodes.Monthly;
+            string expectedCode = ScheduleCodes.Monthly;
             CompareSavedScheduleType(expectedCode);
         }
 
@@ -23,7 +23,7 @@ namespace Payroll.Tests.SQLiteTests
         public void WeeklyScheduleGetsSaved()
         {
             addEmployeeSchedule(new WeeklySchedule());
-            string expectedCode = SqliteDB.ScheduleCodes.Weekly;
+            string expectedCode = ScheduleCodes.Weekly;
             CompareSavedScheduleType(expectedCode);
         }
 
@@ -31,7 +31,7 @@ namespace Payroll.Tests.SQLiteTests
         public void BiweeklyScheduleGetsSaved()
         {
             addEmployeeSchedule(new Biweekly());
-            string expectedCode = SqliteDB.ScheduleCodes.BiWeekly;
+            string expectedCode = ScheduleCodes.BiWeekly;
             CompareSavedScheduleType(expectedCode);
         }
 
