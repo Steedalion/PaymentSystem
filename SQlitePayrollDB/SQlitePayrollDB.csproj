@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Classification\Classification.csproj" />
+      <ProjectReference Include="..\Method\Method.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="5.0.8" />
+      <PackageReference Include="SQLite" Version="3.13.0" />
+    </ItemGroup>
+
+</Project>
