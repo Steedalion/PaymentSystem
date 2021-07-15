@@ -45,12 +45,6 @@ namespace Payroll.Tests.SQLiteTests
             Assert.Throws<EmployeeAlreadyExists>(() => database.AddEmployee(id, e));
         }
 
-        
-
-  
-
-     
-
         [Test]
         public void AddedScheduleType()
         {

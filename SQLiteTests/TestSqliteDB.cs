@@ -44,8 +44,7 @@ namespace Payroll.Tests.SQLiteTests
         {
             string getEmployeescmd = "SELECT * FROM Employee";
             SqliteCommand getEmployees = new SqliteCommand(getEmployeescmd, con);
-            DataAdapter adapter = new SQliteDataAdapter(getEmployees);
-            SqliteDataReader sd;
+            DataAdapter adapter = new SqliteDataAdapter(getEmployees);
             DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
             DataTable employeeTable = dataSet.Tables["table"];

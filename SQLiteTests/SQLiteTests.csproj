@@ -2,20 +2,21 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
+
+        <IsPackable>false</IsPackable>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Classification\Classification.csproj" />
-      <ProjectReference Include="..\Domain\Domain.csproj" />
-      <ProjectReference Include="..\Schedule\Schedule.csproj" />
-      <ProjectReference Include="..\SQlitePayrollDB\SQlitePayrollDB.csproj" />
+        <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="5.0.8" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
+        <PackageReference Include="NUnit" Version="3.13.1" />
+        <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
+        <PackageReference Include="coverlet.collector" Version="3.0.2" />
+        <PackageReference Include="Ultz.BeagleFramework" Version="1.1.4.1" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="5.0.8" />
-      <PackageReference Include="NUnit" Version="3.13.2" />
-      <PackageReference Include="SQLite" Version="3.13.0" />
-      <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+      <ProjectReference Include="..\SQlitePayrollDB\SQlitePayrollDB.csproj" />
     </ItemGroup>
 
 </Project>

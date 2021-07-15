@@ -7,7 +7,7 @@ namespace PayrollDataBase
 {
     public class SqliteDB : IPayrollDB
     {
-        public static string connectionID = @"URI=file:/home/alex/RiderProjects/PaymentSystem/PayrollDB.sqlite";
+        public static string connectionID = @"Data Source=file:/home/alex/RiderProjects/PaymentSystem/PayrollDB.sqlite";
 
         private SqliteConnection con;
 
