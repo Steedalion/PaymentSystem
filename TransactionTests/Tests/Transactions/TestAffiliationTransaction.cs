@@ -13,7 +13,7 @@ namespace Payroll.Tests
         [SetUp]
         public void AddSalaryEmployee()
         {
-            AddSalaryEmployee ae = new AddSalaryEmployee(database,EmpId, Name, Address, 1000);
+            AddSalaryEmployeeTransaction ae = new AddSalaryEmployeeTransaction(database,EmpId, Name, Address, 1000);
             ae.Execute();
         }
 

@@ -3,13 +3,13 @@ using PayrollDomain;
 
 namespace Transactions.DBTransaction
 {
-    public abstract class AddEmployee : DbTransaction
+    public abstract class AddEmployeeTransaction : DbTransaction
     {
         protected int Id;
         protected string Name;
         protected string Address;
 
-        protected AddEmployee(PayrollDB.IPayrollDb database, int id, string name, string address) : base(database)
+        protected AddEmployeeTransaction(PayrollDB.IPayrollDb database, int id, string name, string address) : base(database)
         {
             Id = id;
             Name = name;

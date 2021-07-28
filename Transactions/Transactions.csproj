@@ -41,7 +41,7 @@
         <Compile Include="ChangeAffiliation.cs" />
         <Compile Include="ChangePaymentMethodTransaction.cs" />
         <Compile Include="ChangeUnaffiliated.cs" />
-        <Compile Include="DBTransaction\AddEmployee.cs" />
+        <Compile Include="DBTransaction\AddEmployeeTransaction.cs" />
         <Compile Include="DBTransaction\ChangeEmployee\ChangeEmployeeAddressTransaction.cs" />
         <Compile Include="DBTransaction\ChangeEmployee\ChangeEmployeeNameTransaction.cs" />
         <Compile Include="DBTransaction\ChangeEmployee\ChangeEmployeeTransaction.cs" />

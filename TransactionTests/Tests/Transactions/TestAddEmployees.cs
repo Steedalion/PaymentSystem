@@ -13,7 +13,7 @@ namespace Payroll.Tests.Transactions
         [Test]
         public void TestAddSalariedEmployee()
         {
-            AddSalaryEmployee t = new AddSalaryEmployee(database,EmpId, Name, Address, Salary);
+            AddSalaryEmployeeTransaction t = new AddSalaryEmployeeTransaction(database,EmpId, Name, Address, Salary);
             t.Execute();
 
             Employee e = database.GetEmployee(EmpId);
@@ -33,7 +33,7 @@ namespace Payroll.Tests.Transactions
         public void TestAddHourlyEmployee()
         {
             EmpId = 3;
-            AddEmployee t = new AddHourlyEmployee(database,EmpId, Name, Address, 25);
+            AddEmployeeTransaction t = new AddHourlyEmployeeTransaction(database,EmpId, Name, Address, 25);
             t.Execute();
 
             Employee e = database.GetEmployee(EmpId);
@@ -55,7 +55,7 @@ namespace Payroll.Tests.Transactions
         {
             EmpId = 4;
             float commisionRate = 0.14f;
-            AddCommissionedEmployee t = new AddCommissionedEmployee(database,EmpId, Name, Address, Salary, commisionRate);
+            AddCommissionedEmployeeTransaction t = new AddCommissionedEmployeeTransaction(database,EmpId, Name, Address, Salary, commisionRate);
             t.Execute();
 
             Employee e = database.GetEmployee(EmpId);
@@ -80,7 +80,7 @@ namespace Payroll.Tests.Transactions
         [Test]
         public void TestAddedSalesRecieptShouldExist()
         {
-            AddCommissionedEmployee ce = new AddCommissionedEmployee(database,EmpId, Name, Address, 1000, 0.1);
+            AddCommissionedEmployeeTransaction ce = new AddCommissionedEmployeeTransaction(database,EmpId, Name, Address, 1000, 0.1);
             ce.Execute();
 
             AddSalesReceipt sr = new AddSalesReceipt(database,EmpId, new DateTime(2005, 8, 8),200);

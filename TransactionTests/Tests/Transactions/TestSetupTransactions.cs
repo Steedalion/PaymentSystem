@@ -26,20 +26,20 @@ namespace Payroll.Tests.Transactions
 
         protected void AddSalariedEmployeeToDb()
         {
-            AddSalaryEmployee t = new AddSalaryEmployee(database,EmpId, Name, Address, Salary);
+            AddSalaryEmployeeTransaction t = new AddSalaryEmployeeTransaction(database,EmpId, Name, Address, Salary);
             t.Execute();
         } 
         protected void AddHourlyEmployeeToDB()
         {
-            AddHourlyEmployee addHourlyEmployee = new AddHourlyEmployee(database,EmpId, Name, Address,HourlyRate );
-            addHourlyEmployee.Execute();
+            AddHourlyEmployeeTransaction addHourlyEmployeeTransaction = new AddHourlyEmployeeTransaction(database,EmpId, Name, Address,HourlyRate );
+            addHourlyEmployeeTransaction.Execute();
         }
 
         protected void AddCommisionedEmployeeToDB()
         {
             // EmpId = 4;
             
-            AddCommissionedEmployee t = new AddCommissionedEmployee(database,EmpId, Name, Address, Salary, CommisionRate);
+            AddCommissionedEmployeeTransaction t = new AddCommissionedEmployeeTransaction(database,EmpId, Name, Address, Salary, CommisionRate);
             t.Execute();
         }
 

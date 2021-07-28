@@ -13,7 +13,7 @@ namespace Payroll.Tests.Transactions
         public void TestDeleteAnEmployee()
         {
 
-            AddSalaryEmployee t = new AddSalaryEmployee(database,EmpId, Name, Address, 100);
+            AddSalaryEmployeeTransaction t = new AddSalaryEmployeeTransaction(database,EmpId, Name, Address, 100);
             t.Execute();
             Assert.NotNull(database.GetEmployee(EmpId));
             DeleteEmployee deleteEmployee = new DeleteEmployee(database,EmpId);
