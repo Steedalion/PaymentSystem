@@ -10,7 +10,7 @@ namespace Transactions.DBTransaction
         private Dictionary<int, PayCheck> paychecks = new Dictionary<int, PayCheck>();
         private DateTime payDate;
 
-        public PayDayTransaction(IPayrollDB database, DateTime payDate) : base(database)
+        public PayDayTransaction(PayrollDB.IPayrollDb database, DateTime payDate) : base(database)
         {
             this.payDate = payDate;
         }

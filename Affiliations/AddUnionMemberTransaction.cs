@@ -10,7 +10,7 @@ namespace Affiliations
         private int id;
         private int memberId;
 
-        public AddUnionMemberTransaction(IPayrollDB database, int id, int memberId) : base(database)
+        public AddUnionMemberTransaction(PayrollDB.IPayrollDb database, int id, int memberId) : base(database)
         {
             this.id = id;
             this.memberId = memberId;

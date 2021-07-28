@@ -9,7 +9,7 @@ namespace PaymentClassification.ChangeClassification
     {
         private double salary;
 
-        public ChangeSalaryEmployee(IPayrollDB database, int empId, double salary) : base(database, empId)
+        public ChangeSalaryEmployee(PayrollDB.IPayrollDb database, int empId, double salary) : base(database, empId)
         {
             this.salary = salary;
         }

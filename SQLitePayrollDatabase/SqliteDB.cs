@@ -4,7 +4,7 @@ using PayrollDomain;
 
 namespace PayrollDataBase
 {
-    public class SqliteDB : IPayrollDB
+    public class SqliteDB : PayrollDB.IPayrollDb
     {
         public static string connectionID = @"URI=file:/home/alex/RiderProjects/PaymentSystem/PayrollDB.sqlite";
 

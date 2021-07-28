@@ -6,7 +6,7 @@ namespace Transactions.DBTransaction
     {
         private readonly int id;
 
-        public DeleteEmployee(IPayrollDB database, int id) : base(database)
+        public DeleteEmployee(PayrollDB.IPayrollDb database, int id) : base(database)
         {
             this.id = id;
         }

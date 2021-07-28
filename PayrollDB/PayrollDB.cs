@@ -3,7 +3,7 @@ using PayrollDomain;
 
 namespace PayrollDB
 {
-    public interface IPayrollDB
+    public interface IPayrollDb
     {
         Employee GetEmployee(int empId);
         void AddEmployee(int id, Employee employee);

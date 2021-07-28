@@ -12,7 +12,7 @@ namespace PaymentClassification
         private DateTime date;
         private double hours;
 
-        public AddTimeCard(IPayrollDB database, int id, DateTime date, double hours) : base(database)
+        public AddTimeCard(PayrollDB.IPayrollDb database, int id, DateTime date, double hours) : base(database)
         {
             this.id = id;
             this.date = date;

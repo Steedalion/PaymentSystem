@@ -13,7 +13,7 @@ namespace PaymentClassification
         private double ammount;
 
 
-        public AddSalesReceipt(IPayrollDB database, int empid, DateTime date, double ammount) : base(database)
+        public AddSalesReceipt(PayrollDB.IPayrollDb database, int empid, DateTime date, double ammount) : base(database)
         {
             this.empid = empid;
             this.date = date;

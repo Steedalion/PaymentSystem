@@ -8,7 +8,7 @@ namespace Transactions
     {
         protected int memberId;
 
-        protected ChangeAffiliation(IPayrollDB database, int empId, int memberId) : base(database, empId)
+        protected ChangeAffiliation(PayrollDB.IPayrollDb database, int empId, int memberId) : base(database, empId)
         {
             this.memberId = memberId;
         }

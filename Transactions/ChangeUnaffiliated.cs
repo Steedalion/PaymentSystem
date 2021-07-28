@@ -5,7 +5,7 @@ namespace Transactions
 {
     public class ChangeUnaffiliated : ChangeAffiliation
     {
-        public ChangeUnaffiliated(IPayrollDB database, int empId, int memberId) : base(database, empId, memberId)
+        public ChangeUnaffiliated(PayrollDB.IPayrollDb database, int empId, int memberId) : base(database, empId, memberId)
         {
         }
 

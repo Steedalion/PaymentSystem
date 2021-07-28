@@ -9,7 +9,7 @@ namespace Transactions.DBTransaction
         protected string Name;
         protected string Address;
 
-        protected AddEmployee(IPayrollDB database, int id, string name, string address) : base(database)
+        protected AddEmployee(PayrollDB.IPayrollDb database, int id, string name, string address) : base(database)
         {
             Id = id;
             Name = name;

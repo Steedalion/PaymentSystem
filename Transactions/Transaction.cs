@@ -4,9 +4,9 @@ namespace Transactions
 {
     public abstract class DbTransaction
     {
-        protected IPayrollDB database;
+        protected PayrollDB.IPayrollDb database;
 
-        public DbTransaction(IPayrollDB database)
+        public DbTransaction(PayrollDB.IPayrollDb database)
         {
             this.database = database;
         }

@@ -8,7 +8,7 @@ namespace Payroll.Tests.Transactions
     [TestFixture]
     public class TestSetupTransactions
     {
-        protected IPayrollDB database = new InMemoryDB();
+        protected PayrollDB.IPayrollDb database = new InMemoryDB();
         protected int EmpId = 10;
         protected const string Name = "bob";
         protected const string Address = "home";

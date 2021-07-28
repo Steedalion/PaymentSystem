@@ -6,7 +6,7 @@ namespace PaymentClassification.ChangeClassification
 {
     public abstract class ChangeEmployeeClassification : ChangeEmployeeTransaction
     {
-        protected ChangeEmployeeClassification(IPayrollDB database, int empId) : base(database, empId)
+        protected ChangeEmployeeClassification(PayrollDB.IPayrollDb database, int empId) : base(database, empId)
         {
         }
 

@@ -6,7 +6,7 @@ namespace Transactions
 {
     public abstract class ChangePmTransaction : ChangeEmployeeTransaction
     {
-        protected ChangePmTransaction(IPayrollDB database, int empId) : base(database, empId)
+        protected ChangePmTransaction(PayrollDB.IPayrollDb database, int empId) : base(database, empId)
         {
         }
 

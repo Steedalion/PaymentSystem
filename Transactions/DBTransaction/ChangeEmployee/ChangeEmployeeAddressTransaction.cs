@@ -7,7 +7,7 @@ namespace Transactions.DBTransaction.ChangeEmployee
     {
         private string newAddress;
 
-        public ChangeEmployeeAddressTransaction(IPayrollDB database, int empId, string newAddress) : base(database, empId)
+        public ChangeEmployeeAddressTransaction(PayrollDB.IPayrollDb database, int empId, string newAddress) : base(database, empId)
         {
             this.newAddress = newAddress;
         }

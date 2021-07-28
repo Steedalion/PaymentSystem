@@ -11,7 +11,7 @@ namespace PaymentClassification
         private double mySalary;
 
 
-        public AddSalaryEmployee(IPayrollDB database, int id, string name, string address, double mySalary) : base(database, id, name, address)
+        public AddSalaryEmployee(PayrollDB.IPayrollDb database, int id, string name, string address, double mySalary) : base(database, id, name, address)
         {
             this.mySalary = mySalary;
         }

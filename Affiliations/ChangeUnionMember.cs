@@ -9,7 +9,7 @@ namespace Affiliations
         private int memberID;
         private double dues;
 
-        public ChangeUnionMember(IPayrollDB database, int empId, int memberId, double dues) : base(database, empId, memberId)
+        public ChangeUnionMember(PayrollDB.IPayrollDb database, int empId, int memberId, double dues) : base(database, empId, memberId)
         {
             memberID = memberId;
             this.dues = dues;

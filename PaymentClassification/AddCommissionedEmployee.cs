@@ -11,7 +11,7 @@ namespace PaymentClassification
         private readonly double _salary;
         private readonly double _commisionRate;
 
-        public AddCommissionedEmployee(IPayrollDB database, int id, string name, string address, double salary, double commisionRate) : base(database, id, name, address)
+        public AddCommissionedEmployee(PayrollDB.IPayrollDb database, int id, string name, string address, double salary, double commisionRate) : base(database, id, name, address)
         {
             _salary = salary;
             _commisionRate = commisionRate;

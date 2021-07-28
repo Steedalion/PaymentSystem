@@ -10,7 +10,7 @@ namespace PaymentClassification.ChangeClassification
         private double salary;
         private double commisionRate;
 
-        public ChangeCommisionTransaction(IPayrollDB database, int empId, double salary, double commisionRate) : base(database, empId)
+        public ChangeCommisionTransaction(PayrollDB.IPayrollDb database, int empId, double salary, double commisionRate) : base(database, empId)
         {
             this.salary = salary;
             this.commisionRate = commisionRate;

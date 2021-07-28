@@ -7,7 +7,7 @@ namespace Transactions.DBTransaction.ChangeEmployee
     {
         private string newName;
 
-        public ChangeEmployeeNameTransaction(IPayrollDB database, int empId, string newName) : base(database, empId)
+        public ChangeEmployeeNameTransaction(PayrollDB.IPayrollDb database, int empId, string newName) : base(database, empId)
         {
             this.newName = newName;
         }

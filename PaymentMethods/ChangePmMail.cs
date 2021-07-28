@@ -8,7 +8,7 @@ namespace PaymentMethods
     {
         private string address;
 
-        public ChangePmMail(IPayrollDB database, int empId, string address) : base(database, empId)
+        public ChangePmMail(PayrollDB.IPayrollDb database, int empId, string address) : base(database, empId)
         {
             this.address = address;
         }

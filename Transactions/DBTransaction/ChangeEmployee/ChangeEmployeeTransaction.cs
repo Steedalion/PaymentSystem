@@ -7,7 +7,7 @@ namespace Transactions.DBTransaction.ChangeEmployee
     {
         protected int empId;
 
-        protected ChangeEmployeeTransaction(IPayrollDB database, int empId) : base(database)
+        protected ChangeEmployeeTransaction(PayrollDB.IPayrollDb database, int empId) : base(database)
         {
             this.empId = empId;
         }

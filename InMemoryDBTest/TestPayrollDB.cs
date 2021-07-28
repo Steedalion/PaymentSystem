@@ -6,7 +6,7 @@ namespace InMemoryDBTest
 {
     public class TestPayrollDb
     {
-        protected IPayrollDB database = new InMemoryDB();
+        protected PayrollDB.IPayrollDb database = new InMemoryDB();
 
         [Test]
         public void AddEmployeeToDB()

@@ -4,11 +4,12 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{7E62B1E0-C05E-4EB0-A775-06F5A761C64C}</ProjectGuid>
+        <ProjectGuid>{CCB1F31A-95FA-49E0-A329-F73044CA89ED}</ProjectGuid>
+        <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>PayrollDB</RootNamespace>
-        <AssemblyName>PayrollDB</AssemblyName>
+        <RootNamespace>Presenters</RootNamespace>
+        <AssemblyName>Presenters</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>
@@ -36,23 +37,18 @@
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
         <Reference Include="System.Xml" />
+        <Reference Include="nunit.framework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb">
+            <HintPath>..\packages\NUnit.3.5.0\lib\net45\nunit.framework.dll</HintPath>
+        </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="EmployeeAlreadyExists.cs" />
-        <Compile Include="EmployeeNotFound.cs" />
-        <Compile Include="InMemoryDB.cs" />
-        <Compile Include="PayrollDB.cs" />
+        <Compile Include="AddEmployeePresenterTests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="UnionMemberNotFound.cs" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\PayrollDomain\PayrollDomain.csproj">
-        <Project>{6c2dcd48-4681-4af8-9360-ab5f4040eb92}</Project>
-        <Name>PayrollDomain</Name>
-      </ProjectReference>
-      <ProjectReference Include="..\Payroll\Payroll.csproj">
-        <Project>{ac102298-f4d8-4c0a-b798-1b70d0fe5b14}</Project>
-        <Name>Payroll</Name>
+      <ProjectReference Include="..\PayrollDB\PayrollDB.csproj">
+        <Project>{7e62b1e0-c05e-4eb0-a775-06f5a761c64c}</Project>
+        <Name>PayrollDB</Name>
       </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,7 +7,7 @@ namespace Affiliations
 {
     public class AddUnionServiceCharge:DbTransaction
     {
-        public AddUnionServiceCharge(IPayrollDB database, int memberId, DateTime date, double amount) : base(database)
+        public AddUnionServiceCharge(PayrollDB.IPayrollDb database, int memberId, DateTime date, double amount) : base(database)
         {
             this.memberId = memberId;
             this.date = date;

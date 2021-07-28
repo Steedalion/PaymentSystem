@@ -9,7 +9,7 @@ namespace PaymentMethods
         private int accountNumber;
         private string bank;
 
-        public ChangePmAccount(IPayrollDB database, int empId,string bank, int accountNumber) : base(database, empId)
+        public ChangePmAccount(PayrollDB.IPayrollDb database, int empId,string bank, int accountNumber) : base(database, empId)
         {
             this.bank = bank;
             this.accountNumber = accountNumber;

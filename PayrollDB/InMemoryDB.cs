@@ -4,7 +4,7 @@ using PayrollDomain;
 
 namespace PayrollDB
 {
-    public class InMemoryDB : IPayrollDB
+    public class InMemoryDB : IPayrollDb
     {
         private static Hashtable db = new Hashtable();
         private static Hashtable union = new Hashtable();
