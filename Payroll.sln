@@ -26,9 +26,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transactions", "Transaction
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F4135DDD-FFD0-4C08-B733-C2733BE480BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollGTK", "..\..\Projects\PayrollGTK\PayrollGTK\PayrollGTK.csproj", "{6FF17ECF-0692-46A0-83AD-5535918F0466}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presenters", "Presenters\Presenters.csproj", "{CCB1F31A-95FA-49E0-A329-F73044CA89ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollGTK", "PayrollGTK\PayrollGTK\PayrollGTK.csproj", "{6FF17ECF-0692-46A0-83AD-5535918F0466}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -80,14 +80,14 @@ Global
 		{BD8B0605-0D4C-4E80-830E-FDC7C82766ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD8B0605-0D4C-4E80-830E-FDC7C82766ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD8B0605-0D4C-4E80-830E-FDC7C82766ED}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6FF17ECF-0692-46A0-83AD-5535918F0466}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{6FF17ECF-0692-46A0-83AD-5535918F0466}.Debug|Any CPU.Build.0 = Debug|x86
-		{6FF17ECF-0692-46A0-83AD-5535918F0466}.Release|Any CPU.ActiveCfg = Release|x86
-		{6FF17ECF-0692-46A0-83AD-5535918F0466}.Release|Any CPU.Build.0 = Release|x86
 		{CCB1F31A-95FA-49E0-A329-F73044CA89ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CCB1F31A-95FA-49E0-A329-F73044CA89ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCB1F31A-95FA-49E0-A329-F73044CA89ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCB1F31A-95FA-49E0-A329-F73044CA89ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FF17ECF-0692-46A0-83AD-5535918F0466}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{6FF17ECF-0692-46A0-83AD-5535918F0466}.Debug|Any CPU.Build.0 = Debug|x86
+		{6FF17ECF-0692-46A0-83AD-5535918F0466}.Release|Any CPU.ActiveCfg = Release|x86
+		{6FF17ECF-0692-46A0-83AD-5535918F0466}.Release|Any CPU.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{35667E34-E2AC-4D88-81C7-8751C84AF047} = {F4135DDD-FFD0-4C08-B733-C2733BE480BB}

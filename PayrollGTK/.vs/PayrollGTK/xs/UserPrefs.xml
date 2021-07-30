@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{6FF17ECF-0692-46A0-83AD-5535918F0466}|Default">
+  <MonoDevelop.Ide.ItemProperties.PayrollGTK PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="PayrollGTK/AddEmployee.cs">
+    <Files>
+      <File FileName="PayrollGTK/Program.cs" Line="13" Column="45" />
+      <File FileName="PayrollGTK/MainWindow.cs" Line="29" Column="27" />
+      <File FileName="PayrollGTK/AddEmployee.cs" Line="68" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="PayrollGTK" expanded="True">
+            <Node name="PayrollGTK" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="UserInterface" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="AddEmployee.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
