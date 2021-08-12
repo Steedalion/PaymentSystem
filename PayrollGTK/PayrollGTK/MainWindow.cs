@@ -1,6 +1,5 @@
 ﻿using System;
 using Gtk;
-using PayrollDomain;
 using PayrollGTK;
 
 public partial class MainWindow : Gtk.Window
@@ -26,9 +25,6 @@ public partial class MainWindow : Gtk.Window
 
     protected void NewAffiliation(object obj, EventArgs args)
     {
-        Affiliation affiliations = new NoAffiliation();
-        Console.WriteLine(affiliations);
-        Console.WriteLine("Clicked");
 
     }
 

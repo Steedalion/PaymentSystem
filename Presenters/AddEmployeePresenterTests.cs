@@ -1,10 +1,8 @@
-﻿using System;
-using System.Data.Common;
+﻿using System.Data.Common;
 using NUnit.Framework;
 using PaymentClassification;
 using PaymentClassification.PaymentClassifications;
 using PayrollDB;
-using Transactions.DBTransaction;
 
 namespace Presenters
 {
@@ -54,7 +52,7 @@ namespace Presenters
             Assert.IsTrue(presenter.AllInfoCollected());
 
             presenter.IsSalary = false;
-            presenter.isCommision = true;
+            presenter.IsCommision = true;
             Assert.IsFalse(presenter.AllInfoCollected());
             presenter.CommisionRate = .50;
             presenter.CommisionSalary = 500.00;
@@ -85,7 +83,7 @@ namespace Presenters
 
             presenter.IsSalary = false;
             CheckViewSubmit(false, 9);
-            presenter.isCommision = true;
+            presenter.IsCommision = true;
             CheckViewSubmit(false, 10);
             presenter.CommisionRate = 0.5;
             CheckViewSubmit(false, 11);
@@ -117,157 +115,10 @@ namespace Presenters
             Assert.IsTrue(presenter.CreateTransaction() is AddSalaryEmployeeTransaction);
 
             presenter.IsSalary = false;
-            presenter.isCommision = true;
+            presenter.IsCommision = true;
             presenter.CommisionRate = 0.5;
             presenter.CommisionSalary = 100.00;
             Assert.IsTrue(presenter.CreateTransaction() is AddCommissionedEmployeeTransaction);
         }            
-    }
-
-    public class AddEmployeePresenter
-    {
-        private readonly MockAddEmployee view;
-        public readonly TransactionContainer Container;
-        private readonly IPayrollDb db;
-
-        public int EmpId
-        {
-            get => empId;
-            set
-            {
-                empId = value;
-                UpdateView();
-            }
-        }
-
-        public bool IsHourly
-        {
-            get => isHourly;
-            set
-            {
-                isHourly = value;
-                UpdateView();
-            }
-        }
-
-        public bool IsSalary;
-        public bool isCommision;
-        private int empId;
-        private bool isHourly;
-        private string name;
-        private string address;
-        private double hourlyRate;
-
-        private void UpdateView()
-        {
-            view.UpdateSubmitButton(AllInfoCollected());
-        }
-
-        public AddEmployeePresenter(MockAddEmployee view, TransactionContainer container, IPayrollDb database)
-        {
-            this.view = view;
-            this.Container = container;
-            db = database;
-        }
-
-        public string Name
-        {
-            get => name;
-            set
-            {
-                name = value;
-                UpdateView();
-            }
-        }
-
-        public string Address
-        {
-            get => address;
-            set
-            {
-                address = value;
-                UpdateView();
-            }
-        }
-
-        public double HourlyRate
-        {
-            get => hourlyRate;
-            set
-            {
-                hourlyRate = value;
-                UpdateView();
-            }
-        }
-
-        public double Salary { get; set; }
-        public double CommisionRate { get; set; }
-        public double CommisionSalary { get; set; }
-
-        public AddEmployeeTransaction CreateTransaction()
-        {
-            if (!AllInfoCollected())
-            {
-                throw new NotSupportedException();
-            }
-
-            if (IsHourly)
-            {
-                return new AddHourlyEmployeeTransaction(db, EmpId, Name, Address, HourlyRate);
-            }
-
-            if (IsSalary)
-            {
-                return new AddSalaryEmployeeTransaction(db, EmpId, Name, Address, Salary);
-            }
-
-            if (isCommision)
-            {
-                return new AddCommissionedEmployeeTransaction(db, EmpId, Name, Address, CommisionSalary,CommisionRate);
-            }
-            
-             throw new NotSupportedException("Employee payment not defined.");
-        }
-
-        public bool AllInfoCollected()
-        {
-            bool result = EmpId > 0;
-            result &= Name != null;
-            result &= Address != null;
-            result &= IsHourly || IsSalary || isCommision;
-            if (IsHourly)
-            {
-                result &= HourlyRate > 0;
-            }
-
-            if (IsSalary)
-            {
-                result &= Salary > 0;
-            }
-
-            if (isCommision)
-            {
-                result &= CommisionRate > 0;
-                result &= CommisionSalary > 0;
-            }
-
-            return result;
-        }
-    }
-
-    public class TransactionContainer
-    {
-    }
-
-    public class MockAddEmployee
-    {
-        public int Updates;
-        public bool SubmitButtonEnabled;
-
-        public void UpdateSubmitButton(bool allInfoCollected)
-        {
-            SubmitButtonEnabled = allInfoCollected;
-            Updates++;
-        }
     }
 }

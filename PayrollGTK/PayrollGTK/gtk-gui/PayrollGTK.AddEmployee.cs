@@ -236,7 +236,6 @@ namespace PayrollGTK
 			this.Hourly = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Hourly"));
 			this.Hourly.CanFocus = true;
 			this.Hourly.Name = "Hourly";
-			this.Hourly.Active = false;
 			this.Hourly.DrawIndicator = true;
 			this.Hourly.UseUnderline = true;
 			this.Hourly.Group = new global::GLib.SList(global::System.IntPtr.Zero);
@@ -265,7 +264,7 @@ namespace PayrollGTK
 			this.hourlyRate = new global::Gtk.Entry();
 			this.hourlyRate.CanFocus = true;
 			this.hourlyRate.Name = "hourlyRate";
-			this.hourlyRate.IsEditable = false;
+			this.hourlyRate.IsEditable = true;
 			this.hourlyRate.InvisibleChar = '•';
 			this.vbox9.Add(this.hourlyRate);
 			global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.vbox9[this.hourlyRate]));
@@ -294,7 +293,6 @@ namespace PayrollGTK
 			this.Salary = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Salary"));
 			this.Salary.CanFocus = true;
 			this.Salary.Name = "Salary";
-			this.Salary.Active = false;
 			this.Salary.DrawIndicator = true;
 			this.Salary.UseUnderline = true;
 			this.Salary.Group = this.Hourly.Group;
@@ -348,7 +346,6 @@ namespace PayrollGTK
 			this.commision = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Commision"));
 			this.commision.CanFocus = true;
 			this.commision.Name = "commision";
-			this.commision.Active = false;
 			this.commision.DrawIndicator = true;
 			this.commision.UseUnderline = true;
 			this.commision.Group = this.Hourly.Group;

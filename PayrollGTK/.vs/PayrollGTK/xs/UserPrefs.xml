@@ -2,9 +2,11 @@
   <MonoDevelop.Ide.ItemProperties.PayrollGTK PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="PayrollGTK/AddEmployee.cs">
     <Files>
-      <File FileName="PayrollGTK/Program.cs" Line="13" Column="45" />
-      <File FileName="PayrollGTK/MainWindow.cs" Line="29" Column="27" />
-      <File FileName="PayrollGTK/AddEmployee.cs" Line="68" Column="1" />
+      <File FileName="PayrollGTK/Program.cs" Line="12" Column="20" />
+      <File FileName="PayrollGTK/MainWindow.cs" Line="29" Column="6" />
+      <File FileName="PayrollGTK/AddEmployeeWindowTest.cs" Line="20" Column="24" />
+      <File FileName="PayrollGTK/Properties/AssemblyInfo.cs" Line="1" Column="1" />
+      <File FileName="PayrollGTK/AddEmployee.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,9 +14,12 @@
           <Node name="PayrollGTK" expanded="True">
             <Node name="PayrollGTK" expanded="True">
               <Node name="References" expanded="True" />
-              <Node name="UserInterface" expanded="True" />
-              <Node name="Properties" expanded="True" />
-              <Node name="AddEmployee.cs" selected="True" />
+              <Node name="UserInterface" expanded="True">
+                <Node name="MainWindow" expanded="True" />
+              </Node>
+              <Node name="Properties" expanded="True">
+                <Node name="AssemblyInfo.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>

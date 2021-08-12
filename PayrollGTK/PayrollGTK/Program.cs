@@ -1,6 +1,4 @@
-﻿using System;
-using Gtk;
-using PayrollDomain;
+﻿using Gtk;
 
 namespace PayrollGTK
 {
@@ -9,12 +7,13 @@ namespace PayrollGTK
         public static void Main(string[] args)
         {
 
-            Affiliation affiliations = new NoAffiliation();
-            Console.WriteLine(affiliations);
-            Application.Init();
-            MainWindow win = new MainWindow();
-            win.Show();
+             Application.Init();
+            AddEmployee win = new AddEmployee();
+            // MainWindow win = new MainWindow();
+             win.Show();
             Application.Run();
+            win.Destroy();
+            Application.Quit();
 
 
         }

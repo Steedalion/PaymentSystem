@@ -290,6 +290,7 @@
                         <property name="MemberName" />
                         <property name="CanFocus">True</property>
                         <property name="Label" translatable="yes">Hourly</property>
+                        <property name="Active">True</property>
                         <property name="DrawIndicator">True</property>
                         <property name="HasLabel">True</property>
                         <property name="UseUnderline">True</property>
@@ -329,7 +330,7 @@
                       <widget class="Gtk.Entry" id="hourlyRate">
                         <property name="MemberName" />
                         <property name="CanFocus">True</property>
-                        <property name="IsEditable">False</property>
+                        <property name="IsEditable">True</property>
                         <property name="InvisibleChar">•</property>
                         <signal name="Changed" handler="OnHourlyRateChanged" />
                       </widget>
@@ -369,7 +370,6 @@
                         <property name="MemberName" />
                         <property name="CanFocus">True</property>
                         <property name="Label" translatable="yes">Salary</property>
-                        <property name="Active">False</property>
                         <property name="DrawIndicator">True</property>
                         <property name="HasLabel">True</property>
                         <property name="UseUnderline">True</property>
@@ -445,7 +445,6 @@
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
                     <property name="Label" translatable="yes">Commision</property>
-                    <property name="Active">False</property>
                     <property name="DrawIndicator">True</property>
                     <property name="HasLabel">True</property>
                     <property name="UseUnderline">True</property>
