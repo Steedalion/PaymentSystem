@@ -6,7 +6,7 @@ using PayrollDataBase;
 using PayrollDomain;
 using Schedules;
 
-namespace Payroll.Tests.SQLiteTests
+namespace DatabaseTests.SQLiteTests
 {
     class AddClassificationType : TestSqliteDB
     {
@@ -96,14 +96,6 @@ namespace Payroll.Tests.SQLiteTests
             {
             }
             SalariedClassificationGetsSave();
-        }
-    }
-
-    internal class UnregisteredClassification : PayrollDomain.PaymentClassification
-    {
-        public double CalculatePay(PayCheck payCheck)
-        {
-            return 0;
         }
     }
 }

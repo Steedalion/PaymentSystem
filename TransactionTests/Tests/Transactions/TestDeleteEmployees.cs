@@ -4,7 +4,7 @@ using PayrollDB;
 using PayrollDomain;
 using Transactions.DBTransaction;
 
-namespace Payroll.Tests.Transactions
+namespace TransactionTests.Tests.Transactions
 {
     public class TestDeleteEmployees : TestSetupTransactions
     {

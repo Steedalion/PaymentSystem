@@ -3,7 +3,7 @@ using PaymentMethods;
 using PayrollDomain;
 using Transactions;
 
-namespace Payroll.Tests.Transactions
+namespace TransactionTests.Tests.Transactions
 {
     public class TestChangePaymentMethods : TestSetupTransactions
     {

@@ -1,13 +1,12 @@
 using System;
 using System.Data;
-using Mono.Data.Sqlite;
 using NUnit.Framework;
 using PaymentClassification.PaymentClassifications;
 using PaymentMethods;
 using PayrollDataBase;
 using PayrollDomain;
 
-namespace Payroll.Tests.SQLiteTests
+namespace DatabaseTests.SQLiteTests
 {
     class AddPaymentMethodType : TestSqliteDB
     {

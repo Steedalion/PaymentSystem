@@ -5,7 +5,7 @@ using PaymentClassification.PaymentClassifications;
 using PayrollDB;
 using PayrollDomain;
 
-namespace Payroll.Tests.Transactions
+namespace TransactionTests.Tests.Transactions
 {
     public class TestAddTimeCard : TestSetupTransactions
     {

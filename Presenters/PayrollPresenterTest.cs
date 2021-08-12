@@ -1,5 +1,4 @@
 using System;
-using System.Text;
 using NUnit.Framework;
 using PayrollDB;
 using PayrollDomain;
@@ -67,95 +66,5 @@ namespace Presenters
             Assert.AreEqual(employee.ToString() + Environment.NewLine, view.employeeText);
         }
         
-    }
-
-    public class MockTransaction : DbTransaction
-    {
-        public bool wasExecuted;
-
-        public MockTransaction(IPayrollDb database) : base(database)
-        {
-            wasExecuted = true;
-        }
-
-        public override void Execute()
-        {
-        }
-    }
-
-
-    public class MockViewLoader : IViewLoader
-    {
-        public bool addEmployeeViewWasLoaded;
-
-        public void LoadAddEmployerView()
-        {
-            addEmployeeViewWasLoaded = true;
-        }
-    }
-
-    public class PayrollPresenter
-    {
-        public MockPayrollView view;
-        public readonly IPayrollDb database;
-        private readonly IViewLoader viewLoader;
-
-        public PayrollPresenter(MockPayrollView view, IPayrollDb database, IViewLoader viewLoader)
-        {
-            this.view = view;
-            this.database = database;
-            this.viewLoader = viewLoader;
-            transactionContainer = new TransactionContainer();
-            transactionContainer.OnAddExecute(UpdateTransactionText);
-        }
-
-        public TransactionContainer transactionContainer { get; set; }
-
-        public void UpdateTransactionText()
-        {
-            StringBuilder builder = new StringBuilder();
-            foreach (DbTransaction transaction in transactionContainer.transactions)
-            {
-                builder.Append(transaction.ToString());
-                builder.Append(Environment.NewLine);
-            }
-
-            view.transactionText = builder.ToString();
-        }
-
-        public void AddEmployeeActionInvoked()
-        {
-            viewLoader.LoadAddEmployerView();
-        }
-
-        public void RunTransactions()
-        {
-            transactionContainer.RunTransactions();
-            UpdateTransactionText();
-            UpdateEmployeeText();
-        }
-
-        private void UpdateEmployeeText()
-        {
-            StringBuilder builder = new StringBuilder();
-            foreach (int employeeId in database.GetEmployeeIds())
-            {
-                Employee employee = database.GetEmployee(employeeId);
-                builder.Append(employee.ToString());
-                builder.Append(Environment.NewLine);
-            }
-            view.employeeText = builder.ToString();
-        }
-    }
-
-    public interface IViewLoader
-    {
-        void LoadAddEmployerView();
-    }
-
-    public class MockPayrollView
-    {
-        public string transactionText;
-        public string employeeText;
     }
 }

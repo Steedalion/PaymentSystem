@@ -5,7 +5,7 @@ using PayrollDomain;
 using Schedules;
 using Transactions.DBTransaction;
 
-namespace Payroll.Tests.Transactions
+namespace TransactionTests.Tests.Transactions
 {
     class TestPayCommisionEmployee : TestPay
     {

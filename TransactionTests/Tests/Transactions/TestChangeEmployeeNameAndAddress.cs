@@ -3,7 +3,7 @@ using PayrollDB;
 using PayrollDomain;
 using Transactions.DBTransaction.ChangeEmployee;
 
-namespace Payroll.Tests.Transactions
+namespace TransactionTests.Tests.Transactions
 {
     public class TestChangeEmployeeNameAndAddress : TestSetupTransactions
     {

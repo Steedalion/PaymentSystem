@@ -6,7 +6,7 @@ using PayrollDomain;
 using Schedules;
 using Transactions.DBTransaction;
 
-namespace Payroll.Tests.Transactions
+namespace TransactionTests.Tests.Transactions
 {
     public class TestAddEmployees : TestSetupTransactions
     {

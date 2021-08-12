@@ -4,7 +4,7 @@ using Mono.Data.Sqlite;
 using NUnit.Framework;
 using PayrollDataBase;
 
-namespace Payroll.Tests.SQLiteTests
+namespace DatabaseTests.SQLiteTests
 {
     public class TestSqliteDB
     {

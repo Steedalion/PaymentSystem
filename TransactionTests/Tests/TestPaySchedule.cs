@@ -3,7 +3,7 @@ using NUnit.Framework;
 using PayrollDomain;
 using Schedules;
 
-namespace Payroll.Tests
+namespace TransactionTests.Tests
 {
     public class TestPaySchedule
     {

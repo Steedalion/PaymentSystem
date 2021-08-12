@@ -2,7 +2,7 @@ using System;
 using Mono.Data.Sqlite;
 using NUnit.Framework;
 
-namespace Payroll.Tests.SQLiteTests
+namespace DatabaseTests.SQLiteTests
 {
     public class RandomSQL : TestSqliteDB
     {

@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using PayrollDomain;
 
-namespace Payroll.Tests
+namespace TransactionTests
 {
     public class EmployeeTest
     {

@@ -62,6 +62,7 @@
         <Compile Include="SQLiteTests\AddScheduleType.cs" />
         <Compile Include="SQLiteTests\RandomSQL.cs" />
         <Compile Include="SQLiteTests\TestSqliteDB.cs" />
+        <Compile Include="SQLiteTests\UnregisteredClassification.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />

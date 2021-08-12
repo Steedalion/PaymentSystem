@@ -5,7 +5,7 @@ using PayrollDomain;
 using Schedules;
 using Transactions.DBTransaction.ChangeEmployee;
 
-namespace Payroll.Tests.Transactions
+namespace TransactionTests.Tests.Transactions
 {
     public class TestChangePaymentClassification : TestSetupTransactions
     {

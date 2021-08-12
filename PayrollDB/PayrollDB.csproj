@@ -41,7 +41,7 @@
         <Compile Include="EmployeeAlreadyExists.cs" />
         <Compile Include="EmployeeNotFound.cs" />
         <Compile Include="InMemoryDB.cs" />
-        <Compile Include="PayrollDB.cs" />
+        <Compile Include="IPayrollDb.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="UnionMemberNotFound.cs" />
     </ItemGroup>

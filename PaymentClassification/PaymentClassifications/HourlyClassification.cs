@@ -63,8 +63,4 @@ namespace PaymentClassification.PaymentClassifications
             return cardDate >= PayDate.AddDays(-5) && cardDate <= PayDate;
         }
     }
-
-    public class TimeCardNotFound : Exception
-    {
-    }
 }

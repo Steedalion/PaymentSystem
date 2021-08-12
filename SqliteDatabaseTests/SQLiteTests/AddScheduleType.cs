@@ -5,7 +5,7 @@ using PayrollDataBase;
 using PayrollDomain;
 using Schedules;
 
-namespace Payroll.Tests.SQLiteTests
+namespace DatabaseTests.SQLiteTests
 {
     class AddScheduleType : TestSqliteDB
     {

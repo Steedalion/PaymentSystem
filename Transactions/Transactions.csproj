@@ -39,7 +39,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="ChangeAffiliation.cs" />
-        <Compile Include="ChangePaymentMethodTransaction.cs" />
+        <Compile Include="ChangePmTransaction.cs" />
         <Compile Include="ChangeUnaffiliated.cs" />
         <Compile Include="DBTransaction\AddEmployeeTransaction.cs" />
         <Compile Include="DBTransaction\ChangeEmployee\ChangeEmployeeAddressTransaction.cs" />
@@ -48,7 +48,7 @@
         <Compile Include="DBTransaction\DeleteEmployee.cs" />
         <Compile Include="DBTransaction\PayDayTransaction.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="Transaction.cs" />
+        <Compile Include="DbTransaction.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\PayrollDB\PayrollDB.csproj">

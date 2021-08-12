@@ -3,7 +3,7 @@ using NUnit.Framework;
 using PaymentClassification;
 using PayrollDB;
 
-namespace Payroll.Tests.Transactions
+namespace TransactionTests.Tests.Transactions
 {
     [TestFixture]
     public class TestSetupTransactions

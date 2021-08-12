@@ -3,7 +3,7 @@ using NUnit.Framework;
 using PayrollDomain;
 using Transactions;
 
-namespace Payroll.Tests.Transactions
+namespace TransactionTests.Tests.Transactions
 {
     public class TestChangeMemberAffiliation:TestSetupTransactions
     {

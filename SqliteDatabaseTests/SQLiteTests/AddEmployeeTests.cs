@@ -7,7 +7,7 @@ using PayrollDB;
 using PayrollDomain;
 using Schedules;
 
-namespace Payroll.Tests.SQLiteTests
+namespace DatabaseTests.SQLiteTests
 {
     public
         class AddEmployeeTests : TestSqliteDB

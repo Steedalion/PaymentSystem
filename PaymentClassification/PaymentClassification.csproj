@@ -43,7 +43,7 @@
         <Compile Include="AddSalaryEmployeeTransaction.cs" />
         <Compile Include="AddSalesReceipt.cs" />
         <Compile Include="AddTimeCard.cs" />
-        <Compile Include="ChangeClassification\ChangeCommisionEmployee.cs" />
+        <Compile Include="ChangeClassification\ChangeCommisionTransaction.cs" />
         <Compile Include="ChangeClassification\ChangeEmployeeClassification.cs" />
         <Compile Include="ChangeClassification\ChangeHourlyEmployee.cs" />
         <Compile Include="ChangeClassification\ChangeSalaryEmployee.cs" />
@@ -51,6 +51,7 @@
         <Compile Include="PaymentClassifications\HourlyClassification.cs" />
         <Compile Include="PaymentClassifications\SalariedClassification.cs" />
         <Compile Include="PaymentClassifications\SalesReceiptNotFound.cs" />
+        <Compile Include="PaymentClassifications\TimeCardNotFound.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
