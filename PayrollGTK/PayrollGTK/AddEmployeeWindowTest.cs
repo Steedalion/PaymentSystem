@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Gtk;
@@ -6,22 +7,21 @@ using Presenters;
 
 namespace PayrollGTK
 {
-    [TestFixture]
     public class AddEmployeeWindowTest
     {
         private AddEmployee window;
         private AddEmployeePresenter presenter;
         private TransactionContainer container;
 
-         //[Test]
+         // [Test]
         public void CreateWindow()
         {
-            Application.Init();
-            AddEmployee win = new AddEmployee();
+             Application.Init();
+            // AddEmployee win = new AddEmployee();
             // MainWindow win = new MainWindow();
-            win.Show();
+             // win.Show();
             Application.Run();
-            win.Destroy();
+            // win.Destroy();
             Application.Quit();
         }
     }

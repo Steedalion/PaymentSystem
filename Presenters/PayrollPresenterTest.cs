@@ -24,6 +24,13 @@ namespace Presenters
         }
 
         [Test]
+        public void StartCreatesAPayrollView()
+        {
+            presenter.Start();
+            Assert.IsTrue(viewLoader.parollyViewWasLoaded);
+        }
+
+        [Test]
         public void Creation()
         {
             Assert.AreSame(view, presenter.view);

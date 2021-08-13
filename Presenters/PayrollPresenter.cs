@@ -58,5 +58,10 @@ namespace Presenters
             }
             view.employeeText = builder.ToString();
         }
+
+        public void Start()
+        {
+            viewLoader.LoadPayrollView();
+        }
     }
 }
