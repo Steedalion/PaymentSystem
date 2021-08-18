@@ -1,3 +1,5 @@
+using System;
+
 namespace PayrollDomain
 {
     public class Employee
@@ -32,10 +34,20 @@ namespace PayrollDomain
         public void CompletePaycheck(PayCheck payCheck)
         {
             payCheck.GrossPay = Classification.CalculatePay(payCheck);
-            payCheck.Deductions = Affiliation.CalculateDeductions();
+            payCheck.Deductions = Affiliation.CalculateDeductions(payCheck);
             payCheck.NetPay = payCheck.GrossPay - payCheck.Deductions;
             Paymentmethod.pay(payCheck);
 
+        }
+
+        public bool IsPayDate(DateTime payDate)
+        {
+            return Schedule.IsPayDate(payDate);
+        }
+
+        public DateTime GetPaydateStartPeriod(DateTime payDate)
+        {
+            return Schedule.GetStartDate(payDate);
         }
     }
 

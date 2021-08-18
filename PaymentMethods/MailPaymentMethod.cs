@@ -13,7 +13,8 @@ namespace PaymentMethods
 
         public void pay(PayCheck payCheck)
         {
-            throw new System.NotImplementedException();
+            payCheck.SetField("Disposition", "Mail");
+            payCheck.SetField("Address", Address);
         }
     }
 }

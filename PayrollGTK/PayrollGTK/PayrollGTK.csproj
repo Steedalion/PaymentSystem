@@ -59,6 +59,8 @@
   <ItemGroup>
     <Compile Include="AddEmployeeWindowTest.cs" />
     <Compile Include="gtk-gui\generated.cs" />
+    <Compile Include="gtk-gui\GtkViewLoader.cs" />
+    <Compile Include="gtk-gui\GtkViewLoaderTest.cs" />
     <Compile Include="MainWindow.cs" />
     <Compile Include="gtk-gui\MainWindow.cs" />
     <Compile Include="Program.cs" />

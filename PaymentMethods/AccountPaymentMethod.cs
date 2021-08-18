@@ -16,7 +16,9 @@ namespace PaymentMethods
 
         public void pay(PayCheck payCheck)
         {
-            throw new System.NotImplementedException();
+            payCheck.SetField("Disposition", "Account");
+            payCheck.SetField("Bank", bank);
+            payCheck.SetField("AccountNumber", AccountNumber.ToString());
         }
     }
 }

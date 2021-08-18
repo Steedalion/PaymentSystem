@@ -1,4 +1,5 @@
-﻿using System.Data.Common;
+﻿using System;
+using System.Data.Common;
 using NUnit.Framework;
 using PaymentClassification;
 using PaymentClassification.PaymentClassifications;
@@ -97,6 +98,13 @@ namespace Presenters
             Assert.AreEqual(updateCounter, view.Updates);
         }
 
+        [Test]
+        public void CreateTransactionWithoutAllFields()
+        { presenter.EmpId = 1;
+            presenter.Name = "Bob";
+            presenter.Address = "Home";
+            Assert.Throws<InsufficientInformationToAddEmployee>(() => presenter.CreateTransaction());
+        }
         [Test]
         public void CreateTransaction()
         {

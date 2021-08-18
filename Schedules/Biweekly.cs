@@ -12,6 +12,11 @@ namespace Schedules
             return payDate.DayOfWeek == DayOfWeek.Friday && isBiweekly(payDate);
         }
 
+        public DateTime GetStartDate(DateTime payDate)
+        {
+            return payDate.AddDays(-14);
+        }
+
         public static bool isBiweekly(DateTime payDate)
         {
             int week = calendar.GetWeekOfYear(payDate, CalendarWeekRule.FirstDay, DayOfWeek.Sunday);

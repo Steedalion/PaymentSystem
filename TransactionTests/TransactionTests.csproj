@@ -53,7 +53,9 @@
         <Compile Include="Tests\Transactions\TestChangeMemberAffiliation.cs" />
         <Compile Include="Tests\Transactions\TestChangePaymentClassification.cs" />
         <Compile Include="Tests\Transactions\TestChangePaymentMethods.cs" />
+        <Compile Include="Tests\Transactions\TestDeductions.cs" />
         <Compile Include="Tests\Transactions\TestDeleteEmployees.cs" />
+        <Compile Include="Tests\Transactions\TestPaycheckMethods.cs" />
         <Compile Include="Tests\Transactions\TestPayCommisionEmployee.cs" />
         <Compile Include="Tests\Transactions\TestPay.cs" />
         <Compile Include="Tests\Transactions\TestPayHourlyEmployee.cs" />

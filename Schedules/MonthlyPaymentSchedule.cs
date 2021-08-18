@@ -10,6 +10,11 @@ namespace Schedules
             return IsLastDayOfMonth(payDate);
         }
 
+        public DateTime GetStartDate(DateTime payDate)
+        {
+            return payDate.AddMonths(-1);
+        }
+
         private bool IsLastDayOfMonth(DateTime date)
         {
             int m1 = date.Month;

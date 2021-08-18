@@ -14,11 +14,11 @@ namespace PayrollDomain
             throw new NullReferenceException();
         }
 
-        public double CalculateDeductions()
+        public double CalculateDeductions(PayCheck payCheck)
         {
-
             return 0;
         }
+
     }
 
 }

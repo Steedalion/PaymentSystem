@@ -119,7 +119,7 @@ namespace Presenters
         {
             if (!AllInfoCollected())
             {
-                throw new NotSupportedException();
+                throw new InsufficientInformationToAddEmployee();
             }
 
             if (IsHourly)
@@ -132,12 +132,11 @@ namespace Presenters
                 return new AddSalaryEmployeeTransaction(db, EmpId, Name, Address, Salary);
             }
 
-            if (IsCommision)
+            // if (IsCommision)
             {
                 return new AddCommissionedEmployeeTransaction(db, EmpId, Name, Address, CommisionSalary,CommisionRate);
             }
-            
-            throw new NotSupportedException("Employee payment not defined.");
+            // throw new NotSupportedException("Employee payment not defined. This can logically never happen");
         }
 
         public bool AllInfoCollected()
@@ -164,5 +163,9 @@ namespace Presenters
 
             return result;
         }
+    }
+
+    public class InsufficientInformationToAddEmployee : NotSupportedException
+    {
     }
 }

@@ -6,6 +6,6 @@ namespace PayrollDomain
     {
         ServiceCharge GetServiceCharge(DateTime dateTime);
         void AddServiceCharge(ServiceCharge sc);
-        double CalculateDeductions();
+        double CalculateDeductions(PayCheck payCheck);
     }
 }

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using PayrollDB;
 using PayrollDomain;
 
 namespace Transactions.DBTransaction
@@ -21,9 +20,10 @@ namespace Transactions.DBTransaction
             foreach (int id in allEmployees)
             {
                 Employee employee = database.GetEmployee(id);
-                if (employee.Schedule.IsPayDate(payDate))
+                if (employee.IsPayDate(payDate))
                 {
-                    PayCheck payCheck = new PayCheck(payDate);
+                    DateTime startDate = employee.GetPaydateStartPeriod(payDate);
+                    PayCheck payCheck = new PayCheck(startDate,payDate);
                     paychecks[id] = payCheck;
                     employee.CompletePaycheck(payCheck);
                 }

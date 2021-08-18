@@ -6,6 +6,7 @@ namespace PayrollDomain
     {
         public void pay(PayCheck payCheck)
         {
+            payCheck.SetField("Disposition","Hold");
             Console.WriteLine("Holding Salary  ");
         }
     }
