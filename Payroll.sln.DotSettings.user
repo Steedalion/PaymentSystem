@@ -3,25 +3,21 @@
   &lt;Assembly Path="/home/alex/RiderProjects/PaymentSystem/PayrollTransactions/bin/Debug/PayrollTransactions.dll" /&gt;
   &lt;Assembly Path="/home/alex/RiderProjects/PaymentSystem/Payroll/bin/Debug/Payroll.dll" /&gt;
 &lt;/AssemblyExplorer&gt;</s:String>
-	<s:String x:Key="/Default/Environment/Hierarchy/Build/BuildTool/CustomBuildToolPath/@EntryValue">/snap/dotnet-sdk/current/sdk/5.0.302/MSBuild.dll</s:String>
-	<s:Int64 x:Key="/Default/Environment/Hierarchy/Build/BuildTool/MsbuildVersion/@EntryValue">1048576</s:Int64>
-	
-	
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8d256d39_002D7e18_002D4e1a_002Da895_002D5519cf63067e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="BiweeklyScheduleGetsSaved" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=40c5b119_002D6b28_002D4589_002D973b_002D2f63b46e24b8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Solution /&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=413df68c_002D8a77_002D4b8b_002Da6f3_002Dc40f2cec7908/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Solution /&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=600f8e76_002Dab49_002D4b05_002D8591_002D16ea3b6ca937/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Solution /&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8d256d39_002D7e18_002D4e1a_002Da895_002D5519cf63067e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="BiweeklyScheduleGetsSaved" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;Solution /&gt;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=dbe72ac3_002D87ef_002D41ec_002Dad49_002Deb5794edae39/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;Solution /&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=01589460_002D847b_002D4109_002D83ca_002Dc3198e1eb42f_0023SQLiteTests/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=701119a2_002Da831_002D46f0_002D98c6_002Dce07671360d5_0023SQlitePayrollDB/@EntryIndexedValue">True</s:Boolean>
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
