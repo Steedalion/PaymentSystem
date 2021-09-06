@@ -19,11 +19,14 @@ namespace PayrollGTK.gtk_gui
             throw new System.NotImplementedException();
         }
 
-        public void LoadPayrollView()
+        public IView LoadPayrollView()
         {
-            
-            StartClass.Launch(null);
-            lastWindow = StartClass.win;
+            PayrollGTK.Program.Main(null);
+            var mainWindow = Program.win;
+            // mainWindow.
+            lastWindow = mainWindow;
+            // mainWindow.SetPresenter()
+            return mainWindow;
         }
 
         public Window LastLoadedView()

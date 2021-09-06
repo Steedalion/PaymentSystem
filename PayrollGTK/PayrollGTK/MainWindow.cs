@@ -1,9 +1,16 @@
 ﻿using System;
+using Atk;
 using Gtk;
 using PayrollGTK;
+using Presenters;
 
-public partial class MainWindow : Gtk.Window
+public partial class MainWindow : Gtk.Window, IView
 {
+    private PayrollPresenter presenter;
+
+    public void SetPresenter(PayrollPresenter newPresenter) => presenter = newPresenter;
+    public PayrollPresenter GetPresenter() =>presenter;
+
     public MainWindow() : base(Gtk.WindowType.Toplevel)
     {
         Build();
@@ -39,4 +46,30 @@ public partial class MainWindow : Gtk.Window
         Application.Quit();
     }
 
+    public TextBuffer GetTransactionTextArea()
+    {
+        return transactionsArea.Buffer;
+    }
+    protected void OnTransactionsAreaAdded(object o, AddedArgs args)
+    {}
+
+    public void SetTransactionText(string transactionTable)
+    {
+        transactionsArea.Buffer.Text = transactionTable;
+    }
+
+    public string GetTransactionText()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void SetEmployeeText(string employeeTable)
+    {
+        throw new NotImplementedException();
+    }
+
+    public string GetEmployeeText()
+    {
+        throw new NotImplementedException();
+    }
 }
