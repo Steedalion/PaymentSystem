@@ -11,6 +11,11 @@ Current features:
 - SQLite database
 
 
-The image below shows the GUI implemented using mono-gtk.
+The GUI implemented using mono-gtk.
 
 <image src = "Screenshot-gtkgui.png">
+
+
+The architecture.
+
+<image src = "Test coverage 2021-09-06 16-26-34.png">
