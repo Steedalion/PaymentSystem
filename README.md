@@ -18,4 +18,4 @@ The GUI implemented using mono-gtk.
 
 The architecture.
 
-<image src = "Test coverage 2021-09-06 16-26-34.png">
+<image src = "Payroll-architecture-2020-09-06.png">
