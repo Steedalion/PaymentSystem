@@ -1,14 +1,12 @@
 ﻿using Gtk;
-using PayrollDB;
-using PayrollGTK.gtk_gui;
 
 namespace PayrollGTK
 {
-    static class StartClass
+    public static class Program
     {
         public static MainWindow win { get; private set; }
 
-        public static void Launch(string[] args)
+        public static void Main(string[] args)
         {
             Application.Init();
             //AddEmployee win = new AddEmployee();
@@ -17,18 +15,6 @@ namespace PayrollGTK
             Application.Run();
             win.Destroy();
             Application.Quit();
-        }
-    }
-
-    static class MainClass
-    {
-        public static MainWindow win { get; private set; }
-
-        public static void Main(string[] args)
-        {
-            IPayrollDb database = new InMemoryDB();
-            GtkViewLoader viewLoader = new GtkViewLoader(database);
-            viewLoader.LoadPayrollView();
         }
     }
 }

@@ -8,11 +8,11 @@ namespace Presenters
 {
     public class PayrollPresenter
     {
-        public MockPayrollView view;
+        public IView view;
         public readonly IPayrollDb database;
         private readonly IViewLoader viewLoader;
 
-        public PayrollPresenter(MockPayrollView view, IPayrollDb database, IViewLoader viewLoader)
+        public PayrollPresenter(IView view, IPayrollDb database, IViewLoader viewLoader)
         {
             this.view = view;
             this.database = database;
@@ -32,7 +32,7 @@ namespace Presenters
                 builder.Append(Environment.NewLine);
             }
 
-            view.transactionText = builder.ToString();
+            view.SetTransactionText(builder.ToString());
         }
 
         public void AddEmployeeActionInvoked()
@@ -56,7 +56,7 @@ namespace Presenters
                 builder.Append(employee.ToString());
                 builder.Append(Environment.NewLine);
             }
-            view.employeeText = builder.ToString();
+            view.SetEmployeeText(builder.ToString());
         }
 
         public void Start()
