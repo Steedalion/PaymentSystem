@@ -21,6 +21,8 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=dbe72ac3_002D87ef_002D41ec_002Dad49_002Deb5794edae39/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;Solution /&gt;
 &lt;/SessionState&gt;</s:String>
+	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=30038a32_002D18e5_002D44fd_002Dbac0_002Dc057e09c5c4e_0023GTKApplication/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=6ff17ecf_002D0692_002D46a0_002D83ad_002D5535918f0466_0023PayrollGTK/@EntryIndexedValue">True</s:Boolean>
 	
 	
 	
