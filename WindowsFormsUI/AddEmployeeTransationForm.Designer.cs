@@ -275,18 +275,18 @@ namespace WindowsFormsUI
 
         public System.Windows.Forms.TextBox HourlyRateTextBox;
 
-        private System.Windows.Forms.RadioButton salariedRadioButton;
-        private System.Windows.Forms.RadioButton commisionedRadioButton;
+        public System.Windows.Forms.RadioButton salariedRadioButton;
+        public System.Windows.Forms.RadioButton commisionedRadioButton;
 
-        private System.Windows.Forms.RadioButton hourlyRadioButton;
+        public System.Windows.Forms.RadioButton hourlyRadioButton;
 
-        private System.Windows.Forms.Button submitButton;
+        public System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.Button cancelButton;
 
         public System.Windows.Forms.TextBox empIDTb;
 
-        private System.Windows.Forms.TextBox nameBox;
-        private System.Windows.Forms.TextBox addressBox;
+        public System.Windows.Forms.TextBox nameBox;
+        public System.Windows.Forms.TextBox addressBox;
 
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

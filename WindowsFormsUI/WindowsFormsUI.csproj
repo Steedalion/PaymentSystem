@@ -88,5 +88,11 @@
     <ItemGroup>
         <None Include="App.config" />
     </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Presenters\Presenters.csproj">
+        <Project>{ccb1f31a-95fa-49e0-a329-f73044ca89ed}</Project>
+        <Name>Presenters</Name>
+      </ProjectReference>
+    </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

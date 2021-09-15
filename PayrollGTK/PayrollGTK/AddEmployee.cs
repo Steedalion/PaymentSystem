@@ -9,8 +9,7 @@ namespace PayrollGTK
     {
         private AddEmployeePresenter presenter;
 
-        public AddEmployee() :
-            base(Gtk.WindowType.Toplevel)
+        public AddEmployee() : base(Gtk.WindowType.Toplevel)
         {
             presenter =
                 new AddEmployeePresenter(this, new TransactionContainer(), new InMemoryDB());

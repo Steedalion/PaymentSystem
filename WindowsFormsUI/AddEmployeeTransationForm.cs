@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using Presenters;
 
 namespace WindowsFormsUI
 {
-    public partial class AddEmployeeTransationForm : Form
+    public partial class AddEmployeeTransationForm : Form, AddEmployeeView
     {
         public AddEmployeeTransationForm()
         {
             InitializeComponent();
+            UpdateSubmitButton(false);
         }
+
+        public AddEmployeePresenter Presenter { get; set; }
 
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -19,6 +23,7 @@ namespace WindowsFormsUI
         private void empIdUpdated(object sender, EventArgs e)
         {
             NumberOnly(empIDTb);
+            Presenter.EmpId = Int32.Parse(empIDTb.Text);
         }
 
 
@@ -60,7 +65,7 @@ namespace WindowsFormsUI
 
         private void NumberOnly(TextBox textBox, char seperator = '0')
         {
-            textBox.Text=new string(textBox.Text.Where(c => char.IsDigit(c) || c==seperator).ToArray());
+            textBox.Text = new string(textBox.Text.Where(c => char.IsDigit(c) || c == seperator).ToArray());
         }
 
         private void EnterState(AddEmployeeStates state)
@@ -73,22 +78,28 @@ namespace WindowsFormsUI
 
         private void HourlyRateTextBox_TextChanged(object sender, EventArgs e)
         {
-            NumberOnly(HourlyRateTextBox,'.');
+            NumberOnly(HourlyRateTextBox, '.');
         }
 
         private void SalariedSalaryTextBox_TextChanged(object sender, EventArgs e)
         {
-            NumberOnly(SalariedSalaryTextBox,'.');
+            NumberOnly(SalariedSalaryTextBox, '.');
         }
 
         private void CommsionedRateBox_TextChanged(object sender, EventArgs e)
         {
-            NumberOnly(CommsionedRateBox,'.');
+            NumberOnly(CommsionedRateBox, '.');
         }
 
         private void CommisionedSalaryBox_TextChanged(object sender, EventArgs e)
         {
-NumberOnly(CommisionedSalaryBox,'.');        }
+            NumberOnly(CommisionedSalaryBox, '.');
+        }
+
+        public void UpdateSubmitButton(bool allInfoCollected)
+        {
+            submitButton.Enabled = allInfoCollected;
+        }
     }
 
     internal enum AddEmployeeStates
