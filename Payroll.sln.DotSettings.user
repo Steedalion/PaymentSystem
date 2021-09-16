@@ -3,18 +3,11 @@
   &lt;Assembly Path="/home/alex/RiderProjects/PaymentSystem/PayrollTransactions/bin/Debug/PayrollTransactions.dll" /&gt;
   &lt;Assembly Path="/home/alex/RiderProjects/PaymentSystem/Payroll/bin/Debug/Payroll.dll" /&gt;
 &lt;/AssemblyExplorer&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3b46d381_002D7fc8_002D4e16_002Db817_002D2d73670cc0c7/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Starting" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::BF6707AC-CE11-4538-B555-B148CEF4F5CC::.NETFramework,Version=v4.6::WinFormTest.ViewSetsPresenterFields&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::BF6707AC-CE11-4538-B555-B148CEF4F5CC::.NETFramework,Version=v4.6::WinFormTest.UITests.CommisionedRadio&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::BF6707AC-CE11-4538-B555-B148CEF4F5CC::.NETFramework,Version=v4.6::WinFormTest.UITests.SalariedButton&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::BF6707AC-CE11-4538-B555-B148CEF4F5CC::.NETFramework,Version=v4.6::WinFormTest.UITests.HourlyButton&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::BF6707AC-CE11-4538-B555-B148CEF4F5CC::.NETFramework,Version=v4.6::WinFormTest.UITests.EnableSubmitButton&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b61ceed4_002Dfe34_002D4555_002D9d5e_002D230017ac2c76/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f96deb28_002D56b9_002D4f92_002D9563_002D53b7b5f7f130/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from &amp;lt;WinFormTest&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Solution /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
+	
+	
 	
 	
 	
@@ -28,7 +21,9 @@
 	
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/Initialized/@EntryValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=30038a32_002D18e5_002D44fd_002Dbac0_002Dc057e09c5c4e_0023GTKApplication/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=6a5a55de_002Dd6c5_002D45b6_002D8b9c_002D5dccaf4fe579_0023SqliteDatabaseTests/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=6ff17ecf_002D0692_002D46a0_002D83ad_002D5535918f0466_0023PayrollGTK/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=9e4a0173_002Dd7d1_002D49c3_002Dbd7c_002D9a33d35c657d_0023SQLitePayrollDatabase/@EntryIndexedValue">True</s:Boolean>
 	
 	
 	

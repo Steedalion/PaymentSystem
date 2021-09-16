@@ -17,6 +17,7 @@ namespace WinFormTest
             transactionContainer = new TransactionContainer();
             presenter = new AddEmployeePresenter(window, transactionContainer, null);
             window.Presenter = presenter;
+            window.Visible = true;
         }
 
         protected bool SubmitButtonEnabled()
@@ -67,10 +68,20 @@ namespace WinFormTest
         [Test]
         public void AddEmployee()
         {
-            throw new NotImplementedException();
+            Assert.False(window.submitButton.Enabled);
+            window.nameBox.Text = "Jonny";
+            window.addressBox.Text = "Home";
+            window.empIDTb.Text = "123";
+            window.salariedRadioButton.Checked = true;
+            window.SalariedSalaryTextBox.Text = "100";
+            Assert.IsTrue(window.submitButton.Enabled);
+            window.submitButton.PerformClick();
+            Assert.IsFalse(window.Visible);
+            Assert.AreEqual(1, transactionContainer.Size());
         }
     }
 
+    [TestFixture]
     public class EnableSubmitingWhenAllFieldsAvailable : windowTests
     {
         [SetUp]
@@ -78,15 +89,15 @@ namespace WinFormTest
         {
             SetUpEnvironment();
             PresenterFieldsAreSet borrowTests = new PresenterFieldsAreSet();
-            borrowTests.Name();
-            borrowTests.Addresss();
-            borrowTests.EmpID();
+            window.nameBox.Text = "Jonny";
+            window.addressBox.Text = "Home";
+            window.empIDTb.Text = "123";
         }
 
         [Test]
         public void HourlyEnableSubmitButton()
         {
-            window.hourlyRadioButton.PerformClick();
+            window.hourlyRadioButton.Checked = true;
             window.HourlyRateTextBox.Text = "10.00";
             Assert.True(SubmitButtonEnabled());
         }
@@ -94,7 +105,7 @@ namespace WinFormTest
         [Test]
         public void Salaried()
         {
-            window.salariedRadioButton.PerformClick();
+            window.salariedRadioButton.Checked = true;
             window.SalariedSalaryTextBox.Text = "2000";
             Assert.True(SubmitButtonEnabled());
         }
@@ -102,18 +113,20 @@ namespace WinFormTest
         [Test]
         public void Commisioned()
         {
-            window.commisionedRadioButton.PerformClick();
+            window.commisionedRadioButton.Checked = true;
             window.CommisionedSalaryBox.Text = "100";
             window.CommsionedRateBox.Text = "0.5";
             Assert.True(SubmitButtonEnabled());
         }
+
         [Test]
         public void CommisionedSalaryOnly()
         {
             window.commisionedRadioButton.PerformClick();
-            window.CommisionedSalaryBox.Text = "100";
+            window.CommisionedSalaryBox.Text = "100.0";
             Assert.False(SubmitButtonEnabled());
         }
+
         [Test]
         public void CommisionedRateOnly()
         {
@@ -137,6 +150,7 @@ namespace WinFormTest
         public void Starting()
         {
             Assert.AreSame(presenter, window.Presenter);
+            Assert.AreSame(presenter.Container, transactionContainer);
             Assert.IsFalse(window.submitButton.Enabled);
         }
 
@@ -168,16 +182,21 @@ namespace WinFormTest
         [Test]
         public void Commisioned()
         {
-            window.commisionedRadioButton.PerformClick();
+            window.commisionedRadioButton.Checked = true;
             Assert.IsFalse(presenter.IsHourly);
             Assert.IsFalse(presenter.IsSalary);
             Assert.IsTrue(presenter.IsCommision);
+
+            window.CommsionedRateBox.Text = "0.3";
+            Assert.AreEqual(0.3, presenter.CommisionRate);
+            window.CommisionedSalaryBox.Text = "100";
+            Assert.AreEqual(100, presenter.CommisionSalary);
         }
 
         [Test]
         public void Salaried()
         {
-            window.salariedRadioButton.PerformClick();
+            window.salariedRadioButton.Checked = true;
             Assert.IsFalse(presenter.IsHourly);
             Assert.IsTrue(presenter.IsSalary);
             Assert.IsFalse(presenter.IsCommision);
@@ -186,7 +205,7 @@ namespace WinFormTest
         [Test]
         public void Hourly()
         {
-            window.hourlyRadioButton.PerformClick();
+            window.hourlyRadioButton.Checked = true;
             Assert.IsTrue(presenter.IsHourly);
             Assert.IsFalse(presenter.IsSalary);
             Assert.IsFalse(presenter.IsCommision);

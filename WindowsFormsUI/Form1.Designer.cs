@@ -29,29 +29,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.addEmployeeButton = new System.Windows.Forms.Button();
+            this.pendingTransactions = new System.Windows.Forms.ListBox();
+            this.runTransactions = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // addEmployeeButton
             // 
-            this.button1.Location = new System.Drawing.Point(65, 44);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Add Employee";
-            this.button1.UseVisualStyleBackColor = true;
+            this.addEmployeeButton.Location = new System.Drawing.Point(65, 44);
+            this.addEmployeeButton.Name = "addEmployeeButton";
+            this.addEmployeeButton.Size = new System.Drawing.Size(106, 23);
+            this.addEmployeeButton.TabIndex = 0;
+            this.addEmployeeButton.Text = "Add Employee";
+            this.addEmployeeButton.UseVisualStyleBackColor = true;
+            // 
+            // pendingTransactions
+            // 
+            this.pendingTransactions.FormattingEnabled = true;
+            this.pendingTransactions.Location = new System.Drawing.Point(65, 82);
+            this.pendingTransactions.Name = "pendingTransactions";
+            this.pendingTransactions.Size = new System.Drawing.Size(327, 56);
+            this.pendingTransactions.TabIndex = 1;
+            // 
+            // runTransactions
+            // 
+            this.runTransactions.Location = new System.Drawing.Point(65, 147);
+            this.runTransactions.Name = "runTransactions";
+            this.runTransactions.Size = new System.Drawing.Size(131, 23);
+            this.runTransactions.TabIndex = 2;
+            this.runTransactions.Text = "Run Transactions";
+            this.runTransactions.UseVisualStyleBackColor = true;
+            this.runTransactions.Click += new System.EventHandler(this.runTransactions_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(531, 310);
+            this.Controls.Add(this.runTransactions);
+            this.Controls.Add(this.pendingTransactions);
+            this.Controls.Add(this.addEmployeeButton);
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "Form1";
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button addEmployeeButton;
+
+        private System.Windows.Forms.ListBox pendingTransactions;
+
+        private System.Windows.Forms.Button runTransactions;
+
+        private System.Windows.Forms.ListBox listBox1;
 
         private System.Windows.Forms.Button button1;
 
