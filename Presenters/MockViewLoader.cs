@@ -5,7 +5,8 @@ namespace Presenters
         public bool addEmployeeViewWasLoaded;
         public bool parollyViewWasLoaded;
 
-        public void LoadAddEmployerView()
+
+        public void LoadAddEmployerView(TransactionContainer transactionContainer)
         {
             addEmployeeViewWasLoaded = true;
         }

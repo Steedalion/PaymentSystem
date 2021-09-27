@@ -2,7 +2,7 @@ namespace Presenters
 {
     public interface IViewLoader
     {
-        void LoadAddEmployerView();
+        void LoadAddEmployerView(TransactionContainer transactionContainer);
         IView LoadPayrollView();
     }
 }

@@ -37,7 +37,7 @@ namespace Presenters
 
         public void AddEmployeeActionInvoked()
         {
-            viewLoader.LoadAddEmployerView();
+            viewLoader.LoadAddEmployerView(transactionContainer);
         }
 
         public void RunTransactions()

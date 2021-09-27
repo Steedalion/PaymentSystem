@@ -40,6 +40,7 @@ namespace Presenters
                 UpdateView();
             }
         }
+
         public bool IsCommision
         {
             get => isCommision;
@@ -49,6 +50,7 @@ namespace Presenters
                 UpdateView();
             }
         }
+
         private int empId;
         private bool isHourly;
         private string name;
@@ -102,17 +104,34 @@ namespace Presenters
             }
         }
 
-        public double Salary { 
+        public double Salary
+        {
             get => salary;
-            set { salary = value; UpdateView(); }
+            set
+            {
+                salary = value;
+                UpdateView();
+            }
         }
-        public double CommisionRate { 
+
+        public double CommisionRate
+        {
             get => commisionRate;
-            set { commisionRate = value; UpdateView(); }
+            set
+            {
+                commisionRate = value;
+                UpdateView();
+            }
         }
-        public double CommisionSalary { 
+
+        public double CommisionSalary
+        {
             get => commisionSalary;
-            set { commisionSalary = value; UpdateView(); }
+            set
+            {
+                commisionSalary = value;
+                UpdateView();
+            }
         }
 
         public AddEmployeeTransaction CreateTransaction()
@@ -134,7 +153,7 @@ namespace Presenters
 
             // if (IsCommision)
             {
-                return new AddCommissionedEmployeeTransaction(db, EmpId, Name, Address, CommisionSalary,CommisionRate);
+                return new AddCommissionedEmployeeTransaction(db, EmpId, Name, Address, CommisionSalary, CommisionRate);
             }
             // throw new NotSupportedException("Employee payment not defined. This can logically never happen");
         }
@@ -162,6 +181,12 @@ namespace Presenters
             }
 
             return result;
+        }
+
+
+        public void AddEmployeeToTransactions()
+        {
+            Container.Add(CreateTransaction());
         }
     }
 
