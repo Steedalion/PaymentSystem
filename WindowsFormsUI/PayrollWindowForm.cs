@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace WindowsFormsUI
 {
-    public partial class Form1 : Form
+    public partial class PayrollWindowForm : Form
     {
-        public Form1()
+        public PayrollWindowForm()
         {
             InitializeComponent();
+        }
+
+        public string TransactionText
+        {
+            set { pendingTransactions.Text = value; }
+        }
+
+        public string EmployeeText
+        {
+            set { employeesTextbox.Text = value; }
         }
 
 
@@ -22,5 +32,6 @@ namespace WindowsFormsUI
         {
             throw new System.NotImplementedException();
         }
+
     }
 }

@@ -43,8 +43,11 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="PresenterFieldsAreSet.cs" />
+        <Compile Include="AddEmployeeWindowEnablingSubmiting.cs" />
+        <Compile Include="AddEmployeeWindowSetPresenterFields.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="AddEmployeeWindowButtonTestFix.cs" />
+        <Compile Include="AddEmployeeWindowTestFix.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\PayrollDB\PayrollDB.csproj">

@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsUI
 {
-    partial class Form1
+    partial class PayrollWindowForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,6 +32,7 @@
             this.addEmployeeButton = new System.Windows.Forms.Button();
             this.pendingTransactions = new System.Windows.Forms.ListBox();
             this.runTransactions = new System.Windows.Forms.Button();
+            this.employeesTextbox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // addEmployeeButton
@@ -46,7 +47,7 @@
             // pendingTransactions
             // 
             this.pendingTransactions.FormattingEnabled = true;
-            this.pendingTransactions.Location = new System.Drawing.Point(65, 82);
+            this.pendingTransactions.Location = new System.Drawing.Point(65, 187);
             this.pendingTransactions.Name = "pendingTransactions";
             this.pendingTransactions.Size = new System.Drawing.Size(327, 56);
             this.pendingTransactions.TabIndex = 1;
@@ -61,27 +62,36 @@
             this.runTransactions.UseVisualStyleBackColor = true;
             this.runTransactions.Click += new System.EventHandler(this.runTransactions_Click);
             // 
-            // Form1
+            // employeesTextbox
+            // 
+            this.employeesTextbox.FormattingEnabled = true;
+            this.employeesTextbox.Location = new System.Drawing.Point(65, 85);
+            this.employeesTextbox.Name = "employeesTextbox";
+            this.employeesTextbox.Size = new System.Drawing.Size(327, 56);
+            this.employeesTextbox.TabIndex = 1;
+            // 
+            // PayrollWindowForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(531, 310);
             this.Controls.Add(this.runTransactions);
+            this.Controls.Add(this.employeesTextbox);
             this.Controls.Add(this.pendingTransactions);
             this.Controls.Add(this.addEmployeeButton);
             this.Location = new System.Drawing.Point(15, 15);
-            this.Name = "Form1";
+            this.Name = "PayrollWindowForm";
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.Button addEmployeeButton;
+        public System.Windows.Forms.ListBox employeesTextbox;
 
-        private System.Windows.Forms.ListBox pendingTransactions;
+        public System.Windows.Forms.Button addEmployeeButton;
+
+        public System.Windows.Forms.ListBox pendingTransactions;
 
         private System.Windows.Forms.Button runTransactions;
-
-        private System.Windows.Forms.ListBox listBox1;
 
         private System.Windows.Forms.Button button1;
 
