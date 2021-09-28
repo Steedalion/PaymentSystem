@@ -53,6 +53,7 @@
         <Compile Include="AddEmployeeTransationForm.Designer.cs">
           <DependentUpon>AddEmployeeTransationForm.cs</DependentUpon>
         </Compile>
+        <Compile Include="FormsViewLoader.cs" />
         <Compile Include="PayrollWindowForm.cs">
             <SubType>Form</SubType>
         </Compile>
