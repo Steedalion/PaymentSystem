@@ -43,6 +43,7 @@
             this.addEmployeeButton.TabIndex = 0;
             this.addEmployeeButton.Text = "Add Employee";
             this.addEmployeeButton.UseVisualStyleBackColor = true;
+            this.addEmployeeButton.Click += new System.EventHandler(this.addEmployeeButton_Click);
             // 
             // pendingTransactions
             // 
@@ -91,7 +92,7 @@
 
         public System.Windows.Forms.ListBox pendingTransactions;
 
-        private System.Windows.Forms.Button runTransactions;
+        public System.Windows.Forms.Button runTransactions;
 
         private System.Windows.Forms.Button button1;
 

@@ -1,67 +1,9 @@
 ﻿using System.Windows.Forms;
 using NUnit.Framework;
 using PayrollDB;
-using Presenters;
-using WindowsFormsUI;
 
 namespace WinFormTest
 {
-    [TestFixture]
-    public class PayrollWindowTests
-    {
-        private PayrollWindowForm window;
-        private MockParollPresenter presenter;
-
-        [SetUp]
-        public void Setup()
-        {
-            CreateWindow();
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            TearDownWindow();
-        }
-
-        public void TearDownWindow()
-        {
-            window.Dispose();
-        }
-
-        public void CreateWindow()
-        {
-            window = new PayrollWindowForm();
-        }
-
-        [Test]
-        public void SetTransactionText()
-        {
-            window.TransactionText = "abc, 123";
-
-            Assert.AreEqual("abc, 123", window.pendingTransactions.Text);
-        }
-        [Test]
-        public void SetEmployeeText()
-        {
-            window.EmployeeText = "John B Good";
-
-            Assert.AreEqual("John B Good", window.employeesTextbox.Text);
-        }
-
-        [Test]
-        public void AddEmployeeAction()
-        {
-            window.addEmployeeButton.PerformClick();
-            Assert.IsTrue(presenter.addEmployeeActionInvoked);
-        }
-    }
-
-    internal class MockParollPresenter
-    {
-        public bool addEmployeeActionInvoked;
-    }
-
     [TestFixture]
     public class AddEmployeeWindowEnablingSubmiting : AddEmployeeWindowTestFix
     {

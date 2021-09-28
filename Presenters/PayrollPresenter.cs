@@ -6,7 +6,7 @@ using Transactions;
 
 namespace Presenters
 {
-    public class PayrollPresenter
+    public class PayrollPresenter : IPayrollPresenter
     {
         public IView view;
         public readonly IPayrollDb database;
@@ -32,7 +32,7 @@ namespace Presenters
                 builder.Append(Environment.NewLine);
             }
 
-            view.SetTransactionText(builder.ToString());
+            view.TransactionText = builder.ToString();
         }
 
         public void AddEmployeeActionInvoked()
@@ -47,7 +47,7 @@ namespace Presenters
             UpdateEmployeeText();
         }
 
-        private void UpdateEmployeeText()
+        public void UpdateEmployeeText()
         {
             StringBuilder builder = new StringBuilder();
             foreach (int employeeId in database.GetEmployeeIds())
@@ -56,7 +56,7 @@ namespace Presenters
                 builder.Append(employee.ToString());
                 builder.Append(Environment.NewLine);
             }
-            view.SetEmployeeText(builder.ToString());
+            view.EmployeeText = builder.ToString();
         }
 
         public void Start()
