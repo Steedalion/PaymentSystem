@@ -1,10 +1,12 @@
 namespace Presenters
 {
-    public class MockPayrollView: IView
+    public class MockPayrollPayrollView : IPayrollView
     {
-        public string TransactionText;
-        public string EmployeeText;
+        public string TransactionText { get; set; }
+        public string EmployeeText { get; set; }
         private PayrollPresenter presenter;
+
+        public IPayrollPresenter Presenter { get; set; }
 
         public void SetPresenter(PayrollPresenter newPresenter)
         {
@@ -35,15 +37,5 @@ namespace Presenters
         {
             return EmployeeText;
         }
-    }
-
-    public interface IView
-    {
-        void SetPresenter(PayrollPresenter newPresenter);
-        PayrollPresenter GetPresenter();
-        void SetTransactionText(string transactionTable);
-        string GetTransactionText();
-        void SetEmployeeText(string employeeTable);
-        string GetEmployeeText();
     }
 }

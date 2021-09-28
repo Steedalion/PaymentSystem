@@ -49,6 +49,11 @@ namespace PayrollDomain
         {
             return Schedule.GetStartDate(payDate);
         }
+
+        public override string ToString()
+        {
+            return Name + myID;
+        }
     }
 
 }

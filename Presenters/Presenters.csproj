@@ -46,14 +46,20 @@
         <Compile Include="AddEmployeePresenter.cs" />
         <Compile Include="AddEmployeePresenterTests.cs" />
         <Compile Include="AddEmployeeView.cs" />
+        <Compile Include="InsufficientInformationToAddEmployee.cs" />
+        <Compile Include="IPayrollPresenter.cs" />
+        <Compile Include="IPayrollView.cs" />
         <Compile Include="IViewLoader.cs" />
         <Compile Include="MockAddEmployee.cs" />
-        <Compile Include="MockPayrollView.cs" />
+        <Compile Include="MockPayrollPayrollView.cs" />
         <Compile Include="MockTransaction.cs" />
         <Compile Include="MockViewLoader.cs" />
+        <Compile Include="MockViewTest.cs" />
         <Compile Include="PayrollPresenter.cs" />
         <Compile Include="PayrollPresenterTest.cs" />
+        <Compile Include="PayrollPresenterTestFixture.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="TestTransactionContainer.cs" />
         <Compile Include="TransactionContainer.cs" />
     </ItemGroup>
     <ItemGroup>

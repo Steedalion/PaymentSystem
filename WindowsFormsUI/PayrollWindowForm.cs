@@ -4,7 +4,7 @@ using Presenters;
 
 namespace WindowsFormsUI
 {
-    public partial class PayrollWindowForm : Form, IView
+    public partial class PayrollWindowForm : Form, IPayrollView
     {
         public PayrollWindowForm()
         {

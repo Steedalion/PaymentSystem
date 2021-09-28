@@ -1,4 +1,3 @@
-using System;
 using PaymentClassification;
 using PayrollDB;
 using Transactions.DBTransaction;
@@ -188,9 +187,5 @@ namespace Presenters
         {
             Container.Add(CreateTransaction());
         }
-    }
-
-    public class InsufficientInformationToAddEmployee : NotSupportedException
-    {
     }
 }

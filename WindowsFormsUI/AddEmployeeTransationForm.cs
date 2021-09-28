@@ -122,11 +122,4 @@ namespace WindowsFormsUI
             throw new System.NotImplementedException();
         }
     }
-
-    internal enum AddEmployeeStates
-    {
-        Hourly,
-        Salaried,
-        Commissioned
-    }
 }

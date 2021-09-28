@@ -11,7 +11,7 @@ namespace Presenters
             addEmployeeViewWasLoaded = true;
         }
 
-        public IView LoadPayrollView()
+        public IPayrollView LoadPayrollView()
         {
              parollyViewWasLoaded = true;
              return null;

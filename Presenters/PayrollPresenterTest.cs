@@ -1,52 +1,10 @@
 using System;
 using NUnit.Framework;
-using PayrollDB;
 using PayrollDomain;
 using Transactions;
 
 namespace Presenters
 {
-    public class MockViewTest:PayrollPresenterTestFixture
-    {
-
-        [Test]
-        public void CreateNew()
-        {
-            view = new MockPayrollView();
-        }
-
-        [Test]
-        public void SetPresenter()
-        {
-            view.SetPresenter(presenter);
-        }
-
-        [Test]
-        public void FGetPresenter()
-        {
-            view.SetPresenter(presenter);
-            Assert.AreSame(presenter,view.GetPresenter());
-        }
-    }
-
-    [TestFixture]
-    public class PayrollPresenterTestFixture
-    {
-        protected IView view;
-        protected PayrollPresenter presenter;
-        protected IPayrollDb database;
-        protected MockViewLoader viewLoader;
-
-        [SetUp]
-        public void CreateSetup()
-        {
-            view = new MockPayrollView();
-            database = new InMemoryDB();
-            viewLoader = new MockViewLoader();
-            presenter = new PayrollPresenter(view, database, viewLoader);
-        }
-    }
-
     public class PayrollPresenterTest:PayrollPresenterTestFixture
 
     {
@@ -61,7 +19,7 @@ namespace Presenters
     [Test]
     public void Creation()
     {
-        Assert.AreSame(view, presenter.view);
+        Assert.AreSame(PayrollView, presenter.PayrollView);
         Assert.AreSame(database, presenter.database);
         Assert.IsNotNull(presenter.transactionContainer);
     }
@@ -73,7 +31,7 @@ namespace Presenters
         DbTransaction transaction = new MockTransaction(presenter.database);
         transactionContainer.Add(transaction);
         string expected = transaction.ToString() + Environment.NewLine;
-        Assert.AreEqual(expected, view.GetTransactionText());
+        Assert.AreEqual(expected, PayrollView.TransactionText);
     }
 
     [Test]
@@ -90,7 +48,7 @@ namespace Presenters
         presenter.transactionContainer.Add(transaction);
         presenter.RunTransactions();
         Assert.IsTrue(transaction.wasExecuted);
-        Assert.AreEqual("", view.GetTransactionText());
+        Assert.AreEqual("", PayrollView.TransactionText);
     }
 
     [Test]
@@ -99,7 +57,7 @@ namespace Presenters
         Employee employee = new Employee(123, "John", "123 forth street");
         database.AddEmployee(123, employee);
         presenter.RunTransactions();
-        Assert.AreEqual(employee.ToString() + Environment.NewLine, view.GetEmployeeText());
+        Assert.AreEqual(employee.ToString() + Environment.NewLine, PayrollView.EmployeeText);
     }
 
     }
