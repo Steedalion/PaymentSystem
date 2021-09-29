@@ -55,5 +55,22 @@ namespace WinFormTest
             AddEmployeeTransationForm addEmp = viewloader.LastLoadedView as AddEmployeeTransationForm;
             Assert.IsNotNull(addEmp.Presenter);
         }
+
+        [Test]
+        public void AfterAddingEmployeeViewShouldUpdate()
+        {
+            viewloader.LoadPayrollView();
+            PayrollWindowForm payrollWindowForm = viewloader.LastLoadedView as PayrollWindowForm;
+            payrollWindowForm.addEmployeeButton.PerformClick();
+            AddEmployeeTransationForm addEmp= viewloader.LastLoadedView as AddEmployeeTransationForm;
+            addEmp.nameBox.Text = "John";
+            addEmp.addressBox.Text = "Home";
+            addEmp.empIDTb.Text = "123";
+            addEmp.hourlyRadioButton.Checked = true;
+            addEmp.HourlyRateTextBox.Text = "100.0";
+            addEmp.submitButton.PerformClick();
+            Assert.AreEqual(payrollWindowForm.pendingTransactions.Text, "JOHN");
+
+        }
     }
 }

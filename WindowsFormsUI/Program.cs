@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using PayrollDB;
 
@@ -15,8 +12,9 @@ namespace WindowsFormsUI
         [STAThread]
         static void Main()
         {
+            InMemoryDB database = new InMemoryDB();
             FormsViewLoader loader =
-                new FormsViewLoader(new InMemoryDB());
+                new FormsViewLoader(database);
             loader.LoadPayrollView();
             Application.Run();
         }

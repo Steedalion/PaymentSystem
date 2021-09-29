@@ -20,6 +20,7 @@ namespace PayrollDomain
             Paymentmethod = new HoldMethod();
         }
 
+
         public PaymentClassification Classification { get; set; }
         public PaymentSchedule Schedule { get; set; }
         public Affiliation Affiliation { get; set; } = new NoAffiliation();
