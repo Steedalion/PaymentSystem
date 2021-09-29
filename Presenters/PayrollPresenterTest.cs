@@ -20,13 +20,13 @@ namespace Presenters
         {
             Assert.AreSame(PayrollView, presenter.PayrollView);
             Assert.AreSame(database, presenter.database);
-            Assert.IsNotNull(presenter.transactionContainer);
+            Assert.IsNotNull(presenter.TransactionContainer);
         }
 
         [Test]
         public void AddAction()
         {
-            TransactionContainer transactionContainer = presenter.transactionContainer;
+            TransactionContainer transactionContainer = presenter.TransactionContainer;
             DbTransaction transaction = new MockTransaction(presenter.database);
             transactionContainer.Add(transaction);
             string expected = transaction.ToString() + Environment.NewLine;
@@ -44,7 +44,7 @@ namespace Presenters
         public void RunTransactionsUpdatesTransactionList()
         {
             MockTransaction transaction = new MockTransaction(database);
-            presenter.transactionContainer.Add(transaction);
+            presenter.TransactionContainer.Add(transaction);
             presenter.RunTransactions();
             Assert.IsTrue(transaction.wasExecuted);
             Assert.AreEqual("", PayrollView.TransactionText);

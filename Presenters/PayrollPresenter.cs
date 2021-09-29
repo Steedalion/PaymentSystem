@@ -18,16 +18,16 @@ namespace Presenters
             this.PayrollView = payrollView;
             this.database = database;
             this.viewLoader = viewLoader;
-            transactionContainer = new TransactionContainer();
-            transactionContainer.OnAddExecute(UpdateTransactionText);
+            TransactionContainer = new TransactionContainer();
+            TransactionContainer.OnAddExecute(UpdateTransactionText);
         }
 
-        public TransactionContainer transactionContainer { get; set; }
+        public TransactionContainer TransactionContainer { get; set; }
 
         public void UpdateTransactionText()
         {
             StringBuilder builder = new StringBuilder();
-            foreach (DbTransaction transaction in transactionContainer.transactions)
+            foreach (DbTransaction transaction in TransactionContainer.transactions)
             {
                 builder.Append(transaction.ToString());
                 builder.Append(Environment.NewLine);
@@ -38,12 +38,12 @@ namespace Presenters
 
         public void AddEmployeeActionInvoked()
         {
-            viewLoader.LoadAddEmployerView(transactionContainer);
+            viewLoader.LoadAddEmployerView(TransactionContainer);
         }
 
         public void RunTransactions()
         {
-            transactionContainer.RunTransactions();
+            TransactionContainer.RunTransactions();
             UpdateTransactionText();
             UpdateEmployeeText();
         }
