@@ -1,22 +1,41 @@
-﻿using Presenters;
+﻿using System.Windows.Forms;
+using PayrollDB;
+using Presenters;
 
 namespace WindowsFormsUI
 {
-    public class FormsViewLoader:IViewLoader
+    public class FormsViewLoader : IViewLoader
     {
-        public void LoadAddEmployerView(TransactionContainer transactionContainer)
+        private readonly InMemoryDB DB;
+
+        public FormsViewLoader(InMemoryDB database)
         {
-            throw new System.NotImplementedException();
+            DB = database;
         }
 
-        IPayrollView IViewLoader.LoadPayrollView()
+        public Form LastLoadedView { get; set; }
+
+        public void LoadAddEmployerView(TransactionContainer transactionContainer)
         {
-            throw new System.NotImplementedException();
+            AddEmployeeTransationForm window = new AddEmployeeTransationForm();
+            window.Presenter = new AddEmployeePresenter(window,
+                new TransactionContainer(), DB);
+            LoadView(window as Form);
         }
+
+   
 
         public void LoadPayrollView()
         {
-            throw new System.NotImplementedException();
+            IPayrollView window = new PayrollWindowForm();
+            window.Presenter = new PayrollPresenter(window, DB, this);
+            LoadView(window as Form);
+        }
+
+        private void LoadView(Form window)
+        {
+            LastLoadedView = window;
+            window.Show();
         }
     }
 }

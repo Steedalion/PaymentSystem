@@ -8,7 +8,8 @@ namespace Presenters
 {
     public class PayrollPresenter : IPayrollPresenter
     {
-        public IPayrollView PayrollView;
+        // public IPayrollView PayrollView;
+        public IPayrollView PayrollView { get; set; }
         public readonly IPayrollDb database;
         private readonly IViewLoader viewLoader;
 

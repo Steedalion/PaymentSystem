@@ -7,7 +7,8 @@ namespace WinFormTest
         public bool addEmployeeActionInvoked;
         public bool runTransactionsInvoked;
         public TransactionContainer transactionContainer { get; set; }
- 
+        public IPayrollView PayrollView { get; set; }
+
         public void AddEmployeeActionInvoked()
         {
             addEmployeeActionInvoked = true;

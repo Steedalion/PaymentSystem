@@ -91,6 +91,10 @@
         <None Include="App.config" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\PayrollDB\PayrollDB.csproj">
+        <Project>{7e62b1e0-c05e-4eb0-a775-06f5a761c64c}</Project>
+        <Name>PayrollDB</Name>
+      </ProjectReference>
       <ProjectReference Include="..\Presenters\Presenters.csproj">
         <Project>{ccb1f31a-95fa-49e0-a329-f73044ca89ed}</Project>
         <Name>Presenters</Name>
