@@ -6,7 +6,7 @@ namespace Presenters
     [TestFixture]
     public class PayrollPresenterTestFixture
     {
-        protected IPayrollView PayrollView;
+        protected MockPayrollPayrollView PayrollView;
         protected PayrollPresenter presenter;
         protected IPayrollDb database;
         protected MockViewLoader viewLoader;

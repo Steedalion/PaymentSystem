@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Linq;
 using PayrollDomain;
@@ -21,7 +22,14 @@ namespace PayrollDB
 
         public void AddEmployee(int id, Employee employee)
         {
-            db.Add(id, employee);
+            try
+            {
+                db.Add(id, employee);
+            }
+            catch (ArgumentException e)
+            {
+                throw new EmployeeIdAlreadyExists();
+            }
         }
 
         public void Clear()

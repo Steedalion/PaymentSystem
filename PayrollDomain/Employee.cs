@@ -53,7 +53,7 @@ namespace PayrollDomain
 
         public override string ToString()
         {
-            return Name + myID;
+            return myID+":" +Name +","+myAddress ;
         }
     }
 

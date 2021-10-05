@@ -38,7 +38,7 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="EmployeeAlreadyExists.cs" />
+        <Compile Include="EmployeeIdAlreadyExists.cs" />
         <Compile Include="EmployeeNotFound.cs" />
         <Compile Include="InMemoryDB.cs" />
         <Compile Include="IPayrollDb.cs" />

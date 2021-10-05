@@ -39,14 +39,14 @@ namespace WinFormTest
         {
             window.TransactionText = "abc, 123";
 
-            Assert.AreEqual("abc, 123", window.pendingTransactions.Text);
+            Assert.AreEqual("abc, 123", window.pendingTransactions.Items[0]);
         }
         [Test]
         public void SetEmployeeText()
         {
             window.EmployeeText = "John B Good";
 
-            Assert.AreEqual("John B Good", window.employeesTextbox.Text);
+            Assert.AreEqual("John B Good", window.employeesTextbox.Items[0]);
         }
 
         [Test]

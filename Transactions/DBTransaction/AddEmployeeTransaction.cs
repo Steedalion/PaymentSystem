@@ -32,5 +32,9 @@ namespace Transactions.DBTransaction
             return new HoldMethod();
         }
         protected abstract PaymentClassification MakeClassification();
+        public override string ToString()
+        {
+            return "AddEmployee: " + Name + ":" + Id;
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace Presenters
             StringBuilder builder = new StringBuilder();
             foreach (DbTransaction transaction in TransactionContainer.transactions)
             {
-                builder.Append(transaction.ToString());
+                builder.Append(transaction);
                 builder.Append(Environment.NewLine);
             }
 

@@ -7,7 +7,7 @@ namespace Presenters
     public class AddEmployeePresenter
     {
         private readonly AddEmployeeView view;
-        public readonly TransactionContainer Container;
+        public readonly TransactionContainer TransactionContainer;
         private readonly IPayrollDb db;
 
         public int EmpId
@@ -66,10 +66,10 @@ namespace Presenters
             view.UpdateSubmitButton(AllInfoCollected());
         }
 
-        public AddEmployeePresenter(AddEmployeeView view, TransactionContainer container, IPayrollDb database)
+        public AddEmployeePresenter(AddEmployeeView view, TransactionContainer transactionContainer, IPayrollDb database)
         {
             this.view = view;
-            Container = container;
+            TransactionContainer = transactionContainer;
             db = database;
         }
 
@@ -185,7 +185,7 @@ namespace Presenters
 
         public void AddEmployeeToTransactions()
         {
-            Container.Add(CreateTransaction());
+            TransactionContainer.Add(CreateTransaction());
         }
     }
 }

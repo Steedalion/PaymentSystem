@@ -33,6 +33,7 @@
             this.pendingTransactions = new System.Windows.Forms.ListBox();
             this.runTransactions = new System.Windows.Forms.Button();
             this.employeesTextbox = new System.Windows.Forms.ListBox();
+            this.updateTextButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // addEmployeeButton
@@ -71,6 +72,16 @@
             this.employeesTextbox.Size = new System.Drawing.Size(327, 56);
             this.employeesTextbox.TabIndex = 1;
             // 
+            // updateTextButton
+            // 
+            this.updateTextButton.Location = new System.Drawing.Point(203, 44);
+            this.updateTextButton.Name = "updateTextButton";
+            this.updateTextButton.Size = new System.Drawing.Size(106, 23);
+            this.updateTextButton.TabIndex = 0;
+            this.updateTextButton.Text = "Update";
+            this.updateTextButton.UseVisualStyleBackColor = true;
+            this.updateTextButton.Click += new System.EventHandler(this.UpdateTextBottonClicked);
+            // 
             // PayrollWindowForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -80,11 +91,14 @@
             this.Controls.Add(this.runTransactions);
             this.Controls.Add(this.employeesTextbox);
             this.Controls.Add(this.pendingTransactions);
+            this.Controls.Add(this.updateTextButton);
             this.Controls.Add(this.addEmployeeButton);
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "PayrollWindowForm";
             this.ResumeLayout(false);
         }
+
+        public System.Windows.Forms.Button updateTextButton;
 
         public System.Windows.Forms.ListBox employeesTextbox;
 

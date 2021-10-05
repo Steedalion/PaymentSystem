@@ -3,6 +3,23 @@ using NUnit.Framework;
 
 namespace WinFormTest
 {
+    public class AddEmployeeWindowFiltersIncorrectFields : AddEmployeeWindowTestFix
+    {
+        [SetUp]
+        public void Setup()
+        {
+            SetUpEnvironment();
+        }
+
+        [Test]
+        public void EmployeeIDAsString()
+        {
+            window.Show();
+            window.empIDTb.Text = "1a1";
+            Assert.AreEqual("11", window.empIDTb.Text);
+        }
+    }
+
     [TestFixture]
     public class AddEmployeeWindowSetPresenterFields : AddEmployeeWindowTestFix
     {
@@ -17,7 +34,7 @@ namespace WinFormTest
         public void Starting()
         {
             Assert.AreSame(presenter, window.Presenter);
-            Assert.AreSame(presenter.Container, transactionContainer);
+            Assert.AreSame(presenter.TransactionContainer, transactionContainer);
             Assert.IsFalse(window.submitButton.Enabled);
         }
 

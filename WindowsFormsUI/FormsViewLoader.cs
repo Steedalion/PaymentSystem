@@ -19,7 +19,7 @@ namespace WindowsFormsUI
         {
             AddEmployeeTransationForm window = new AddEmployeeTransationForm();
             window.Presenter = new AddEmployeePresenter(window,
-                new TransactionContainer(), DB);
+                transactionContainer, DB);
             LoadView(window as Form);
         }
 
@@ -27,7 +27,7 @@ namespace WindowsFormsUI
 
         public void LoadPayrollView()
         {
-            IPayrollView window = new PayrollWindowForm();
+            PayrollWindowForm window = new PayrollWindowForm();
             window.Presenter = new PayrollPresenter(window, DB, this);
             LoadView(window as Form);
         }

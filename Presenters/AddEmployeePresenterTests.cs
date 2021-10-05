@@ -27,7 +27,7 @@ namespace Presenters
         [Test]
         public void Creation()
         {
-            Assert.AreSame(presenter.Container, container);
+            Assert.AreSame(presenter.TransactionContainer, container);
         }
 
         [Test]
