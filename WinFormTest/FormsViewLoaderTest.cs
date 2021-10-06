@@ -90,6 +90,7 @@ namespace WinFormTest
                 PayrollWindowForm payrollWindowForm = viewloader.LastLoadedView as PayrollWindowForm;
                 payrollWindowForm.addEmployeeButton.PerformClick();
                 AddEmployeeTransationForm addEmp = viewloader.LastLoadedView as AddEmployeeTransationForm;
+                addEmp.EnabledPoppups = false;
                 addEmp.nameBox.Text = "John";
                 addEmp.addressBox.Text = "Home";
                 addEmp.empIDTb.Text = "123";

@@ -7,8 +7,11 @@ namespace WindowsFormsUI
 {
     public partial class AddEmployeeTransationForm : Form, AddEmployeeView
     {
-        public AddEmployeeTransationForm()
+        public bool EnabledPoppups = true;
+
+        public AddEmployeeTransationForm(bool enabledPoppups = true)
         {
+            EnabledPoppups = enabledPoppups;
             InitializeComponent();
             UpdateSubmitButton(false);
         }
@@ -18,12 +21,6 @@ namespace WindowsFormsUI
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-        }
-
-        private void empIdUpdated(object sender, EventArgs e)
-        {
-            NumberOnly(empIDTb);
-            Presenter.EmpId = Int32.Parse(empIDTb.Text);
         }
 
 
@@ -37,7 +34,6 @@ namespace WindowsFormsUI
             EnterState(AddEmployeeStates.Hourly);
         }
 
-      
 
         private void submitButton_Click(object sender, EventArgs e)
         {
@@ -66,7 +62,25 @@ namespace WindowsFormsUI
 
         private void NumberOnly(TextBox textBox, char seperator = '0')
         {
-            textBox.Text = new string(textBox.Text.Where(c => char.IsDigit(c) || c == seperator).ToArray());
+            string text = textBox.Text;
+            if (text == "")
+            {
+                return;
+            }
+
+            if (text.Any(c => !char.IsDigit(c) || c == seperator))
+            {
+                if (EnabledPoppups)
+                {
+                    MessageBox.Show("Please enter numbers only");
+                }
+
+                // textBox.Text = textBox.Text.Remove(textBox.Text.Length - 1);
+            }
+
+            textBox.Text = new string(text.Where(c => char.IsDigit(c) || c == seperator).ToArray());
+
+            Console.WriteLine(text);
         }
 
         private void EnterState(AddEmployeeStates state)
@@ -74,33 +88,72 @@ namespace WindowsFormsUI
             bool hourly = state != AddEmployeeStates.Hourly,
                 salary = state != AddEmployeeStates.Salaried,
                 commissioned = state != AddEmployeeStates.Commissioned;
-            
+
             HourlyRateTextBox.ReadOnly = hourly;
             SalariedSalaryTextBox.ReadOnly = salary;
             CommsionedRateBox.ReadOnly = commissioned;
             CommisionedSalaryBox.ReadOnly = commissioned;
+        }
+
+        private void empIdUpdated(object sender, EventArgs e)
+        {
             
+
+            NumberOnly(empIDTb);
+            if (empIDTb.Text == "")
+            {
+                return;
+            }
+            Presenter.EmpId = Int32.Parse(empIDTb.Text);
         }
 
         private void HourlyRateTextBox_TextChanged(object sender, EventArgs e)
         {
+          
+
             NumberOnly(HourlyRateTextBox, '.');
+              if (HourlyRateTextBox.Text == "")
+            {
+                return;
+            }
             Presenter.HourlyRate = Double.Parse(HourlyRateTextBox.Text);
         }
 
         private void SalariedSalaryTextBox_TextChanged(object sender, EventArgs e)
         {
-            NumberOnly(SalariedSalaryTextBox, '.');
+                        NumberOnly(SalariedSalaryTextBox, '.');
+
+            if (SalariedSalaryTextBox.Text == "")
+            {
+                return;
+            }
+
             Presenter.Salary = Double.Parse(SalariedSalaryTextBox.Text);
         }
 
         private void CommsionedRateBox_TextChanged(object sender, EventArgs e)
         {
             NumberOnly(CommsionedRateBox, '.');
+            if (CommsionedRateBox.Text == "")
+            {
+                return;
+            }
+
             Presenter.CommisionRate = Double.Parse(CommsionedRateBox.Text);
         }
 
-  
+        private void CommisionedSalaryBox_TextChanged(object sender, EventArgs e)
+        {
+            NumberOnly(CommisionedSalaryBox, '.');
+            if (CommisionedSalaryBox.Text == "")
+            {
+                return;
+            }
+
+            Presenter.CommisionSalary = Double.Parse(CommisionedSalaryBox.Text);
+        }
+
+
         public void UpdateSubmitButton(bool allInfoCollected)
         {
             submitButton.Enabled = allInfoCollected;
@@ -111,11 +164,6 @@ namespace WindowsFormsUI
             Presenter.Name = nameBox.Text;
         }
 
-        private void CommisionedSalaryBox_TextChanged(object sender, EventArgs e)
-        {
-            NumberOnly(CommisionedSalaryBox, '.');
-            Presenter.CommisionSalary = Double.Parse(CommisionedSalaryBox.Text);
-        }
 
         private void CancelButtonClick(object sender, EventArgs e)
         {

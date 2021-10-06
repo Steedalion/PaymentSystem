@@ -11,7 +11,7 @@ namespace WinFormTest
 
         protected void SetUpEnvironment()
         {
-            window = new AddEmployeeTransationForm();
+            window = new AddEmployeeTransationForm(false);
             transactionContainer = new TransactionContainer();
             presenter = new AddEmployeePresenter(window, transactionContainer, null);
             window.Presenter = presenter;
