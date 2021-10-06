@@ -41,6 +41,7 @@ namespace WinFormTest
 
             Assert.AreEqual("abc, 123", window.pendingTransactions.Items[0]);
         }
+
         [Test]
         public void SetEmployeeText()
         {
@@ -59,8 +60,15 @@ namespace WinFormTest
         [Test]
         public void RuningTransactionsFromUI()
         {
-            window.runTransactions.PerformClick(); 
+            window.runTransactions.PerformClick();
             Assert.True(presenter.runTransactionsInvoked);
+        }
+
+        [Test]
+        public void CloseWindowShouldEndProcess()
+        {
+            window.Close();
+            Assert.Fail("Need to check for window closed.");
         }
     }
 }
