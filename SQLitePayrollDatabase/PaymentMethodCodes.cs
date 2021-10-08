@@ -3,7 +3,7 @@ using PayrollDomain;
 
 namespace PayrollDataBase
 {
-    public static class MethodCodes
+    public static class PaymentMethodCodes
     {
         public static string Hold = "HoldPayment";
         public static string Account = "AccountPayment";
@@ -12,17 +12,17 @@ namespace PayrollDataBase
         {
             if (employeePaymentmethod is AccountPaymentMethod)
             {
-                return MethodCodes.Account;
+                return PaymentMethodCodes.Account;
             }
 
             if (employeePaymentmethod is HoldMethod)
             {
-                return MethodCodes.Hold;
+                return PaymentMethodCodes.Hold;
             }
 
             if (employeePaymentmethod is MailPaymentMethod)
             {
-                return MethodCodes.Mail;
+                return PaymentMethodCodes.Mail;
             }
 
 

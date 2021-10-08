@@ -8,7 +8,7 @@ namespace PayrollDomain
         public string Name;
         public string myAddress;
         public PaymentMethod Paymentmethod;
-        private readonly int myID; //employee should not know his database ID.
+        public readonly int myID; //employee should not know his database ID.
         public bool isNull => this == NULL;
         public static readonly Employee NULL = new NullEmployee(0,"name","nowhere");
 

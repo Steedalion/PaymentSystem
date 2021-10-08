@@ -39,7 +39,7 @@ namespace DatabaseTests.SQLiteTests
         public void HoldPaymentSaved()
         {
             addEmployeeMethod(new HoldMethod());
-            string expectedCode = MethodCodes.Hold;
+            string expectedCode = PaymentMethodCodes.Hold;
             CompareSavedScheduleType(expectedCode);
         }
 
@@ -48,7 +48,7 @@ namespace DatabaseTests.SQLiteTests
         {
             int accountNumber = 12315;
             addEmployeeMethod(new AccountPaymentMethod("New bank", accountNumber));
-            string expectedCode = MethodCodes.Account;
+            string expectedCode = PaymentMethodCodes.Account;
             CompareSavedScheduleType(expectedCode);
             DataTable accountsTable = GetDataTable(Tables.Account);
             Assert.AreEqual(1, accountsTable.Rows.Count);
@@ -62,7 +62,7 @@ namespace DatabaseTests.SQLiteTests
         public void MailPayGetsSaved()
         {
             addEmployeeMethod(new MailPaymentMethod("home"));
-            string expectedCode = MethodCodes.Mail;
+            string expectedCode = PaymentMethodCodes.Mail;
             CompareSavedScheduleType(expectedCode);
             DataTable paycheckAddresses = GetDataTable(Tables.Mail);
             Assert.AreEqual(1, paycheckAddresses.Rows.Count);

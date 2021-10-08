@@ -1,14 +1,15 @@
-using Mono.Data.Sqlite;
-using PayrollDB;
+using System;
+using System.Data.SQLite;
+using System.IO;
 using PayrollDomain;
 
 namespace PayrollDataBase
 {
     public class SqliteDB : PayrollDB.IPayrollDb
     {
-        public static string connectionID = @"URI=file:/home/alex/RiderProjects/PaymentSystem/PayrollDB.sqlite";
-
-        private SqliteConnection con;
+        public static string connectionID ="Data Source=" + Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName +
+                        @"\PayrollDB.sqlite";
+        private SQLiteConnection con;
 
 
         public Employee GetEmployee(int empId)

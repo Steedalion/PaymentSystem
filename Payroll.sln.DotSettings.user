@@ -3,6 +3,7 @@
   &lt;Assembly Path="/home/alex/RiderProjects/PaymentSystem/PayrollTransactions/bin/Debug/PayrollTransactions.dll" /&gt;
   &lt;Assembly Path="/home/alex/RiderProjects/PaymentSystem/Payroll/bin/Debug/Payroll.dll" /&gt;
 &lt;/AssemblyExplorer&gt;</s:String>
+	<s:Boolean x:Key="/Default/Environment/Hierarchy/EntityFrameworkOptions/IsAlreadyNotifiedAboutEntityFramework/@EntryValue">True</s:Boolean>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=40c5b119_002D6b28_002D4589_002D973b_002D2f63b46e24b8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Solution /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
@@ -15,7 +16,7 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=aa5a3bc4_002D68fb_002D408a_002Db866_002Dd0c06e8d4ab2/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Solution /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b83a498f_002D9fa1_002D472c_002Da131_002D743fff9faa3e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution #6" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b83a498f_002D9fa1_002D472c_002Da131_002D743fff9faa3e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution #6" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Solution /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	
@@ -29,18 +30,17 @@
     &lt;/Or&gt;&#xD;
   &lt;/Not&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e956aaa8_002Da217_002D46f8_002Da93b_002D84175612aa4a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution #5" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Not&gt;&#xD;
-    &lt;Or&gt;&#xD;
-      &lt;Project Location="C:\Users\steed\RiderProjects\PaymentSystem" Presentation="&amp;lt;Tests&amp;gt;" /&gt;&#xD;
-      &lt;Project Location="C:\Users\steed\RiderProjects\PaymentSystem" Presentation="&amp;lt;DatabaseImplementations&amp;gt;" /&gt;&#xD;
-    &lt;/Or&gt;&#xD;
-  &lt;/Not&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e956aaa8_002Da217_002D46f8_002Da93b_002D84175612aa4a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution #5" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.TestSqliteDB&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=30038a32_002D18e5_002D44fd_002Dbac0_002Dc057e09c5c4e_0023GTKApplication/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=6a5a55de_002Dd6c5_002D45b6_002D8b9c_002D5dccaf4fe579_0023SqliteDatabaseTests/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=6ff17ecf_002D0692_002D46a0_002D83ad_002D5535918f0466_0023PayrollGTK/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=9e4a0173_002Dd7d1_002D49c3_002Dbd7c_002D9a33d35c657d_0023SQLitePayrollDatabase/@EntryIndexedValue">True</s:Boolean>
+	
+	
+	
+	
 	
 	
 	
