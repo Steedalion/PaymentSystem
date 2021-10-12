@@ -5,16 +5,15 @@ using System.Data.Linq;
 using System.Data.SQLite;
 using System.Linq;
 using NUnit.Framework;
+using PaymentClassification.PaymentClassifications;
 using PayrollDataBase;
 using PayrollDomain;
+using Schedules;
 
 namespace DatabaseTests.SQLiteTests
 {
-    public class TestSqliteDB
+    public class ContextTests : TestSqliteDB
     {
-        protected SqliteDB database = new SqliteDB();
-        protected int id = 1234;
-        protected SQLiteConnection connection;
         private EmployeeContext db;
 
         [SetUp]
@@ -23,11 +22,9 @@ namespace DatabaseTests.SQLiteTests
             connection = new SQLiteConnection(SqliteDB.connectionID);
             connection.Open();
             db = new EmployeeContext(connection);
-
             ClearEmployees();
         }
 
-        
 
         protected void ClearEmployees()
         {
@@ -78,26 +75,38 @@ namespace DatabaseTests.SQLiteTests
         {
             Employee emp = new Employee(123, "John", "Home");
             EmployeeUnit unit =
-                new EmployeeUnit(123,emp);
+                new EmployeeUnit(123, emp);
             db.Employees.InsertOnSubmit(unit);
             db.SubmitChanges();
             Assert.AreEqual(1, db.Employees.Count());
         }
 
-        public void ClearAllTables()
-        {
-            ClearTable(Tables.Account);
-            ClearTable(Tables.Mail);
-            ClearTable(Tables.Commission);
-            ClearTable(Tables.Salary);
-            ClearTable(Tables.Hourly);
-        }
+       
 
         [TearDown]
         public void CloseConnection()
         {
             connection.Close();
         }
+    }
+
+    public class TestSqliteDB
+    {
+        protected SQLiteConnection connection;
+        protected SqliteDB database = new SqliteDB();
+        protected int id = 123;
+
+        public void AddEmployee()
+        {
+            string name = "John";
+            string address = "123 bird street";
+            Employee e = new Employee(id, name, address);
+            e.Schedule = new Biweekly();
+            e.Paymentmethod = new HoldMethod();
+            e.Classification = new CommisionClassification(0.5, 1000);
+            database.AddEmployee(id, e);
+        }
+
 
 
         protected int EmployeeCount()
@@ -110,7 +119,7 @@ namespace DatabaseTests.SQLiteTests
             // DataTable employeeTable = dataSet.Tables["table"];
             // int numEmployees = employeeTable.Rows.Count;
             // return numEmployees;
-            return db.Employees.Count();
+            return database.GetEmployeeIds().Length;
         }
 
         protected DataTable LoadEmployeeTable()
@@ -138,6 +147,14 @@ namespace DatabaseTests.SQLiteTests
             // adapter.Fill(table);
             // return table;
             return null;
+        }
+         public void ClearAllTables()
+        {
+            ClearTable(Tables.Account);
+            ClearTable(Tables.Mail);
+            ClearTable(Tables.Commission);
+            ClearTable(Tables.Salary);
+            ClearTable(Tables.Hourly);
         }
     }
 }

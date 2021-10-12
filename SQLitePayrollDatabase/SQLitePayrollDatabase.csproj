@@ -71,9 +71,9 @@
         <Compile Include="Tables.cs" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\PaymentClassification\PaymentClassification.csproj">
+      <ProjectReference Include="..\PaymentClassifications\PaymentClassifications.csproj">
         <Project>{23130573-75d1-4802-9f65-9cd5b8f04971}</Project>
-        <Name>PaymentClassification</Name>
+        <Name>PaymentClassifications</Name>
       </ProjectReference>
       <ProjectReference Include="..\PaymentMethods\PaymentMethods.csproj">
         <Project>{4e08bb1c-9953-48c4-872f-ce0590f3aad2}</Project>

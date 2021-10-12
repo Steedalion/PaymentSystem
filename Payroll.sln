@@ -20,7 +20,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schedules", "Schedules\Sche
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentMethods", "PaymentMethods\PaymentMethods.csproj", "{4E08BB1C-9953-48C4-872F-CE0590F3AAD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentClassification", "PaymentClassification\PaymentClassification.csproj", "{23130573-75D1-4802-9F65-9CD5B8F04971}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentClassifications", "PaymentClassifications\PaymentClassifications.csproj", "{23130573-75D1-4802-9F65-9CD5B8F04971}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transactions", "Transactions\Transactions.csproj", "{BD8B0605-0D4C-4E80-830E-FDC7C82766ED}"
 EndProject

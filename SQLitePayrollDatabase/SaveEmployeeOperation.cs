@@ -1,9 +1,11 @@
 using System;
 using System.Data.SQLite;
+using DatabaseTests.SQLiteTests;
 using PaymentClassification.PaymentClassifications;
 using PaymentMethods;
 using PayrollDB;
 using PayrollDomain;
+using PaymentClassification = PayrollDomain.PaymentClassification;
 
 namespace PayrollDataBase
 {
@@ -12,15 +14,23 @@ namespace PayrollDataBase
         private SQLiteConnection con;
         private int id;
         private Employee employee;
+        private readonly EmployeeContext db;
 
-        public SaveEmployeeOperation(int id, Employee employee)
+        public SaveEmployeeOperation(int id, Employee employee, EmployeeContext db)
         {
+            this.db = db;
             this.id = id;
             this.employee = employee;
         }
 
         public void Execute()
         {
+            db.Employees.InsertOnSubmit(new EmployeeUnit(id, employee));
+            SavePaymentMethod(id, employee, db);
+            // db.Methods.InsertOnSubmit(new PaymentMethodUnit(id, employee.Paymentmethod));
+            // db.Classifications.InsertOnSubmit(new PaymentClassificationUnit(id, employee.Classification));
+            // db.Schedules.InsertOnSubmit(new PaymentScheduleUnit(id, employee.Schedule));
+            db.SubmitChanges();
             // con = new SQLiteConnection(SqliteDB.connectionID);
             // con.Open();
             //
@@ -128,53 +138,32 @@ namespace PayrollDataBase
         //
         //
         //
-        // private void SavePaymentMethod(int id, Employee employee, SqliteTransaction sqliteTransaction)
-        // {
-        //     PaymentMethod method = employee.Paymentmethod;
-        //     SqliteCommand paymentMethod = null;
-        //
-        //     if (method is HoldMethod)
-        //     {
-        //         return;
-        //     }
-        //     else if (method is AccountPaymentMethod)
-        //     {
-        //         AccountPaymentMethod acc = method as AccountPaymentMethod;
-        //
-        //         string accountadd = "INSERT INTO DirectDepositAccount VALUES(" +
-        //                             "@id" +
-        //                             ", @Account" +
-        //                             ", @Bank" +
-        //                             ")";
-        //         paymentMethod = new SqliteCommand(accountadd, con);
-        //         paymentMethod.Parameters.AddWithValue("@id", id);
-        //         paymentMethod.Parameters.AddWithValue("@Account", acc.AccountNumber);
-        //         paymentMethod.Parameters.AddWithValue("@Bank", acc.bank);
-        //     }
-        //     else if (method is MailPaymentMethod)
-        //     {
-        //         MailPaymentMethod mail = method as MailPaymentMethod;
-        //         string sql = "INSERT INTO PaycheckAddress VALUES (" +
-        //                      "@id" +
-        //                      ", @address" +
-        //                      ")";
-        //         paymentMethod = new SqliteCommand(sql, con);
-        //         paymentMethod.Parameters.AddWithValue("@id", id);
-        //         paymentMethod.Parameters.AddWithValue("@address", mail.Address);
-        //     }
-        //
-        //     if (paymentMethod != null)
-        //     {
-        //         paymentMethod.Transaction = sqliteTransaction;
-        //         paymentMethod.ExecuteNonQuery();
-        //     }
-        //
-        //     if (paymentMethod == null)
-        //     {
-        //         throw new NullReferenceException();
-        //     }
-        // }
+        private void SavePaymentMethod(int id, Employee employee, EmployeeContext db)
+        {
+            PaymentMethod method = employee.Paymentmethod;
+            if (method is HoldMethod)
+            {
+                return;
+            }
 
-    
+            if (method is AccountPaymentMethod)
+            {
+                AccountPaymentMethod acc = method as AccountPaymentMethod;
+                db.DirectDepositAccounts.InsertOnSubmit(new Account(id,acc));
+            }
+            else if (method is MailPaymentMethod)
+            {
+                MailPaymentMethod mail = method as MailPaymentMethod;
+                var pc = new PaycheckAddress(id, mail);
+                db.PaycheckAddresses.InsertOnSubmit(pc);
+            }
+        
+            if (method == null)
+            {
+                throw new NullReferenceException();
+            }
+        }
+
+
     }
 }

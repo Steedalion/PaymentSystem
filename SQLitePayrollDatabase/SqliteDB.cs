@@ -6,10 +6,11 @@ using System.Linq;
 using DatabaseTests.SQLiteTests;
 using PayrollDB;
 using PayrollDomain;
+using PaymentClassification = PayrollDomain.PaymentClassification;
 
 namespace PayrollDataBase
 {
-    public class SqliteDB : PayrollDB.IPayrollDb
+    public class SqliteDB : IPayrollDb
     {
         public static string connectionID = "Data Source=" +
                                             Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName +
@@ -29,14 +30,16 @@ namespace PayrollDataBase
             return emp;
         }
 
+
         public void AddEmployee(int id, Employee employee)
         {
-            db.Employees.InsertOnSubmit(EmployeeUnit.FromEmployee(id, employee));
+            // db.Employees.InsertOnSubmit(EmployeeUnit.FromEmployee(id, employee));
+            SaveEmployeeOperation saveEmployee = new SaveEmployeeOperation(id, employee, db);
+
 
             try
             {
-                db.SubmitChanges();
-
+                saveEmployee.Execute();
             }
             catch (DuplicateKeyException e)
             {
@@ -47,9 +50,9 @@ namespace PayrollDataBase
 
         public void Clear()
         {
-            foreach (int id in GetEmployeeIds())
+            foreach (EmployeeUnit employeeUnit in db.Employees)
             {
-                RemoveEmployee(id);
+                RemoveEmployee(employeeUnit.EmpID);
             }
         }
 

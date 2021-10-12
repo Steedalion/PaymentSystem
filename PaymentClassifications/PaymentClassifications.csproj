@@ -8,7 +8,7 @@
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
         <RootNamespace>PaymentClassification</RootNamespace>
-        <AssemblyName>PaymentClassification</AssemblyName>
+        <AssemblyName>PaymentClassifications</AssemblyName>
         <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>

@@ -71,9 +71,9 @@
         <Project>{92de6cc4-82dc-43be-9aec-2e0528f23abf}</Project>
         <Name>InMemoryDBTest</Name>
       </ProjectReference>
-      <ProjectReference Include="..\PaymentClassification\PaymentClassification.csproj">
+      <ProjectReference Include="..\PaymentClassifications\PaymentClassifications.csproj">
         <Project>{23130573-75d1-4802-9f65-9cd5b8f04971}</Project>
-        <Name>PaymentClassification</Name>
+        <Name>PaymentClassifications</Name>
       </ProjectReference>
       <ProjectReference Include="..\PaymentMethods\PaymentMethods.csproj">
         <Project>{4e08bb1c-9953-48c4-872f-ce0590f3aad2}</Project>
@@ -86,14 +86,6 @@
       <ProjectReference Include="..\PayrollDomain\PayrollDomain.csproj">
         <Project>{6c2dcd48-4681-4af8-9360-ab5f4040eb92}</Project>
         <Name>PayrollDomain</Name>
-      </ProjectReference>
-      <ProjectReference Include="..\PayrollTransactions\PayrollTransactions.csproj">
-        <Project>{47a894af-db57-4d14-a5df-9f9da506fe0d}</Project>
-        <Name>PayrollTransactions</Name>
-      </ProjectReference>
-      <ProjectReference Include="..\Payroll\Payroll.csproj">
-        <Project>{ac102298-f4d8-4c0a-b798-1b70d0fe5b14}</Project>
-        <Name>Payroll</Name>
       </ProjectReference>
       <ProjectReference Include="..\Schedules\Schedules.csproj">
         <Project>{4e6db94b-82dc-4f9c-bff8-0df94bcc95d9}</Project>

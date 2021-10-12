@@ -63,9 +63,9 @@
         <Compile Include="TransactionContainer.cs" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\PaymentClassification\PaymentClassification.csproj">
+      <ProjectReference Include="..\PaymentClassifications\PaymentClassifications.csproj">
         <Project>{23130573-75d1-4802-9f65-9cd5b8f04971}</Project>
-        <Name>PaymentClassification</Name>
+        <Name>PaymentClassifications</Name>
       </ProjectReference>
       <ProjectReference Include="..\PayrollDB\PayrollDB.csproj">
         <Project>{7e62b1e0-c05e-4eb0-a775-06f5a761c64c}</Project>
