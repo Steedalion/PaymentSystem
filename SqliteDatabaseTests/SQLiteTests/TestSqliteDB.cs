@@ -2,7 +2,6 @@ using System;
 using System.Data;
 using System.Data.Common;
 using System.Data.Linq;
-using System.Data.Linq.Mapping;
 using System.Data.SQLite;
 using System.Linq;
 using NUnit.Framework;
@@ -28,7 +27,9 @@ namespace DatabaseTests.SQLiteTests
             ClearEmployees();
         }
 
-        private void ClearEmployees()
+        
+
+        protected void ClearEmployees()
         {
             IQueryable<EmployeeUnit> employees = from emp in db.Employees
                 select emp;
@@ -77,7 +78,7 @@ namespace DatabaseTests.SQLiteTests
         {
             Employee emp = new Employee(123, "John", "Home");
             EmployeeUnit unit =
-                new EmployeeUnit(emp);
+                new EmployeeUnit(123,emp);
             db.Employees.InsertOnSubmit(unit);
             db.SubmitChanges();
             Assert.AreEqual(1, db.Employees.Count());
@@ -137,46 +138,6 @@ namespace DatabaseTests.SQLiteTests
             // adapter.Fill(table);
             // return table;
             return null;
-        }
-    }
-
-    public class EmployeeContext : DataContext
-    {
-        public EmployeeContext(IDbConnection connection) : base(connection)
-        {
-        }
-
-        public Table<EmployeeUnit> Employees;
-    }
-
-    [Table(Name = "Employees")]
-    public class EmployeeUnit
-    {
-        [Column(IsPrimaryKey = true, Name = nameof(EmpID))]
-        public int EmpID;
-
-        [Column(Name = nameof(Name))] public string Name;
-        [Column(Name = nameof(Address))] public string Address;
-        [Column(Name = nameof(ScheduleType))] public string ScheduleType;
-
-        [Column(Name = nameof(PaymentMethodType))]
-        public string PaymentMethodType;
-
-        [Column(Name = nameof(PaymentClassificationType))]
-        public string PaymentClassificationType;
-
-        public EmployeeUnit()
-        {
-        }
-
-        public EmployeeUnit(Employee emp)
-        {
-            EmpID = emp.myID;
-            Name = emp.Name;
-            Address = emp.myAddress;
-            ScheduleType = ScheduleCodes.Code(emp.Schedule);
-            PaymentMethodType = PaymentMethodCodes.Code(emp.Paymentmethod);
-            PaymentClassificationType = ClassificationCodes.Code(emp.Classification);
         }
     }
 }
