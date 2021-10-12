@@ -8,18 +8,6 @@ using Schedules;
 
 namespace DatabaseTests.SQLiteTests
 {
-    public class RemoveEmployeeTests : TestSqliteDB
-    {
-        [Test]
-        public void AddAndRemoveEmployee()
-        {
-            AddEmployee();
-            Assert.AreEqual(1, database.GetEmployeeIds().Length);
-            database.RemoveEmployee(id);
-            Assert.AreEqual(0, database.GetEmployeeIds().Length);
-        }
-    }
-
     public class AddEmployeeTests
     {
         protected SqliteDB database = new SqliteDB();
@@ -43,7 +31,7 @@ namespace DatabaseTests.SQLiteTests
             Assert.AreEqual(0, EmployeeCount());
         }
 
-        private int EmployeeCount()
+        protected int EmployeeCount()
         {
             return database.GetEmployeeIds().Length;
         }
@@ -59,7 +47,7 @@ namespace DatabaseTests.SQLiteTests
             Assert.AreEqual(1, database.GetEmployeeIds().Length);
         }
 
-        private Employee CreateEmployee()
+        protected Employee CreateEmployee()
         {
             Assert.AreEqual(0, database.GetEmployeeIds().Length);
             string name = "John";
@@ -100,86 +88,11 @@ namespace DatabaseTests.SQLiteTests
         }
 
         [Test]
-        public void AddEmployeeSavesClassification()
-        {
-            AddEmployee();
-            Employee e = database.GetEmployee(id);
-            Assert.IsTrue(e.Classification is HourlyClassification);
-        }
-
-        [Test]
-        public void AddAccountPayment()
-        {
-            Employee e = CreateEmployee();
-            e.Schedule = new Biweekly();
-            e.Paymentmethod = new AccountPaymentMethod("Woori", 800);
-            e.Classification = new CommisionClassification(0.5, 1000);
-            database.AddEmployee(id, e);
-            Assert.AreEqual(1, EmployeeCount());
-        }
-
-        [Test]
-        public void AddHoldPayment()
-        {
-            Employee e = CreateEmployee();
-            e.Schedule = new Biweekly();
-            e.Paymentmethod = new HoldMethod();
-            e.Classification = new CommisionClassification(0.5, 1000);
-            database.AddEmployee(id, e);
-            Assert.AreEqual(1, EmployeeCount());
-        }
-
-        [Test]
-        public void AddMailPayment()
-        {
-            Employee e = CreateEmployee();
-            e.Schedule = new Biweekly();
-            e.Paymentmethod = new MailPaymentMethod("Home");
-            e.Classification = new CommisionClassification(0.5, 1000);
-            database.AddEmployee(id, e);
-            Assert.AreEqual(1, EmployeeCount());
-        }
-
-
-        [Test]
         public void AddEmployeeSavesMethod()
         {
             AddEmployee();
             Employee e = database.GetEmployee(id);
             Assert.IsTrue(e.Paymentmethod is MailPaymentMethod);
-        }
-    }
-
-    public class GetEmployeeTests : AddEmployeeTests
-    {
-        [Test]
-        public void GetAccountPayment()
-        {
-            AddAccountPayment();
-            Employee got = database.GetEmployee(id);
-            AccountPaymentMethod acc = got.Paymentmethod as AccountPaymentMethod;
-            Assert.IsTrue(got.Paymentmethod is AccountPaymentMethod);
-            Assert.AreEqual("Woori", acc.bank);
-            Assert.AreEqual(800, acc.AccountNumber);
-        }
-
-        [Test]
-        public void GetMailPayment()
-        {
-            AddMailPayment();
-            Employee got = database.GetEmployee(id);
-            MailPaymentMethod acc = got.Paymentmethod as MailPaymentMethod;
-            Assert.IsTrue(got.Paymentmethod is AccountPaymentMethod);
-            Assert.AreEqual("Home", acc.Address);
-        }
-
-        [Test]
-        public void GetHoldPayment()
-        {
-            AddHoldPayment();
-            Employee got = database.GetEmployee(id);
-            HoldMethod acc = got.Paymentmethod as HoldMethod;
-            Assert.IsTrue(got.Paymentmethod is HoldMethod);
         }
     }
 }

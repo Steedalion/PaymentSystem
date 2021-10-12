@@ -1,9 +1,7 @@
-﻿using System;
-using System.Data.Linq.Mapping;
-using PayrollDataBase;
+﻿using System.Data.Linq.Mapping;
 using PayrollDomain;
 
-namespace DatabaseTests.SQLiteTests
+namespace PayrollDataBase.Linq2SQL
 {
     [Table(Name = "Employees")]
     public class EmployeeUnit

@@ -3,7 +3,7 @@ using System.Data.Linq;
 using System.Data.SQLite;
 using System.IO;
 using System.Linq;
-using DatabaseTests.SQLiteTests;
+using PayrollDataBase.Linq2SQL;
 using PayrollDB;
 using PayrollDomain;
 using PaymentClassification = PayrollDomain.PaymentClassification;

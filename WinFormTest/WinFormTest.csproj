@@ -44,6 +44,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="AddEmployeeWindowEnablingSubmiting.cs" />
+        <Compile Include="AddEmployeeWindowFiltersIncorrectFields.cs" />
         <Compile Include="AddEmployeeWindowSetPresenterFields.cs" />
         <Compile Include="MockPayrollPresenter.cs" />
         <Compile Include="PayrollWindowTests.cs" />
@@ -51,6 +52,7 @@
         <Compile Include="AddEmployeeWindowButtonTestFix.cs" />
         <Compile Include="AddEmployeeWindowTestFix.cs" />
         <Compile Include="FormsViewLoaderTest.cs" />
+        <Compile Include="WindowIntegrationTests.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\PayrollDB\PayrollDB.csproj">

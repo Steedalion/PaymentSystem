@@ -69,11 +69,16 @@
     <ItemGroup>
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="SQLiteTests\AddClassificationType.cs" />
+        <Compile Include="SQLiteTests\AddEmployeeClassification.cs" />
+        <Compile Include="SQLiteTests\AddEmployeePaymentMethods.cs" />
         <Compile Include="SQLiteTests\AddEmployeeTests.cs" />
         <Compile Include="SQLiteTests\AddPaymentMethodType.cs" />
         <Compile Include="SQLiteTests\AddScheduleType.cs" />
         <Compile Include="SQLiteTests\ClearDatabase.cs" />
+        <Compile Include="SQLiteTests\ContextTests.cs" />
+        <Compile Include="SQLiteTests\GetEmployeeTests.cs" />
         <Compile Include="SQLiteTests\RandomSQL.cs" />
+        <Compile Include="SQLiteTests\RemoveEmployeeTests.cs" />
         <Compile Include="SQLiteTests\TestSqliteDB.cs" />
         <Compile Include="SQLiteTests\UnregisteredClassification.cs" />
     </ItemGroup>

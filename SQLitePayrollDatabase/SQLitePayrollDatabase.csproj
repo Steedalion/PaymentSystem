@@ -61,8 +61,13 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="ClassificationCodes.cs" />
+        <Compile Include="Linq2SQL\Account.cs" />
         <Compile Include="Linq2SQL\EmployeeContext.cs" />
         <Compile Include="Linq2SQL\EmployeeUnit.cs" />
+        <Compile Include="Linq2SQL\PaycheckAddress.cs" />
+        <Compile Include="Linq2SQL\PaymentClassificationUnit.cs" />
+        <Compile Include="Linq2SQL\PaymentMethodUnit.cs" />
+        <Compile Include="Linq2SQL\PaymentScheduleUnit.cs" />
         <Compile Include="PaymentMethodCodes.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="SaveEmployeeOperation.cs" />

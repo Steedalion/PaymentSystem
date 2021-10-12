@@ -1,8 +1,8 @@
 using System;
 using System.Data.SQLite;
-using DatabaseTests.SQLiteTests;
 using PaymentClassification.PaymentClassifications;
 using PaymentMethods;
+using PayrollDataBase.Linq2SQL;
 using PayrollDB;
 using PayrollDomain;
 using PaymentClassification = PayrollDomain.PaymentClassification;
