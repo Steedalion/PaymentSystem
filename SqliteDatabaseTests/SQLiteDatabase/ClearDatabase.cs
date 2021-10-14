@@ -19,5 +19,12 @@ namespace DatabaseTests.SQLiteTests
             database.Clear();
             Assert.AreEqual(0, EmployeeCount());
         }
+
+        [Test]
+        public void ClearEmployees()
+        {
+            database.Clear();
+            Assert.AreEqual(0,database.GetEmployeeIds().Length);
+        }
     }
 }

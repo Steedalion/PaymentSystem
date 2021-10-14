@@ -9,32 +9,34 @@ using PayrollDomain;
 
 namespace DatabaseTests.SQLiteTests
 {
-    public class ContextTests : TestSqliteDB
+    public class ClearsTables : ContextTests
     {
-        private EmployeeContext db;
-
-        [SetUp]
-        public void ConnectAndClear()
+        [Test]
+        public void ClearClearsCommision()
         {
-            connection = new SQLiteConnection(SqliteDB.connectionID);
-            connection.Open();
-            db = new EmployeeContext(connection);
-            ClearEmployees();
-        }
-
-
-        protected void ClearEmployees()
-        {
-            IQueryable<EmployeeUnit> employees = from emp in db.Employees
-                select emp;
-            if (employees.Count() > 0)
-            {
-                db.Employees.DeleteAllOnSubmit(employees);
-                db.SubmitChanges();
-            }
+            database.Clear();
+            Assert.AreEqual(0, db.Commsions.Count());
         }
 
         [Test]
+        public void ClearSalay()
+        {
+            database.Clear();
+            Assert.AreEqual(0,db.Salaries.Count());
+        }
+
+        [Test]
+        public void DirectDepositions()
+        {
+            database.Clear();
+            Assert.AreEqual(0,db.DirectDepositAccounts);
+        }
+
+    }
+
+    public class DirectContextTests : ContextTests
+    {
+                [Test]
         public void ConnectToDB()
         {
             DataContext db = new EmployeeContext(connection);
@@ -76,6 +78,33 @@ namespace DatabaseTests.SQLiteTests
             db.Employees.InsertOnSubmit(unit);
             db.SubmitChanges();
             Assert.AreEqual(1, db.Employees.Count());
+        }
+
+
+    }
+    public class ContextTests : TestSqliteDB
+    {
+        protected EmployeeContext db;
+
+        [SetUp]
+        public void ConnectAndClear()
+        {
+            connection = new SQLiteConnection(SqliteDB.connectionID);
+            connection.Open();
+            db = new EmployeeContext(connection);
+            ClearEmployees();
+        }
+
+
+        protected void ClearEmployees()
+        {
+            IQueryable<EmployeeUnit> employees = from emp in db.Employees
+                select emp;
+            if (employees.Count() > 0)
+            {
+                db.Employees.DeleteAllOnSubmit(employees);
+                db.SubmitChanges();
+            }
         }
 
        

@@ -3,9 +3,8 @@ using System.Data.SQLite;
 using PaymentClassification.PaymentClassifications;
 using PaymentMethods;
 using PayrollDataBase.Linq2SQL;
-using PayrollDB;
 using PayrollDomain;
-using PaymentClassification = PayrollDomain.PaymentClassification;
+using Schedules;
 
 namespace PayrollDataBase
 {
@@ -27,117 +26,59 @@ namespace PayrollDataBase
         {
             db.Employees.InsertOnSubmit(new EmployeeUnit(id, employee));
             SavePaymentMethod(id, employee, db);
-            // db.Methods.InsertOnSubmit(new PaymentMethodUnit(id, employee.Paymentmethod));
-            // db.Classifications.InsertOnSubmit(new PaymentClassificationUnit(id, employee.Classification));
-            // db.Schedules.InsertOnSubmit(new PaymentScheduleUnit(id, employee.Schedule));
+            SavePaymentClassification(id, employee, db);
+            SavePaymentSchedule(id, employee, db);
             db.SubmitChanges();
-            // con = new SQLiteConnection(SqliteDB.connectionID);
-            // con.Open();
-            //
-            // SqliteTransaction transaction = con.BeginTransaction();
-            //
-            //
-            // try
-            // {
-            //     SaveEmployee(id, employee, transaction);
-            //     SavePaymentMethod(id, employee, transaction);
-            //     SavePaymentClassification(id, employee, transaction);
-            //     transaction.Commit();
-            // }
-            // catch (Exception e)
-            // {
-            //     transaction.Rollback();
-            //
-            //
-            //     // var sql = e as SqliteException;
-            //     // if (sql.ErrorCode == SQLiteErrorCode.Constraint)
-            //     // {
-            //     //     throw new EmployeeIdAlreadyExists();
-            //     // }
-            //
-            //     throw e;
-            // }
-            //
-            // con.Close();
         }
 
-        // private void SavePaymentClassification(int id, Employee employee, SqliteTransaction transaction)
-        // {
-        //     SqliteCommand classification = null;
-        //
-        //     if (employee.Classification is SalariedClassification)
-        //     {
-        //         SalariedClassification sal = employee.Classification as SalariedClassification;
-        //         string sql = "INSERT INTO " + Tables.Salary + " VALUES("
-        //                      + "@EmpID"
-        //                      + ",@Salary"
-        //                      + ")";
-        //         classification = new SqliteCommand(sql, con);
-        //         classification.Parameters.AddWithValue("@EmpID", id);
-        //         classification.Parameters.AddWithValue("@Salary", sal.Salary);
-        //     }
-        //     else if (employee.Classification is CommisionClassification)
-        //     {
-        //         CommisionClassification commision = employee.Classification as CommisionClassification;
-        //         string sql = "INSERT INTO " + Tables.Commission + " VALUES("
-        //                      + "@EmpID"
-        //                      + ",@Salary"
-        //                      + ",@CommisionRate"
-        //                      + ")";
-        //         classification = new SqliteCommand(sql, con);
-        //         classification.Parameters.AddWithValue("@EmpID", id);
-        //         classification.Parameters.AddWithValue("@Salary", commision.Salary);
-        //         classification.Parameters.AddWithValue("@CommisionRate", commision.CommisionRate);
-        //     }
-        //
-        //     if (employee.Classification is HourlyClassification)
-        //     {
-        //         HourlyClassification hourly = employee.Classification as HourlyClassification;
-        //         string sql = "INSERT INTO " + Tables.Hourly + " VALUES("
-        //                      + "@EmpID"
-        //                      + ",@HourlyRate"
-        //                      + ")";
-        //         classification = new SqliteCommand(sql, con);
-        //         classification.Parameters.AddWithValue("@EmpID", id);
-        //         classification.Parameters.AddWithValue("@HourlyRate", hourly.Rate);
-        //     }
-        //
-        //     if (classification == null)
-        //     {
-        //         throw new NullReferenceException("Classification Not matched");
-        //     }
-        //
-        //     classification.Transaction = transaction;
-        //     classification.ExecuteNonQuery();
-        // }
-        //
-        // private void SaveEmployee(int id, Employee employee, SqliteTransaction sqliteTransaction)
-        // {
-        //     string sql = "INSERT INTO Employee VALUES("
-        //                  + "@EmpID"
-        //                  + ",@Name"
-        //                  + ",@Address"
-        //                  + ",@ScheduleType"
-        //                  + ",@PaymentMethodType"
-        //                  + ",@PaymentClassificationType"
-        //                  + ")";
-        //
-        //     var command = new SqliteCommand(sql, con);
-        //     var cmd = new SqliteCommand(command.CommandText, con);
-        //     cmd.Parameters.AddWithValue("@EmpID", id);
-        //     cmd.Parameters.AddWithValue("@Name", employee.Name);
-        //     cmd.Parameters.AddWithValue("@Address", employee.myAddress);
-        //     cmd.Parameters.AddWithValue("@ScheduleType", ScheduleCodes.Code(employee.Schedule));
-        //     cmd.Parameters.AddWithValue("@PaymentMethodType", MethodCodes.Code(employee.Paymentmethod));
-        //     cmd.Parameters.AddWithValue("@PaymentClassificationType",
-        //         ClassificationCodes.Code(employee.Classification));
-        //
-        //     cmd.Transaction = sqliteTransaction;
-        //     cmd.ExecuteNonQuery();
-        // }
-        //
-        //
-        //
+        private void SavePaymentSchedule(int empId, Employee e, EmployeeContext db)
+        {
+            if (e.Schedule is WeeklySchedule)
+            {
+            }
+            else if (e.Schedule is Biweekly)
+            {
+            }
+            else if (e.Schedule is MonthlyPaymentSchedule)
+            {
+            }
+            else
+            {
+                //todo these should be specific exceptions
+                throw new UnknownPaymentScheduleException("Unknown Payment schedule" + e.Schedule.GetType());
+            }
+        }
+
+        private void SavePaymentClassification(int id, Employee employee, EmployeeContext db)
+        {
+            if (employee.Classification is SalariedClassification)
+            {
+                SalariedClassification salary = employee.Classification as SalariedClassification;
+                SalaryAdapter sal = new SalaryAdapter(id, salary.Salary);
+                db.Salaries.InsertOnSubmit(sal);
+            }
+            else if (employee.Classification is CommisionClassification)
+            {
+                CommisionClassification commisionClassification = employee.Classification as CommisionClassification;
+                CommisionAdapter com = new CommisionAdapter(id, commisionClassification.Salary,
+                    commisionClassification.CommisionRate);
+                db.Commsions.InsertOnSubmit(com);
+            }
+
+            else if (employee.Classification is HourlyClassification)
+            {
+                HourlyClassification hourly = employee.Classification as HourlyClassification;
+                HourlyAdapter h = new HourlyAdapter(id, hourly.Rate);
+                db.Hourlies.InsertOnSubmit(h);
+            }
+            else
+            {
+                throw new UnknownClassificationException("Unknown classification: " +
+                                                         employee.Classification.GetType());
+            }
+        }
+
+
         private void SavePaymentMethod(int id, Employee employee, EmployeeContext db)
         {
             PaymentMethod method = employee.Paymentmethod;
@@ -149,7 +90,7 @@ namespace PayrollDataBase
             if (method is AccountPaymentMethod)
             {
                 AccountPaymentMethod acc = method as AccountPaymentMethod;
-                db.DirectDepositAccounts.InsertOnSubmit(new Account(id,acc));
+                db.DirectDepositAccounts.InsertOnSubmit(new Account(id, acc));
             }
             else if (method is MailPaymentMethod)
             {
@@ -157,13 +98,39 @@ namespace PayrollDataBase
                 var pc = new PaycheckAddress(id, mail);
                 db.PaycheckAddresses.InsertOnSubmit(pc);
             }
-        
-            if (method == null)
+
+            else
             {
-                throw new NullReferenceException();
+                throw new UnknownPaymentMethodExcpetion("Unknown Payment methods:" + employee.Paymentmethod.GetType());
             }
         }
+    }
 
+    internal class UnknownPaymentMethodExcpetion : UnknownTypeException
+    {
+        public UnknownPaymentMethodExcpetion(string message) : base(message)
+        {
+        }
+    }
 
+    internal class UnknownClassificationException : UnknownTypeException
+    {
+        public UnknownClassificationException(string unknownClassification) : base(unknownClassification)
+        {
+        }
+    }
+
+    internal class UnknownTypeException : NotSupportedException
+    {
+        public UnknownTypeException(string message) : base(message)
+        {
+        }
+    }
+
+    internal class UnknownPaymentScheduleException : UnknownTypeException
+    {
+        public UnknownPaymentScheduleException(string message) : base(message)
+        {
+        }
     }
 }

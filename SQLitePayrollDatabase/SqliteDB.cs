@@ -33,10 +33,7 @@ namespace PayrollDataBase
 
         public void AddEmployee(int id, Employee employee)
         {
-            // db.Employees.InsertOnSubmit(EmployeeUnit.FromEmployee(id, employee));
             SaveEmployeeOperation saveEmployee = new SaveEmployeeOperation(id, employee, db);
-
-
             try
             {
                 saveEmployee.Execute();
@@ -50,10 +47,11 @@ namespace PayrollDataBase
 
         public void Clear()
         {
-            foreach (EmployeeUnit employeeUnit in db.Employees)
-            {
-                RemoveEmployee(employeeUnit.EmpID);
-            }
+            db.Employees.DeleteAllOnSubmit(db.Employees);
+            db.Commsions.DeleteAllOnSubmit(db.Commsions.Select(c => c));
+            db.Salaries.DeleteAllOnSubmit(db.Salaries.Select(s => s));
+            db.DirectDepositAccounts.DeleteAllOnSubmit(db.DirectDepositAccounts.Select(s => s));
+            db.SubmitChanges();
         }
 
         public void RemoveEmployee(int id)

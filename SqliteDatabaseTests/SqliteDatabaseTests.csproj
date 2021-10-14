@@ -67,20 +67,21 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="ContextTests\ClearDatabaseInternalTests.cs" />
+        <Compile Include="ContextTests\ContextTests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="SQLiteTests\AddClassificationType.cs" />
-        <Compile Include="SQLiteTests\AddEmployeeClassification.cs" />
-        <Compile Include="SQLiteTests\AddEmployeePaymentMethods.cs" />
-        <Compile Include="SQLiteTests\AddEmployeeTests.cs" />
-        <Compile Include="SQLiteTests\AddPaymentMethodType.cs" />
-        <Compile Include="SQLiteTests\AddScheduleType.cs" />
-        <Compile Include="SQLiteTests\ClearDatabase.cs" />
-        <Compile Include="SQLiteTests\ContextTests.cs" />
-        <Compile Include="SQLiteTests\GetEmployeeTests.cs" />
-        <Compile Include="SQLiteTests\RandomSQL.cs" />
-        <Compile Include="SQLiteTests\RemoveEmployeeTests.cs" />
-        <Compile Include="SQLiteTests\TestSqliteDB.cs" />
-        <Compile Include="SQLiteTests\UnregisteredClassification.cs" />
+        <Compile Include="SQLiteDatabase\AddClassificationType.cs" />
+        <Compile Include="SQLiteDatabase\AddEmployeeClassification.cs" />
+        <Compile Include="SQLiteDatabase\AddEmployeePaymentMethods.cs" />
+        <Compile Include="SQLiteDatabase\AddEmployeeTests.cs" />
+        <Compile Include="SQLiteDatabase\AddPaymentMethodType.cs" />
+        <Compile Include="SQLiteDatabase\AddScheduleType.cs" />
+        <Compile Include="SQLiteDatabase\ClearDatabase.cs" />
+        <Compile Include="SQLiteDatabase\GetEmployeeMethods.cs" />
+        <Compile Include="SQLiteDatabase\RandomSQL.cs" />
+        <Compile Include="SQLiteDatabase\RemoveEmployeeTests.cs" />
+        <Compile Include="SQLiteDatabase\TestSqliteDB.cs" />
+        <Compile Include="SQLiteDatabase\UnregisteredClassification.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="App.config" />

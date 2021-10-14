@@ -53,6 +53,9 @@ namespace DatabaseTests.SQLiteTests
             string name = "John";
             string address = "123 bird street";
             Employee e = new Employee(id, name, address);
+            e.Schedule = new Biweekly();
+            e.Paymentmethod = new HoldMethod();
+            e.Classification = new CommisionClassification(0.5, 1000);
             return e;
         }
 

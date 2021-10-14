@@ -4,7 +4,7 @@ using PayrollDomain;
 
 namespace DatabaseTests.SQLiteTests
 {
-    public class GetEmployeeTests : AddEmployeePaymentMethods
+    public class GetEmployeeMethods : AddEmployeePaymentMethods
     {
         [Test]
         public void GetAccountPayment()
