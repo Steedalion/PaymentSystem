@@ -24,7 +24,7 @@ namespace PayrollDataBase
                 return Weekly;
             }
 
-            return "UnknownSchedule";
+            throw new UnknownPaymentScheduleException("Unknown CODE");
         }
     }
 }

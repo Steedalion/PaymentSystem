@@ -1,13 +1,13 @@
 ﻿using NUnit.Framework;
 
-namespace DatabaseTests.SQLiteTests
+namespace DatabaseTests.DatabaseTests
 {
-    public class RemoveEmployeeTests : TestSqliteDB
+    public class RemoveEmployeeTests : AddEmployeeTest
     {
         [Test]
         public void AddAndRemoveEmployee()
         {
-            AddEmployee();
+            database.AddEmployee(id,CreateEmployee());
             Assert.AreEqual(1, database.GetEmployeeIds().Length);
             database.RemoveEmployee(id);
             Assert.AreEqual(0, database.GetEmployeeIds().Length);

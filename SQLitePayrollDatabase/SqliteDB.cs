@@ -3,10 +3,13 @@ using System.Data.Linq;
 using System.Data.SQLite;
 using System.IO;
 using System.Linq;
+using PaymentClassification.ChangeClassification;
+using PaymentClassification.PaymentClassifications;
 using PaymentMethods;
 using PayrollDataBase.Linq2SQL;
 using PayrollDB;
 using PayrollDomain;
+using Schedules;
 using PaymentClassification = PayrollDomain.PaymentClassification;
 
 namespace PayrollDataBase
@@ -55,6 +58,7 @@ namespace PayrollDataBase
             db.DirectDepositAccounts.DeleteAllOnSubmit(db.DirectDepositAccounts.Select(s => s));
             db.PaycheckAddresses.DeleteAllOnSubmit(db.PaycheckAddresses.Select(a => a));
             db.DirectDepositAccounts.DeleteAllOnSubmit(db.DirectDepositAccounts.Select(d => d));
+            db.Hourlies.DeleteAllOnSubmit(db.Hourlies.Select(h => h));
             db.SubmitChanges();
         }
 
@@ -120,9 +124,52 @@ namespace PayrollDataBase
         {
             var emp = db.Employees.Single(unit => unit.EmpID.Equals(id));
             var pmethod = GetPaymentMethod(id, db, emp.PaymentMethodType);
+            var sched = GetSchedule(id, db, emp.ScheduleType);
+            var classification = GetClassification(id, db, emp.PaymentClassificationType);
             var employee = emp.toEmployee();
             employee.Paymentmethod = pmethod;
+            employee.Schedule = sched;
+            employee.Classification = classification;
+
             return employee;
+        }
+
+        private PayrollDomain.PaymentClassification GetClassification(int id, EmployeeContext employeeContext,
+            string empPaymentClassificationType)
+        {
+            if (empPaymentClassificationType == ClassificationCodes.Salary)
+            {
+                return new SalariedClassification(db.Salaries.Single(s => s.EmpID == id).Salary);
+            }
+            else if (empPaymentClassificationType == ClassificationCodes.Commision)
+            {
+                var c = db.Commsions.Single(commisionAdapter => commisionAdapter.EmpID == id);
+                return new CommisionClassification(c.CommissionRate, c.Salary);
+            }
+            else if (empPaymentClassificationType == ClassificationCodes.Hourly)
+            {
+                return new HourlyClassification(db.Hourlies.Single(adapter => adapter.EmpID == id).HourlyRate);
+            }
+
+            throw new UnknownClassificationException("Failed to retrieve classification");
+        }
+
+        private PaymentSchedule GetSchedule(int i, EmployeeContext employeeContext, string empScheduleType)
+        {
+            if (empScheduleType == ScheduleCodes.Monthly)
+            {
+                return new MonthlyPaymentSchedule();
+            }
+            else if (empScheduleType == ScheduleCodes.Weekly)
+            {
+                return new WeeklySchedule();
+            }
+            else if (empScheduleType == ScheduleCodes.BiWeekly)
+            {
+                return new Biweekly();
+            }
+
+            throw new UnknownPaymentScheduleException("Could not retrieve the schudule codes");
         }
     }
 }

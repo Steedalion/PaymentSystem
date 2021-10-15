@@ -15,7 +15,7 @@ namespace DatabaseTests.DatabaseTests
             Employee e = CreateEmployee();
             e.Schedule = new Biweekly();
             e.Paymentmethod = new AccountPaymentMethod("Woori", 800);
-            e.Classification = new CommisionClassification(0.5, 1000);
+            e.Classification = new SalariedClassification(1000);
             database.AddEmployee(id, e);
             Assert.AreEqual(1, EmployeeCount());
         }
@@ -26,7 +26,7 @@ namespace DatabaseTests.DatabaseTests
             Employee e = CreateEmployee();
             e.Schedule = new Biweekly();
             e.Paymentmethod = new HoldMethod();
-            e.Classification = new CommisionClassification(0.5, 1000);
+            e.Classification = new SalariedClassification(1000);
             database.AddEmployee(id, e);
             Assert.AreEqual(1, EmployeeCount());
         }
@@ -37,7 +37,7 @@ namespace DatabaseTests.DatabaseTests
             Employee e = CreateEmployee();
             e.Schedule = new Biweekly();
             e.Paymentmethod = new MailPaymentMethod("Home");
-            e.Classification = new CommisionClassification(0.5, 1000);
+            e.Classification = new SalariedClassification(1000);
             database.AddEmployee(id, e);
             Assert.AreEqual(1, EmployeeCount());
         }
@@ -49,8 +49,16 @@ namespace DatabaseTests.DatabaseTests
             e.Schedule = new Biweekly();
             e.Paymentmethod = null;
             e.Classification = new CommisionClassification(0.5, 1000);
-            Assert.Throws<NullReferenceException>(() => { database.AddEmployee(id, e); });
-            Assert.AreEqual(0, EmployeeCount());
+
+            try
+            {
+                Assert.Throws<Exception>(() => { database.AddEmployee(id, e); });
+            }
+            catch (Exception exception)
+            {
+                Assert.AreEqual(0, EmployeeCount());
+                Assert.Pass();
+            }
         }
 
         [Test]
@@ -61,7 +69,7 @@ namespace DatabaseTests.DatabaseTests
             HoldMethod acc = got.Paymentmethod as HoldMethod;
             Assert.IsTrue(got.Paymentmethod is HoldMethod);
         }
-        
+
         [Test]
         public void GetAccountPayment()
         {

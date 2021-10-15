@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace DatabaseTests.SQLiteTests
+namespace DatabaseTests.ContextTests
 {
     [TestFixture]
     public class ClearDatabaseInternalTests

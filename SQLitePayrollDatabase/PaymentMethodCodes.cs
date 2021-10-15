@@ -7,7 +7,8 @@ namespace PayrollDataBase
     {
         public static string Hold = "HoldPayment";
         public static string Account = "AccountPayment";
-        public static string Mail = "PostPayment";    
+        public static string Mail = "PostPayment";
+
         public static string Code(PaymentMethod employeePaymentmethod)
         {
             if (employeePaymentmethod is AccountPaymentMethod)
@@ -25,8 +26,7 @@ namespace PayrollDataBase
                 return PaymentMethodCodes.Mail;
             }
 
-
-            return "UnknownPayment";
+            throw new UnknownPaymentMethodExcpetion("Unknown PM CODE");
         }
     }
 }

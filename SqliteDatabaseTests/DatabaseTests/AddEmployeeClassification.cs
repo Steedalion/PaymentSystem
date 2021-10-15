@@ -1,101 +1,60 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using PaymentClassification.PaymentClassifications;
 using PayrollDomain;
-using Schedules;
 
 namespace DatabaseTests.DatabaseTests
 {
-    public class AddEmployeeSchedule : AddEmployeeTest
-    {
-        private Employee e;
-
-        [SetUp]
-        public void StartUp()
-        {
-            database.Clear();
-            e = CreateEmployee();
-        }
-
-        [Test]
-        public void AddWeekly()
-        {
-            e.Schedule = new WeeklySchedule();
-            database.AddEmployee(id, e);
-        }
-
-        [Test]
-        public void AddMonthly()
-        {
-        e.Schedule = new MonthlyPaymentSchedule();
-            database.AddEmployee(id, e);
-            
-        }
-
-        [Test]
-        public void AddBiweekly()
-        {
-            e.Schedule = new Biweekly();
-            database.AddEmployee(id, e);
-        }
-
-        [Test]
-        public void GetBiweekly()
-        {
-            AddBiweekly();
-            e = database.GetEmployee(id);
-            Assert.IsTrue(e.Schedule is Biweekly);
-        }
-
-        [Test]
-        public void GetMonthly()
-        {AddMonthly();
-            e = database.GetEmployee(id);
-            Assert.IsTrue(e.Schedule is MonthlyPaymentSchedule);
-        }
-
-        [Test]
-        public void GetWeekly()
-        {
-            AddWeekly();
-            e = database.GetEmployee(id);
-            Assert.IsTrue(e.Schedule is WeeklySchedule);
-        }
-    }
     public class AddEmployeeClassification : AddEmployeeTest
     {
+        public const double commSalary = 100;
+        public const double commRate = 0.5f;
+        public const double salary = 200;
+        public const double hourlyRate = 10;
         private Employee e;
+
         [SetUp]
         public void StartUp()
         {
             database.Clear();
             e = CreateEmployee();
         }
+
         [Test]
         public void AddHourly()
         {
-            e.Classification = new HourlyClassification(10.00);
-            database.AddEmployee(id,e);
+            e.Classification = new HourlyClassification(hourlyRate);
+            database.AddEmployee(id, e);
         }
 
-        [Test] public void NoClassification()
+        [Test]
+        public void NoClassification()
         {
-            e.Classification = null;
-            database.AddEmployee(id,e);
+            try
+            {
+                e.Classification = null;
+                database.AddEmployee(id, e);
+            }
+            catch (Exception exception)
+            {
+                Assert.Pass();
+            }
         }
 
         [Test]
         public void AddCommision()
         {
-            e.Classification = new CommisionClassification(0.5f, 100);
-            database.AddEmployee(id,e);
+            e.Classification = new CommisionClassification(commRate, commSalary);
+            database.AddEmployee(id, e);
         }
 
         [Test]
         public void AddSalary()
         {
-            e.Classification = new SalariedClassification(200);
-            database.AddEmployee(id,e);
+            e.Classification = new SalariedClassification(salary);
+            database.AddEmployee(id, e);
         }
+
 
         [Test]
         public void GetSalary()
@@ -103,6 +62,29 @@ namespace DatabaseTests.DatabaseTests
             AddSalary();
             Employee e = database.GetEmployee(id);
             Assert.IsTrue(e.Classification is SalariedClassification);
+            var s = e.Classification as SalariedClassification;
+            Assert.AreEqual(salary, s.Salary);
+        }
+
+        [Test]
+        public void GetHourly()
+        {
+            AddHourly();
+            Employee e = database.GetEmployee(id);
+            Assert.IsTrue(e.Classification is HourlyClassification);
+            var h = e.Classification as HourlyClassification;
+            Assert.AreEqual(hourlyRate, h.Rate);
+        }
+
+        [Test]
+        public void GetCommision()
+        {
+            AddCommision();
+            Employee e = database.GetEmployee(id);
+            Assert.IsTrue(e.Classification is CommisionClassification);
+            var c = e.Classification as CommisionClassification;
+            Assert.AreEqual(commSalary, c.Salary);
+            Assert.AreEqual(commRate, c.CommisionRate);
         }
     }
 }

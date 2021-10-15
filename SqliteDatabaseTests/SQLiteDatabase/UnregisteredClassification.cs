@@ -1,6 +1,6 @@
-using PayrollDomain;
+﻿using PayrollDomain;
 
-namespace DatabaseTests.SQLiteTests
+namespace DatabaseTests.SQLiteDatabase
 {
     internal class UnregisteredClassification : PayrollDomain.PaymentClassification
     {

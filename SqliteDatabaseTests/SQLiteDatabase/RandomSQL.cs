@@ -1,4 +1,4 @@
-namespace DatabaseTests.SQLiteTests
+﻿namespace DatabaseTests.SQLiteDatabase
 {
     public class RandomSQL : TestSqliteDB
     {

@@ -1,99 +1,12 @@
-﻿using System;
-using System.Data.Linq;
-using System.Data.SQLite;
+﻿using System.Data.SQLite;
 using System.Linq;
+using DatabaseTests.SQLiteDatabase;
 using NUnit.Framework;
 using PayrollDataBase;
 using PayrollDataBase.Linq2SQL;
-using PayrollDomain;
 
-namespace DatabaseTests.SQLiteTests
+namespace DatabaseTests.ContextTests
 {
-    public class ClearsTables : ContextTests
-    {
-        [Test]
-        public void ClearClearsCommision()
-        {
-            database.Clear();
-            Assert.IsEmpty(db.Commsions);
-        }
-
-        [Test]
-        public void ClearSalay()
-        {
-            database.Clear();
-            Assert.IsEmpty(db.Salaries);
-        }
-
-        [Test]
-        public void DirectDepositions()
-        {
-            database.Clear();
-            Assert.IsEmpty(db.DirectDepositAccounts);
-        }
-
-        [Test]
-        public void ClearAccountPaymentMethod()
-        {
-            database.Clear();
-            Assert.IsEmpty(db.DirectDepositAccounts);
-        }
-
-        [Test]
-        public void ClearMailPaymentMethod()
-        {
-            database.Clear();
-            Assert.IsEmpty(db.PaycheckAddresses);
-        }
-    }
-
-    public class DirectContextTests : ContextTests
-    {
-        [Test]
-        public void ConnectToDB()
-        {
-            DataContext db = new EmployeeContext(connection);
-            string version = db.Connection.ServerVersion;
-            Console.WriteLine(version);
-            Assert.IsNotNull(version);
-        }
-
-        [Test]
-        public void PrintEmployeesFromDataContext()
-        {
-            DataContext db = new EmployeeContext(connection);
-            string version = db.Connection.ServerVersion;
-            Console.WriteLine(version);
-            Assert.IsNotNull(version);
-
-            var emps = db.GetTable<EmployeeUnit>();
-            foreach (EmployeeUnit emp in emps)
-            {
-                Console.WriteLine(emp);
-            }
-        }
-
-        [Test]
-        public void PrintEmployeesAsPayrollContext()
-        {
-            foreach (EmployeeUnit employee in db.Employees)
-            {
-                Console.WriteLine(employee);
-            }
-        }
-
-        [Test]
-        public void AddEmployees()
-        {
-            Employee emp = new Employee(123, "John", "Home");
-            EmployeeUnit unit =
-                new EmployeeUnit(123, emp);
-            db.Employees.InsertOnSubmit(unit);
-            db.SubmitChanges();
-            Assert.AreEqual(1, db.Employees.Count());
-        }
-    }
-
     public class ContextTests : TestSqliteDB
     {
         protected EmployeeContext db;

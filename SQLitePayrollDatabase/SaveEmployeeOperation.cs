@@ -24,7 +24,11 @@ namespace PayrollDataBase
 
         public void Execute()
         {
-            db.Employees.InsertOnSubmit(new EmployeeUnit(id, employee));
+            var emp = new EmployeeUnit(id, employee);
+            emp.PaymentClassificationType = ClassificationCodes.Code(employee.Classification);
+            emp.ScheduleType = ScheduleCodes.Code(employee.Schedule);
+            emp.PaymentMethodType = PaymentMethodCodes.Code(employee.Paymentmethod);
+            db.Employees.InsertOnSubmit(emp);
             SavePaymentMethod(id, employee, db);
             SavePaymentClassification(id, employee, db);
             SavePaymentSchedule(id, employee, db);
