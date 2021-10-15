@@ -13,7 +13,7 @@ namespace PayrollDataBase.Linq2SQL
 
         public Table<EmployeeUnit> Employees;
         public Table<Account> DirectDepositAccounts;
-        public Table<PaycheckAddress> PaycheckAddresses;
+        public Table<MailAddress> PaycheckAddresses;
         public Table<SalaryAdapter> Salaries;
         public Table<CommisionAdapter> Commsions;
         public Table<HourlyAdapter> Hourlies;

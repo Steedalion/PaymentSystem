@@ -22,15 +22,17 @@
 	
 	
 	
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=dbe72ac3_002D87ef_002D41ec_002Dad49_002Deb5794edae39/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=dbe72ac3_002D87ef_002D41ec_002Dad49_002Deb5794edae39/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Not&gt;&#xD;
     &lt;Or&gt;&#xD;
-      &lt;Project Location="C:\Users\steed\RiderProjects\PaymentSystem" Presentation="&amp;lt;Tests&amp;gt;" /&gt;&#xD;
       &lt;Project Location="C:\Users\steed\RiderProjects\PaymentSystem" Presentation="&amp;lt;DatabaseImplementations&amp;gt;" /&gt;&#xD;
+      &lt;Project Location="C:\Users\steed\RiderProjects\PaymentSystem\Presenters" Presentation="&amp;lt;Presenters&amp;gt;" /&gt;&#xD;
+      &lt;Project Location="C:\Users\steed\RiderProjects\PaymentSystem\WinFormTest" Presentation="&amp;lt;WinFormTest&amp;gt;" /&gt;&#xD;
+      &lt;Project Location="C:\Users\steed\RiderProjects\PaymentSystem\TransactionTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;TransactionTests&amp;gt;" /&gt;&#xD;
     &lt;/Or&gt;&#xD;
   &lt;/Not&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e956aaa8_002Da217_002D46f8_002Da93b_002D84175612aa4a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution #5" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e956aaa8_002Da217_002D46f8_002Da93b_002D84175612aa4a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution #5" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Or&gt;&#xD;
     &lt;And&gt;&#xD;
       &lt;TestAncestor&gt;&#xD;

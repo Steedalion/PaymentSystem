@@ -6,13 +6,10 @@ using PayrollDB;
 using PayrollDomain;
 using Schedules;
 
-namespace DatabaseTests.SQLiteTests
+namespace DatabaseTests.DatabaseTests
 {
-    public class AddEmployeeTests
+    public class AddEmployeeBasicTest : AddEmployeeTest
     {
-        protected SqliteDB database = new SqliteDB();
-        protected int id = 1234;
-
         [SetUp]
         public void Startup()
         {
@@ -31,10 +28,6 @@ namespace DatabaseTests.SQLiteTests
             Assert.AreEqual(0, EmployeeCount());
         }
 
-        protected int EmployeeCount()
-        {
-            return database.GetEmployeeIds().Length;
-        }
 
         [Test]
         public void AddEmployee()
@@ -45,18 +38,6 @@ namespace DatabaseTests.SQLiteTests
             e.Classification = new CommisionClassification(0.5, 1000);
             database.AddEmployee(id, e);
             Assert.AreEqual(1, database.GetEmployeeIds().Length);
-        }
-
-        protected Employee CreateEmployee()
-        {
-            Assert.AreEqual(0, database.GetEmployeeIds().Length);
-            string name = "John";
-            string address = "123 bird street";
-            Employee e = new Employee(id, name, address);
-            e.Schedule = new Biweekly();
-            e.Paymentmethod = new HoldMethod();
-            e.Classification = new CommisionClassification(0.5, 1000);
-            return e;
         }
 
 
@@ -96,6 +77,34 @@ namespace DatabaseTests.SQLiteTests
             AddEmployee();
             Employee e = database.GetEmployee(id);
             Assert.IsTrue(e.Paymentmethod is MailPaymentMethod);
+        }
+    }
+
+    public class AddEmployeeTest
+    {
+        protected SqliteDB database = new SqliteDB();
+        protected int id = 1234;
+
+        [SetUp]
+        public void Setup()
+        {
+            database.Clear();
+        }
+        protected Employee CreateEmployee()
+        {
+            Assert.AreEqual(0, database.GetEmployeeIds().Length);
+            string name = "John";
+            string address = "123 bird street";
+            Employee e = new Employee(id, name, address);
+            e.Schedule = new Biweekly();
+            e.Paymentmethod = new HoldMethod();
+            e.Classification = new CommisionClassification(0.5, 1000);
+            return e;
+        }
+
+        protected int EmployeeCount()
+        {
+            return database.GetEmployeeIds().Length;
         }
     }
 }

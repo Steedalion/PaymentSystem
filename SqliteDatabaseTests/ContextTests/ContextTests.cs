@@ -15,28 +15,41 @@ namespace DatabaseTests.SQLiteTests
         public void ClearClearsCommision()
         {
             database.Clear();
-            Assert.AreEqual(0, db.Commsions.Count());
+            Assert.IsEmpty(db.Commsions);
         }
 
         [Test]
         public void ClearSalay()
         {
             database.Clear();
-            Assert.AreEqual(0,db.Salaries.Count());
+            Assert.IsEmpty(db.Salaries);
         }
 
         [Test]
         public void DirectDepositions()
         {
             database.Clear();
-            Assert.AreEqual(0,db.DirectDepositAccounts);
+            Assert.IsEmpty(db.DirectDepositAccounts);
         }
 
+        [Test]
+        public void ClearAccountPaymentMethod()
+        {
+            database.Clear();
+            Assert.IsEmpty(db.DirectDepositAccounts);
+        }
+
+        [Test]
+        public void ClearMailPaymentMethod()
+        {
+            database.Clear();
+            Assert.IsEmpty(db.PaycheckAddresses);
+        }
     }
 
     public class DirectContextTests : ContextTests
     {
-                [Test]
+        [Test]
         public void ConnectToDB()
         {
             DataContext db = new EmployeeContext(connection);
@@ -79,9 +92,8 @@ namespace DatabaseTests.SQLiteTests
             db.SubmitChanges();
             Assert.AreEqual(1, db.Employees.Count());
         }
-
-
     }
+
     public class ContextTests : TestSqliteDB
     {
         protected EmployeeContext db;
@@ -107,7 +119,6 @@ namespace DatabaseTests.SQLiteTests
             }
         }
 
-       
 
         [TearDown]
         public void CloseConnection()

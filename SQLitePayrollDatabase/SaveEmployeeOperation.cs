@@ -95,7 +95,7 @@ namespace PayrollDataBase
             else if (method is MailPaymentMethod)
             {
                 MailPaymentMethod mail = method as MailPaymentMethod;
-                var pc = new PaycheckAddress(id, mail);
+                var pc = new MailAddress(id, mail);
                 db.PaycheckAddresses.InsertOnSubmit(pc);
             }
 

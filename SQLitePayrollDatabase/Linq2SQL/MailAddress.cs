@@ -4,18 +4,18 @@ using PaymentMethods;
 namespace PayrollDataBase.Linq2SQL
 {
     [Table(Name = "PaycheckAddress")]
-    public class PaycheckAddress
+    public class MailAddress
     {
         [Column(IsPrimaryKey = true, Name = nameof(EmpID))]
         public int EmpID;
 
         [Column(Name = nameof(Address))] public string Address;
 
-        public PaycheckAddress()
+        public MailAddress()
         {
         }
 
-        public PaycheckAddress(int id, MailPaymentMethod mail)
+        public MailAddress(int id, MailPaymentMethod mail)
         {
             EmpID = id;
             Address = mail.Address;

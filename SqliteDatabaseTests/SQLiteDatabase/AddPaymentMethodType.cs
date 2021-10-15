@@ -13,7 +13,7 @@ namespace DatabaseTests.SQLiteTests
         [SetUp]
         public void ClearPaymentMethods()
         {
-            ClearAllTables();
+            database.Clear();
         }
 
         [Test]
