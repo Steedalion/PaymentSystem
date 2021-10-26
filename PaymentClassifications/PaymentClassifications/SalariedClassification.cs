@@ -1,6 +1,6 @@
 using PayrollDomain;
 
-namespace PaymentClassification.PaymentClassifications
+namespace PaymentClassifications.PaymentClassifications
 {
     public class SalariedClassification : PayrollDomain.PaymentClassification
     {

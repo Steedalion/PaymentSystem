@@ -1,4 +1,4 @@
-using PaymentClassification;
+using PaymentClassifications;
 using PayrollDB;
 using Transactions.DBTransaction;
 

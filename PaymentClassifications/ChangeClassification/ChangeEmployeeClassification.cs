@@ -2,7 +2,7 @@ using PayrollDB;
 using PayrollDomain;
 using Transactions.DBTransaction.ChangeEmployee;
 
-namespace PaymentClassification.ChangeClassification
+namespace PaymentClassifications.ChangeClassification
 {
     public abstract class ChangeEmployeeClassification : ChangeEmployeeTransaction
     {

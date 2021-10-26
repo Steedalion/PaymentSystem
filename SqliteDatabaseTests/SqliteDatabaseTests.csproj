@@ -76,6 +76,11 @@
         <Compile Include="DatabaseTests\AddEmployeePaymentMethods.cs" />
         <Compile Include="DatabaseTests\AddEmployeeSchedule.cs" />
         <Compile Include="DatabaseTests\AddEmployeeTest.cs" />
+        <Compile Include="DatabaseTests\AddUnionMember.cs" />
+        <Compile Include="DatabaseTests\An.cs" />
+        <Compile Include="DatabaseTests\EmployeeBuilder.cs" />
+        <Compile Include="DatabaseTests\GetEmpIdsTest.cs" />
+        <Compile Include="DatabaseTests\GetEmployees.cs" />
         <Compile Include="DatabaseTests\RemoveEmployeeTests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="SQLiteDatabase\RandomSQL.cs" />

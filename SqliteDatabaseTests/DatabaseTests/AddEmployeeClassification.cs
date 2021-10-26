@@ -1,6 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
-using PaymentClassification.PaymentClassifications;
+using PaymentClassifications.PaymentClassifications;
 using PayrollDomain;
 
 namespace DatabaseTests.DatabaseTests

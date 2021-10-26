@@ -1,10 +1,10 @@
-using PaymentClassification.PaymentClassifications;
+using PaymentClassifications.PaymentClassifications;
 using PayrollDB;
 using PayrollDomain;
 using Schedules;
 using Transactions.DBTransaction;
 
-namespace PaymentClassification
+namespace PaymentClassifications
 {
     public class AddSalaryEmployeeTransaction : AddEmployeeTransaction
     {

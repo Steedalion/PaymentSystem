@@ -1,4 +1,4 @@
-using PaymentClassification.PaymentClassifications;
+using PaymentClassifications.PaymentClassifications;
 
 namespace PayrollDataBase
 {

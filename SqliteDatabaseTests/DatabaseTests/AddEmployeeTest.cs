@@ -1,6 +1,5 @@
 using NUnit.Framework;
-using PaymentClassification.PaymentClassifications;
-using PaymentMethods;
+using PaymentClassifications.PaymentClassifications;
 using PayrollDataBase;
 using PayrollDomain;
 using Schedules;
@@ -17,6 +16,14 @@ namespace DatabaseTests.DatabaseTests
         {
             database.Clear();
         }
+
+        [TearDown]
+        public void TakeDown()
+        {
+            database.Clear();
+            
+        }
+
         protected Employee CreateEmployee()
         {
             Assert.AreEqual(0, database.GetEmployeeIds().Length);

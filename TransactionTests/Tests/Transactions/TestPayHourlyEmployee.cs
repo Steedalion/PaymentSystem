@@ -1,7 +1,7 @@
 using System;
 using Affiliations;
 using NUnit.Framework;
-using PaymentClassification;
+using PaymentClassifications;
 using PayrollDomain;
 using Transactions.DBTransaction;
 

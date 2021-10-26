@@ -43,14 +43,23 @@ namespace DatabaseTests.ContextTests
         }
 
         [Test]
-        public void AddEmployees()
+        public void TryToCreateAnEmployeeAdapterWithoutScedule()
         {
             Employee emp = new Employee(123, "John", "Home");
-            EmployeeUnit unit =
-                new EmployeeUnit(123, emp);
-            db.Employees.InsertOnSubmit(unit);
-            db.SubmitChanges();
-            Assert.AreEqual(1, db.Employees.Count());
+
+            try
+            {
+                EmployeeUnit unit =
+                    new EmployeeUnit(123, emp);
+                // db.Employees.InsertOnSubmit(unit);
+                // db.SubmitChanges();
+                Assert.Fail();
+            }
+            catch (Exception e)
+            {
+            }
+
+            Assert.AreEqual(0, db.Employees.Count());
         }
     }
 }

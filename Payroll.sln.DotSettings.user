@@ -16,13 +16,19 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=aa5a3bc4_002D68fb_002D408a_002Db866_002Dd0c06e8d4ab2/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Solution /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b83a498f_002D9fa1_002D472c_002Da131_002D743fff9faa3e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution #6" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Solution /&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b83a498f_002D9fa1_002D472c_002Da131_002D743fff9faa3e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution #6" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Not&gt;&#xD;
+    &lt;Or&gt;&#xD;
+      &lt;Project Location="C:\Users\steed\RiderProjects\PaymentSystem\Presenters" Presentation="&amp;lt;Presenters&amp;gt;" /&gt;&#xD;
+      &lt;Project Location="C:\Users\steed\RiderProjects\PaymentSystem\WinFormTest" Presentation="&amp;lt;WinFormTest&amp;gt;" /&gt;&#xD;
+      &lt;Project Location="C:\Users\steed\RiderProjects\PaymentSystem" Presentation="&amp;lt;DatabaseImplementations&amp;gt;" /&gt;&#xD;
+    &lt;/Or&gt;&#xD;
+  &lt;/Not&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	
 	
 	
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=dbe72ac3_002D87ef_002D41ec_002Dad49_002Deb5794edae39/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=dbe72ac3_002D87ef_002D41ec_002Dad49_002Deb5794edae39/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Not&gt;&#xD;
     &lt;Or&gt;&#xD;
       &lt;Project Location="C:\Users\steed\RiderProjects\PaymentSystem" Presentation="&amp;lt;DatabaseImplementations&amp;gt;" /&gt;&#xD;
@@ -32,50 +38,7 @@
     &lt;/Or&gt;&#xD;
   &lt;/Not&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e956aaa8_002Da217_002D46f8_002Da93b_002D84175612aa4a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution #5" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Or&gt;&#xD;
-    &lt;And&gt;&#xD;
-      &lt;TestAncestor&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.AddEmployeeTests&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.ClearDatabase.AddOneRemove&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.RemoveEmployeeTests.AddAndRemoveEmployee&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.GetEmployeeTests.GetAccountPayment&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.GetEmployeeTests.AddMailPayment&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.AddEmployeeTests.AddMailPayment&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.GetEmployeeTests.AddHoldPayment&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.AddEmployeeTests.AddHoldPayment&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.AddEmployeeTests.AddEmployeeSavesMethod&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.GetEmployeeTests.AddEmployeeSavesMethod&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.AddEmployeeClassification.AddSalary&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.AddEmployeeClassification.AddCommision&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.AddEmployeeClassification.AddWeekly&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.AddEmployeePaymentMethods.AddAccountPayment&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.AddEmployeePaymentMethods.AddHoldPayment&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.AddEmployeePaymentMethods.AddMailPayment&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.AddScheduleType&lt;/TestId&gt;&#xD;
-        &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.AddEmployeeClassification&lt;/TestId&gt;&#xD;
-      &lt;/TestAncestor&gt;&#xD;
-      &lt;Not&gt;&#xD;
-        &lt;TestAncestor&gt;&#xD;
-          &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.AddEmployeeClassification&lt;/TestId&gt;&#xD;
-          &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.AddEmployeePaymentMethods&lt;/TestId&gt;&#xD;
-        &lt;/TestAncestor&gt;&#xD;
-      &lt;/Not&gt;&#xD;
-    &lt;/And&gt;&#xD;
-    &lt;TestAncestor&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.AddEmployeeClassification.AddSalary&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.AddEmployeeClassification.AddCommision&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.AddEmployeeClassification.GetSalary&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.ContextTests.ClearClearsCommision&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.ContextTests.ClearSalay&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.ClearsTables.ClearClearsCommision&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.ClearsTables.ClearSalay&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.ClearsTables.DirectDepositions&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.AddEmployeeClassification.AddHourly&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::6A5A55DE-D6C5-45B6-8B9C-5DCCAF4FE579::.NETFramework,Version=v4.6::DatabaseTests.SQLiteTests.AddEmployeeClassification.NoClassification&lt;/TestId&gt;&#xD;
-    &lt;/TestAncestor&gt;&#xD;
-  &lt;/Or&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
+	
 	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=30038a32_002D18e5_002D44fd_002Dbac0_002Dc057e09c5c4e_0023GTKApplication/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=6ff17ecf_002D0692_002D46a0_002D83ad_002D5535918f0466_0023PayrollGTK/@EntryIndexedValue">True</s:Boolean>
 	

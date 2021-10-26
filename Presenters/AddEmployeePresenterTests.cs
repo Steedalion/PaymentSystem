@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Data.Common;
 using NUnit.Framework;
-using PaymentClassification;
-using PaymentClassification.PaymentClassifications;
+using PaymentClassifications;
+using PaymentClassifications.PaymentClassifications;
 using PayrollDB;
 
 namespace Presenters

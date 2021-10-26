@@ -1,10 +1,10 @@
 using System;
-using PaymentClassification.PaymentClassifications;
+using PaymentClassifications.PaymentClassifications;
 using PayrollDB;
 using PayrollDomain;
 using Transactions;
 
-namespace PaymentClassification
+namespace PaymentClassifications
 {
     public class AddTimeCard:DbTransaction
     {

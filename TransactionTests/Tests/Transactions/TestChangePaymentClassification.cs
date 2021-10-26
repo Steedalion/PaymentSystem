@@ -1,6 +1,6 @@
 using NUnit.Framework;
-using PaymentClassification.ChangeClassification;
-using PaymentClassification.PaymentClassifications;
+using PaymentClassifications.ChangeClassification;
+using PaymentClassifications.PaymentClassifications;
 using PayrollDomain;
 using Schedules;
 using Transactions.DBTransaction.ChangeEmployee;

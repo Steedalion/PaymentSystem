@@ -7,7 +7,7 @@
         <ProjectGuid>{23130573-75D1-4802-9F65-9CD5B8F04971}</ProjectGuid>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>PaymentClassification</RootNamespace>
+        <RootNamespace>PaymentClassifications</RootNamespace>
         <AssemblyName>PaymentClassifications</AssemblyName>
         <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>

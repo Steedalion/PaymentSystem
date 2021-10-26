@@ -1,5 +1,5 @@
 using NUnit.Framework;
-using PaymentClassification;
+using PaymentClassifications;
 using PayrollDB;
 using PayrollDomain;
 using Transactions.DBTransaction;

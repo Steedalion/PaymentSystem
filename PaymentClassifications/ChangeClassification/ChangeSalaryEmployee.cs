@@ -1,9 +1,9 @@
-using PaymentClassification.PaymentClassifications;
+using PaymentClassifications.PaymentClassifications;
 using PayrollDB;
 using PayrollDomain;
 using Schedules;
 
-namespace PaymentClassification.ChangeClassification
+namespace PaymentClassifications.ChangeClassification
 {
     public class ChangeSalaryEmployee : ChangeEmployeeClassification
     {

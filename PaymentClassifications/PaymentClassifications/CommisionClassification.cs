@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using PayrollDomain;
 
-namespace PaymentClassification.PaymentClassifications
+namespace PaymentClassifications.PaymentClassifications
 {
     public class CommisionClassification : PayrollDomain.PaymentClassification
     {

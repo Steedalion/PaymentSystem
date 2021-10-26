@@ -1,6 +1,6 @@
 using System;
 
-namespace PaymentClassification.PaymentClassifications
+namespace PaymentClassifications.PaymentClassifications
 {
     public class SalesReceiptNotFound : Exception
     {

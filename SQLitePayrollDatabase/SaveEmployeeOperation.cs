@@ -1,6 +1,5 @@
-using System;
 using System.Data.SQLite;
-using PaymentClassification.PaymentClassifications;
+using PaymentClassifications.PaymentClassifications;
 using PaymentMethods;
 using PayrollDataBase.Linq2SQL;
 using PayrollDomain;
@@ -107,34 +106,6 @@ namespace PayrollDataBase
             {
                 throw new UnknownPaymentMethodExcpetion("Unknown Payment methods:" + employee.Paymentmethod.GetType());
             }
-        }
-    }
-
-    internal class UnknownPaymentMethodExcpetion : UnknownTypeException
-    {
-        public UnknownPaymentMethodExcpetion(string message) : base(message)
-        {
-        }
-    }
-
-    internal class UnknownClassificationException : UnknownTypeException
-    {
-        public UnknownClassificationException(string unknownClassification) : base(unknownClassification)
-        {
-        }
-    }
-
-    internal class UnknownTypeException : NotSupportedException
-    {
-        public UnknownTypeException(string message) : base(message)
-        {
-        }
-    }
-
-    internal class UnknownPaymentScheduleException : UnknownTypeException
-    {
-        public UnknownPaymentScheduleException(string message) : base(message)
-        {
         }
     }
 }

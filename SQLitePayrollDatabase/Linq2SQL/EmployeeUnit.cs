@@ -33,11 +33,6 @@ namespace PayrollDataBase.Linq2SQL
             PaymentClassificationType = ClassificationCodes.Code(emp.Classification);
         }
 
-        public static EmployeeUnit FromEmployee(int empID, Employee employee)
-        {
-            return new EmployeeUnit(empID, employee);
-        }
-
         public Employee toEmployee()
         {
             Employee emp = new Employee(EmpID, Name, Address);
