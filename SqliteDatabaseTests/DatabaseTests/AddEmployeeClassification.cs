@@ -5,13 +5,6 @@ using PayrollDomain;
 
 namespace DatabaseTests.DatabaseTests
 {
-    public class CalculatePay
-    {
-        [Test]
-        public void CalculatePaySimple()
-        {
-        }
-    }
     public class AddEmployeeClassification : AddEmployeeTest
     {
         public const double commSalary = 100;

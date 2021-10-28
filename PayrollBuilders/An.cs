@@ -1,4 +1,4 @@
-﻿namespace DatabaseTests.DatabaseTests
+﻿namespace PayrollBuilders
 {
     public class An
     {

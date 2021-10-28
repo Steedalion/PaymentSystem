@@ -3,7 +3,7 @@ using PaymentMethods;
 using PayrollDomain;
 using Schedules;
 
-namespace DatabaseTests.DatabaseTests
+namespace PayrollBuilders
 {
     public class EmployeeBuilder
     {

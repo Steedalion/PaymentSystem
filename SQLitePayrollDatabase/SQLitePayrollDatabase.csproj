@@ -69,6 +69,7 @@
         <Compile Include="Linq2SQL\HourlyAdapter.cs" />
         <Compile Include="Linq2SQL\MailAddress.cs" />
         <Compile Include="Linq2SQL\SalaryAdapter.cs" />
+        <Compile Include="Linq2SQL\UnionAdapter.cs" />
         <Compile Include="PaymentMethodCodes.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="SaveEmployeeOperation.cs" />
