@@ -3,11 +3,9 @@ using System.Data.Linq;
 using System.Data.SQLite;
 using System.IO;
 using System.Linq;
-using PaymentClassifications.ChangeClassification;
 using PayrollDataBase.Linq2SQL;
 using PayrollDB;
 using PayrollDomain;
-using PaymentClassification = PayrollDomain.PaymentClassification;
 
 namespace PayrollDataBase
 {

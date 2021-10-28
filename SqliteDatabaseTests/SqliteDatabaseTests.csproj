@@ -44,7 +44,6 @@
           <Private>True</Private>
         </Reference>
         <Reference Include="System" />
-        <Reference Include="System.ComponentModel.DataAnnotations" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
         <Reference Include="System.Data.Linq" />
@@ -77,8 +76,6 @@
         <Compile Include="DatabaseTests\AddEmployeeSchedule.cs" />
         <Compile Include="DatabaseTests\AddEmployeeTest.cs" />
         <Compile Include="DatabaseTests\AddUnionMember.cs" />
-        <Compile Include="DatabaseTests\An.cs" />
-        <Compile Include="DatabaseTests\EmployeeBuilder.cs" />
         <Compile Include="DatabaseTests\GetEmpIdsTest.cs" />
         <Compile Include="DatabaseTests\GetEmployees.cs" />
         <Compile Include="DatabaseTests\RemoveEmployeeTests.cs" />
@@ -99,6 +96,10 @@
       <ProjectReference Include="..\PaymentMethods\PaymentMethods.csproj">
         <Project>{4e08bb1c-9953-48c4-872f-ce0590f3aad2}</Project>
         <Name>PaymentMethods</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\PayrollBuilders\PayrollBuilders.csproj">
+        <Project>{368f1d4b-1828-4acd-a0f5-e66f50142d80}</Project>
+        <Name>PayrollBuilders</Name>
       </ProjectReference>
       <ProjectReference Include="..\PayrollDB\PayrollDB.csproj">
         <Project>{7e62b1e0-c05e-4eb0-a775-06f5a761c64c}</Project>
