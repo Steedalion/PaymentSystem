@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using InMemoryDBTest;
+using NUnit.Framework;
+using PayrollDataBase;
 
 namespace DatabaseTests.DatabaseTests
 {
@@ -10,21 +12,24 @@ namespace DatabaseTests.DatabaseTests
             var e = An.GenericEmployee;
             database.AddEmployee(100, e);
             database.AddUnionMember(1, 100);
+        } [Test]
+        public void AddSimpleEmployee2()
+        {
+            var e = An.GenericEmployee.Build();
+            database.AddEmployee(100, e);
+            database.AddUnionMember(1, 100);
             var u = database.GetUnionMember(1);
-            Assert.AreEqual(e, u);
+            Assert.AreEqual(e.Name, u.Name);
         }
 
-        [Test]
-        public void EmployeeDoesNotExist()
-        {
-            database.AddUnionMember(1, 1);
-        }
+    }
 
-        [Test]
-        public void GetNonExistingUMember()
+    public class SQLiteExceptions : PayrollExceptionsTest
+    {
+        [SetUp]
+        public void Setup()
         {
-            var u = database.GetUnionMember(1);
-            Assert.NotNull(u);
+            database = new SqliteDB();
         }
     }
 

@@ -1,25 +1,28 @@
+using DatabaseTests.DatabaseTests;
 using NUnit.Framework;
 using PayrollDB;
 using PayrollDomain;
 
 namespace InMemoryDBTest
 {
-    public class TestPayrollDb
+    public class PayrollExceptionsTest
     {
-        protected PayrollDB.IPayrollDb database = new InMemoryDB();
+        public IPayrollDb database = new InMemoryDB();
 
         [Test]
         public void AddEmployeeToDB()
         {
+            database.Clear();
             int empid = 12;
 
-            Employee empl = new Employee(empid, "John", "home");
+            Employee empl = An.GenericEmployee;
             database.AddEmployee(12,empl);
             Assert.IsNotEmpty(database.GetEmployeeIds());
         }
         [Test]
         public void EmptyDbShouldNotContainUnionMember()
         {
+             database.Clear();
             Assert.Throws<UnionMemberNotFound>(() =>database.GetUnionMember(153));
         }
 

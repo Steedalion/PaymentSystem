@@ -89,6 +89,10 @@
       <None Include="packages.config" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\InMemoryDBTest\InMemoryDBTest.csproj">
+        <Project>{92de6cc4-82dc-43be-9aec-2e0528f23abf}</Project>
+        <Name>InMemoryDBTest</Name>
+      </ProjectReference>
       <ProjectReference Include="..\PaymentClassifications\PaymentClassifications.csproj">
         <Project>{23130573-75d1-4802-9f65-9cd5b8f04971}</Project>
         <Name>PaymentClassifications</Name>

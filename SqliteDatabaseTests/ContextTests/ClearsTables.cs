@@ -22,6 +22,12 @@ namespace DatabaseTests.ContextTests
         }
 
         [Test]
+        public void ClearsUnion()
+        {
+            Assert.IsEmpty(db.UnionMember);
+        }
+
+        [Test]
         public void DirectDepositions()
         {
             Assert.IsEmpty(db.DirectDepositAccounts);

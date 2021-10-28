@@ -54,6 +54,7 @@ namespace PayrollDataBase
             db.PaycheckAddresses.DeleteAllOnSubmit(db.PaycheckAddresses.Select(a => a));
             db.DirectDepositAccounts.DeleteAllOnSubmit(db.DirectDepositAccounts.Select(d => d));
             db.Hourlies.DeleteAllOnSubmit(db.Hourlies.Select(h => h));
+            db.UnionMember.DeleteAllOnSubmit(db.UnionMember.Select(h => h));
             db.SubmitChanges();
         }
 
@@ -68,19 +69,40 @@ namespace PayrollDataBase
             db.SubmitChanges();
         }
 
-        public void AddUnionMember(int memberId, int id)
+        public void AddUnionMember(int memberId, int empID)
         {
-            throw new System.NotImplementedException();
+            if (!db.Employees.Select(unit => unit.EmpID).Contains(empID))
+            {
+                throw new EmployeeNotFound();
+            }
+
+            db.UnionMember.InsertOnSubmit(new UnionAdapter(empID, memberId));
+            db.SubmitChanges();
         }
 
         public Employee GetUnionMember(int memberId)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                var empId = db.UnionMember.Single(m => m.MemberID.Equals(memberId)).EmpID;
+                return GetEmployee(empId);
+            }
+            catch (InvalidOperationException e)
+            {
+                throw new UnionMemberNotFound();
+            }
         }
 
         public void RemoveUnionMember(int memberId)
         {
-            throw new System.NotImplementedException();
+            var contains = db.UnionMember.Select(m => m.MemberID).Contains(memberId);
+            if (!contains)
+            {
+                throw new UnionMemberNotFound();
+            }
+
+            db.UnionMember.DeleteOnSubmit(db.UnionMember.Single(u => u.MemberID.Equals(memberId)));
+            db.SubmitChanges();
         }
 
         public int[] GetEmployeeIds()

@@ -44,11 +44,11 @@ namespace PayrollDB
             db.Remove(id);
         }
 
-        public void AddUnionMember(int memberId, int id)
+        public void AddUnionMember(int memberId, int empID)
         {
-            if (!db.Contains(id)) throw new EmployeeNotFound();
-            Employee e = GetEmployee(id);
-            union.Add(memberId, id);
+            if (!db.Contains(empID)) throw new EmployeeNotFound();
+            Employee e = GetEmployee(empID);
+            union.Add(memberId, empID);
         }
 
         public Employee GetUnionMember(int memberId)
