@@ -55,6 +55,8 @@ namespace PayrollDataBase
             db.DirectDepositAccounts.DeleteAllOnSubmit(db.DirectDepositAccounts.Select(d => d));
             db.Hourlies.DeleteAllOnSubmit(db.Hourlies.Select(h => h));
             db.UnionMember.DeleteAllOnSubmit(db.UnionMember.Select(h => h));
+            db.Timecards.DeleteAllOnSubmit(db.Timecards.Select(h => h));
+            db.SalesReceipts.DeleteAllOnSubmit(db.SalesReceipts.Select(h => h));
             db.SubmitChanges();
         }
 

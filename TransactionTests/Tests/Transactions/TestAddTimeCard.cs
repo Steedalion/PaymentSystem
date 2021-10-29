@@ -21,7 +21,7 @@ namespace TransactionTests.Tests.Transactions
             Employee e = database.GetEmployee(EmpId);
             Assert.IsNotNull(e);
 
-            PayrollDomain.PaymentClassification pc = e.Classification;
+            PaymentClassification pc = e.Classification;
             Assert.IsTrue(pc is HourlyClassification);
             HourlyClassification hc = pc as HourlyClassification;
 
@@ -29,8 +29,6 @@ namespace TransactionTests.Tests.Transactions
             Assert.AreEqual(8.0, tc.Hours, 0.01);
 
             Assert.Throws<TimeCardNotFound>(() =>hc.GetTimeCard(OtherDate));
-
-
         }
 
         

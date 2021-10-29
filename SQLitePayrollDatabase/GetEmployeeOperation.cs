@@ -62,11 +62,23 @@ namespace PayrollDataBase
             else if (empPaymentClassificationType == ClassificationCodes.Commision)
             {
                 var c = db.Commsions.Single(commisionAdapter => commisionAdapter.EmpID == id);
-                return new CommisionClassification(c.CommissionRate, c.Salary);
+                var cd = new CommisionClassification(c.CommissionRate, c.Salary);
+                foreach (SalesRecieptAdapter salesRecieptAdapter in db.SalesReceipts.Where(sale => sale.EmpID == id))
+                {
+                    cd.AddSalesReciept(salesRecieptAdapter.Date, salesRecieptAdapter.Amount);
+                }
+
+                return cd;
             }
             else if (empPaymentClassificationType == ClassificationCodes.Hourly)
             {
-                return new HourlyClassification(db.Hourlies.Single(adapter => adapter.EmpID == id).HourlyRate);
+                var hourly = new HourlyClassification(db.Hourlies.Single(adapter => adapter.EmpID == id).HourlyRate);
+                foreach (TimecardAdapter timeCard in db.Timecards.Where(t => t.EmpID.Equals(id)))
+                {
+                    hourly.AddTimeCard(new TimeCard(timeCard.Date,timeCard.Hours));
+                }
+
+                return hourly;
             }
 
             throw new UnknownClassificationException("Failed to retrieve classification");

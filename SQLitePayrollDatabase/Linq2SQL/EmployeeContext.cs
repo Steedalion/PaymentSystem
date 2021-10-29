@@ -17,7 +17,7 @@ namespace PayrollDataBase.Linq2SQL
         public Table<CommisionAdapter> Commsions;
         public Table<HourlyAdapter> Hourlies;
         public Table<UnionAdapter> UnionMember;
+        public Table<SalesRecieptAdapter> SalesReceipts;
+        public Table<TimecardAdapter> Timecards;
     }
-
-  
 }

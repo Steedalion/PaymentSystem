@@ -51,5 +51,17 @@ namespace DatabaseTests.ContextTests
             Assert.IsEmpty(db.Hourlies);
         }
 
+        [Test]
+        public void ClearsSalesTickets()
+        {
+            Assert.IsEmpty(db.SalesReceipts);
+        }
+
+        [Test]
+        public void ClearTimeCards()
+        {
+            Assert.IsEmpty(db.Timecards);
+        }
+
     }
 }

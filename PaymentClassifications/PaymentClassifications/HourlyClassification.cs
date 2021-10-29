@@ -6,7 +6,7 @@ namespace PaymentClassifications.PaymentClassifications
 {
     public class HourlyClassification : PaymentClassification
     {
-        private List<TimeCard> myTimecards = new List<TimeCard>();
+        private List<TimeCard> timecards = new List<TimeCard>();
         public double Rate;
 
         public HourlyClassification(double rate)
@@ -16,12 +16,12 @@ namespace PaymentClassifications.PaymentClassifications
 
         public void AddTimeCard(TimeCard tc)
         {
-            myTimecards.Add(tc);
+            timecards.Add(tc);
         }
 
         public TimeCard GetTimeCard(DateTime dateTime)
         {
-            foreach (TimeCard card in myTimecards)
+            foreach (TimeCard card in timecards)
             {
                 if (card.Date.Equals(dateTime))
                 {
@@ -35,7 +35,7 @@ namespace PaymentClassifications.PaymentClassifications
         public double CalculatePay(PayCheck payCheck)
         {
             double pay = 0;
-            foreach (TimeCard card in myTimecards)
+            foreach (TimeCard card in timecards)
             {
                 if (InPayPeriod(card.Date, payCheck.PayDate))
                 {
@@ -61,6 +61,11 @@ namespace PaymentClassifications.PaymentClassifications
         private bool InPayPeriod(DateTime cardDate, DateTime PayDate)
         {
             return cardDate >= PayDate.AddDays(-5) && cardDate <= PayDate;
+        }
+
+        public IEnumerable<TimeCard> GetTimeCards()
+        {
+            return timecards;
         }
     }
 }

@@ -1,4 +1,5 @@
 using System.Data.SQLite;
+using System.Linq;
 using PaymentClassifications.PaymentClassifications;
 using PaymentMethods;
 using PayrollDataBase.Linq2SQL;
@@ -66,6 +67,9 @@ namespace PayrollDataBase
                 CommisionAdapter com = new CommisionAdapter(id, commisionClassification.Salary,
                     commisionClassification.CommisionRate);
                 db.Commsions.InsertOnSubmit(com);
+                var salesReceipts = commisionClassification.GetAllSalesReceipts();
+                    db.SalesReceipts.InsertAllOnSubmit(salesReceipts.Select(reciept => new SalesRecieptAdapter(id,reciept)));
+
             }
 
             else if (employee.Classification is HourlyClassification)
@@ -73,6 +77,8 @@ namespace PayrollDataBase
                 HourlyClassification hourly = employee.Classification as HourlyClassification;
                 HourlyAdapter h = new HourlyAdapter(id, hourly.Rate);
                 db.Hourlies.InsertOnSubmit(h);
+                var timeCards = hourly.GetTimeCards();
+                db.Timecards.InsertAllOnSubmit(timeCards.Select(t=> new TimecardAdapter(id,t)));
             }
             else
             {

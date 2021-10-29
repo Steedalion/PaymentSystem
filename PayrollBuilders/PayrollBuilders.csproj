@@ -40,6 +40,7 @@
     <ItemGroup>
         <Compile Include="An.cs" />
         <Compile Include="EmployeeBuilder.cs" />
+        <Compile Include="EmployeeExtensions.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>

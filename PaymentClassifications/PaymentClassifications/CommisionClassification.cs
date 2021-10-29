@@ -58,5 +58,10 @@ namespace PaymentClassifications.PaymentClassifications
         {
             return payCheckDate >= receipt.DATE && receipt.DATE > payCheckDate.AddDays(-14);
         }
+
+        public List<SalesReciept> GetAllSalesReceipts()
+        {
+            return salesReciepts;
+        }
     }
 }

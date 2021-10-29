@@ -29,20 +29,14 @@
 	
 	
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=dbe72ac3_002D87ef_002D41ec_002Dad49_002Deb5794edae39/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Or&gt;&#xD;
-    &lt;Not&gt;&#xD;
-      &lt;Or&gt;&#xD;
-        &lt;Project Location="C:\Users\steed\RiderProjects\PaymentSystem" Presentation="&amp;lt;DatabaseImplementations&amp;gt;" /&gt;&#xD;
-        &lt;Project Location="C:\Users\steed\RiderProjects\PaymentSystem\Presenters" Presentation="&amp;lt;Presenters&amp;gt;" /&gt;&#xD;
-        &lt;Project Location="C:\Users\steed\RiderProjects\PaymentSystem\WinFormTest" Presentation="&amp;lt;WinFormTest&amp;gt;" /&gt;&#xD;
-        &lt;Project Location="C:\Users\steed\RiderProjects\PaymentSystem\TransactionTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;TransactionTests&amp;gt;" /&gt;&#xD;
-      &lt;/Or&gt;&#xD;
-    &lt;/Not&gt;&#xD;
-    &lt;TestAncestor&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::92DE6CC4-82DC-43BE-9AEC-2E0528F23ABF::.NETFramework,Version=v4.6::InMemoryDBTest.TestPayrollDb.AddEmployeeToDB&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::92DE6CC4-82DC-43BE-9AEC-2E0528F23ABF::.NETFramework,Version=v4.6::InMemoryDBTest.PayrollExceptionsTest.AddEmployeeToDB&lt;/TestId&gt;&#xD;
-    &lt;/TestAncestor&gt;&#xD;
-  &lt;/Or&gt;&#xD;
+  &lt;Not&gt;&#xD;
+    &lt;Or&gt;&#xD;
+      &lt;Project Location="C:\Users\steed\RiderProjects\PaymentSystem\Presenters" Presentation="&amp;lt;Presenters&amp;gt;" /&gt;&#xD;
+      &lt;Project Location="C:\Users\steed\RiderProjects\PaymentSystem\WinFormTest" Presentation="&amp;lt;WinFormTest&amp;gt;" /&gt;&#xD;
+      &lt;Project Location="C:\Users\steed\RiderProjects\PaymentSystem\TransactionTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;TransactionTests&amp;gt;" /&gt;&#xD;
+      &lt;Project Location="C:\Users\steed\RiderProjects\PaymentSystem\InMemoryDBTest" Presentation="&amp;lt;DatabaseImplementations&amp;gt;\&amp;lt;InMemoryDBTest&amp;gt;" /&gt;&#xD;
+    &lt;/Or&gt;&#xD;
+  &lt;/Not&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	
 	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=30038a32_002D18e5_002D44fd_002Dbac0_002Dc057e09c5c4e_0023GTKApplication/@EntryIndexedValue">True</s:Boolean>
