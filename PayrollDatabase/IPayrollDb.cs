@@ -1,5 +1,5 @@
 
-using PayrollDomains;
+using PayrollDomain;
 
 namespace PayrollDatabase
 {

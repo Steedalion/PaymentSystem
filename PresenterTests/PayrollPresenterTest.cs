@@ -1,7 +1,7 @@
 using System;
 using NUnit.Framework;
 using PayrollDatabase;
-using PayrollDomains;
+using PayrollDomain;
 using Presenter;
 using Transaction;
 

@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using WindowsFormsUI;
+using WinFormsApp1;
 
 namespace PayrollFormsTest
 {

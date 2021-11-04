@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <AssemblyName>PaymentMethods</AssemblyName>
+        <RootNamespace>PaymentMethods</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\PayrollDomain\PayrollDomain.csproj" />
+      <ProjectReference Include="..\Transactions\Transactions.csproj" />
+    </ItemGroup>
+
+</Project>

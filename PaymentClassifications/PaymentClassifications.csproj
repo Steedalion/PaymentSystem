@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <AssemblyName>PaymentClassifications</AssemblyName>
+        <RootNamespace>PaymentClassifications</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\PayrollDatabase\PayrollDatabase.csproj" />
+      <ProjectReference Include="..\Schedules\Schedules.csproj" />
+      <ProjectReference Include="..\Transactions\Transactions.csproj" />
+    </ItemGroup>
+
+</Project>

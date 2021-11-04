@@ -5,9 +5,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\PaymentClassification\PaymentClassification.csproj" />
+      <ProjectReference Include="..\PaymentClassifications\PaymentClassifications.csproj" />
       <ProjectReference Include="..\PayrollDatabase\PayrollDatabase.csproj" />
-      <ProjectReference Include="..\Transaction\Transaction.csproj" />
+      <ProjectReference Include="..\Transactions\Transactions.csproj" />
     </ItemGroup>
 
 </Project>

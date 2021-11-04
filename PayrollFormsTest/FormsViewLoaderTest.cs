@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using PayrollDatabase;
 using Presenter;
-using WindowsFormsUI;
+using WinFormsApp1;
 
 namespace PayrollFormsTest
 {

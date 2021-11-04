@@ -43,24 +43,6 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="EmployeeTest.cs" />
-        <Compile Include="Tests\TestNoAffiliation.cs" />
-        <Compile Include="Tests\TestPaySchedule.cs" />
-        <Compile Include="Tests\Transactions\TestAddEmployees.cs" />
-        <Compile Include="Tests\Transactions\TestAddTimeCard.cs" />
-        <Compile Include="Tests\Transactions\TestAffiliationTransaction.cs" />
-        <Compile Include="Tests\Transactions\TestChangeEmployeeNameAndAddress.cs" />
-        <Compile Include="Tests\Transactions\TestChangeMemberAffiliation.cs" />
-        <Compile Include="Tests\Transactions\TestChangePaymentClassification.cs" />
-        <Compile Include="Tests\Transactions\TestChangePaymentMethods.cs" />
-        <Compile Include="Tests\Transactions\TestDeductions.cs" />
-        <Compile Include="Tests\Transactions\TestDeleteEmployees.cs" />
-        <Compile Include="Tests\Transactions\TestPaycheckMethods.cs" />
-        <Compile Include="Tests\Transactions\TestPayCommisionEmployee.cs" />
-        <Compile Include="Tests\Transactions\TestPay.cs" />
-        <Compile Include="Tests\Transactions\TestPayHourlyEmployee.cs" />
-        <Compile Include="Tests\Transactions\TestPaySalaryEmployee.cs" />
-        <Compile Include="Tests\Transactions\TestSetupTransactions.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\Affiliations\Affiliations.csproj">

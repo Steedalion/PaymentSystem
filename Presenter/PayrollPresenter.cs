@@ -1,8 +1,8 @@
 using System;
 using System.Text;
 using PayrollDatabase;
-using PayrollDomains;
-using Transaction;
+using PayrollDomain;
+using Transactions;
 
 namespace Presenter
 {

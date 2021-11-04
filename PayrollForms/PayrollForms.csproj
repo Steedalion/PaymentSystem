@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net5.0-windows</TargetFramework>
+        <UseWindowsForms>true</UseWindowsForms>
+        <RootNamespace>WinFormsApp1</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Update="AddEmployeeTransationForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="PayrollWindowForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Presenter\Presenter.csproj" />
+    </ItemGroup>
+
+</Project>
