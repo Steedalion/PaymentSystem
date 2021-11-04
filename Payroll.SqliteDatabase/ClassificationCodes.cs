@@ -1,4 +1,6 @@
+
 using PaymentClassifications.PaymentClassifications;
+using PayrollDomain;
 
 namespace PayrollDataBase
 {
@@ -8,7 +10,7 @@ namespace PayrollDataBase
         public static string Commision = "Commision";
         public static string Hourly = "Hourly";
 
-        public static string Code(PayrollDomain.PaymentClassification employeeClassification)
+        public static string Code(PaymentClassification employeeClassification)
         {
             if (employeeClassification is SalariedClassification)
             {

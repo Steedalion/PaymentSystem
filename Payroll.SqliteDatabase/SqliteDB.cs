@@ -3,8 +3,8 @@ using System.Data.Linq;
 using System.Data.SQLite;
 using System.IO;
 using System.Linq;
+using PayrollDatabase;
 using PayrollDataBase.Linq2SQL;
-using PayrollDB;
 using PayrollDomain;
 
 namespace PayrollDataBase

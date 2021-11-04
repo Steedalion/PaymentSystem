@@ -1,7 +1,10 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;
-  &lt;Assembly Path="/home/alex/RiderProjects/PaymentSystem/PayrollTransactions/bin/Debug/PayrollTransactions.dll" /&gt;
-  &lt;Assembly Path="/home/alex/RiderProjects/PaymentSystem/Payroll/bin/Debug/Payroll.dll" /&gt;
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
+  &lt;Assembly Path="\home\alex\RiderProjects\PaymentSystem\PayrollTransactions\bin\Debug\PayrollTransactions.dll" /&gt;&#xD;
+  &lt;Assembly Path="\home\alex\RiderProjects\PaymentSystem\Payroll\bin\Debug\Payroll.dll" /&gt;&#xD;
+  &lt;PhysicalFolder Path="C:\Users\clint\.nuget\packages\system.data.sqlite.linq\1.0.115" Loaded="True" /&gt;&#xD;
+  &lt;PhysicalFolder Path="C:\Users\clint\.nuget\packages\system.data.sqlite.linq\1.0.115.5" Loaded="True" /&gt;&#xD;
+  &lt;PhysicalFolder Path="C:\Users\clint\RiderProjects\PaymentSystem\packages\System.Data.SQLite.Linq.1.0.115.0" Loaded="True" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String>
 	<s:Boolean x:Key="/Default/Environment/Hierarchy/EntityFrameworkOptions/IsAlreadyNotifiedAboutEntityFramework/@EntryValue">True</s:Boolean>
 	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">C:\Users\clint\AppData\Local\JetBrains\Rider2021.2\resharper-host\temp\Rider\vAny\CoverageData\_Payroll.1398594881\Snapshot\snapshot.utdcvr</s:String>
@@ -17,7 +20,7 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=aa5a3bc4_002D68fb_002D408a_002Db866_002Dd0c06e8d4ab2/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Solution /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b83a498f_002D9fa1_002D472c_002Da131_002D743fff9faa3e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution #6" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b83a498f_002D9fa1_002D472c_002Da131_002D743fff9faa3e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution #6" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Not&gt;&#xD;
     &lt;Or&gt;&#xD;
       &lt;Project Location="C:\Users\steed\RiderProjects\PaymentSystem\Presenters" Presentation="&amp;lt;Presenters&amp;gt;" /&gt;&#xD;
@@ -29,7 +32,7 @@
 	
 	
 	
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=dbe72ac3_002D87ef_002D41ec_002Dad49_002Deb5794edae39/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=dbe72ac3_002D87ef_002D41ec_002Dad49_002Deb5794edae39/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Not&gt;&#xD;
     &lt;Or&gt;&#xD;
       &lt;Project Location="C:\Users\steed\RiderProjects\PaymentSystem\Presenters" Presentation="&amp;lt;Presenters&amp;gt;" /&gt;&#xD;

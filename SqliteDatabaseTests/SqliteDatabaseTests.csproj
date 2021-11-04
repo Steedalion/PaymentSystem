@@ -66,25 +66,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="ContextTests\ClearDatabaseInternalTests.cs" />
-        <Compile Include="ContextTests\ClearsTables.cs" />
-        <Compile Include="ContextTests\ContextTests.cs" />
-        <Compile Include="ContextTests\DirectContextTests.cs" />
-        <Compile Include="DatabaseTests\AddEmployeeBasicTest.cs" />
-        <Compile Include="DatabaseTests\AddEmployeeClassification.cs" />
-        <Compile Include="DatabaseTests\AddEmployeePaymentMethods.cs" />
-        <Compile Include="DatabaseTests\AddEmployeeSchedule.cs" />
-        <Compile Include="DatabaseTests\AddEmployeeTest.cs" />
-        <Compile Include="DatabaseTests\AddUnionMember.cs" />
-        <Compile Include="DatabaseTests\CalculatePay.cs" />
-        <Compile Include="DatabaseTests\GetEmpIdsTest.cs" />
-        <Compile Include="DatabaseTests\GetEmployees.cs" />
-        <Compile Include="DatabaseTests\RemoveEmployeeTests.cs" />
-        <Compile Include="DatabaseTests\SQLiteExceptions.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="SQLiteDatabase\RandomSQL.cs" />
-        <Compile Include="SQLiteDatabase\TestSqliteDB.cs" />
-        <Compile Include="SQLiteDatabase\UnregisteredClassification.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="App.config" />

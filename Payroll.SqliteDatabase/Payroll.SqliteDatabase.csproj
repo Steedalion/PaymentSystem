@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="EntityFramework" Version="6.4.4" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.11" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.11" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="5.0.11" />
+      <PackageReference Include="Stub.System.Data.SQLite.Core.NetStandard" Version="1.0.115.5" />
+      <PackageReference Include="System.Data.SQLite" Version="1.0.115.5" />
+      <PackageReference Include="System.Data.SQLite.Core" Version="1.0.115.5" />
+      <PackageReference Include="System.Data.SQLite.EF6" Version="1.0.115.5" />
+      <PackageReference Include="System.Data.SQLite.Linq" Version="1.0.115.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\PaymentClassifications\PaymentClassifications.csproj" />
+      <ProjectReference Include="..\PaymentMethods\PaymentMethods.csproj" />
+      <ProjectReference Include="..\PayrollDomain\PayrollDomain.csproj" />
+    </ItemGroup>
+
+</Project>

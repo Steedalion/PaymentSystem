@@ -60,28 +60,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="ClassificationCodes.cs" />
-        <Compile Include="GetEmployeeOperation.cs" />
-        <Compile Include="Linq2SQL\Account.cs" />
-        <Compile Include="Linq2SQL\CommisionAdapter.cs" />
-        <Compile Include="Linq2SQL\EmployeeContext.cs" />
-        <Compile Include="Linq2SQL\EmployeeUnit.cs" />
-        <Compile Include="Linq2SQL\HourlyAdapter.cs" />
-        <Compile Include="Linq2SQL\MailAddress.cs" />
-        <Compile Include="Linq2SQL\SalaryAdapter.cs" />
-        <Compile Include="Linq2SQL\SalesRecieptAdapter.cs" />
-        <Compile Include="Linq2SQL\TimecardAdapter.cs" />
-        <Compile Include="Linq2SQL\UnionAdapter.cs" />
-        <Compile Include="PaymentMethodCodes.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="SaveEmployeeOperation.cs" />
-        <Compile Include="ScheduleCodes.cs" />
-        <Compile Include="SqliteDB.cs" />
-        <Compile Include="Tables.cs" />
-        <Compile Include="UnknownClassificationException.cs" />
-        <Compile Include="UnknownPaymentMethodExcpetion.cs" />
-        <Compile Include="UnknownPaymentScheduleException.cs" />
-        <Compile Include="UnknownTypeException.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\PaymentClassifications\PaymentClassifications.csproj">
@@ -107,7 +86,6 @@
     </ItemGroup>
     <ItemGroup>
       <None Include="App.config" />
-      <None Include="packages.config" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

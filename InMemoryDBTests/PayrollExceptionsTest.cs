@@ -1,5 +1,9 @@
 
+using NUnit.Framework;
 using PayrollBuilders;
+using PayrollDatabase;
+using PayrollDomain;
+
 namespace InMemoryDBTest
 {
     public class PayrollExceptionsTest
