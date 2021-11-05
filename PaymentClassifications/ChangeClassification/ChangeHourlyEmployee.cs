@@ -19,7 +19,7 @@ namespace PaymentClassifications.ChangeClassification
             return new WeeklySchedule();
         }
 
-        protected override PayrollDomain.PaymentClassification MakeClassification()
+        protected override PayrollDomain.IPaymentClassification MakeClassification()
         {
             return new HourlyClassification(hourlyRate);
         }

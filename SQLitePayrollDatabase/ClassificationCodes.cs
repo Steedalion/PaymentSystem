@@ -8,7 +8,7 @@ namespace PayrollDataBase
         public static string Commision = "Commision";
         public static string Hourly = "Hourly";
 
-        public static string Code(PayrollDomain.PaymentClassification employeeClassification)
+        public static string Code(PayrollDomain.IPaymentClassification employeeClassification)
         {
             if (employeeClassification is SalariedClassification)
             {

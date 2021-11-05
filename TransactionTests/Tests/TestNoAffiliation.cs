@@ -6,7 +6,7 @@ namespace TransactionTests.Tests
 {
     public class TestNoAffiliation
     {
-        private Affiliation no;
+        private IAffiliation no;
 
         [SetUp]
         public void CreateNoAff()

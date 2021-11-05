@@ -2,7 +2,7 @@ using System;
 
 namespace PayrollDomain
 {
-    public interface Affiliation
+    public interface IAffiliation
     {
         ServiceCharge GetServiceCharge(DateTime dateTime);
         void AddServiceCharge(ServiceCharge sc);

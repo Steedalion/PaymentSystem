@@ -1,7 +1,7 @@
 
 namespace PayrollDomain
 {
-    public interface PaymentClassification
+    public interface IPaymentClassification
     {
         double CalculatePay(PayCheck payCheck);
     }

@@ -3,7 +3,7 @@ using PayrollDomain;
 
 namespace Transactions.DBTransaction
 {
-    public abstract class AddEmployeeTransaction : DbTransaction
+    public abstract class AddEmployeeTransaction : DatabaseTransaction
     {
         protected int Id;
         protected string Name;
@@ -22,16 +22,16 @@ namespace Transactions.DBTransaction
             e.Schedule = MakePaymentSchedule();
             e.Classification = MakeClassification();
             e.Paymentmethod = MakePaymentMethod();
-            database.AddEmployee(Id, e);
+            Database.AddEmployee(Id, e);
         }
 
         protected abstract PaymentSchedule MakePaymentSchedule();
 
-        protected virtual PaymentMethod MakePaymentMethod()
+        protected virtual IPaymentMethod MakePaymentMethod()
         {
             return new HoldMethod();
         }
-        protected abstract PaymentClassification MakeClassification();
+        protected abstract IPaymentClassification MakeClassification();
         public override string ToString()
         {
             return "AddEmployee: " + Name + ":" + Id;

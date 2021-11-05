@@ -2,7 +2,7 @@
 using DatabaseTests.DatabaseTests;
 using NUnit.Framework;
 using PaymentClassifications.PaymentClassifications;
-using PayrollBuilders;
+using Payroll.TestBuilders;
 using PayrollDomain;
 
 namespace DatabaseTests.DatabaseTests

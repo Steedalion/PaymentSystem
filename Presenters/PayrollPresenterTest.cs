@@ -34,7 +34,7 @@ namespace Presenters
         public void AddAction()
         {
             TransactionContainer transactionContainer = presenter.TransactionContainer;
-            DbTransaction transaction = new MockTransaction(presenter.database);
+            DatabaseTransaction transaction = new MockTransaction(presenter.database);
             transactionContainer.Add(transaction);
             string expected = transaction.ToString() + Environment.NewLine;
             Assert.AreEqual(expected, PayrollView.TransactionText);

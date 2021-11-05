@@ -21,12 +21,12 @@ namespace PaymentClassifications
             return new MonthlyPaymentSchedule();
         }
 
-        protected override PaymentMethod MakePaymentMethod()
+        protected override IPaymentMethod MakePaymentMethod()
         {
             return new HoldMethod();
         }
 
-        protected override PayrollDomain.PaymentClassification MakeClassification()
+        protected override PayrollDomain.IPaymentClassification MakeClassification()
         {
             SalariedClassification sc = new SalariedClassification(mySalary);
             return sc;

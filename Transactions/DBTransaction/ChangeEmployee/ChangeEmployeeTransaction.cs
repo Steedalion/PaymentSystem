@@ -3,7 +3,7 @@ using PayrollDomain;
 
 namespace Transactions.DBTransaction.ChangeEmployee
 {
-    public abstract class ChangeEmployeeTransaction:DbTransaction
+    public abstract class ChangeEmployeeTransaction:DatabaseTransaction
     {
         protected int empId;
 
@@ -16,7 +16,7 @@ namespace Transactions.DBTransaction.ChangeEmployee
         
          public override void Execute()
         {
-            Employee e = database.GetEmployee(empId);
+            Employee e = Database.GetEmployee(empId);
             if (e.isNull)
             {
                 throw new EmployeeNotFound();

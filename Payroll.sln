@@ -38,7 +38,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsUI", "WindowsFo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormTest", "WinFormTest\WinFormTest.csproj", "{BF6707AC-CE11-4538-B555-B148CEF4F5CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollBuilders", "PayrollBuilders\PayrollBuilders.csproj", "{368F1D4B-1828-4ACD-A0F5-E66F50142D80}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payroll.TestBuilders", "Payroll.TestBuilders\Payroll.TestBuilders.csproj", "{368F1D4B-1828-4ACD-A0F5-E66F50142D80}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

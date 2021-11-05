@@ -20,7 +20,7 @@ namespace PaymentClassifications.ChangeClassification
             return new MonthlyPaymentSchedule();
         }
 
-        protected override PayrollDomain.PaymentClassification MakeClassification()
+        protected override PayrollDomain.IPaymentClassification MakeClassification()
         {
             return new SalariedClassification(salary);
         }

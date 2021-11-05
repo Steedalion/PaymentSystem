@@ -7,7 +7,7 @@ namespace Presenters
 {
     public class TransactionContainer
     {
-        public List<DbTransaction> transactions = new List<DbTransaction>();
+        public List<DatabaseTransaction> transactions = new List<DatabaseTransaction>();
 
         public delegate void OnAction();
 
@@ -18,7 +18,7 @@ namespace Presenters
             OnAdd += onAdd;
         }
 
-        public void Add(DbTransaction transaction)
+        public void Add(DatabaseTransaction transaction)
         {
             transactions.Add(transaction);
             OnAdd?.Invoke();
@@ -26,7 +26,7 @@ namespace Presenters
 
         public void RunTransactions()
         {
-            foreach (DbTransaction transaction in transactions)
+            foreach (DatabaseTransaction transaction in transactions)
             {
                 transaction.Execute();
             }
@@ -44,7 +44,7 @@ namespace Presenters
             return transactions.Count;
         }
 
-        public List<DbTransaction> GetTransactions()
+        public List<DatabaseTransaction> GetTransactions()
         {
             return transactions;
         }

@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using PaymentClassifications.PaymentClassifications;
 using PaymentMethods;
-using PayrollBuilders;
+using Payroll.TestBuilders;
 using PayrollDomain;
 using Schedules;
 

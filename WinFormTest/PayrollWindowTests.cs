@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Windows.Forms;
+using NUnit.Framework;
 using WindowsFormsUI;
 
 namespace WinFormTest
@@ -67,8 +68,10 @@ namespace WinFormTest
         [Test]
         public void CloseWindowShouldEndProcess()
         {
+            bool shutDown = false;
+            // Application.ApplicationExit += (sender, args) => shutDown = true;
             window.Close();
-            Assert.Fail("Need to check for window closed.");
+            Assert.IsTrue(shutDown);
         }
     }
 }

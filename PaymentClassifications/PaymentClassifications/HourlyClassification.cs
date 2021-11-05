@@ -4,7 +4,7 @@ using PayrollDomain;
 
 namespace PaymentClassifications.PaymentClassifications
 {
-    public class HourlyClassification : PaymentClassification
+    public class HourlyClassification : IPaymentClassification
     {
         private List<TimeCard> timecards = new List<TimeCard>();
         public double Rate;

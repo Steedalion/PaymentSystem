@@ -6,11 +6,11 @@ namespace Transactions
 {
     public abstract class ChangeAffiliation:ChangeEmployeeTransaction
     {
-        protected int memberId;
+        protected readonly int MemberId;
 
-        protected ChangeAffiliation(PayrollDB.IPayrollDb database, int empId, int memberId) : base(database, empId)
+        protected ChangeAffiliation(IPayrollDb database, int empId, int memberId) : base(database, empId)
         {
-            this.memberId = memberId;
+            this.MemberId = memberId;
         }
 
         protected override void ModifyEmployee(Employee employee)
@@ -19,7 +19,7 @@ namespace Transactions
             ModifyMembership();
         }
 
-        protected abstract Affiliation MakeAffiliation();
+        protected abstract IAffiliation MakeAffiliation();
 
         protected abstract void ModifyMembership();
     }

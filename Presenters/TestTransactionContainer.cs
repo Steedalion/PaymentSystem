@@ -9,7 +9,7 @@ namespace Presenters
     {
         private TransactionContainer container;
         private bool actionExecuted;
-        private DbTransaction transaction;
+        private DatabaseTransaction transaction;
 
         [SetUp]
         public void SetUp()

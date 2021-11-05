@@ -2,7 +2,7 @@
 
 namespace DatabaseTests.SQLiteDatabase
 {
-    internal class UnregisteredClassification : PayrollDomain.PaymentClassification
+    internal class UnregisteredClassification : PayrollDomain.IPaymentClassification
     {
         public double CalculatePay(PayCheck payCheck)
         {

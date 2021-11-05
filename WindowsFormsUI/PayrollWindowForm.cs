@@ -10,6 +10,7 @@ namespace WindowsFormsUI
         public PayrollWindowForm()
         {
             InitializeComponent();
+            Closed += (sender, args) => { Application.Exit(); };
         }
 
         public string TransactionText

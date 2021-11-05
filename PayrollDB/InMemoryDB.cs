@@ -26,7 +26,7 @@ namespace PayrollDB
             {
                 db.Add(id, employee);
             }
-            catch (ArgumentException e)
+            catch (ArgumentException)
             {
                 throw new EmployeeIdAlreadyExists();
             }

@@ -48,8 +48,8 @@
         <Compile Include="HoldMethod.cs" />
         <Compile Include="NoAffiliation.cs" />
         <Compile Include="PayCheck.cs" />
-        <Compile Include="PaymentClassification.cs" />
-        <Compile Include="PaymentMethod.cs" />
+        <Compile Include="IPaymentClassification.cs" />
+        <Compile Include="IPaymentMethod.cs" />
         <Compile Include="PaymentSchedule.cs" />
         <Compile Include="SalesReciept.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />

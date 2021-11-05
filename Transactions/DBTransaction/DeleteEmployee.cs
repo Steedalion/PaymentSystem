@@ -2,7 +2,7 @@ using PayrollDB;
 
 namespace Transactions.DBTransaction
 {
-    public class DeleteEmployee : DbTransaction
+    public class DeleteEmployee : DatabaseTransaction
     {
         private readonly int id;
 
@@ -14,7 +14,7 @@ namespace Transactions.DBTransaction
 
         public override void Execute()
         {
-            database.RemoveEmployee(id);
+            Database.RemoveEmployee(id);
         }
     }
 }

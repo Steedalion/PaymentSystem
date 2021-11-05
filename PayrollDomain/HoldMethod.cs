@@ -2,9 +2,9 @@ using System;
 
 namespace PayrollDomain
 {
-    public class HoldMethod : PaymentMethod
+    public class HoldMethod : IPaymentMethod
     {
-        public void pay(PayCheck payCheck)
+        public void Pay(PayCheck payCheck)
         {
             payCheck.SetField("Disposition","Hold");
             Console.WriteLine("Holding Salary  ");

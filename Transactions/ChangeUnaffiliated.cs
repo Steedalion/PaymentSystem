@@ -5,18 +5,18 @@ namespace Transactions
 {
     public class ChangeUnaffiliated : ChangeAffiliation
     {
-        public ChangeUnaffiliated(PayrollDB.IPayrollDb database, int empId, int memberId) : base(database, empId, memberId)
+        public ChangeUnaffiliated(IPayrollDb database, int empId, int memberId) : base(database, empId, memberId)
         {
         }
 
-        protected override Affiliation MakeAffiliation()
+        protected override IAffiliation MakeAffiliation()
         {
             return new NoAffiliation();
         }
 
         protected override void ModifyMembership()
         {
-            database.RemoveUnionMember(memberId);
+            Database.RemoveUnionMember(MemberId);
         }
     }
 }

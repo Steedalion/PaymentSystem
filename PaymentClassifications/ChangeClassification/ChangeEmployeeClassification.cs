@@ -18,6 +18,6 @@ namespace PaymentClassifications.ChangeClassification
 
         protected abstract PaymentSchedule MakePaymentSchedule();
 
-        protected abstract PayrollDomain.PaymentClassification MakeClassification();
+        protected abstract PayrollDomain.IPaymentClassification MakeClassification();
     }
 }

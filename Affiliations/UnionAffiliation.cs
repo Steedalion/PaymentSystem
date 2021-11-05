@@ -5,7 +5,7 @@ using PayrollDomain;
 
 namespace Affiliations
 {
-    public class UnionAffiliation : Affiliation
+    public class UnionAffiliation : IAffiliation
     {
         private List<ServiceCharge> charges = new List<ServiceCharge>();
         public double Dues { get; set; }

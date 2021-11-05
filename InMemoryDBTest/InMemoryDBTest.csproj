@@ -44,9 +44,9 @@
         <Compile Include="PayrollExceptionsTest.cs" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\PayrollBuilders\PayrollBuilders.csproj">
+      <ProjectReference Include="..\Payroll.TestBuilders\Payroll.TestBuilders.csproj">
         <Project>{368f1d4b-1828-4acd-a0f5-e66f50142d80}</Project>
-        <Name>PayrollBuilders</Name>
+        <Name>Payroll.TestBuilders</Name>
       </ProjectReference>
       <ProjectReference Include="..\PayrollDB\PayrollDB.csproj">
         <Project>{7e62b1e0-c05e-4eb0-a775-06f5a761c64c}</Project>

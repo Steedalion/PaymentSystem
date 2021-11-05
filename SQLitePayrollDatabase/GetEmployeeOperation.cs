@@ -18,7 +18,7 @@ namespace PayrollDataBase
             db = dataBase;
         }
 
-        private PaymentMethod GetPaymentMethod(int empId, EmployeeContext db, string empPaymentMethodType)
+        private IPaymentMethod GetPaymentMethod(int empId, EmployeeContext db, string empPaymentMethodType)
         {
             if (empPaymentMethodType == PaymentMethodCodes.Hold)
             {
@@ -52,7 +52,7 @@ namespace PayrollDataBase
             return employee;
         }
 
-        private PayrollDomain.PaymentClassification GetClassification(int id, EmployeeContext employeeContext,
+        private PayrollDomain.IPaymentClassification GetClassification(int id, EmployeeContext employeeContext,
             string empPaymentClassificationType)
         {
             if (empPaymentClassificationType == ClassificationCodes.Salary)

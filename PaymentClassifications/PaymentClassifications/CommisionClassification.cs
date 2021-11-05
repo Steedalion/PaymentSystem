@@ -4,7 +4,7 @@ using PayrollDomain;
 
 namespace PaymentClassifications.PaymentClassifications
 {
-    public class CommisionClassification : PayrollDomain.PaymentClassification
+    public class CommisionClassification : PayrollDomain.IPaymentClassification
     {
         private readonly List<SalesReciept> salesReciepts = new List<SalesReciept>();
         public double CommisionRate { get; }

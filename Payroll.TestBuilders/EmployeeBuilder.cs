@@ -3,7 +3,7 @@ using PaymentMethods;
 using PayrollDomain;
 using Schedules;
 
-namespace PayrollBuilders
+namespace Payroll.TestBuilders
 {
     public class EmployeeBuilder
     {
@@ -11,8 +11,8 @@ namespace PayrollBuilders
         private string name;
         private string address;
         private PaymentSchedule schedule;
-        private PaymentClassification classification;
-        private PaymentMethod paymentMethod;
+        private IPaymentClassification classification;
+        private IPaymentMethod paymentMethod;
 
         public static implicit operator Employee(EmployeeBuilder builder) => builder.Build();
 

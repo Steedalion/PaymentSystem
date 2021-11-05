@@ -1,11 +1,11 @@
 using System.Data.Common;
 using PayrollDB;
 using PayrollDomain;
-using DbTransaction = Transactions.DbTransaction;
+using Transactions;
 
 namespace Affiliations
 {
-    public class AddUnionMemberTransaction:DbTransaction
+    public class AddUnionMemberTransaction:DatabaseTransaction
     {
         private int id;
         private int memberId;
@@ -18,9 +18,9 @@ namespace Affiliations
 
         public override void Execute()
         {
-            Employee e = database.GetEmployee(id);
+            Employee e = Database.GetEmployee(id);
             e.Affiliation = new UnionAffiliation();
-            database.AddUnionMember(memberId, id);
+            Database.AddUnionMember(memberId, id);
             
         }
     }

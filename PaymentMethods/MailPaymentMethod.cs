@@ -2,7 +2,7 @@ using PayrollDomain;
 
 namespace PaymentMethods
 {
-    public class MailPaymentMethod : PaymentMethod
+    public class MailPaymentMethod : IPaymentMethod
     {
         public string Address { get; }
 
@@ -11,7 +11,7 @@ namespace PaymentMethods
             Address = address;
         }
 
-        public void pay(PayCheck payCheck)
+        public void Pay(PayCheck payCheck)
         {
             payCheck.SetField("Disposition", "Mail");
             payCheck.SetField("Address", Address);

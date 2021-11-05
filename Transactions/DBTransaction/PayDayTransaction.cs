@@ -4,7 +4,7 @@ using PayrollDomain;
 
 namespace Transactions.DBTransaction
 {
-    public class PayDayTransaction : DbTransaction
+    public class PayDayTransaction : DatabaseTransaction
     {
         private Dictionary<int, PayCheck> paychecks = new Dictionary<int, PayCheck>();
         private DateTime payDate;
@@ -16,10 +16,10 @@ namespace Transactions.DBTransaction
 
         public override void Execute()
         {
-            int[] allEmployees = database.GetEmployeeIds();
+            int[] allEmployees = Database.GetEmployeeIds();
             foreach (int id in allEmployees)
             {
-                Employee employee = database.GetEmployee(id);
+                Employee employee = Database.GetEmployee(id);
                 if (employee.IsPayDate(payDate))
                 {
                     DateTime startDate = employee.GetPaydateStartPeriod(payDate);

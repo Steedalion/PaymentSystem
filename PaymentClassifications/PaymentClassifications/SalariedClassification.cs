@@ -2,7 +2,7 @@ using PayrollDomain;
 
 namespace PaymentClassifications.PaymentClassifications
 {
-    public class SalariedClassification : PayrollDomain.PaymentClassification
+    public class SalariedClassification : PayrollDomain.IPaymentClassification
     {
         public readonly double Salary;
 

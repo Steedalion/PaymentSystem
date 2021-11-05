@@ -90,7 +90,7 @@ namespace PayrollDataBase
 
         private void SavePaymentMethod(int id, Employee employee, EmployeeContext db)
         {
-            PaymentMethod method = employee.Paymentmethod;
+            IPaymentMethod method = employee.Paymentmethod;
             if (method is HoldMethod)
             {
                 return;

@@ -21,7 +21,7 @@ namespace TransactionTests.Tests.Transactions
             Employee e = database.GetEmployee(EmpId);
             Assert.IsNotNull(e);
 
-            PaymentClassification pc = e.Classification;
+            IPaymentClassification pc = e.Classification;
             Assert.IsTrue(pc is HourlyClassification);
             HourlyClassification hc = pc as HourlyClassification;
 

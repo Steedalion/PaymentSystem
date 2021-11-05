@@ -17,7 +17,7 @@ namespace TransactionTests.Tests.Transactions
             ca.Execute();
 
             Employee e = database.GetEmployee(EmpId);
-            Affiliation affiliation = e.Affiliation;
+            IAffiliation affiliation = e.Affiliation;
             Assert.IsTrue(affiliation is UnionAffiliation);
             UnionAffiliation ua = affiliation as UnionAffiliation;
             Assert.AreEqual(dues, ua.Dues);
@@ -32,7 +32,7 @@ namespace TransactionTests.Tests.Transactions
             ca.Execute();
 
             Employee e = database.GetEmployee(EmpId);
-            Affiliation affiliation = e.Affiliation;
+            IAffiliation affiliation = e.Affiliation;
             Assert.IsTrue(affiliation is NoAffiliation);
             
         

@@ -7,8 +7,8 @@
         <ProjectGuid>{368F1D4B-1828-4ACD-A0F5-E66F50142D80}</ProjectGuid>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>PayrollBuilders</RootNamespace>
-        <AssemblyName>PayrollBuilders</AssemblyName>
+        <RootNamespace>Payroll.TestBuilders</RootNamespace>
+        <AssemblyName>Payroll.TestBuilders</AssemblyName>
         <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>

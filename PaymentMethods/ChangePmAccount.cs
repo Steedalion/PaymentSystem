@@ -16,7 +16,7 @@ namespace PaymentMethods
         }
 
 
-        protected override PaymentMethod SetPaymentMethod()
+        protected override IPaymentMethod SetPaymentMethod()
         {
             return new AccountPaymentMethod(bank, accountNumber);
         }

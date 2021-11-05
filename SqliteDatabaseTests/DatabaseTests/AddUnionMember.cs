@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using PayrollBuilders;
+using Payroll.TestBuilders;
 
 namespace DatabaseTests.DatabaseTests
 {

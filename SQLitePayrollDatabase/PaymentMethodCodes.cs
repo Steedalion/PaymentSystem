@@ -9,7 +9,7 @@ namespace PayrollDataBase
         public static string Account = "AccountPayment";
         public static string Mail = "PostPayment";
 
-        public static string Code(PaymentMethod employeePaymentmethod)
+        public static string Code(IPaymentMethod employeePaymentmethod)
         {
             if (employeePaymentmethod is AccountPaymentMethod)
             {

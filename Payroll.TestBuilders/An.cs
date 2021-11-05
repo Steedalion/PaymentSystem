@@ -1,4 +1,4 @@
-﻿namespace PayrollBuilders
+﻿namespace Payroll.TestBuilders
 {
     public class An
     {

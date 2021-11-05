@@ -2,7 +2,7 @@ using System;
 
 namespace PayrollDomain
 {
-    public class NoAffiliation : Affiliation
+    public class NoAffiliation : IAffiliation
     {
         public ServiceCharge GetServiceCharge(DateTime dateTime)
         {

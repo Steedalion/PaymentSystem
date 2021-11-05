@@ -5,7 +5,7 @@ using Transactions;
 
 namespace Affiliations
 {
-    public class AddUnionServiceCharge:DbTransaction
+    public class AddUnionServiceCharge:DatabaseTransaction
     {
         public AddUnionServiceCharge(PayrollDB.IPayrollDb database, int memberId, DateTime date, double amount) : base(database)
         {
@@ -20,7 +20,7 @@ namespace Affiliations
 
         public override void Execute()
         {
-            Employee e = database.GetUnionMember(memberId);
+            Employee e = Database.GetUnionMember(memberId);
             ServiceCharge sc = new ServiceCharge(date, amount);
             UnionAffiliation ua = null;
             

@@ -3,7 +3,7 @@ using Transactions;
 
 namespace Presenters
 {
-    public class MockTransaction : DbTransaction
+    public class MockTransaction : DatabaseTransaction
     {
         public bool wasExecuted;
 

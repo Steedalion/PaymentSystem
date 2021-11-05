@@ -15,7 +15,7 @@ namespace Affiliations
             this.dues = dues;
         }
 
-        protected override Affiliation MakeAffiliation()
+        protected override IAffiliation MakeAffiliation()
         {
             UnionAffiliation unionAffiliation = new UnionAffiliation();
             unionAffiliation.Dues = dues;
@@ -24,7 +24,7 @@ namespace Affiliations
 
         protected override void ModifyMembership()
         {
-            database.AddUnionMember(memberID,empId);
+            Database.AddUnionMember(memberID,empId);
         }
     }
 }

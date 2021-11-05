@@ -6,7 +6,7 @@ using Transactions;
 
 namespace PaymentClassifications
 {
-    public class AddSalesReceipt:DbTransaction
+    public class AddSalesReceipt:DatabaseTransaction
     {
         private int empid;
                 private DateTime date;
@@ -22,7 +22,7 @@ namespace PaymentClassifications
 
         public override void Execute()
         {
-            Employee e = database.GetEmployee(empid);
+            Employee e = Database.GetEmployee(empid);
             CommisionClassification cc = e.Classification as CommisionClassification;
             cc.AddSalesReciept(date, ammount);
         }

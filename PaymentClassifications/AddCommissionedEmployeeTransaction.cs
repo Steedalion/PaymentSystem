@@ -22,7 +22,7 @@ namespace PaymentClassifications
             return new Biweekly();
         }
 
-        protected override PayrollDomain.PaymentClassification MakeClassification()
+        protected override PayrollDomain.IPaymentClassification MakeClassification()
         {
             return new CommisionClassification(_commisionRate, _salary);
         }

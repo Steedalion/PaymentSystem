@@ -2,7 +2,7 @@
 using PaymentClassifications.PaymentClassifications;
 using PayrollDomain;
 
-namespace PayrollBuilders
+namespace Payroll.TestBuilders
 {
     public static class EmployeeExtensions
     {

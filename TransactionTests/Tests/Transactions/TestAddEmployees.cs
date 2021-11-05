@@ -19,13 +19,13 @@ namespace TransactionTests.Tests.Transactions
             Employee e = database.GetEmployee(EmpId);
             Assert.AreEqual(Name, e.Name);
             Assert.AreEqual(Address, e.myAddress);
-            PayrollDomain.PaymentClassification pc = e.Classification;
+            PayrollDomain.IPaymentClassification pc = e.Classification;
             Assert.IsTrue(pc is SalariedClassification);
             SalariedClassification sc = pc as SalariedClassification;
             Assert.AreEqual(1000.00, sc.Salary, 0.001);
             PaymentSchedule ps = e.Schedule;
             Assert.IsTrue(ps is MonthlyPaymentSchedule);
-            PaymentMethod pm = e.Paymentmethod;
+            IPaymentMethod pm = e.Paymentmethod;
             Assert.IsTrue(pm is HoldMethod);
         }
 
@@ -40,12 +40,12 @@ namespace TransactionTests.Tests.Transactions
             Assert.AreEqual(Name, e.Name);
             Assert.AreEqual(Address, e.myAddress);
 
-            PayrollDomain.PaymentClassification pc = e.Classification;
+            PayrollDomain.IPaymentClassification pc = e.Classification;
             Assert.IsTrue(pc is HourlyClassification);
             HourlyClassification hourly = pc as HourlyClassification;
             PaymentSchedule sc = e.Schedule;
             Assert.IsTrue(sc is WeeklySchedule);
-            PaymentMethod pm = e.Paymentmethod;
+            IPaymentMethod pm = e.Paymentmethod;
             Assert.IsTrue(pm is HoldMethod);
             Assert.AreEqual(25, hourly.Rate);
         }
@@ -64,9 +64,9 @@ namespace TransactionTests.Tests.Transactions
             Assert.AreEqual(Name, e.Name);
             Assert.AreEqual(Address, e.myAddress);
 
-            PayrollDomain.PaymentClassification pc = e.Classification;
+            PayrollDomain.IPaymentClassification pc = e.Classification;
             PaymentSchedule ps = e.Schedule;
-            PaymentMethod pm = e.Paymentmethod;
+            IPaymentMethod pm = e.Paymentmethod;
 
             Assert.IsTrue(pm is HoldMethod);
             Assert.IsTrue(pc is CommisionClassification);
@@ -88,7 +88,7 @@ namespace TransactionTests.Tests.Transactions
 
             Employee e = database.GetEmployee(EmpId);
             Assert.NotNull(e);
-            PayrollDomain.PaymentClassification pc = e.Classification;
+            PayrollDomain.IPaymentClassification pc = e.Classification;
             Assert.IsTrue(pc is CommisionClassification);
             CommisionClassification cc = pc as CommisionClassification;
 

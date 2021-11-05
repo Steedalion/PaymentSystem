@@ -7,7 +7,7 @@ namespace PayrollDomain
 
         public string Name;
         public string myAddress;
-        public PaymentMethod Paymentmethod;
+        public IPaymentMethod Paymentmethod;
         public readonly int myID; //employee should not know his database ID.
         public bool isNull => this == NULL;
         public static readonly Employee NULL = new NullEmployee(0,"name","nowhere");
@@ -21,9 +21,9 @@ namespace PayrollDomain
         }
 
 
-        public PaymentClassification Classification { get; set; }
+        public IPaymentClassification Classification { get; set; }
         public PaymentSchedule Schedule { get; set; }
-        public Affiliation Affiliation { get; set; } = new NoAffiliation();
+        public IAffiliation Affiliation { get; set; } = new NoAffiliation();
 
         private class NullEmployee : Employee
         {
@@ -37,7 +37,7 @@ namespace PayrollDomain
             payCheck.GrossPay = Classification.CalculatePay(payCheck);
             payCheck.Deductions = Affiliation.CalculateDeductions(payCheck);
             payCheck.NetPay = payCheck.GrossPay - payCheck.Deductions;
-            Paymentmethod.pay(payCheck);
+            Paymentmethod.Pay(payCheck);
 
         }
 

@@ -6,7 +6,7 @@ using Transactions;
 
 namespace PaymentClassifications
 {
-    public class AddTimeCard:DbTransaction
+    public class AddTimeCard:DatabaseTransaction
     {
         private int id;
         private DateTime date;
@@ -21,7 +21,7 @@ namespace PaymentClassifications
 
         public override void Execute()
         {
-            Employee e = database.GetEmployee(id);
+            Employee e = Database.GetEmployee(id);
             if (e.isNull)
             {
                 throw new EmployeeNotFound();
