@@ -35,8 +35,6 @@
     <ItemGroup>
         <Reference Include="System" />
         <Reference Include="System.Core" />
-        <Reference Include="System.Data" />
-        <Reference Include="System.Xml" />
         <Reference Include="nunit.framework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb">
             <HintPath>..\packages\NUnit.3.5.0\lib\net45\nunit.framework.dll</HintPath>
         </Reference>
@@ -66,10 +64,6 @@
       <ProjectReference Include="..\Affiliations\Affiliations.csproj">
         <Project>{bdaad895-e91b-4852-ae51-11de8d5d6b8d}</Project>
         <Name>Affiliations</Name>
-      </ProjectReference>
-      <ProjectReference Include="..\InMemoryDBTest\InMemoryDBTest.csproj">
-        <Project>{92de6cc4-82dc-43be-9aec-2e0528f23abf}</Project>
-        <Name>InMemoryDBTest</Name>
       </ProjectReference>
       <ProjectReference Include="..\PaymentClassifications\PaymentClassifications.csproj">
         <Project>{23130573-75d1-4802-9f65-9cd5b8f04971}</Project>

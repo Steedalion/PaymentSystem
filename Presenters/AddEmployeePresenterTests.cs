@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data.Common;
 using NUnit.Framework;
 using PaymentClassifications;
 using PaymentClassifications.PaymentClassifications;

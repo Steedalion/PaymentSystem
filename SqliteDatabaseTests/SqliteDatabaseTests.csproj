@@ -79,7 +79,9 @@
         <Compile Include="DatabaseTests\CalculatePay.cs" />
         <Compile Include="DatabaseTests\GetEmpIdsTest.cs" />
         <Compile Include="DatabaseTests\GetEmployees.cs" />
+        <Compile Include="DatabaseTests\HourlyTimeCardStored.cs" />
         <Compile Include="DatabaseTests\RemoveEmployeeTests.cs" />
+        <Compile Include="DatabaseTests\SalesReceiptStored.cs" />
         <Compile Include="DatabaseTests\SQLiteExceptions.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="SQLiteDatabase\RandomSQL.cs" />

@@ -11,13 +11,5 @@ namespace Presenters
         protected IPayrollDb database;
         protected MockViewLoader viewLoader;
 
-        [SetUp]
-        public void CreateSetup()
-        {
-            PayrollView = new MockPayrollPayrollView();
-            database = new InMemoryDB();
-            viewLoader = new MockViewLoader();
-            presenter = new PayrollPresenter(PayrollView, database, viewLoader);
-        }
     }
 }

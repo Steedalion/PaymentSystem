@@ -42,7 +42,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Affiliation.cs" />
+        <Compile Include="IAffiliation.cs" />
         <Compile Include="AlreadyAffiliated.cs" />
         <Compile Include="Employee.cs" />
         <Compile Include="HoldMethod.cs" />

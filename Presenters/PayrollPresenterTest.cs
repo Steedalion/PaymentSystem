@@ -9,12 +9,24 @@ namespace Presenters
     public class PayrollPresenterTest : PayrollPresenterTestFixture
 
     {
+     
+
         [SetUp]
-        public void ResetDB()
+        public void CreateSetup()
         {
+            PayrollView = new MockPayrollPayrollView();
             database = new InMemoryDB();
+            viewLoader = new MockViewLoader();
+            presenter = new PayrollPresenter(PayrollView, database, viewLoader);
         }
 
+        [TearDown]
+        public void ClearDb()
+        {
+            database.Clear();
+        }
+       
+        
         [Test]
         public void StartCreatesAPayrollView()
         {
@@ -26,7 +38,7 @@ namespace Presenters
         public void Creation()
         {
             Assert.AreSame(PayrollView, presenter.PayrollView);
-            Assert.AreSame(database, presenter.database);
+            Assert.AreSame(database, presenter.Database);
             Assert.IsNotNull(presenter.TransactionContainer);
         }
 
@@ -34,7 +46,7 @@ namespace Presenters
         public void AddAction()
         {
             TransactionContainer transactionContainer = presenter.TransactionContainer;
-            DatabaseTransaction transaction = new MockTransaction(presenter.database);
+            DatabaseTransaction transaction = new MockTransaction(presenter.Database);
             transactionContainer.Add(transaction);
             string expected = transaction.ToString() + Environment.NewLine;
             Assert.AreEqual(expected, PayrollView.TransactionText);

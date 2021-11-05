@@ -10,13 +10,15 @@ namespace Presenters
     {
         // public IPayrollView PayrollView;
         public IPayrollView PayrollView { get; set; }
-        public readonly IPayrollDb database;
+        public readonly IPayrollDb Database;
         private readonly IViewLoader viewLoader;
+        
+        
 
         public PayrollPresenter(IPayrollView payrollView, IPayrollDb database, IViewLoader viewLoader)
         {
-            this.PayrollView = payrollView;
-            this.database = database;
+            PayrollView = payrollView;
+            Database = database;
             this.viewLoader = viewLoader;
             TransactionContainer = new TransactionContainer();
             TransactionContainer.OnAddExecute(UpdateTransactionText);
@@ -51,10 +53,10 @@ namespace Presenters
         public void UpdateEmployeeText()
         {
             StringBuilder builder = new StringBuilder();
-            foreach (int employeeId in database.GetEmployeeIds())
+            foreach (int employeeId in Database.GetEmployeeIds())
             {
-                Employee employee = database.GetEmployee(employeeId);
-                builder.Append(employee.ToString());
+                Employee employee = Database.GetEmployee(employeeId);
+                builder.Append(employee);
                 builder.Append(Environment.NewLine);
             }
             PayrollView.EmployeeText = builder.ToString();
