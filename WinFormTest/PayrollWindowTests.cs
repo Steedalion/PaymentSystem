@@ -69,7 +69,7 @@ namespace WinFormTest
         public void CloseWindowShouldEndProcess()
         {
             bool shutDown = false;
-            // Application.ApplicationExit += (sender, args) => shutDown = true;
+            Application.ApplicationExit += (sender, args) => shutDown = true;
             window.Close();
             Assert.IsTrue(shutDown);
         }
