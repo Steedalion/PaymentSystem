@@ -1,7 +1,9 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using PaymentClassifications.PaymentClassifications;
 using PaymentMethods;
 using PayrollDataBase.Linq2SQL;
+using PayrollDB;
 using PayrollDomain;
 using Schedules;
 
@@ -40,16 +42,23 @@ namespace PayrollDataBase
 
         public Employee Retrieve()
         {
-            var emp = db.Employees.Single(unit => unit.EmpID.Equals(id));
-            var pmethod = GetPaymentMethod(id, db, emp.PaymentMethodType);
-            var sched = GetSchedule(id, db, emp.ScheduleType);
-            var classification = GetClassification(id, db, emp.PaymentClassificationType);
-            var employee = emp.toEmployee();
-            employee.Paymentmethod = pmethod;
-            employee.Schedule = sched;
-            employee.Classification = classification;
-
-            return employee;
+            try
+            {
+                var emp = db.Employees.Single(unit => unit.EmpID.Equals(id));
+                var pmethod = GetPaymentMethod(id, db, emp.PaymentMethodType);
+                var sched = GetSchedule(id, db, emp.ScheduleType);
+                var classification = GetClassification(id, db, emp.PaymentClassificationType);
+                var employee = emp.toEmployee();
+                employee.Paymentmethod = pmethod;
+                employee.Schedule = sched;
+                employee.Classification = classification;
+                return employee;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw new EmployeeNotFound();
+            }
         }
 
         private PayrollDomain.IPaymentClassification GetClassification(int id, EmployeeContext employeeContext,
@@ -75,7 +84,7 @@ namespace PayrollDataBase
                 var hourly = new HourlyClassification(db.Hourlies.Single(adapter => adapter.EmpID == id).HourlyRate);
                 foreach (TimecardAdapter timeCard in db.Timecards.Where(t => t.EmpID.Equals(id)))
                 {
-                    hourly.AddTimeCard(new TimeCard(timeCard.Date,timeCard.Hours));
+                    hourly.AddTimeCard(new TimeCard(timeCard.Date, timeCard.Hours));
                 }
 
                 return hourly;
@@ -84,7 +93,7 @@ namespace PayrollDataBase
             throw new UnknownClassificationException("Failed to retrieve classification");
         }
 
-        private PaymentSchedule GetSchedule(int i, EmployeeContext employeeContext, string empScheduleType)
+        private IPaymentSchedule GetSchedule(int i, EmployeeContext employeeContext, string empScheduleType)
         {
             if (empScheduleType == ScheduleCodes.Monthly)
             {

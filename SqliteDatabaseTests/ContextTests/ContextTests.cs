@@ -25,11 +25,8 @@ namespace DatabaseTests.ContextTests
         {
             IQueryable<EmployeeUnit> employees = from emp in db.Employees
                 select emp;
-            if (employees.Count() > 0)
-            {
-                db.Employees.DeleteAllOnSubmit(employees);
-                db.SubmitChanges();
-            }
+            db.Employees.DeleteAllOnSubmit(employees);
+            db.SubmitChanges();
         }
 
 

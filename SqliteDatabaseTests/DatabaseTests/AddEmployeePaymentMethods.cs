@@ -2,6 +2,8 @@
 using NUnit.Framework;
 using PaymentClassifications.PaymentClassifications;
 using PaymentMethods;
+using Payroll.TestBuilders;
+using PayrollDataBase;
 using PayrollDomain;
 using Schedules;
 
@@ -45,20 +47,9 @@ namespace DatabaseTests.DatabaseTests
         [Test]
         public void MethodCannotBeNull()
         {
-            Employee e = CreateEmployee();
-            e.Schedule = new Biweekly();
-            e.Paymentmethod = null;
-            e.Classification = new CommisionClassification(0.5, 1000);
-
-            try
-            {
-                Assert.Throws<Exception>(() => { database.AddEmployee(id, e); });
-            }
-            catch (Exception exception)
-            {
-                Assert.AreEqual(0, EmployeeCount());
-                Assert.Pass();
-            }
+            Employee e = An.GenericEmployee.WithoutPaymentMethod().Build();
+            Assert.Throws<UnknownPaymentMethodExcpetion>(code: () => database.AddEmployee(id, e));
+            Assert.AreEqual(0, EmployeeCount());
         }
 
         [Test]

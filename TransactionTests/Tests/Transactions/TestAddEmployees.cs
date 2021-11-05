@@ -23,7 +23,7 @@ namespace TransactionTests.Tests.Transactions
             Assert.IsTrue(pc is SalariedClassification);
             SalariedClassification sc = pc as SalariedClassification;
             Assert.AreEqual(1000.00, sc.Salary, 0.001);
-            PaymentSchedule ps = e.Schedule;
+            IPaymentSchedule ps = e.Schedule;
             Assert.IsTrue(ps is MonthlyPaymentSchedule);
             IPaymentMethod pm = e.Paymentmethod;
             Assert.IsTrue(pm is HoldMethod);
@@ -43,7 +43,7 @@ namespace TransactionTests.Tests.Transactions
             PayrollDomain.IPaymentClassification pc = e.Classification;
             Assert.IsTrue(pc is HourlyClassification);
             HourlyClassification hourly = pc as HourlyClassification;
-            PaymentSchedule sc = e.Schedule;
+            IPaymentSchedule sc = e.Schedule;
             Assert.IsTrue(sc is WeeklySchedule);
             IPaymentMethod pm = e.Paymentmethod;
             Assert.IsTrue(pm is HoldMethod);
@@ -65,7 +65,7 @@ namespace TransactionTests.Tests.Transactions
             Assert.AreEqual(Address, e.myAddress);
 
             PayrollDomain.IPaymentClassification pc = e.Classification;
-            PaymentSchedule ps = e.Schedule;
+            IPaymentSchedule ps = e.Schedule;
             IPaymentMethod pm = e.Paymentmethod;
 
             Assert.IsTrue(pm is HoldMethod);

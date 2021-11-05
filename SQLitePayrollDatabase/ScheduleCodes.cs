@@ -9,7 +9,7 @@ namespace PayrollDataBase
         public static string Monthly = "Monthly";
         public static string Weekly = "Weekly";
 
-        public static string Code(PaymentSchedule eSchedule)
+        public static string Code(IPaymentSchedule eSchedule)
         {
             if (eSchedule is Biweekly)
             {

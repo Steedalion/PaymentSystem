@@ -84,9 +84,7 @@
         <Compile Include="DatabaseTests\SalesReceiptStored.cs" />
         <Compile Include="DatabaseTests\SQLiteExceptions.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="SQLiteDatabase\RandomSQL.cs" />
         <Compile Include="SQLiteDatabase\TestSqliteDB.cs" />
-        <Compile Include="SQLiteDatabase\UnregisteredClassification.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="App.config" />

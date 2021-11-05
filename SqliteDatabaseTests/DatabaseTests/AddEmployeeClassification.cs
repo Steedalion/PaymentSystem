@@ -31,15 +31,8 @@ namespace DatabaseTests.DatabaseTests
         [Test]
         public void NoClassification()
         {
-            try
-            {
-                e.Classification = null;
-                database.AddEmployee(id, e);
-            }
-            catch (Exception exception)
-            {
-                Assert.Pass();
-            }
+            e.Classification = null;
+            Assert.Throws<PayrollDataBase.UnknownClassificationException>(() => database.AddEmployee(id, e));
         }
 
         [Test]

@@ -22,7 +22,7 @@ namespace PayrollDomain
 
 
         public IPaymentClassification Classification { get; set; }
-        public PaymentSchedule Schedule { get; set; }
+        public IPaymentSchedule Schedule { get; set; }
         public IAffiliation Affiliation { get; set; } = new NoAffiliation();
 
         private class NullEmployee : Employee

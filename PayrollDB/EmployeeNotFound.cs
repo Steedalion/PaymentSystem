@@ -4,5 +4,6 @@ namespace PayrollDB
 {
     public class EmployeeNotFound : Exception
     {
+        
     }
 }

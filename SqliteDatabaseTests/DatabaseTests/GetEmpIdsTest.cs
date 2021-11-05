@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using NUnit.Framework;
+using PayrollDB;
 
 namespace DatabaseTests.DatabaseTests
 {
@@ -51,6 +52,12 @@ namespace DatabaseTests.DatabaseTests
             database.AddEmployee(1, e1);
             database.RemoveEmployee(1);
             database.AddEmployee(1, e1);
+        }
+
+        [Test]
+        public void GetEmployeeNotFound()
+        {
+            Assert.Catch<EmployeeNotFound>(() => database.GetEmployee(1));
         }
     }
 }

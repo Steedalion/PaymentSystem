@@ -10,7 +10,7 @@ namespace Payroll.TestBuilders
         private int id;
         private string name;
         private string address;
-        private PaymentSchedule schedule;
+        private IPaymentSchedule schedule;
         private IPaymentClassification classification;
         private IPaymentMethod paymentMethod;
 
@@ -25,33 +25,15 @@ namespace Payroll.TestBuilders
             return e;
         }
 
-        public EmployeeBuilder WeeklySchedule()
+        public EmployeeBuilder WithoutPaymentClassification()
         {
-            schedule = new WeeklySchedule();
-            return this;
-        }
-
-        public EmployeeBuilder MonthlySchedule()
-        {
-            schedule = new MonthlyPaymentSchedule();
+            classification = null;
             return this;
         }
 
         public EmployeeBuilder SalariedClass(float salary)
         {
             classification = new SalariedClassification(salary);
-            return this;
-        }
-
-        public EmployeeBuilder Hold()
-        {
-            paymentMethod = new HoldMethod();
-            return this;
-        }
-
-        public EmployeeBuilder BiweeklySchedule()
-        {
-            schedule = new Biweekly();
             return this;
         }
 
@@ -67,6 +49,23 @@ namespace Payroll.TestBuilders
             return this;
         }
 
+        public EmployeeBuilder WithoutSchedule()
+        {
+            schedule = null;
+            return this;
+        }
+
+        public EmployeeBuilder WithSchedule<T>() where T : IPaymentSchedule, new()
+        {
+            schedule = new T();
+            return this;
+        }
+
+        public EmployeeBuilder BiweeklySchedule() => WithSchedule<Biweekly>();
+        public EmployeeBuilder WeeklySchedule() => WithSchedule<WeeklySchedule>();
+        public EmployeeBuilder MonthlySchedule() => WithSchedule<MonthlyPaymentSchedule>();
+
+
         public EmployeeBuilder Mail(string address)
         {
             paymentMethod = new MailPaymentMethod(address);
@@ -76,6 +75,18 @@ namespace Payroll.TestBuilders
         public EmployeeBuilder Bank(string BankName, int accountNumber)
         {
             paymentMethod = new AccountPaymentMethod(BankName, accountNumber);
+            return this;
+        }
+
+        public EmployeeBuilder Hold()
+        {
+            paymentMethod = new HoldMethod();
+            return this;
+        }
+
+        public EmployeeBuilder WithoutPaymentMethod()
+        {
+            paymentMethod = null;
             return this;
         }
     }

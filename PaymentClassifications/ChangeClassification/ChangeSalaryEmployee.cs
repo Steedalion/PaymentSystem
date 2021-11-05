@@ -15,7 +15,7 @@ namespace PaymentClassifications.ChangeClassification
         }
 
 
-        protected override PaymentSchedule MakePaymentSchedule()
+        protected override IPaymentSchedule MakePaymentSchedule()
         {
             return new MonthlyPaymentSchedule();
         }

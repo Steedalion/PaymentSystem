@@ -2,6 +2,7 @@
 using System.Data.Linq;
 using System.Linq;
 using NUnit.Framework;
+using Payroll.TestBuilders;
 using PayrollDataBase.Linq2SQL;
 using PayrollDomain;
 
@@ -25,6 +26,7 @@ namespace DatabaseTests.ContextTests
             string version = db.Connection.ServerVersion;
             Console.WriteLine(version);
             Assert.IsNotNull(version);
+            AddRandomEmployee();
 
             var emps = db.GetTable<EmployeeUnit>();
             foreach (EmployeeUnit emp in emps)
@@ -36,29 +38,24 @@ namespace DatabaseTests.ContextTests
         [Test]
         public void PrintEmployeesAsPayrollContext()
         {
+            AddRandomEmployee();
             foreach (EmployeeUnit employee in db.Employees)
             {
-                Console.WriteLine(employee);
+                employee.ToString();
             }
+        }
+
+        private void AddRandomEmployee()
+        {
+            db.Employees.InsertOnSubmit(new EmployeeUnit(1,An.GenericEmployee));
+            db.SubmitChanges();
         }
 
         [Test]
         public void TryToCreateAnEmployeeAdapterWithoutScedule()
         {
-            Employee emp = new Employee(123, "John", "Home");
-
-            try
-            {
-                EmployeeUnit unit =
-                    new EmployeeUnit(123, emp);
-                // db.Employees.InsertOnSubmit(unit);
-                // db.SubmitChanges();
-                Assert.Fail();
-            }
-            catch (Exception e)
-            {
-            }
-
+            Employee emp = An.GenericEmployee.WithoutSchedule();
+            Assert.Throws<PayrollDataBase.UnknownPaymentScheduleException>(() => new EmployeeUnit(123, emp));
             Assert.AreEqual(0, db.Employees.Count());
         }
     }

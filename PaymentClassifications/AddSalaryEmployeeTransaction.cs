@@ -16,7 +16,7 @@ namespace PaymentClassifications
             this.mySalary = mySalary;
         }
 
-        protected override PaymentSchedule MakePaymentSchedule()
+        protected override IPaymentSchedule MakePaymentSchedule()
         {
             return new MonthlyPaymentSchedule();
         }

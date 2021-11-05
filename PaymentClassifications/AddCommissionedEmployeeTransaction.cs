@@ -17,7 +17,7 @@ namespace PaymentClassifications
             _commisionRate = commisionRate;
         }
 
-        protected override PaymentSchedule MakePaymentSchedule()
+        protected override IPaymentSchedule MakePaymentSchedule()
         {
             return new Biweekly();
         }

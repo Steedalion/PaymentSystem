@@ -3,7 +3,7 @@ using PayrollDomain;
 
 namespace Schedules
 {
-    public class WeeklySchedule : PaymentSchedule
+    public class WeeklySchedule : IPaymentSchedule
     {
         public bool IsPayDate(DateTime payDate)
         {

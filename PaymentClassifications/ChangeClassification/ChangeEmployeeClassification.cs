@@ -16,7 +16,7 @@ namespace PaymentClassifications.ChangeClassification
             employee.Schedule = MakePaymentSchedule();
         }
 
-        protected abstract PaymentSchedule MakePaymentSchedule();
+        protected abstract IPaymentSchedule MakePaymentSchedule();
 
         protected abstract PayrollDomain.IPaymentClassification MakeClassification();
     }

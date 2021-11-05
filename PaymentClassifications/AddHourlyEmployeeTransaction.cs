@@ -16,7 +16,7 @@ namespace PaymentClassifications
             this.hourlyRate = hourlyRate;
         }
 
-        protected override PaymentSchedule MakePaymentSchedule()
+        protected override IPaymentSchedule MakePaymentSchedule()
         {
             return new WeeklySchedule();
         }

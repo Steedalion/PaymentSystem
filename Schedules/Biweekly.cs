@@ -4,7 +4,7 @@ using PayrollDomain;
 
 namespace Schedules
 {
-    public class Biweekly : PaymentSchedule
+    public class Biweekly : IPaymentSchedule
     {
         private static GregorianCalendar calendar = new System.Globalization.GregorianCalendar();
         public bool IsPayDate(DateTime payDate)

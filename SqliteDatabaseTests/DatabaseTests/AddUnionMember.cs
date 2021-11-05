@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using Payroll.TestBuilders;
+using PayrollDB;
 
 namespace DatabaseTests.DatabaseTests
 {
@@ -19,6 +20,12 @@ namespace DatabaseTests.DatabaseTests
             database.AddUnionMember(1, 100);
             var u = database.GetUnionMember(1);
             Assert.AreEqual(e.Name, u.Name);
+        }
+
+        [Test]
+        public void GetNonExistingUnionMember()
+        {
+            Assert.Throws<UnionMemberNotFound>(() => database.GetUnionMember(1));
         }
 
     }

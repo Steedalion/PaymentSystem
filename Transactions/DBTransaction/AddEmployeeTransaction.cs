@@ -25,7 +25,7 @@ namespace Transactions.DBTransaction
             Database.AddEmployee(Id, e);
         }
 
-        protected abstract PaymentSchedule MakePaymentSchedule();
+        protected abstract IPaymentSchedule MakePaymentSchedule();
 
         protected virtual IPaymentMethod MakePaymentMethod()
         {
