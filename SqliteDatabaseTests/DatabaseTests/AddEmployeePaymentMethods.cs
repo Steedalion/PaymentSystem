@@ -1,11 +1,8 @@
-﻿using System;
-using NUnit.Framework;
-using PaymentClassifications.PaymentClassifications;
+﻿using NUnit.Framework;
 using PaymentMethods;
 using Payroll.TestBuilders;
 using PayrollDataBase;
 using PayrollDomain;
-using Schedules;
 
 namespace DatabaseTests.DatabaseTests
 {
@@ -14,10 +11,7 @@ namespace DatabaseTests.DatabaseTests
         [Test]
         public void AddAccountPayment()
         {
-            Employee e = CreateEmployee();
-            e.Schedule = new Biweekly();
-            e.Paymentmethod = new AccountPaymentMethod("Woori", 800);
-            e.Classification = new SalariedClassification(1000);
+            Employee e = An.GenericEmployee.Bank("Woori", 800).Build();
             database.AddEmployee(id, e);
             Assert.AreEqual(1, EmployeeCount());
         }
@@ -25,10 +19,7 @@ namespace DatabaseTests.DatabaseTests
         [Test]
         public void AddHoldPayment()
         {
-            Employee e = CreateEmployee();
-            e.Schedule = new Biweekly();
-            e.Paymentmethod = new HoldMethod();
-            e.Classification = new SalariedClassification(1000);
+            Employee e = An.GenericEmployee.HoldPM();
             database.AddEmployee(id, e);
             Assert.AreEqual(1, EmployeeCount());
         }
@@ -36,10 +27,7 @@ namespace DatabaseTests.DatabaseTests
         [Test]
         public void AddMailPayment()
         {
-            Employee e = CreateEmployee();
-            e.Schedule = new Biweekly();
-            e.Paymentmethod = new MailPaymentMethod("Home");
-            e.Classification = new SalariedClassification(1000);
+            Employee e = An.GenericEmployee.MailPM("Home");
             database.AddEmployee(id, e);
             Assert.AreEqual(1, EmployeeCount());
         }
@@ -57,7 +45,6 @@ namespace DatabaseTests.DatabaseTests
         {
             AddHoldPayment();
             Employee got = database.GetEmployee(id);
-            HoldMethod acc = got.Paymentmethod as HoldMethod;
             Assert.IsTrue(got.Paymentmethod is HoldMethod);
         }
 

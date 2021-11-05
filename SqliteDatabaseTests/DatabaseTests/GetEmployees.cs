@@ -74,7 +74,7 @@ namespace DatabaseTests.DatabaseTests
         [Test]
         public void GetMail()
         {
-            Employee e = An.GenericEmployee.Mail("Home");
+            Employee e = An.GenericEmployee.MailPM("Home");
             var e2 = AddAndGet(e);
             Assert.IsTrue(e2.Paymentmethod is MailPaymentMethod);
             var classification = e2.Paymentmethod as MailPaymentMethod;

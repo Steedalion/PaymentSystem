@@ -66,7 +66,7 @@ namespace Payroll.TestBuilders
         public EmployeeBuilder MonthlySchedule() => WithSchedule<MonthlyPaymentSchedule>();
 
 
-        public EmployeeBuilder Mail(string address)
+        public EmployeeBuilder MailPM(string address)
         {
             paymentMethod = new MailPaymentMethod(address);
             return this;
@@ -78,7 +78,7 @@ namespace Payroll.TestBuilders
             return this;
         }
 
-        public EmployeeBuilder Hold()
+        public EmployeeBuilder HoldPM()
         {
             paymentMethod = new HoldMethod();
             return this;
