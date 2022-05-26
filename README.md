@@ -1,6 +1,10 @@
 # PaymentSystem
 
-A payroll system for small businesses. Microsoft DotNET Mono was chosen for it's cross platform capabilities (Windows, Linux, Mac). Not complete.
+A payroll system for small businesses. 
+
+Abandoned due to complications with mono-gtk.
+
+Microsoft DotNET Mono was chosen for it's cross platform capabilities (Windows, Linux, Mac). Not complete.
 
 Current features:
 - Payment methods (Mail, Account, etc.)
